@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import ExerciseSchema from './exerciseSchema';
+import ExerciseSchema from './exerciseSchema.js';
 
 // trying to put it into a separate file
 
