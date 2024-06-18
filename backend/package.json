@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --require dotenv/config.js index.js",
-    "dev": "nodemon -r dotenv/config.js index.js"
+    "start": "node --require dotenv/config index.js",
+    "dev": "nodemon -r dotenv/config index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alex, Michal, Renke und Sebastian",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
