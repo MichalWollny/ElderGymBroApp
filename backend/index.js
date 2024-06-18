@@ -1,16 +1,20 @@
-import express from "express";
-import { data } from "./data/exercises.json";
-import "./db/server.js";
+import express from 'express';
+import exercises from './data/exercises.json' assert { type: 'json' };
+// import './db/server.js';
+import cors from 'cors';
+import { errorHandler } from './middleware/ErrorHandler.js';
 
 const app = express();
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 
 app.use(express.json());
 
-app.get("/data", (req, res) => {
-  res.json(data);
+app.get('/exercises', (req, res) => {
+  res.json(exercises);
 });
 
+app.use(errorHandler);
+
 app.listen(port, () => {
-  console.log(`ExerciseApp listening on port ${port}`);
+  console.log(`Backend is running on http://localhost:${port}`);
 });
