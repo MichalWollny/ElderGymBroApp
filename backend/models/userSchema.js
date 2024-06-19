@@ -1,6 +1,5 @@
 import mongoose, { mongo } from 'mongoose';
 import ScheduledWorkout from './scheduledWorkouts.js';
-import bcrypt from 'bcrypt';
 
 const userSchema = new mongoose.Schema(
   {
@@ -38,17 +37,5 @@ const userSchema = new mongoose.Schema(
   // Timestamps
   { timestamps: true },
 );
-
-// // Before saving the new user, encrypt the password.
-// userSchema.pre('save', async function (next) {
-//   try {
-//     if (!this.isModified('password')) return next();
-//     const hashedPassword = await bcrypt.hash(this.password, 12);
-//     this.password = hashedPassword;
-//     return next();
-//   } catch (err) {
-//     return next(err);
-//   }
-// });
 
 export default mongoose.model('User', userSchema);

@@ -1,17 +1,19 @@
-import mongoose from 'mongoose';
+// as of now not needed - Michal
 
-const exerciseSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  equipment: { type: String, default: null },
-  primaryMuscles: { type: String, required: true },
-  secondaryMuscles: { type: Array, default: null },
-  level: { type: String, required: true },
-  category: { type: String, required: true },
-  reps: { type: Number, required: true },
-  instructions: { type: String, required: true },
-  // we can add/remove attributes as needed
-});
+// import mongoose from 'mongoose';
 
-const ScheduledWorkout = mongoose.model('ExerciseSchema', exerciseSchema);
+// const exerciseSchema = new mongoose.Schema({
+//   name: { type: String, required: true },
+//   equipment: { type: String, default: null },
+//   primaryMuscles: { type: String, required: true },
+//   secondaryMuscles: { type: Array, default: null },
+//   level: { type: String, required: true },
+//   category: { type: String, required: true },
+//   reps: { type: Number, required: true },
+//   instructions: { type: String, required: true },
+//   // we can add/remove attributes as needed
+// });
 
-export default ExerciseSchema;
+// const ExerciseSchema = mongoose.model('ExerciseSchema', exerciseSchema);
+
+// export default ExerciseSchema;
