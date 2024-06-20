@@ -40,9 +40,9 @@ function Onboarding() {
 
   return (
     <>
-      <div className="relative grid place-content-center place-items-center overflow-hidden bg-gray-900 px-4 pt-3 text-gray-200">
+      <div className="relative grid place-content-center place-items-center overflow-hidden bg-gray-900 px-4 py-3 text-gray-200">
         <h2 className="font-serif text-6xl font-bold italic text-purple-500">Cultist,</h2>
-        <h2 className="text-center font-serif text-4xl font-medium italic text-green-400">
+        <h2 className="pb-3 text-center font-serif text-4xl font-medium italic text-green-400">
           which dark blessing do you seek?
         </h2>
         <div className="container mx-auto">
