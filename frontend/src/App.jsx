@@ -1,13 +1,13 @@
 import './App.css';
-import './index.scss';
+import './index.scss'
 import LandingPage from './pages/LandingPage';
-import Registration from './pages/Registration';
+import Onboarding from './pages/Onboarding';
 
 function App() {
   return (
     <>
       <LandingPage />
-      <Registration/>
+      <Onboarding/>
     </>
   );
 }
