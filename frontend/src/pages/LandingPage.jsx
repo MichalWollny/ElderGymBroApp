@@ -5,10 +5,10 @@ import { FiArrowRight } from 'react-icons/fi';
 import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-import landingPageImage from '/src/assets/images/landingPage.png';
-import avatarImage from '../assets/images/avatar.png';
-import avatarImage2 from '../assets/images/avatar2.png';
-import avatarImage3 from '../assets/images/avatar3.png';
+import landingPageImage from '/src/assets/images/landingPage.avif';
+import avatarImage from '../assets/images/avatar.avif';
+import avatarImage2 from '../assets/images/avatar2.avif';
+import avatarImage3 from '../assets/images/avatar3.avif';
 
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
@@ -48,7 +48,7 @@ const LandingPage = () => {
         backgroundImage,
       }}
       className="relative grid min-h-svh place-content-center place-items-center overflow-hidden bg-gray-950 px-4 pt-5 text-gray-200 md:pt-10">
-      <h1 className="font-cthulhumbus max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
+      <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
         Train Like an <br />
         Ancient God
       </h1>
