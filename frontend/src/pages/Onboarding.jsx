@@ -2,6 +2,7 @@ import stamina from '/src/assets/images/stamina.png';
 import gymLord from '/src/assets/images/gymLord.png';
 import ygolonac from '/src/assets/images/ygolonac.png';
 import cardioRiot from '/src/assets/images/cardioRiot.png';
+
 import { useState } from 'react';
 import { Paper } from '@mui/material';
 
