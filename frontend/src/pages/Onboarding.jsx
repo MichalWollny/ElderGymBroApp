@@ -15,7 +15,7 @@ const containerItems = [
 
 const ContainerItem = ({ id, imgSrc, text, selected, onClick }) => (
   <Paper
-    elevation={selected ? 12 : 2}
+    elevation={selected ? 24 : 0}
     onClick={() => onClick(id)}
     square={false}
     className={`m-2 transition-transform ${selected ? 'scale-105' : ''}`}>
