@@ -1,0 +1,255 @@
+[
+  {
+    "workoutName": "",
+    "workoutAim": "",
+    "workoutSystem": "Fullbody Workout",
+    "workoutLevel": "",
+    "workoutFrequency": "2-3 Days a Week",
+    "workoutExampleBreakdown": "",
+    "workoutDuration": "",
+    "workoutPlanDuration": "",
+    "workoutBreakDuration": "",
+    "workoutExercises": [
+      {
+        "name": "",
+        "force": "",
+        "level": "",
+        "mechanic": "",
+        "equipment": "",
+        "primaryMuscles": [""],
+        "secondaryMuscles": [],
+        "instructions": [""],
+        "category": ""
+      }
+    ],
+    "workoutTips": [""],
+    "workoutSplit": false,
+    "workoutSplits": [
+      {
+        "workoutDay": "",
+        "workoutDayBreakdown": [
+          {
+            "muscleGroup": "chest",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          {
+            "muscleGroup": "back",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          { "muscleGroup": "shoulders", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] },
+          { "muscleGroup": "biceps", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] },
+          { "muscleGroup": "triceps", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] },
+          {
+            "muscleGroup": "legs",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          { "muscleGroup": "abs", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] }
+        ]
+      }
+    ]
+  },
+  {
+    "workoutName": "",
+    "workoutAim": "",
+    "workoutSystem": "2-Day Split",
+    "workoutLevel": "",
+    "workoutFrequency": "3-4 Days a Week",
+    "workoutExampleBreakdown": "",
+    "workoutDuration": "",
+    "workoutPlanDuration": "",
+    "workoutBreakDuration": "",
+    "workoutExercises": [
+      {
+        "name": "",
+        "force": "",
+        "level": "",
+        "mechanic": "",
+        "equipment": "",
+        "primaryMuscles": [""],
+        "secondaryMuscles": [],
+        "instructions": [""],
+        "category": ""
+      }
+    ],
+    "workoutTips": [""],
+    "workoutSplit": true,
+    "workoutSplits": [
+      {
+        "workoutDay": "A",
+        "workoutDayBreakdown": [
+          {
+            "muscleGroup": "chest",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          {
+            "muscleGroup": "shoulders",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+
+          {
+            "muscleGroup": "triceps",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          {
+            "muscleGroup": "abs",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          }
+        ]
+      },
+      {
+        "workoutDay": "B",
+        "workoutDayBreakdown": [
+          {
+            "muscleGroup": "legs",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          { "muscleGroup": "calves", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] },
+          {
+            "muscleGroup": "back",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          {
+            "muscleGroup": "biceps",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workoutName": "",
+    "workoutAim": "",
+    "workoutSystem": "3-Day Split",
+    "workoutLevel": "",
+    "workoutFrequency": "3-4 Days a Week",
+    "workoutExampleBreakdown": "",
+    "workoutDuration": "",
+    "workoutPlanDuration": "",
+    "workoutBreakDuration": "",
+    "workoutExercises": [
+      {
+        "name": "",
+        "force": "",
+        "level": "",
+        "mechanic": "",
+        "equipment": "",
+        "primaryMuscles": [""],
+        "secondaryMuscles": [],
+        "instructions": [""],
+        "category": ""
+      }
+    ],
+    "workoutTips": [""],
+    "workoutSplit": true,
+    "workoutSplits": [
+      {
+        "workoutDay": "A",
+        "workoutDayBreakdown": [
+          {
+            "muscleGroup": "chest",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          {
+            "muscleGroup": "biceps",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+
+          {
+            "muscleGroup": "triceps",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          }
+        ]
+      },
+      {
+        "workoutDay": "B",
+        "workoutDayBreakdown": [
+          {
+            "muscleGroup": "legs",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          { "muscleGroup": "calves", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] },
+          {
+            "muscleGroup": "back",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          }
+        ]
+      },
+      {
+        "workoutDay": "C",
+        "workoutDayBreakdown": [
+          {
+            "muscleGroup": "back",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          {
+            "muscleGroup": "shoulders",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          },
+          {
+            "muscleGroup": "abs",
+            "exercises": [
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
+              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

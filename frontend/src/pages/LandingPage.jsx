@@ -40,9 +40,10 @@ const LandingPage = () => {
       style={{
         backgroundImage,
       }}
-      className="relative grid h-screen min-h-screen place-content-center place-items-center overflow-hidden bg-gray-950 px-4 py-24 pt-40 text-gray-200">
-      <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight">
-        Train Like an Ancient God
+      className="relative grid min-h-svh place-content-center place-items-center overflow-hidden bg-gray-950 px-4 pt-5 text-gray-200 md:pt-10">
+      <h1 className="font-cthulhumbus max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
+        Train Like an <br />
+        Ancient God
       </h1>
       <img src={landingPageImage} alt="Landing Page Image" className="w-full md:w-1/2" />
 
@@ -65,7 +66,7 @@ const LandingPage = () => {
             scale: 0.985,
           }}
           className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50">
-          Join my Cult
+          Join the Cult
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
         </motion.button>
       </div>
@@ -75,7 +76,7 @@ const LandingPage = () => {
           <Stars radius={50} count={2500} factor={4} fade speed={2} />
         </Canvas>
       </div>
-      <div className="px-8 py-4 text-slate-50">
+      <div className="px-8 text-slate-50 md:py-4">
         <div className="relative -ml-[100px] h-[450px] w-[350px] scale-75 md:-ml-[175px]">
           {/* <Card
             imgUrl="https://i.pravatar.cc/100?img=3"
@@ -122,7 +123,7 @@ const LandingPage = () => {
           /> */}
           <Card
             imgUrl={avatarImage3}
-            testimonial="Listen to the siren call & join us at the ElderGymBro!"
+            testimonial="Listen to the siren call & join us at the Elder Gym Bro!"
             author="Y'Golonac - Personal Trainer"
             handleShuffle={handleShuffle}
             position={order[2]}
@@ -184,8 +185,8 @@ const Card = ({ handleShuffle, testimonial, position, imgUrl, author }) => {
         alt={`Image of ${author}`}
         className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-slate-700 bg-slate-200 object-cover"
       />
-      <span className="text-center text-lg italic text-slate-400">&quot;{testimonial}&quot;</span>
-      <span className="text-center text-sm font-medium text-indigo-400">{author}</span>
+      <span className="text-center text-2xl italic text-slate-400">&quot;{testimonial}&quot;</span>
+      <span className="text-center font-medium text-indigo-400">{author}</span>
     </motion.div>
   );
 };

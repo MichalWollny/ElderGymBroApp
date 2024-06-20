@@ -1,6 +1,5 @@
 import mongoose, { mongo } from 'mongoose';
-import ScheduledWorkout from './scheduledWorkouts';
-import bcrypt from 'bcryptjs';
+import ScheduledWorkout from './scheduledWorkouts.js';
 
 const userSchema = new mongoose.Schema(
   {
@@ -18,7 +17,7 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Username is required'],
     },
     email: {
-      type: email,
+      type: String,
       unique: true,
       required: [true, 'Email is required'],
     },
@@ -27,26 +26,16 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Password is required'],
       select: false,
     },
-    fitnesLevel: {
+    age: { type: Number, required: [true, 'Age is required'] },
+    fitnessLevel: {
       type: String,
       required: [true, 'Please state your current fitness level'],
     },
-    schedule: { ScheduledWorkout },
+    workoutAim: { type: String, required: [true, 'Please state what your workout aim is'] },
+    schedule: { type: mongoose.Schema.Types.ObjectId, ref: 'ScheduledWorkout', default: [] },
   },
   // Timestamps
   { timestamps: true },
 );
-
-// Before saving the new user, encrypt the password.
-userSchema.pre('save', async function (next) {
-  try {
-    if (!this.isModified('password')) return next();
-    const hashedPassword = await bcrypt.hash(this.password, 12);
-    this.password = hashedPassword;
-    return next();
-  } catch (err) {
-    return next(err);
-  }
-});
 
 export default mongoose.model('User', userSchema);
