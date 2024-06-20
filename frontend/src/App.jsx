@@ -1,7 +1,5 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-
-
 import LandingPage from './pages/LandingPage';
 import Onboarding from './pages/Onboarding';
 
