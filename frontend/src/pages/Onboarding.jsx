@@ -18,11 +18,10 @@ const ContainerItem = ({ id, imgSrc, text, selected, onClick }) => (
     elevation={selected ? 12 : 2}
     onClick={() => onClick(id)}
     square={false}
-    className={`m-2 transition-transform duration-300 ease-in-out ${selected ? 'scale-105' : ''}`}>
-    <input id={id} className="sr-only" type="radio" name="radio" />
+    className={`m-2 transition-transform ${selected ? 'scale-105' : ''}`}>
     <label
       htmlFor={id}
-      className="flex cursor-pointer flex-col items-center rounded-sm bg-gray-700 p-6 hover:bg-gray-600 focus:bg-gray-600">
+      className="flex cursor-pointer flex-col items-center rounded-sm bg-gray-700 p-6 hover:bg-gray-600">
       <img src={imgSrc} alt="Landing Page Image" className="mx-auto w-full md:w-1/2" />
       <div className="mt-2 text-center">
         <span className="text-3xl text-gray-300">{text}</span>
