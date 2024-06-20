@@ -1,3 +1,4 @@
+import '/src/tiles.scss';
 
 import stamina from '/src/assets/images/stamina.png';
 import gymLord from '/src/assets/images/gymLord.png';

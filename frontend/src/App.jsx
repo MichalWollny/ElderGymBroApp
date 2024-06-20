@@ -1,5 +1,5 @@
 import './App.css';
-import './index.scss'
+
 import LandingPage from './pages/LandingPage';
 import Onboarding from './pages/Onboarding';
 
