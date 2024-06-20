@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'JmhCthulhumbus';
+    src: url('./assets/fonts/jmh-cthulhumbus.cthulhumbus-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
