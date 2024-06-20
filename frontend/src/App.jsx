@@ -1,13 +1,16 @@
 import './App.css';
-import './index.scss'
+import { Routes, Route } from 'react-router-dom'; // Import Routes and Route from react-router-dom
+
 import LandingPage from './pages/LandingPage';
 import Onboarding from './pages/Onboarding';
 
 function App() {
   return (
     <>
-      <LandingPage />
-      <Onboarding/>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+      </Routes>
     </>
   );
 }
