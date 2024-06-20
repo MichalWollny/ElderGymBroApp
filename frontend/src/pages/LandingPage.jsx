@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 import landingPageImage from '/src/assets/images/landingPage.png';
 import avatarImage from '../assets/images/avatar.png';
@@ -14,6 +15,12 @@ const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 const LandingPage = () => {
   const color = useMotionValue(COLORS_TOP[0]);
   const [order, setOrder] = useState(['front', 'middle', 'back']);
+
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleJoinCultClick = () => {
+    navigate('/Onboarding'); // Navigate to Onboarding page
+  };
 
   useEffect(() => {
     animate(color, COLORS_TOP, {
@@ -65,7 +72,8 @@ const LandingPage = () => {
           whileTap={{
             scale: 0.985,
           }}
-          className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50">
+          className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50"
+          onClick={handleJoinCultClick}>
           Join the Cult
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
         </motion.button>

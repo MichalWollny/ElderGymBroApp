@@ -1,4 +1,6 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
 
 import LandingPage from './pages/LandingPage';
 import Onboarding from './pages/Onboarding';
@@ -6,8 +8,10 @@ import Onboarding from './pages/Onboarding';
 function App() {
   return (
     <>
-      <LandingPage />
-      <Onboarding/>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+      </Routes>
     </>
   );
 }
