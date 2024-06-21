@@ -1,7 +1,7 @@
-import stamina from '/src/assets/images/stamina.png';
-import gymLord from '/src/assets/images/gymLord.png';
-import ygolonac from '/src/assets/images/ygolonac.png';
-import cardioRiot from '/src/assets/images/cardioRiot.png';
+import stamina from '/src/assets/images/stamina.avif';
+import gymLord from '/src/assets/images/gymLord.avif';
+import ygolonac from '/src/assets/images/ygolonac.avif';
+import cardioRiot from '/src/assets/images/cardioRiot.avif';
 
 import { useState } from 'react';
 import { Paper } from '@mui/material';
@@ -17,7 +17,7 @@ const ContainerItem = ({ id, imgSrc, text, selected, onClick }) => (
   <Paper
     elevation={selected ? 24 : 0}
     onClick={() => onClick(id)}
-    square={false}
+    square={false} //otherwise you get white borders
     className={`m-2 transition-transform ${selected ? 'scale-105' : ''}`}>
     <label
       htmlFor={id}
