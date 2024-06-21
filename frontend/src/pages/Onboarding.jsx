@@ -1,7 +1,7 @@
-import stamina from '/src/assets/images/stamina.png';
-import gymLord from '/src/assets/images/gymLord.png';
-import ygolonac from '/src/assets/images/ygolonac.png';
-import cardioRiot from '/src/assets/images/cardioRiot.png';
+import stamina from '/src/assets/images/stamina.avif';
+import gymLord from '/src/assets/images/gymLord.avif';
+import ygolonac from '/src/assets/images/ygolonac.avif';
+import cardioRiot from '/src/assets/images/cardioRiot.avif';
 
 import { useState } from 'react';
 import { Paper } from '@mui/material';
@@ -15,14 +15,13 @@ const containerItems = [
 
 const ContainerItem = ({ id, imgSrc, text, selected, onClick }) => (
   <Paper
-    elevation={selected ? 12 : 2}
+    elevation={selected ? 24 : 0}
     onClick={() => onClick(id)}
-    square={false}
-    className={`m-2 transition-transform duration-300 ease-in-out ${selected ? 'scale-105' : ''}`}>
-    <input id={id} className="sr-only" type="radio" name="radio" />
+    square={false} //otherwise you get white borders
+    className={`m-2 transition-transform ${selected ? 'scale-105' : ''}`}>
     <label
       htmlFor={id}
-      className="flex cursor-pointer flex-col items-center bg-gray-700 p-6 hover:bg-gray-600 focus:bg-gray-600">
+      className="flex cursor-pointer flex-col items-center rounded-sm bg-gray-700 p-6 hover:bg-gray-600">
       <img src={imgSrc} alt="Landing Page Image" className="mx-auto w-full md:w-1/2" />
       <div className="mt-2 text-center">
         <span className="text-3xl text-gray-300">{text}</span>
