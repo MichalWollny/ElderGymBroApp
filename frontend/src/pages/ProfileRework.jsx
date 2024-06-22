@@ -56,8 +56,8 @@ const Profile = () => {
             </div>
 
               {/* profile image bar */}
-              <div className='flex flex-row justify-end'>
-                <div className="-mt-6 mr-36">
+              <div className='flex flex-row justify-center'>
+                <div className="-mt-6 -mr-24">
 
                 <div className="p-2 max-w-12 rounded-full cursor-pointer transition-transform hover:scale-110 bg-red-500">
                   <label for="upload" class="flex flex-col items-center gap-2 cursor-pointer">
