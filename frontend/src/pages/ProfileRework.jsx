@@ -100,7 +100,7 @@ const Profile = () => {
                 {/* <h2 className="text-center text-xl font-semibold text-teal-700">-=|</h2> */}
                 {/* <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2> */}
                 <h1 className="bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">The infamous</h1>
-                <h1 className="bg-gradient-to-br from-teal-500 to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">Lord of the Gym</h1>
+                <h1 className="bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">Lord of the Gym</h1>
                 {/* <h2 className="text-center text-xl font-semibold text-teal-700">|=-</h2> */}
               </div>
             </div>
