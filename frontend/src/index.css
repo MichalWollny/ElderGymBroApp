@@ -10,3 +10,39 @@
     font-style: normal;
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: 'HeadlOneHPLHS';
+    src: url('./assets/fonts/HeadlOneHPLHS.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'OldstItaHPLHS';
+    src: url('./assets/fonts/OldstItaHPLHS.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'OldstSmaCapHPLHS';
+    src: url('./assets/fonts/OldstSmaCapHPLHS.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'OldStyHPLHS';
+    src: url('./assets/fonts/OldStyHPLHS.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
