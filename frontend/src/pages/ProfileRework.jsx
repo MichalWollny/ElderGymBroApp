@@ -38,8 +38,9 @@ const Profile = () => {
         
         {/* window name bar*/}
         <div className="flex flex-row justify-center">
-          <h1 className="pt-3 text-4xl font-semibold font-cthulhumbus text-teal-600 cursor-pointer">Profile</h1>
+          <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">Profile</h1>
         </div>
+
 
         {/* profile image bar */}
         <div className='flex flex-row justify-center'>
@@ -54,14 +55,9 @@ const Profile = () => {
               </div>
             </div>
 
-
-
-
-            
-
               {/* profile image bar */}
               <div className='flex flex-row justify-end'>
-                <div className="-mt-6 mr-24">
+                <div className="-mt-6 mr-36">
 
                 <div className="p-2 max-w-12 rounded-full cursor-pointer transition-transform hover:scale-110 bg-red-500">
                   <label for="upload" class="flex flex-col items-center gap-2 cursor-pointer">
@@ -102,11 +98,13 @@ const Profile = () => {
             <div className="flex flex-row justify-center cursor-pointer">
               <div className='flex flex-col'>
                 {/* <h2 className="text-center text-xl font-semibold text-teal-700">-=|</h2> */}
-                <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2>
-                <h2 className="text-center text-4xl font-bold font-cthulhumbus text-teal-700">Lord of the Gym</h2>
+                {/* <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2> */}
+                <h1 className="bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">The infamous</h1>
+                <h1 className="bg-gradient-to-br from-teal-500 to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">Lord of the Gym</h1>
                 {/* <h2 className="text-center text-xl font-semibold text-teal-700">|=-</h2> */}
               </div>
             </div>
+
 
           </div>
 
