@@ -15,8 +15,7 @@ import icnFlame from '../assets/icons/svg/flame.svg';
 
 const Profile = () => {
   return (
-    <div className="px-4 py-3 min-h-svh text-gray-200 bg-gray-950">
-      <div className="rounded p-4 pt-8 shadow-md">
+    <div className="min-h-svh text-gray-200 bg-gray-950">
 
         {/* window bar */}
         <div className='flex flex-row justify-start bg-gray-900'>
@@ -57,11 +56,28 @@ const Profile = () => {
             <div className='flex flex-row justify-end'>
 
               <div className="-mt-6 mr-12">
-                <div className="ring-primary ring-offset-base-200 p-3 max-w-12 rounded-full ring ring-offset-2 cursor-pointer transition-transform bg-teal-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-                  </svg>
-                </div>
+
+                  <input
+                  type="file"
+                  id="profile-image-input"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                      const imgSrc = event.target.result;
+                      profileimg(imgSrc);
+                    };
+                    reader.readAsDataURL(file);
+                  }}
+                  ></input>
+
+                  <div className="ring-primary ring-offset-base-200 p-2 max-w-12 rounded-full ring ring-offset-2 cursor-pointer transition-transform bg-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                    </svg>
+                  </div>
+
               </div>
 
             </div>  
@@ -133,7 +149,7 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* My training weeks tile */}
+          {/* my training weeks tile */}
           <div className='flex flex-wrap justify-center'>
             <div className="card lg:card-side rounded-lg p-6 m-2 bg-gray-900 shadow-xl cursor-pointer">
               <div className="flex flex-col justify-center items-center">
@@ -153,7 +169,7 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* My active plan tile */}
+          {/* my active plan tile */}
           <div className='flex flex-wrap justify-center'>
             <div className="card lg:card-side rounded-lg p-6 m-2 bg-gray-900 shadow-xl cursor-pointer">
               <div className="flex flex-col min-w-36 justify-center items-center">
@@ -173,7 +189,7 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* My trophies tile */}
+          {/* my trophies tile */}
            <div className='flex flex-wrap justify-center'>
             <div className="card lg:card-side rounded-lg p-6 m-2 bg-gray-900 shadow-xl cursor-pointer">
             <div className="flex flex-col min-w-36 justify-center items-center">
@@ -196,22 +212,8 @@ const Profile = () => {
 
         </div>
 
-
-
-
-
-        {/* Edit Userdata Button */}
-        <div className="row-5 col-3 col-span-2 mt-10 flex justify-center">
-
-          
-          <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">Edit Userdata</button>
-        </div>
-
-        
       </div>
 
-
-     </div> 
   );
 };
 
