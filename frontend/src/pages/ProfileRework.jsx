@@ -5,7 +5,7 @@ import avatarImage2 from '../assets/images/avatar2.avif';
 import avatarImage3 from '../assets/images/avatar3.avif';
 import avatarImage4 from '../assets/images/gymLord.avif';
 
-import avatarImage5 from '../assets/images/image.png';
+import avatarImage5 from '../assets/images/gymLord.png';
 
 // passing svgs does not work
 import icnEneryg from '../assets/icons/svg/energy.svg';
@@ -38,7 +38,7 @@ const Profile = () => {
         
         {/* window name bar*/}
         <div className="flex flex-row justify-center">
-          <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">Profile</h1>
+          <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl cursor-default">Profile</h1>
         </div>
 
 
@@ -59,7 +59,7 @@ const Profile = () => {
               <div className='flex flex-row justify-center'>
                 <div className="-mt-6 -mr-24">
 
-                <div className="p-2 max-w-12 rounded-full cursor-pointer transition-transform hover:scale-110 bg-red-500">
+                <div className="p-2 max-w-12 rounded-full cursor-pointer transition-transform hover:scale-110 bg-pink-900">
                   <label for="upload" class="flex flex-col items-center gap-2 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
@@ -72,42 +72,18 @@ const Profile = () => {
 
             </div>  
 
-            {/* edit profile image button*/}
-            {/* <button className="mt-1 rounded px-3 py-1 text-xs font-medium text-teal-700 sm:ml-4">
-
-              <label htmlFor="profile-image-input" className="cursor-pointer underline sm:no-underline">
-                <input
-                  type="file"
-                  id="profile-image-input"
-                  className="hidden"
-                  onChange={(e) => {
-                    const file = e.target.files[0];
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                      const imgSrc = event.target.result;
-                      profileimg(imgSrc);
-                    };
-                    reader.readAsDataURL(file);
-                  }}
-                />
-                Edit Profile Image
-              </label>
-            </button> */}
-
             {/* add endpoints for title and name*/}
             <div className="flex flex-row justify-center cursor-pointer">
               <div className='flex flex-col'>
                 {/* <h2 className="text-center text-xl font-semibold text-teal-700">-=|</h2> */}
                 {/* <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2> */}
-                <h1 className="bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">The infamous</h1>
-                <h1 className="bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">Lord of the Gym</h1>
+                <h1 className="bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl cursor-default">The infamous</h1>
+                <h1 className="bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl cursor-default">Lord of the Gym</h1>
                 {/* <h2 className="text-center text-xl font-semibold text-teal-700">|=-</h2> */}
               </div>
             </div>
 
-
           </div>
-
 
         </div>
 
@@ -204,7 +180,20 @@ const Profile = () => {
 
         </div>
 
+      {/* Edit Userdata Button */}
+      <div className="mt-6 flex justify-center">
+        <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
+         <a href="/Template">
+         Edit Userdata</a>
+          </button>
       </div>
+
+      </div>
+
+
+          
+
+    
 
   );
 };

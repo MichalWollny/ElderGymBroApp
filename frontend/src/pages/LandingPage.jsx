@@ -19,7 +19,7 @@ const LandingPage = () => {
   const navigate = useNavigate(); // Initialize navigate function
 
   const handleJoinCultClick = () => {
-    navigate('/profilerework'); // Navigate to Onboarding page
+    navigate('/startyourjourney'); // Navigate to Onboarding page
   };
 
   useEffect(() => {
