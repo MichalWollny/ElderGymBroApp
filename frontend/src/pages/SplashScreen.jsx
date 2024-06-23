@@ -2,7 +2,6 @@ import stamina from '/src/assets/images/stamina.avif';
 import gymLord from '/src/assets/images/gymLord.avif';
 import ygolonac from '/src/assets/images/ygolonac.avif';
 import cardioRiot from '/src/assets/images/cardioRiot.avif';
-import codexoftheCult from '/src/assets/images/codexoftheCult.png';
 import cthulhuKettlebell from '/src/assets/images/cthulhuKettlebell.png'; 
 
 

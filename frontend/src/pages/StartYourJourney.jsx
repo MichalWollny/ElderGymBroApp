@@ -12,8 +12,6 @@ const containerItems = [
   { id: 'cardioRiot', imgSrc: cardioRiot, text: 'Cardio Crusade' },
 ];
 
-
-
 function StartYourJourney() {
 
 
