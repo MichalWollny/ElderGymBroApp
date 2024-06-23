@@ -9,9 +9,7 @@ workoutPlansRouter
   .get(workoutPlanController.getAllWorkouts)
   .post(verifyToken, workoutPlanController.createWorkoutPlan);
 
-workoutPlansRouter
-  .route('/:id')
-  .get(workoutPlanController.getSingleWorkout)
-  .delete(verifyToken, postController.deleteWorkoutPlan);
+workoutPlansRouter.route('/:id').get(workoutPlanController.getSingleWorkout);
+// .delete(verifyToken, postController.deleteWorkoutPlan);
 
 export default workoutPlansRouter;

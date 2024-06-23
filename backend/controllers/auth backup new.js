@@ -6,26 +6,34 @@ import jwt from 'jsonwebtoken';
 
 // REGISTER
 export const signUp = asyncHandler(async (req, res, next) => {
-  const { username, email, password, fullName, age, weight, gender, fitnessLevel, workoutAim } = req.body;
+  const { fullName, username, email, password, age, weight, gender, fitnessLevel, workoutAim } = req.body;
 
   const existingUser = await User.findOne({ email });
   if (existingUser) throw new ErrorResponse('An account with this Email already exist', 409);
 
   const existingUser1 = await User.findOne({ username });
   if (existingUser1) throw new ErrorResponse('An account with this Username already exist', 409);
-
-  const hash = await bcrypt.hash(password, 10);
-  const newUser = await User.create({
-    username,
-    email,
-    password: hash,
-    fullName,
-    age,
-    weight,
-    gender,
-    fitnessLevel,
-    workoutAim,
-  });
+  try {
+    const hash = await bcrypt.hash(password, 10);
+    const newUser = await User.create({
+      personalData: {
+        fullName,
+        username,
+        age,
+        weight,
+        gender,
+        fitnessLevel,
+        workoutAim,
+      },
+      loginData: {
+        email,
+        password: hash,
+      },
+    });
+  } catch (err) {
+    console.error(err);
+    throw new ErrorResponse('Error hashing password', 500);
+  }
   const token = jwt.sign({ uid: newUser._id }, process.env.JWT_SECRET);
   res.status(201).send({ token });
 });
@@ -34,10 +42,10 @@ export const signUp = asyncHandler(async (req, res, next) => {
 export const signIn = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
-  const existingUser = await User.findOne({ email }).select('+password');
+  const existingUser = await User.findOne({ 'loginData.email': email }).select('+loginData.password');
   if (!existingUser) throw new ErrorResponse('Email does not exist', 404);
 
-  const match = await bcrypt.compare(password, existingUser.password);
+  const match = await bcrypt.compare(password, existingUser.loginData.password);
   if (!match) throw new ErrorResponse('Password is incorrect', 401);
 
   const token = jwt.sign({ uid: existingUser._id }, process.env.JWT_SECRET, {

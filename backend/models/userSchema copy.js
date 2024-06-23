@@ -2,47 +2,46 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
   {
-    userName: {
-      type: String,
-      unique: true,
-      required: [true, 'Username is required'],
+    personalData: {
+      fullName: {
+        type: String,
+        required: [true, 'Full name is required'],
+      },
+      userName: {
+        type: String,
+        unique: true,
+        required: [true, 'Username is required'],
+      },
+      age: {
+        type: Number,
+        required: [true, 'Age is required'],
+      },
+      weight: {
+        type: Number,
+        required: [true, 'Weight is required'],
+      },
+      gender: {
+        type: String,
+        enum: ['male', 'female', 'elder thing', 'blob', 'other'],
+        // required: [true, 'Gender is required'],
+      },
+      workoutAim: {
+        type: String,
+        enum: ['Muscle Worship', 'Fat Fight', 'Stamina Destruction', 'Cardio Crusade'],
+        default: '',
+      },
     },
-    email: {
-      type: String,
-      unique: true,
-      required: [true, 'Email is required'],
-    },
-    password: {
-      type: String,
-      required: [true, 'Password is required'],
-      select: false,
-    },
-    fullName: {
-      type: String,
-      required: [true, 'Full name is required'],
-    },
-    age: {
-      type: Number,
-      required: [true, 'Age is required'],
-    },
-    weight: {
-      type: Number,
-      required: [true, 'Weight is required'],
-    },
-    gender: {
-      type: String,
-      enum: ['male', 'female', 'elder thing', 'blob', 'other'],
-      // required: [true, 'Gender is required'],
-    },
-    fitnessLevel: {
-      type: String,
-      enum: ['beginner', 'intermediate', 'advanced'],
-      required: [true, 'Weight is required'],
-    },
-    workoutAim: {
-      type: String,
-      enum: ['Muscle Worship', 'Fat Fight', 'Stamina Destruction', 'Cardio Crusade'],
-      default: '',
+    loginData: {
+      email: {
+        type: String,
+        unique: true,
+        required: [true, 'Email is required'],
+      },
+      password: {
+        type: String,
+        required: [true, 'Password is required'],
+        select: false,
+      },
     },
     awards: {
       karmaPoints: {
