@@ -6,25 +6,32 @@ import jwt from 'jsonwebtoken';
 
 // REGISTER
 export const signUp = asyncHandler(async (req, res, next) => {
-  const { firstName, lastName, username, email, password, age, fitnessLevel, workoutAim, schedule } = req.body;
+  /*
+    Check if user exist(email) [X]
+        - If user exists, return an Error [X]
+        - If user does not exist:
+            - Secure the password using bcrypt [X]
+            - Store the user in DB [X]
+            - Sign a token []
+            - Return the token []    
+*/
+  const { fullName, username, email, password, age, weight, gender, fitnesLevel, workoutAim, awards } = req.body;
 
   const existingUser = await User.findOne({ email });
   if (existingUser) throw new ErrorResponse('An account with this Email already exist', 409);
 
-  const existingUser1 = await User.findOne({ username });
-  if (existingUser1) throw new ErrorResponse('An account with this Username already exist', 409);
-
   const hash = await bcrypt.hash(password, 10);
   const newUser = await User.create({
-    firstName,
-    lastName,
+    fullName,
     username,
     email,
     password: hash,
     age,
-    fitnessLevel,
+    weight,
+    gender,
+    fitnesLevel,
     workoutAim,
-    schedule,
+    awards,
   });
   const token = jwt.sign({ uid: newUser._id }, process.env.JWT_SECRET);
   res.status(201).send({ token });
@@ -46,6 +53,12 @@ export const signIn = asyncHandler(async (req, res, next) => {
   // res.json({ token });
   res.cookie('token', token, { maxAge: 1800000 }); // 30mn
   res.send({ status: 'success' });
+});
+
+// Verify User
+export const getUser = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.uid);
+  res.json(user);
 });
 
 // Logout....
