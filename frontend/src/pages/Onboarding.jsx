@@ -52,6 +52,20 @@ function Onboarding() {
           </div>
         </div>
       </div>
+
+        <input type="date" id="start" name="trip-start" value="" min="" max="" />
+        <input type="datetime-local"></input>
+
+        <input type="range"></input>
+        <input type="text"></input>
+        <input type="email"></input>
+
+        <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
+
+        <label for="tentacles">Number of tentacles (10-100):</label>
+        <input type="number" id="tentacles" name="tentacles" min="10" max="100" />
+
+
     </>
   );
 }
