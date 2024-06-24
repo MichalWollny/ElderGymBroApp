@@ -83,8 +83,8 @@ function SetYourGrind() {
               </div>
               <div className="card-body">
                 <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">per Week</h2>
-                  <p className="py-1 font-thin text-pink-800">"A solitary offering to the muscle deity"</p>
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"A lone tribute to the muscle deity"</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -123,8 +123,8 @@ function SetYourGrind() {
               </div>
               <div className="card-body">
                 <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">per Week</h2>
-                  <p className="py-1 font-thin text-pink-800">"Strengthening tributes"</p>
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Strengthening tributes"</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -163,8 +163,8 @@ function SetYourGrind() {
               </div>
               <div className="card-body">
                 <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">per Week</h2>
-                  <p className="py-1 font-thin text-pink-800">"Thrice a week, a ritual of unleashing"</p>
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Thrice a week, a ritual of unleashing"</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -202,8 +202,8 @@ function SetYourGrind() {
               </div>
               <div className="card-body">
                 <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">per Week</h2>
-                  <p className="py-1 font-thin text-pink-800">"Echoes of my power in your veins!"</p>
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Echoes of my power in your veins!"</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
