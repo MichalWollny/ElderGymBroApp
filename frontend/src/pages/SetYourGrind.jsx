@@ -3,7 +3,7 @@
 // import ygolonac from '/src/assets/images/ygolonac.avif';
 // import cardioRiot from '/src/assets/images/cardioRiot.avif';
 // import cardioRiot from '/src/assets/images/cardioRiot.avif';
-import cthuhluCave from '/src/assets/images/cthuhluCave.png';
+// import cthuhluCave from '/src/assets/images/cthuhluCave.png';
 import cthulhuGrind from '/src/assets/images/cthulhuGrind.png';
 
 // const containerItems = [
@@ -23,7 +23,8 @@ function SetYourGrind() {
           <div className="flex flex-row">
             {/* link container*/}
             <div className="flex flex-row justify-center text-teal-100">
-              <a href="/startyourjourney" class="m-2 font-semibold text-teal-600">
+
+              <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
                 {/* icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -38,6 +39,7 @@ function SetYourGrind() {
             </div>
           </div>
         </div>
+
 
         {/* --1. Set your Grind  bar--*/}
         <div className="flex flex-row justify-center">
@@ -85,6 +87,7 @@ function SetYourGrind() {
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
                   <p className="py-1 font-cthulhumbus text-sm text-pink-800">"A lone tribute to the muscle deity"</p>
+
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -92,7 +95,6 @@ function SetYourGrind() {
               </div>
             </div>
           </div>
-
           {/* 2x per Week card*/}
           <div className="flex flex-row justify-center">
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
@@ -132,7 +134,6 @@ function SetYourGrind() {
               </div>
             </div>
           </div>
-
           {/* 3x per Week card*/}
           <div className="flex flex-wrap justify-center">
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">

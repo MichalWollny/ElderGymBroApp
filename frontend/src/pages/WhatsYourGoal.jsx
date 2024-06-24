@@ -22,7 +22,7 @@ function WhatsYourGoal() {
           <div className="flex flex-row">
             {/* link container*/}
             <div className="flex flex-row justify-center text-teal-100">
-              <a href="/startyourjourney" class="m-2 font-semibold text-teal-600">
+              <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
                 {/* icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,6 +80,7 @@ function WhatsYourGoal() {
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-semibold">Maximize Your Strength</h2>
                   <p className="py-1 font-thin">4 - 10 Reps</p>
+
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -87,7 +88,6 @@ function WhatsYourGoal() {
               </div>
             </div>
           </div>
-
           {/* Built up your Stamina card*/}
           <div className="flex flex-row justify-center">
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
@@ -137,6 +137,7 @@ function WhatsYourGoal() {
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-semibold">Built Up Your Stamina</h2>
                   <p className="py-1 font-thin">15 - 20+ Reps</p>
+
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -144,7 +145,6 @@ function WhatsYourGoal() {
               </div>
             </div>
           </div>
-
           {/* Grow Your Muscles Card*/}
           <div className="flex flex-wrap justify-center">
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
@@ -198,6 +198,7 @@ function WhatsYourGoal() {
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-semibold">Grow Your Muscles</h2>
                   <p className="py-1 font-thin">8 - 15 Reps</p>
+
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
