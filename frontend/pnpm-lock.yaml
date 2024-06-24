@@ -65,6 +65,9 @@ importers:
       three:
         specifier: ^0.165.0
         version: 0.165.0
+      zxcvbn:
+        specifier: ^4.4.2
+        version: 4.4.2
     devDependencies:
       '@types/react':
         specifier: ^18.3.3
@@ -2454,6 +2457,9 @@ packages:
         optional: true
       react:
         optional: true
+
+  zxcvbn@4.4.2:
+    resolution: {integrity: sha512-Bq0B+ixT/DMyG8kgX2xWcI5jUvCwqrMxSFam7m0lAf78nf04hv6lNCsyLYdyYTrCVMqNDY/206K7eExYCeSyUQ==}
 
 snapshots:
 
@@ -4918,3 +4924,5 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
       react: 18.3.1
+
+  zxcvbn@4.4.2: {}
