@@ -20,6 +20,11 @@
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
     "@types/three": "^0.165.0",
+    "@zxcvbn-ts/core": "^3.0.4",
+    "@zxcvbn-ts/language-common": "^3.0.4",
+    "@zxcvbn-ts/language-de": "^3.0.2",
+    "@zxcvbn-ts/language-en": "^3.0.2",
+    "@zxcvbn-ts/matcher-pwned": "^3.0.4",
     "axios": "^1.7.2",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.11",
@@ -28,8 +33,7 @@
     "react-dom": "^18.3.1",
     "react-router": "^6.23.1",
     "react-router-dom": "^6.23.1",
-    "three": "^0.165.0",
-    "zxcvbn": "^4.4.2"
+    "three": "^0.165.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
