@@ -79,7 +79,7 @@ function WhatsYourGoal() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-semibold">Maximize Your Strength</h2>
-                  <p className="py-1 font-thin">Subheading</p>
+                  <p className="py-1 font-thin">4 - 10 Reps</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -136,7 +136,7 @@ function WhatsYourGoal() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-semibold">Built Up Your Stamina</h2>
-                  <p className="py-1 font-thin">Subheading</p>
+                  <p className="py-1 font-thin">15 - 20+ Reps</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -197,7 +197,7 @@ function WhatsYourGoal() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-semibold">Grow Your Muscles</h2>
-                  <p className="py-1 font-thin">Subheading</p>
+                  <p className="py-1 font-thin">8 - 15 Reps</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
