@@ -23,6 +23,7 @@ function SetYourGrind() {
           <div className="flex flex-row">
             {/* link container*/}
             <div className="flex flex-row justify-center text-teal-100">
+
               <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
                 {/* icon */}
                 <svg
@@ -39,7 +40,8 @@ function SetYourGrind() {
           </div>
         </div>
 
-        {/* --1. Choose your Ordeal bar--*/}
+
+        {/* --1. Set your Grind  bar--*/}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             Set Your Grind
@@ -53,29 +55,39 @@ function SetYourGrind() {
 
         {/* -- Content bar */}
         <div className="flex flex-wrap justify-center bg-green-900">
-          {/* Gender card*/}
+          {/* 1x per Week card*/}
           <div className="flex flex-wrap justify-center">
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
-                <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M47.8125 4.78125H42.2344V3.1875C42.2344 1.42481 40.8088 0 39.0469 0H11.9531C10.1912 0 8.76562 1.42481 8.76562 3.1875V4.78125H3.1875C1.42561 4.78125 0 6.20606 0 7.96875V14.3438C0 19.184 3.92461 23.1094 8.76562 23.1094H8.84212C9.57047 30.8064 15.5207 36.971 23.1094 38.0595V44.625H17.5312C15.7694 44.625 14.3438 46.0498 14.3438 47.8125V50.2031C14.3438 50.643 14.7 51 15.1406 51H35.8594C36.3 51 36.6562 50.643 36.6562 50.2031V47.8125C36.6562 46.0498 35.2306 44.625 33.4688 44.625H27.8906V38.0595C35.4793 36.971 41.4255 30.808 42.1539 23.1094H42.2344C47.0754 23.1094 51 19.184 51 14.3438V7.96875C51 6.20606 49.5744 4.78125 47.8125 4.78125ZM8.76562 18.3281C6.56466 18.3281 4.78125 16.5439 4.78125 14.3438V9.5625H8.76562V18.3281ZM1.59375 14.3438V7.96875C1.59375 7.0882 2.30775 6.375 3.1875 6.375H8.76562V7.96875H3.98438C3.5437 7.96875 3.1875 8.32416 3.1875 8.76562V14.3438C3.1875 17.4237 5.68491 19.9219 8.76562 19.9219V21.5156C4.80436 21.5156 1.59375 18.3042 1.59375 14.3438ZM33.4688 46.2188C34.3485 46.2188 35.0625 46.932 35.0625 47.8125V49.4062H15.9375V47.8125C15.9375 46.932 16.6515 46.2188 17.5312 46.2188H33.4688ZM24.7031 44.625V38.2086C24.9693 38.2213 25.2307 38.25 25.5 38.25C25.7693 38.25 26.0307 38.2213 26.2969 38.2086V44.625H24.7031ZM40.6406 21.5156C40.6406 29.8764 33.8616 36.6562 25.5 36.6562C17.1384 36.6562 10.3594 29.8764 10.3594 21.5156V3.1875C10.3594 2.30695 11.0734 1.59375 11.9531 1.59375H39.0469C39.9266 1.59375 40.6406 2.30695 40.6406 3.1875V21.5156ZM42.2344 9.5625H46.2188V14.3438C46.2188 16.5439 44.4353 18.3281 42.2344 18.3281V9.5625ZM49.4062 14.3438C49.4062 18.3042 46.1956 21.5156 42.2344 21.5156V19.9219C45.3151 19.9219 47.8125 17.4237 47.8125 14.3438V8.76562C47.8125 8.32416 47.4563 7.96875 47.0156 7.96875H42.2344V6.375H47.8125C48.6922 6.375 49.4062 7.0882 49.4062 7.96875V14.3438Z"
-                    fill="#702848"
-                    stroke="#702848"
-                    strokeWidth="1.536"
-                  />
-                  <path
-                    d="M31.1957 15.4272L27.7619 14.9029L26.2192 11.6174C26.0877 11.3369 25.8064 11.1592 25.498 11.1592C25.1896 11.1592 24.9083 11.3377 24.7768 11.6174L23.2341 14.9029L19.8004 15.4272C19.5055 15.4735 19.2601 15.6783 19.1652 15.9619C19.0704 16.2456 19.1421 16.5572 19.3501 16.7716L21.8571 19.3431L21.2634 22.98C21.214 23.2812 21.3423 23.5841 21.5909 23.7602C21.8396 23.9363 22.1687 23.9538 22.4364 23.8072L25.4972 22.1154L28.558 23.8072C28.6799 23.8733 28.813 23.906 28.9453 23.906C29.1063 23.906 29.2672 23.8566 29.4043 23.7594C29.6529 23.5833 29.7812 23.2804 29.7318 22.9792L29.1381 19.3423L31.6451 16.7708C31.8539 16.5564 31.9256 16.2448 31.83 15.9611C31.7344 15.6775 31.4913 15.4735 31.1957 15.4272ZM27.7165 18.5175C27.5396 18.6992 27.4599 18.9526 27.5006 19.202L27.895 21.6158L25.8853 20.5041C25.765 20.438 25.6327 20.4045 25.4996 20.4045C25.3665 20.4045 25.2342 20.438 25.1139 20.5041L23.1042 21.6158L23.4987 19.202C23.5393 18.9526 23.4588 18.6984 23.2827 18.5175L21.5766 16.77L23.8979 16.4146C24.1601 16.3747 24.3856 16.2066 24.4987 15.9659L25.5004 13.8319L26.5021 15.9659C26.6152 16.2074 26.8407 16.3755 27.1029 16.4146L29.4242 16.77L27.7165 18.5175Z"
-                    fill="#702848"
-                    stroke="#702848"
-                    strokeWidth="1.536"
-                  />
+                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {' '}
+                    <g clip-path="url(#clip0_429_11003)">
+                      {' '}
+                      <path
+                        d="M12 20V4L9 7"
+                        stroke="#2B777D"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>{' '}
+                    </g>{' '}
+                    <defs>
+                      {' '}
+                      <clipPath id="clip0_429_11003">
+                        {' '}
+                        <rect width="24" height="24" fill="white"></rect>{' '}
+                      </clipPath>{' '}
+                    </defs>{' '}
+                  </g>
                 </svg>
               </div>
               <div className="card-body">
                 <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">Maximize Your Strength</h2>
-                  <p className="py-1 font-thin">Subheading</p>
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"A lone tribute to the muscle deity"</p>
+
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -83,30 +95,38 @@ function SetYourGrind() {
               </div>
             </div>
           </div>
-
-          {/* prior knowledge card*/}
+          {/* 2x per Week card*/}
           <div className="flex flex-row justify-center">
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
-                <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M47.8125 4.78125H42.2344V3.1875C42.2344 1.42481 40.8088 0 39.0469 0H11.9531C10.1912 0 8.76562 1.42481 8.76562 3.1875V4.78125H3.1875C1.42561 4.78125 0 6.20606 0 7.96875V14.3438C0 19.184 3.92461 23.1094 8.76562 23.1094H8.84212C9.57047 30.8064 15.5207 36.971 23.1094 38.0595V44.625H17.5312C15.7694 44.625 14.3438 46.0498 14.3438 47.8125V50.2031C14.3438 50.643 14.7 51 15.1406 51H35.8594C36.3 51 36.6562 50.643 36.6562 50.2031V47.8125C36.6562 46.0498 35.2306 44.625 33.4688 44.625H27.8906V38.0595C35.4793 36.971 41.4255 30.808 42.1539 23.1094H42.2344C47.0754 23.1094 51 19.184 51 14.3438V7.96875C51 6.20606 49.5744 4.78125 47.8125 4.78125ZM8.76562 18.3281C6.56466 18.3281 4.78125 16.5439 4.78125 14.3438V9.5625H8.76562V18.3281ZM1.59375 14.3438V7.96875C1.59375 7.0882 2.30775 6.375 3.1875 6.375H8.76562V7.96875H3.98438C3.5437 7.96875 3.1875 8.32416 3.1875 8.76562V14.3438C3.1875 17.4237 5.68491 19.9219 8.76562 19.9219V21.5156C4.80436 21.5156 1.59375 18.3042 1.59375 14.3438ZM33.4688 46.2188C34.3485 46.2188 35.0625 46.932 35.0625 47.8125V49.4062H15.9375V47.8125C15.9375 46.932 16.6515 46.2188 17.5312 46.2188H33.4688ZM24.7031 44.625V38.2086C24.9693 38.2213 25.2307 38.25 25.5 38.25C25.7693 38.25 26.0307 38.2213 26.2969 38.2086V44.625H24.7031ZM40.6406 21.5156C40.6406 29.8764 33.8616 36.6562 25.5 36.6562C17.1384 36.6562 10.3594 29.8764 10.3594 21.5156V3.1875C10.3594 2.30695 11.0734 1.59375 11.9531 1.59375H39.0469C39.9266 1.59375 40.6406 2.30695 40.6406 3.1875V21.5156ZM42.2344 9.5625H46.2188V14.3438C46.2188 16.5439 44.4353 18.3281 42.2344 18.3281V9.5625ZM49.4062 14.3438C49.4062 18.3042 46.1956 21.5156 42.2344 21.5156V19.9219C45.3151 19.9219 47.8125 17.4237 47.8125 14.3438V8.76562C47.8125 8.32416 47.4563 7.96875 47.0156 7.96875H42.2344V6.375H47.8125C48.6922 6.375 49.4062 7.0882 49.4062 7.96875V14.3438Z"
-                    fill="#702848"
-                    stroke="#702848"
-                    strokeWidth="1.536"
-                  />
-                  <path
-                    d="M31.1957 15.4272L27.7619 14.9029L26.2192 11.6174C26.0877 11.3369 25.8064 11.1592 25.498 11.1592C25.1896 11.1592 24.9083 11.3377 24.7768 11.6174L23.2341 14.9029L19.8004 15.4272C19.5055 15.4735 19.2601 15.6783 19.1652 15.9619C19.0704 16.2456 19.1421 16.5572 19.3501 16.7716L21.8571 19.3431L21.2634 22.98C21.214 23.2812 21.3423 23.5841 21.5909 23.7602C21.8396 23.9363 22.1687 23.9538 22.4364 23.8072L25.4972 22.1154L28.558 23.8072C28.6799 23.8733 28.813 23.906 28.9453 23.906C29.1063 23.906 29.2672 23.8566 29.4043 23.7594C29.6529 23.5833 29.7812 23.2804 29.7318 22.9792L29.1381 19.3423L31.6451 16.7708C31.8539 16.5564 31.9256 16.2448 31.83 15.9611C31.7344 15.6775 31.4913 15.4735 31.1957 15.4272ZM27.7165 18.5175C27.5396 18.6992 27.4599 18.9526 27.5006 19.202L27.895 21.6158L25.8853 20.5041C25.765 20.438 25.6327 20.4045 25.4996 20.4045C25.3665 20.4045 25.2342 20.438 25.1139 20.5041L23.1042 21.6158L23.4987 19.202C23.5393 18.9526 23.4588 18.6984 23.2827 18.5175L21.5766 16.77L23.8979 16.4146C24.1601 16.3747 24.3856 16.2066 24.4987 15.9659L25.5004 13.8319L26.5021 15.9659C26.6152 16.2074 26.8407 16.3755 27.1029 16.4146L29.4242 16.77L27.7165 18.5175Z"
-                    fill="#702848"
-                    stroke="#702848"
-                    strokeWidth="1.536"
-                  />
+                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {' '}
+                    <g clip-path="url(#clip0_429_10997)">
+                      {' '}
+                      <path
+                        d="M8 8C8 6.97631 8.39052 5.95262 9.17157 5.17157C10.7337 3.60947 13.2663 3.60947 14.8284 5.17157C16.3905 6.73366 16.3905 9.26632 14.8284 10.8284L9.17157 16.4853C8.42143 17.2354 8 18.2528 8 19.3137L8 20L16 20"
+                        stroke="#2B777D"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>{' '}
+                    </g>{' '}
+                    <defs>
+                      {' '}
+                      <clipPath id="clip0_429_10997">
+                        {' '}
+                        <rect width="24" height="24" fill="white"></rect>{' '}
+                      </clipPath>{' '}
+                    </defs>{' '}
+                  </g>
                 </svg>
               </div>
               <div className="card-body">
                 <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">Built Up Your Stamina</h2>
-                  <p className="py-1 font-thin">Subheading</p>
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Strengthening tributes"</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -114,30 +134,77 @@ function SetYourGrind() {
               </div>
             </div>
           </div>
-
-          {/* equipment card*/}
+          {/* 3x per Week card*/}
           <div className="flex flex-wrap justify-center">
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
-                <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M47.8125 4.78125H42.2344V3.1875C42.2344 1.42481 40.8088 0 39.0469 0H11.9531C10.1912 0 8.76562 1.42481 8.76562 3.1875V4.78125H3.1875C1.42561 4.78125 0 6.20606 0 7.96875V14.3438C0 19.184 3.92461 23.1094 8.76562 23.1094H8.84212C9.57047 30.8064 15.5207 36.971 23.1094 38.0595V44.625H17.5312C15.7694 44.625 14.3438 46.0498 14.3438 47.8125V50.2031C14.3438 50.643 14.7 51 15.1406 51H35.8594C36.3 51 36.6562 50.643 36.6562 50.2031V47.8125C36.6562 46.0498 35.2306 44.625 33.4688 44.625H27.8906V38.0595C35.4793 36.971 41.4255 30.808 42.1539 23.1094H42.2344C47.0754 23.1094 51 19.184 51 14.3438V7.96875C51 6.20606 49.5744 4.78125 47.8125 4.78125ZM8.76562 18.3281C6.56466 18.3281 4.78125 16.5439 4.78125 14.3438V9.5625H8.76562V18.3281ZM1.59375 14.3438V7.96875C1.59375 7.0882 2.30775 6.375 3.1875 6.375H8.76562V7.96875H3.98438C3.5437 7.96875 3.1875 8.32416 3.1875 8.76562V14.3438C3.1875 17.4237 5.68491 19.9219 8.76562 19.9219V21.5156C4.80436 21.5156 1.59375 18.3042 1.59375 14.3438ZM33.4688 46.2188C34.3485 46.2188 35.0625 46.932 35.0625 47.8125V49.4062H15.9375V47.8125C15.9375 46.932 16.6515 46.2188 17.5312 46.2188H33.4688ZM24.7031 44.625V38.2086C24.9693 38.2213 25.2307 38.25 25.5 38.25C25.7693 38.25 26.0307 38.2213 26.2969 38.2086V44.625H24.7031ZM40.6406 21.5156C40.6406 29.8764 33.8616 36.6562 25.5 36.6562C17.1384 36.6562 10.3594 29.8764 10.3594 21.5156V3.1875C10.3594 2.30695 11.0734 1.59375 11.9531 1.59375H39.0469C39.9266 1.59375 40.6406 2.30695 40.6406 3.1875V21.5156ZM42.2344 9.5625H46.2188V14.3438C46.2188 16.5439 44.4353 18.3281 42.2344 18.3281V9.5625ZM49.4062 14.3438C49.4062 18.3042 46.1956 21.5156 42.2344 21.5156V19.9219C45.3151 19.9219 47.8125 17.4237 47.8125 14.3438V8.76562C47.8125 8.32416 47.4563 7.96875 47.0156 7.96875H42.2344V6.375H47.8125C48.6922 6.375 49.4062 7.0882 49.4062 7.96875V14.3438Z"
-                    fill="#702848"
-                    stroke="#702848"
-                    strokeWidth="1.536"
-                  />
-                  <path
-                    d="M31.1957 15.4272L27.7619 14.9029L26.2192 11.6174C26.0877 11.3369 25.8064 11.1592 25.498 11.1592C25.1896 11.1592 24.9083 11.3377 24.7768 11.6174L23.2341 14.9029L19.8004 15.4272C19.5055 15.4735 19.2601 15.6783 19.1652 15.9619C19.0704 16.2456 19.1421 16.5572 19.3501 16.7716L21.8571 19.3431L21.2634 22.98C21.214 23.2812 21.3423 23.5841 21.5909 23.7602C21.8396 23.9363 22.1687 23.9538 22.4364 23.8072L25.4972 22.1154L28.558 23.8072C28.6799 23.8733 28.813 23.906 28.9453 23.906C29.1063 23.906 29.2672 23.8566 29.4043 23.7594C29.6529 23.5833 29.7812 23.2804 29.7318 22.9792L29.1381 19.3423L31.6451 16.7708C31.8539 16.5564 31.9256 16.2448 31.83 15.9611C31.7344 15.6775 31.4913 15.4735 31.1957 15.4272ZM27.7165 18.5175C27.5396 18.6992 27.4599 18.9526 27.5006 19.202L27.895 21.6158L25.8853 20.5041C25.765 20.438 25.6327 20.4045 25.4996 20.4045C25.3665 20.4045 25.2342 20.438 25.1139 20.5041L23.1042 21.6158L23.4987 19.202C23.5393 18.9526 23.4588 18.6984 23.2827 18.5175L21.5766 16.77L23.8979 16.4146C24.1601 16.3747 24.3856 16.2066 24.4987 15.9659L25.5004 13.8319L26.5021 15.9659C26.6152 16.2074 26.8407 16.3755 27.1029 16.4146L29.4242 16.77L27.7165 18.5175Z"
-                    fill="#702848"
-                    stroke="#702848"
-                    strokeWidth="1.536"
-                  />
+                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {' '}
+                    <g clip-path="url(#clip0_429_10996)">
+                      {' '}
+                      <path
+                        d="M8 19.0004C8.83566 19.6281 9.87439 20 11 20C13.7614 20 16 17.7614 16 15C16 12.2386 13.7614 10 11 10L16 4H8"
+                        stroke="#2B777D"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>{' '}
+                    </g>{' '}
+                    <defs>
+                      {' '}
+                      <clipPath id="clip0_429_10996">
+                        {' '}
+                        <rect width="24" height="24" fill="white"></rect>{' '}
+                      </clipPath>{' '}
+                    </defs>{' '}
+                  </g>
                 </svg>
               </div>
               <div className="card-body">
                 <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">Grow Your Muscles</h2>
-                  <p className="py-1 font-thin">Subheading</p>
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Thrice a week, a ritual of unleashing"</p>
+                  {/* <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Listen</button>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* 4x per Week card*/}
+          <div className="flex flex-wrap justify-center">
+            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+              <div className="flex min-w-36 flex-col items-center justify-center">
+                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {' '}
+                    <g clip-path="url(#clip0_429_11105)">
+                      {' '}
+                      <path
+                        d="M10 4L8.47845 11.6078C8.23093 12.8453 9.17752 14 10.4396 14H16M16 14V8M16 14V20"
+                        stroke="#2B777D"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>{' '}
+                    </g>{' '}
+                    <defs>
+                      {' '}
+                      <clipPath id="clip0_429_11105">
+                        {' '}
+                        <rect width="24" height="24" fill="white"></rect>{' '}
+                      </clipPath>{' '}
+                    </defs>{' '}
+                  </g>
+                </svg>
+              </div>
+              <div className="card-body">
+                <div className="flex flex-col items-center">
+                  <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Echoes of my power in your veins!"</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
