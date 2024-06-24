@@ -20,20 +20,20 @@ async function updateKarmaFunction(req, res, next) {
     throw new ErrorResponse('User not found', 404);
   }
 
-  user.awards.karmaPoints += earnedKarmaPoints;
-  user.awards.progress = (user.awards.karmaPoints / karmaPointsPerLevel[user.awards.level - 1]) * 100;
+  user.karmaPoints += earnedKarmaPoints;
+  user.progress = (user.karmaPoints / karmaPointsPerLevel[user.awards.level - 1]) * 100;
 
-  if (user.awards.progress >= 100) {
+  if (user.progress >= 100) {
     user.awards.level += 1;
-    user.awards.progress = 0;
+    user.progress = 0;
     // Award trophies, badges, or other rewards for leveling up
   }
 
-  user.awards.title = getTitle(user.awards.karmaPoints);
+  user.awards.title = getTitle(user.karmaPoints);
 
   await user.save();
   res.status(200).json({ message: 'Successfully added karma' });
-  console.log('After update:', user.awards);
+  console.log('After update:', user.awards.karmaPoints);
 }
 
 export const updateKarma = asyncHandler(updateKarmaFunction);
