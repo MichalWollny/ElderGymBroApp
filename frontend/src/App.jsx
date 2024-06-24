@@ -11,8 +11,7 @@ import WhatsYourGoal from './pages/WhatsYourGoal';
 import SetYourGrind from './pages/SetYourGrind';
 import SplashScreen from './pages/SplashScreen';
 import UIElements from './pages/UIElements';
-
-
+import Workouts from './pages/Workouts';
 
 function App() {
   return (
@@ -28,7 +27,8 @@ function App() {
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
         <Route path="/splashscreen" element={<SplashScreen />} />
-        <Route path="/uielements" element={<UIElements/>} />
+        <Route path="/uielements" element={<UIElements />} />
+        <Route path="/workouts" element={<Workouts />} />
       </Routes>
     </>
   );

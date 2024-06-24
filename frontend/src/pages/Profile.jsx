@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import profileimg from '../assets/images/Profiletestlogo.jpeg';
 
 const Profile = () => {
