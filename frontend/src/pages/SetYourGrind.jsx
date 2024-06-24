@@ -23,7 +23,6 @@ function SetYourGrind() {
           <div className="flex flex-row">
             {/* link container*/}
             <div className="flex flex-row justify-center text-teal-100">
-
               <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
                 {/* icon */}
                 <svg
@@ -39,7 +38,6 @@ function SetYourGrind() {
             </div>
           </div>
         </div>
-
 
         {/* --1. Set your Grind  bar--*/}
         <div className="flex flex-row justify-center">
@@ -57,7 +55,7 @@ function SetYourGrind() {
         <div className="flex flex-wrap justify-center bg-green-900">
           {/* 1x per Week card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -97,7 +95,7 @@ function SetYourGrind() {
           </div>
           {/* 2x per Week card*/}
           <div className="flex flex-row justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -136,7 +134,7 @@ function SetYourGrind() {
           </div>
           {/* 3x per Week card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -175,7 +173,7 @@ function SetYourGrind() {
           </div>
           {/* 4x per Week card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

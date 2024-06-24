@@ -4,14 +4,12 @@
 // import cardioRiot from '/src/assets/images/cardioRiot.avif';
 import startYourJorney from '/src/assets/images/startYourJorney.jpeg';
 
-
-const containerItems = [
-  { id: 'gymLord', imgSrc: gymLord, text: 'Muscle Worship' },
-  { id: 'ygolonac', imgSrc: ygolonac, text: 'Fat Fight' },
-  { id: 'stamina', imgSrc: stamina, text: 'Stamina Destruction' },
-  { id: 'cardioRiot', imgSrc: cardioRiot, text: 'Cardio Crusade' },
-];
-
+// const containerItems = [
+//   { id: 'gymLord', imgSrc: gymLord, text: 'Muscle Worship' },
+//   { id: 'ygolonac', imgSrc: ygolonac, text: 'Fat Fight' },
+//   { id: 'stamina', imgSrc: stamina, text: 'Stamina Destruction' },
+//   { id: 'cardioRiot', imgSrc: cardioRiot, text: 'Cardio Crusade' },
+// ];
 
 function StartYourJourney() {
   return (
@@ -53,7 +51,7 @@ function StartYourJourney() {
         <div className="flex flex-wrap justify-center bg-green-900">
           {/* Gender card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg
                   height="64px"
@@ -95,7 +93,7 @@ function StartYourJourney() {
           </div>
           {/* Gym Experience  card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg
                   fill="#702848"
@@ -140,7 +138,7 @@ function StartYourJourney() {
 
           {/* equipment card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg
                   fill="#702848"
