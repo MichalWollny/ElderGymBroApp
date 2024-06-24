@@ -1,3 +1,10 @@
+import Switch from '@mui/material/Switch';
+// import 'dayjs/locale/de';
+import 'dayjs/locale/en-gb';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
 function UIElements() {
   return (
     <>
@@ -46,6 +53,15 @@ function UIElements() {
             <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
             <br />
           </div>
+          <div>
+            <p className="font-semibold">MaterialUI responsive Date Picker</p>
+
+            <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en-gb'}>
+              <DatePicker label="Basic date picker" />
+              <br />
+            </LocalizationProvider>
+            <br />
+          </div>
           <div className="">
             <p className="font-semibold">Input: email</p>
             <input type="email" id="email" pattern=".+@example\.com" size="30" required />
@@ -54,7 +70,6 @@ function UIElements() {
             <input className="styled" type="button" value="| I'm a button |" />
             <br />
           </div>
-
           <div className="">
             <fieldset>
               <legend>Choose your monster&apos;s features:</legend>
@@ -70,7 +85,6 @@ function UIElements() {
               </div>
             </fieldset>
           </div>
-
           <div className="card glass w-96">
             <p className="font-semibold">Input: color (Color Picker)</p>
             <p>Choose your monster&apos;s colors:</p>
@@ -177,21 +191,20 @@ function UIElements() {
           </div>
           <br />
           <div className="">
+            <p className="font-semibold">Input: checkbox (MaterialUI toggle switch)</p>
+            {/* <!-- Material toggle --> */}
+            <Switch defaultChecked />
+          </div>
+          <div className="">
             <p className="font-semibold">Input: checkbox (DaisyUI toggle switch)</p>
             {/* <!-- DaisyUI toggle --> */}
-            <input
-              type="checkbox"
-              className="toggle border-blue-500 bg-blue-500 [--tglbg:yellow] hover:bg-blue-700"
-              defaultChecked
-            />
+            <input type="checkbox" className="toggle" defaultChecked />
           </div>
-
           <div className="">
             <p className="font-semibold">Input: text</p>
             <label htmlFor="name">Name (4 to 8 characters):</label>
             <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" />
           </div>
-
           <div className="">
             <p className="font-semibold">Input: time</p>
             <label htmlFor="appt">Choose a time for your meeting:</label>
@@ -220,6 +233,27 @@ function UIElements() {
             <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
           </div>
           <br />
+
+          <>
+            {/*<!-- Component: Rounded base sized datepicker with helper text --> */}
+            <div className="relative my-6">
+              <input
+                id="id-date08"
+                type="date"
+                name="id-date08"
+                className="peer relative h-10 w-full rounded border border-slate-200 px-4 text-sm text-slate-500 placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+              />
+              <label
+                htmlFor="id-date08"
+                className="absolute -top-2 left-2 z-[1] cursor-text px-2 text-xs text-slate-400 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:cursor-default peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent">
+                Date
+              </label>
+              <small className="absolute flex w-full justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
+                <span>WindUI date picker</span>
+              </small>
+            </div>
+            {/*<!-- End Rounded base sized datepicker with helper text --> */}
+          </>
         </div>
 
         {/* flex row */}
