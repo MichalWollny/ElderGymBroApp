@@ -23,7 +23,6 @@ function SetYourGrind() {
           <div className="flex flex-row">
             {/* link container*/}
             <div className="flex flex-row justify-center text-teal-100">
-
               <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
                 {/* icon */}
                 <svg
@@ -39,7 +38,6 @@ function SetYourGrind() {
             </div>
           </div>
         </div>
-
 
         {/* --1. Set your Grind  bar--*/}
         <div className="flex flex-row justify-center">
@@ -60,18 +58,18 @@ function SetYourGrind() {
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
                     {' '}
-                    <g clip-path="url(#clip0_429_11003)">
+                    <g clipPath="url(#clip0_429_11003)">
                       {' '}
                       <path
                         d="M12 20V4L9 7"
                         stroke="#2B777D"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>{' '}
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"></path>{' '}
                     </g>{' '}
                     <defs>
                       {' '}
@@ -86,7 +84,9 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"A lone tribute to the muscle deity"</p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">
+                    &qout;A lone tribute to the muscle deity&qout;
+                  </p>
 
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
@@ -100,18 +100,18 @@ function SetYourGrind() {
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
                     {' '}
-                    <g clip-path="url(#clip0_429_10997)">
+                    <g clipPath="url(#clip0_429_10997)">
                       {' '}
                       <path
                         d="M8 8C8 6.97631 8.39052 5.95262 9.17157 5.17157C10.7337 3.60947 13.2663 3.60947 14.8284 5.17157C16.3905 6.73366 16.3905 9.26632 14.8284 10.8284L9.17157 16.4853C8.42143 17.2354 8 18.2528 8 19.3137L8 20L16 20"
                         stroke="#2B777D"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>{' '}
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"></path>{' '}
                     </g>{' '}
                     <defs>
                       {' '}
@@ -126,7 +126,7 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Strengthening tributes"</p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">&qout;Strengthening tributes&qout;</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -139,18 +139,18 @@ function SetYourGrind() {
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
                     {' '}
-                    <g clip-path="url(#clip0_429_10996)">
+                    <g clipPath="url(#clip0_429_10996)">
                       {' '}
                       <path
                         d="M8 19.0004C8.83566 19.6281 9.87439 20 11 20C13.7614 20 16 17.7614 16 15C16 12.2386 13.7614 10 11 10L16 4H8"
                         stroke="#2B777D"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>{' '}
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"></path>{' '}
                     </g>{' '}
                     <defs>
                       {' '}
@@ -165,7 +165,9 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Thrice a week, a ritual of unleashing"</p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">
+                    &qout;Thrice a week, a ritual of unleashing&qout;
+                  </p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -178,18 +180,18 @@ function SetYourGrind() {
             <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
                     {' '}
-                    <g clip-path="url(#clip0_429_11105)">
+                    <g clipPath="url(#clip0_429_11105)">
                       {' '}
                       <path
                         d="M10 4L8.47845 11.6078C8.23093 12.8453 9.17752 14 10.4396 14H16M16 14V8M16 14V20"
                         stroke="#2B777D"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>{' '}
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"></path>{' '}
                     </g>{' '}
                     <defs>
                       {' '}
@@ -204,7 +206,9 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">"Echoes of my power in your veins!"</p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">
+                    &qout;Echoes of my power in your veins!&qout;
+                  </p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
