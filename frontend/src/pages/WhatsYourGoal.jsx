@@ -208,9 +208,9 @@ function WhatsYourGoal() {
           </div>
         </div>
 
-        {/* --7. Name this bar */}
+        {/* Content section 3 */}
         <div className="flex flex-row justify-center bg-blue-900">
-          {/* --8. Add content here-- */}
+          {/* 8. Add content here-- */}
           <div>Content section 3</div>
         </div>
 
