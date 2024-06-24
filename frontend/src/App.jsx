@@ -11,6 +11,7 @@ import WhatsYourGoal from './pages/WhatsYourGoal';
 import SetYourGrind from './pages/SetYourGrind';
 import SplashScreen from './pages/SplashScreen';
 import UIElements from './pages/UIElements';
+import Workouts from './pages/Workouts';
 import Login from './pages/LogIn';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/setyourgrind" element={<SetYourGrind />} />
         <Route path="/splashscreen" element={<SplashScreen />} />
         <Route path="/uielements" element={<UIElements />} />
+        <Route path="/workouts" element={<Workouts />} />
       </Routes>
     </>
   );
