@@ -52,7 +52,7 @@ const Profile = () => {
         <div className="my-8 flex flex-col justify-center">
           {/* profile image */}
           <div className="avatar">
-            <div className="ring-primary mx-auto w-32 rounded-full ring-4 ring-white ring-offset-2 ring-offset-sky-300">
+            <div className="mx-auto w-32 rounded-full ring-4 ring-white ring-offset-2 ring-offset-sky-300">
               <img src={avatarImage5} alt="Profile Image" className="object-fit-cover rounded-full object-cover" />
             </div>
           </div>
