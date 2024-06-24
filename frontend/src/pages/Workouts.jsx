@@ -1,4 +1,3 @@
-import React from 'react';
 import useFetchData from '../utils/FetchData';
 
 // ignore it for now, its nonsense I tried on a whim
@@ -13,6 +12,7 @@ const Workouts = () => {
           <p>Loading...</p>
         ) : (
           <ul>
+            {/* eslint-disable-next-line no-unused-vars */}
             {hardcodedWorkouts.map((workouts, index) => (
               <li key={workouts.id}>
                 <ul>

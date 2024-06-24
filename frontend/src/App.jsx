@@ -12,12 +12,14 @@ import SetYourGrind from './pages/SetYourGrind';
 import SplashScreen from './pages/SplashScreen';
 import UIElements from './pages/UIElements';
 import Workouts from './pages/Workouts';
+import Login from './pages/LogIn';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profilerework" element={<Profilerework />} />
