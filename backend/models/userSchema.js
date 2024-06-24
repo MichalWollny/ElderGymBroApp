@@ -1,5 +1,5 @@
-import mongoose, { mongo } from 'mongoose';
-import bcrypt from 'bcrypt';
+import mongoose from 'mongoose';
+import { getTitle } from '../utils/karmaUtils.js';
 
 const userSchema = new mongoose.Schema(
   {
@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema(
     },
     username: {
       type: String,
-      unique: true,
+      // unique: true,
       required: [true, 'Username is required'],
     },
     email: {
@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema(
           case 'male':
             return 'https://i.pinimg.com/736x/3e/42/b1/3e42b1c802226a211c690c9b02d06ffd.jpg';
           case 'female':
-            return 'femaleAvatarUrl';
+            return 'https://i.seadn.io/gae/k01LjPxdfW0LhgSjNksj3KhPIbskLJb-B27latpNhb9fHEJqcoOlVX9RcRInKdQTWekaTF70-tGzxv_F_wACE-77Dlm1qSH4kayE-A?auto=format&dpr=1&w=1000';
           case 'elder thing':
             return 'https://i.pinimg.com/474x/6c/92/36/6c923664f3c5fa0715fa82627a2fa04e.jpg';
           case 'blob':
@@ -49,6 +49,14 @@ const userSchema = new mongoose.Schema(
       },
     },
     awards: {
+      level: {
+        type: Number,
+        default: 1,
+      },
+      progress: {
+        type: Number,
+        default: 0,
+      },
       karmaPoints: {
         type: Number,
         default: 0,
@@ -60,33 +68,10 @@ const userSchema = new mongoose.Schema(
         },
       },
     },
+    progressTracking: { type: Array, default: [] },
   },
   // Timestamps
   { timestamps: true },
 );
-
-function getTitle(karmaPoints) {
-  if (karmaPoints < 10) {
-    return 'Cannon Fodder Cultist';
-  } else if (karmaPoints < 20) {
-    return 'Tentacle-Tickler Trainee';
-  } else if (karmaPoints < 30) {
-    return "Dagon's Dishwasher";
-  } else if (karmaPoints < 40) {
-    return "Cthulhu's Coffee Fetcher";
-  } else if (karmaPoints < 50) {
-    return 'Eldritch Errand Runner';
-  } else if (karmaPoints < 60) {
-    return "Deep One's Doormat";
-  } else if (karmaPoints < 70) {
-    return 'Paranormal Paper Pusher';
-  } else if (karmaPoints < 80) {
-    return "Great Old One's Goofball";
-  } else if (karmaPoints < 90) {
-    return 'Tentacle Tamer';
-  } else if (karmaPoints < 100) {
-    return 'Supreme Spookster';
-  }
-}
 
 export default mongoose.model('User', userSchema);
