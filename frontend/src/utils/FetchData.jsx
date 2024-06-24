@@ -4,6 +4,7 @@ import axios from 'axios';
 function useFetchData() {
   const [hardcodedWorkouts, setHardcodedWorkouts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState('');
 
   useEffect(() => {
