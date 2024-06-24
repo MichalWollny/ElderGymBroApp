@@ -50,7 +50,7 @@ function WhatsYourGoal() {
           <img src={cthuhluCave} alt="Landing Page Image" className="m-2 w-64" />
         </div>
 
-        {/* -- Content bar */}
+        {/* Content bar */}
         <div className="flex flex-wrap justify-center bg-green-900">
           {/* Maximize your Strength Card*/}
           <div className="flex flex-wrap justify-center">

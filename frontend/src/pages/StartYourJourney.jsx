@@ -45,7 +45,9 @@ function StartYourJourney() {
         </div>
 
         {/* Image bar */}
-        <div className="flex flex-row justify-center bg-red-900"></div>
+        <div className="flex flex-row justify-center bg-red-900">
+          <img src={startYourJorney} alt="Landing Page Image" className="m-2 w-64" />
+        </div>
 
         {/* Content bar*/}
         <div className="flex flex-wrap justify-center bg-green-900">
@@ -181,10 +183,12 @@ function StartYourJourney() {
         {/* --5. Name this bar */}
         <div className="flex flex-row justify-center bg-yellow-900"></div>
 
-        {/* --7. Name this bar */}
+        {/* Content section 3 */}
         <div className="flex flex-row justify-center bg-blue-900">
-          <img src={startYourJorney} alt="Landing Page Image" className="m-2 w-36" />
+          {/* 8. Add content here-- */}
+          <div>Content section 3</div>
         </div>
+
 
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center bg-yellow-900">

@@ -38,7 +38,7 @@ function Template() {
         </div>
 
         {/* --6. Wrap flex box for tiles*/}
-        <div className="flex flex-wrap justify-center bg-yellow-900">
+        <div className="flex flex-wrap justify-center bg-green-900">
           {/* --7. Add content here-- */}
 
           {/* my trophies tile */}
@@ -226,7 +226,7 @@ function Template() {
         </div>
 
         {/* Button */}
-        <div className="flex flex-row justify-center bg-purple-900">
+        <div className="flex flex-row justify-center bg-yellow-900">
           <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
             Button
             <a href="/uielements">Next</a>
