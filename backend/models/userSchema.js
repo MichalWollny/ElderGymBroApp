@@ -67,6 +67,10 @@ const userSchema = new mongoose.Schema(
           return getTitle(this.awards.karmaPoints);
         },
       },
+      lastLogin: {
+        type: Date,
+        default: null,
+      },
     },
     progressTracking: { type: Array, default: [] },
   },
