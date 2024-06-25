@@ -4,10 +4,10 @@ import react from '@vitejs/plugin-react';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import process from 'process';
 import { config } from 'dotenv';
-config();
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), basicSsl()],
+  plugins: [react(), basicSsl(), config()],
   server: {
     https: process.env.HTTPS === 'true', // use environment variable
   },
