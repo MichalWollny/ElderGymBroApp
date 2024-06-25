@@ -19,6 +19,8 @@ const LandingPage = () => {
   const navigate = useNavigate(); // Initialize navigate function
 
   const handleJoinCultClick = () => {
+    // useThree.forceContextLoss(); // Force the context to be lost, cleaning up WebGL resources
+    // useThree.dispose(); // Dispose of the renderer's resources
     navigate('/startyourjourney'); // Navigate to Onboarding page
   };
 
@@ -29,8 +31,7 @@ const LandingPage = () => {
       repeat: Infinity,
       repeatType: 'mirror',
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [color]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
   const border = useMotionTemplate`0.2px solid ${color}`;
