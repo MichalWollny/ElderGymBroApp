@@ -63,6 +63,8 @@ const getPasswordStrengthColor = (score) => {
   }
 };
 
+// TODO when in mobile view less space between the TextFields!
+
 const SignUp = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -91,7 +93,20 @@ const SignUp = () => {
 
   return (
     <Container maxWidth="sm">
-      <Box my={4} sx={{ '& .MuiTextField-root': { mb: 2 }, '& .MuiButton-root': { mt: 3 } }}>
+      <Box
+        my={4}
+        sx={{
+          // Apply styles to all direct children that are MuiTextField-root
+          '& .MuiTextField-root': {
+            mb: 2, // Default margin bottom
+            '@media (max-width:600px)': {
+              mb: 1, // Reduced margin bottom for screens smaller than 600px
+            },
+          },
+          '& .MuiButton-root': {
+            mt: 3,
+          },
+        }}>
         <Typography variant="h4" gutterBottom>
           Sign Up
         </Typography>
