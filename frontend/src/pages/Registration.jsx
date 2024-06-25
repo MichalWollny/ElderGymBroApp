@@ -21,7 +21,7 @@ const Registration = () => {
     age: '',
     weight: '',
     gender: '',
-    fitnessLevel: '',
+    fitnesLevel: '',
     workoutAim: '',
   });
   const [passwordScore, setPasswordScore] = useState(0);
@@ -68,7 +68,7 @@ const Registration = () => {
       })
       .catch((error) => {
         console.error(error);
-        alert('Error creating user:', error.message);
+        alert(`Error creating user: ${error.message}`);
       });
   };
 
@@ -83,6 +83,7 @@ const Registration = () => {
       onSubmit={handleSubmit}
       className="flex flex-col items-center">
       <Typography variant="h6">Registration Form</Typography>
+
       {/*Full-Name*/}
       <TextField
         required
@@ -170,27 +171,29 @@ const Registration = () => {
         onChange={handleChange}
       />
       {/* Gender */}
-      <TextField
-        id="gender"
-        name="gender"
-        label="Gender"
-        type="text"
-        variant="outlined"
-        value={formData.gender}
-        onChange={handleChange}
-      />
+      <FormControl sx={{ width: '25ch' }}>
+        <InputLabel id="gender-label">Gender</InputLabel>
+        <Select labelId="gender-label" id="Gender" name="gender" value={formData.gender} onChange={handleChange}>
+          <MenuItem value="male">Male</MenuItem>
+          <MenuItem value="female">Female</MenuItem>
+          <MenuItem value="elder thing">Elder Thing</MenuItem>
+          <MenuItem value="blob">Blob</MenuItem>
+          <MenuItem value="other">Other</MenuItem>
+        </Select>
+      </FormControl>
+
       {/* Fitness-Level */}
       <FormControl sx={{ width: '25ch' }}>
-        <InputLabel id="fitness-level-label">Fitness Level</InputLabel>
+        <InputLabel id="fitnes-level-label">Fitness Level</InputLabel>
         <Select
           labelId="fitness-level-label"
-          id="fitnessLevel"
-          name="fitnessLevel"
-          value={formData.fitnessLevel}
+          id="fitnesLevel"
+          name="fitnesLevel"
+          value={formData.fitnesLevel}
           onChange={handleChange}>
-          <MenuItem value="Beginner">Beginner</MenuItem>
-          <MenuItem value="Intermediate">Intermediate</MenuItem>
-          <MenuItem value="Advanced">Advanced</MenuItem>
+          <MenuItem value="beginner">Beginner</MenuItem>
+          <MenuItem value="intermediate">Intermediate</MenuItem>
+          <MenuItem value="advanced">Advanced</MenuItem>
         </Select>
       </FormControl>
       {/* Workout Aim  */}
@@ -202,10 +205,10 @@ const Registration = () => {
           name="workoutAim"
           value={formData.workoutAim}
           onChange={handleChange}>
-          <MenuItem value="Power">Get Stronger (Unleash Cosmic Power)</MenuItem>
-          <MenuItem value="Recomposition">Recomposition (Build Muscle, Sacrifice Fat)</MenuItem>
-          <MenuItem value="Lose Weight">Lose Body Fat (Slim Down with Occult Forces)</MenuItem>
-          <MenuItem value="Gain Muscle">Build Muscle (Terrifying Muscles of Doom)</MenuItem>
+          <MenuItem value="Muscle Worship">Get Stronger (Unleash Cosmic Power)</MenuItem>
+          <MenuItem value="Fat Fight">Recomposition (Build Muscle, Sacrifice Fat)</MenuItem>
+          <MenuItem value="Stamina Destruction">Lose Body Fat (Slim Down with Occult Forces)</MenuItem>
+          <MenuItem value="Cardio Crusade">Build Muscle (Terrifying Muscles of Doom)</MenuItem>
         </Select>
       </FormControl>
       <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
