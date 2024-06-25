@@ -20,7 +20,8 @@ const LandingPage = () => {
 
   const handleJoinCultClick = () => {
     // useThree.forceContextLoss(); // Force the context to be lost, cleaning up WebGL resources
-    // useThree.dispose(); // Dispose of the renderer's resources
+    // useThree.dispose();
+    // Dispose of the renderer's resources
     navigate('/startyourjourney'); // Navigate to Onboarding page
   };
 
