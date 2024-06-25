@@ -1,10 +1,23 @@
 import { useState, useEffect, useDeferredValue } from 'react';
-import { Container, Typography, TextField, Button, Grid, LinearProgress, Box, Alert } from '@mui/material';
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  LinearProgress,
+  Box,
+  Alert,
+  InputAdornment,
+  IconButton,
+} from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { zxcvbnAsync, zxcvbnOptions } from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en';
 import * as zxcvbnDePackage from '@zxcvbn-ts/language-de';
 import { matcherPwnedFactory } from '@zxcvbn-ts/matcher-pwned';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 // Configure zxcvbn
 const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions);
@@ -57,6 +70,7 @@ const SignUp = () => {
   });
   const [password, setPassword] = useState('');
   const result = usePasswordStrength(password);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,6 +78,14 @@ const SignUp = () => {
     if (name === 'password') {
       setPassword(value);
     }
+  };
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
   };
 
   return (
@@ -77,6 +99,7 @@ const SignUp = () => {
             <Grid item xs={12}>
               <TextField
                 fullWidth
+                required
                 label="Email"
                 variant="outlined"
                 name="email"
@@ -87,13 +110,25 @@ const SignUp = () => {
             <Grid item xs={12}>
               <TextField
                 fullWidth
+                required
                 label="Password"
-                variant="outlined"
                 margin="normal"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}>
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
               {result && (
                 <>
@@ -116,13 +151,25 @@ const SignUp = () => {
             <Grid item xs={12}>
               <TextField
                 fullWidth
+                required
                 label="Confirm Password"
-                variant="outlined"
                 margin="normal"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}>
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
             </Grid>
             <Grid item xs={12}>
