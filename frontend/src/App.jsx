@@ -14,6 +14,7 @@ import UIElements from './pages/UIElements';
 import Workouts from './pages/Workouts';
 import SignUp from './pages/SignUp';
 import Registration from './pages/Registration';
+import EditUserData from './pages/EditUserData';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
 
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/template" element={<Template />} />
