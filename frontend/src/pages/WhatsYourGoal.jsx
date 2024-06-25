@@ -54,7 +54,7 @@ function WhatsYourGoal() {
         <div className="flex flex-wrap justify-center bg-green-900">
           {/* Maximize your Strength Card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg
                   fill="#702848"
@@ -90,7 +90,7 @@ function WhatsYourGoal() {
           </div>
           {/* Built up your Stamina card*/}
           <div className="flex flex-row justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0" />
@@ -147,7 +147,7 @@ function WhatsYourGoal() {
           </div>
           {/* Grow Your Muscles Card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg
                   width="64px"

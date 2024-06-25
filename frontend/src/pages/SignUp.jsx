@@ -5,7 +5,6 @@ import {
   TextField,
   Button,
   LinearProgress,
-  Box,
   Alert,
   InputAdornment,
   IconButton,
@@ -92,110 +91,116 @@ const SignUp = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box
-        my={4}
-        sx={{
-          // Apply styles to all direct children that are MuiTextField-root
-          '& .MuiTextField-root': {
-            mb: 2, // Default margin bottom
-            '@media (max-width:600px)': {
-              mb: 1, // Reduced margin bottom for screens smaller than 600px
-            },
+    <Container
+      maxWidth="sm"
+      sx={{
+        // bgcolor: 'background.default',
+        // color: 'text.primary',
+        height: '100svh', // Make the Container fill the entire viewport height
+        display: 'flex',
+        flexDirection: 'column', // Stack children vertically
+        justifyContent: 'flex-start', // Align children to the start of the container
+        '& .MuiTextField-root': {
+          mb: 2, // Default margin bottom
+          '@media (max-width:600px)': {
+            mb: 1, // Reduced margin bottom for screens smaller than 600px
           },
-          '& .MuiButton-root': {
-            mt: 3,
-          },
-        }}>
-        <Typography variant="h4" gutterBottom>
-          Sign Up
-        </Typography>
-        <form>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                required
-                label="Email"
-                variant="outlined"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                required
-                label="Password"
-                margin="normal"
-                type={showPassword ? 'text' : 'password'}
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}>
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              {result && (
-                <>
-                  <LinearProgress
-                    variant="determinate"
-                    value={result.score * 25}
-                    color={getPasswordStrengthColor(result.score)}
-                    sx={{ borderRadius: 4 }}
-                  />
-                  {result.feedback.warning && <Alert severity="warning">{result.feedback.warning}</Alert>}
-                  {result.feedback.suggestions.length > 0 &&
-                    result.feedback.suggestions.map((suggestion, index) => (
-                      <Alert key={index} severity="info">
-                        {suggestion}
-                      </Alert>
-                    ))}
-                </>
-              )}
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                required
-                label="Confirm Password"
-                margin="normal"
-                type={showPassword ? 'text' : 'password'}
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}>
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Button variant="contained" color="primary" fullWidth>
-                Sign Up
-              </Button>
-            </Grid>
+        },
+        '& .MuiButton-root': {
+          mt: 3,
+        },
+      }}>
+      <Typography variant="h4" gutterBottom>
+        Sign Up
+      </Typography>
+      <form>
+        <Grid container spacing={0}>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              required
+              label="Email"
+              autoComplete="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
           </Grid>
-        </form>
-      </Box>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              required
+              label="Password"
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              autoComplete="new-password"
+              variant="outlined"
+              value={formData.password}
+              onChange={handleChange}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}>
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            {result && (
+              <>
+                <LinearProgress
+                  variant="determinate"
+                  value={result.score * 25}
+                  color={getPasswordStrengthColor(result.score)}
+                  sx={{ borderRadius: 4 }}
+                />
+                {result.feedback.warning && <Alert severity="warning">{result.feedback.warning}</Alert>}
+                {result.feedback.suggestions.length > 0 &&
+                  result.feedback.suggestions.map((suggestion, index) => (
+                    <Alert key={index} severity="info">
+                      {suggestion}
+                    </Alert>
+                  ))}
+              </>
+            )}
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              required
+              label="Confirm Password"
+              autoComplete="new-password"
+              type={showPassword ? 'text' : 'password'}
+              name="confirmPassword"
+              sx={{ mt: 1.2 }}
+              variant="outlined"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}>
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button variant="contained" color="primary" fullWidth>
+              Sign Up
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
     </Container>
   );
 };
