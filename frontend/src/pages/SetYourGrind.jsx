@@ -55,7 +55,7 @@ function SetYourGrind() {
         <div className="flex flex-wrap justify-center bg-green-900">
           {/* 1x per Week card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -84,9 +84,7 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">
-                    &qout;A lone tribute to the muscle deity&qout;
-                  </p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">A lone tribute to the muscle deity</p>
 
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
@@ -97,7 +95,7 @@ function SetYourGrind() {
           </div>
           {/* 2x per Week card*/}
           <div className="flex flex-row justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -126,7 +124,7 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">&qout;Strengthening tributes&qout;</p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">Strengthening tributes</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -136,7 +134,7 @@ function SetYourGrind() {
           </div>
           {/* 3x per Week card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -165,9 +163,7 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">
-                    &qout;Thrice a week, a ritual of unleashing&qout;
-                  </p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">Thrice a week, a ritual of unleashing</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
@@ -177,7 +173,7 @@ function SetYourGrind() {
           </div>
           {/* 4x per Week card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -206,9 +202,7 @@ function SetYourGrind() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-cthulhumbus">per Week</h2>
-                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">
-                    &qout;Echoes of my power in your veins!&qout;
-                  </p>
+                  <p className="py-1 font-cthulhumbus text-sm text-pink-800">Echoes of my power in your veins!</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
                   </div> */}
