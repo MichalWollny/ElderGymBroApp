@@ -9,8 +9,9 @@ import {
   Alert,
   InputAdornment,
   IconButton,
+  Grid,
 } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+// import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { zxcvbnAsync, zxcvbnOptions } from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en';
@@ -62,6 +63,8 @@ const getPasswordStrengthColor = (score) => {
   }
 };
 
+// TODO when in mobile view less space between the TextFields!
+
 const SignUp = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -90,7 +93,20 @@ const SignUp = () => {
 
   return (
     <Container maxWidth="sm">
-      <Box my={4} sx={{ '& .MuiTextField-root': { mb: 2 }, '& .MuiButton-root': { mt: 3 } }}>
+      <Box
+        my={4}
+        sx={{
+          // Apply styles to all direct children that are MuiTextField-root
+          '& .MuiTextField-root': {
+            mb: 2, // Default margin bottom
+            '@media (max-width:600px)': {
+              mb: 1, // Reduced margin bottom for screens smaller than 600px
+            },
+          },
+          '& .MuiButton-root': {
+            mt: 3,
+          },
+        }}>
         <Typography variant="h4" gutterBottom>
           Sign Up
         </Typography>
