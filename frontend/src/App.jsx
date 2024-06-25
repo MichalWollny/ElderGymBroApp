@@ -13,6 +13,7 @@ import SplashScreen from './pages/SplashScreen';
 import UIElements from './pages/UIElements';
 import Workouts from './pages/Workouts';
 import SignUp from './pages/SignUp';
+import Registration from './pages/Registration';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/register" element={<Registration />} />
 
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/profile" element={<Profile />} />
