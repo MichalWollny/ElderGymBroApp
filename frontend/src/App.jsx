@@ -15,6 +15,7 @@ import Workouts from './pages/Workouts';
 import SignUp from './pages/SignUp';
 import Registration from './pages/Registration';
 import EditUserData from './pages/EditUserData';
+import SetUp from './pages/SetUp';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/profilerework" element={<Profilerework />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/template" element={<Template />} />
+        <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />

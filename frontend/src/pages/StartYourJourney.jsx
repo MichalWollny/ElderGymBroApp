@@ -51,7 +51,7 @@ function StartYourJourney() {
         <div className="flex flex-wrap justify-center bg-green-900">
           {/* Gender card*/}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
+            <div className="card m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg
                   height="64px"
@@ -83,6 +83,7 @@ function StartYourJourney() {
               <div className="card-body">
                 <div className="flex flex-col items-center">
                   <h2 className="card-title py-2 font-semibold">Gender</h2>
+
                   <p className="py-1 font-thin">Subheading</p>
                   {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Listen</button>
