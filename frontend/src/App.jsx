@@ -14,10 +14,16 @@ import UIElements from './pages/UIElements';
 import Workouts from './pages/Workouts';
 import SignUp from './pages/SignUp';
 import Registration from './pages/Registration';
+import UICard from './pages/UICard';
 import EditUserData from './pages/EditUserData';
 import SetUp from './pages/SetUp';
 
+import useFetchData from './utils/FetchData';
+
+
 function App() {
+  const { hardcodedWorkouts, isLoading } = useFetchData();
+
   return (
     <>
       <Routes>
@@ -38,6 +44,8 @@ function App() {
         <Route path="/splashscreen" element={<SplashScreen />} />
         <Route path="/uielements" element={<UIElements />} />
         <Route path="/workouts" element={<Workouts />} />
+        <Route path="/uicard" element={<UICard />} />
+        <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
       </Routes>
     </>
   );

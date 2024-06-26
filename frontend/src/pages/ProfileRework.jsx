@@ -16,7 +16,7 @@ import avatarImage5 from '../assets/images/gymLord.png';
 
 const Profile = () => {
   return (
-    <div className="min-h-svh bg-gray-950 text-gray-200">
+    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
       {/* window bar */}
       <div className="flex flex-row justify-start bg-gray-900">
         {/* icon button container*/}
@@ -59,8 +59,8 @@ const Profile = () => {
 
           {/* profile image bar */}
           <div className="flex flex-row justify-center">
-            <div className="-mr-24 -mt-6">
-              <div className="max-w-12 cursor-pointer rounded-full bg-pink-900 p-2 transition-transform hover:scale-110">
+            <div className="-mr-22 -mt-6">
+              <div className="absolute max-w-12 cursor-pointer rounded-full bg-pink-900 p-2 transition-transform hover:scale-110">
                 <label htmlFor="upload" className="flex cursor-pointer flex-col items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

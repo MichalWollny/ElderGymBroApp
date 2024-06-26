@@ -1,20 +1,46 @@
-// import stamina from '/src/assets/images/stamina.avif';
-// import gymLord from '/src/assets/images/gymLord.avif';
-// import ygolonac from '/src/assets/images/ygolonac.avif';
-// import cardioRiot from '/src/assets/images/cardioRiot.avif';
-import startYourJorney from '/src/assets/images/startYourJorney.jpeg';
 
-// const containerItems = [
-//   { id: 'gymLord', imgSrc: gymLord, text: 'Muscle Worship' },
-//   { id: 'ygolonac', imgSrc: ygolonac, text: 'Fat Fight' },
-//   { id: 'stamina', imgSrc: stamina, text: 'Stamina Destruction' },
-//   { id: 'cardioRiot', imgSrc: cardioRiot, text: 'Cardio Crusade' },
-// ];
+// components
+import UICard from './UICard';
+
+// images
+import startYourJourney from '/src/assets/images/startYourJourney.jpeg';
+
+// icons
+import gendermark from '/src/assets/icons/svg/gendermark.svg';
+import gymexperience from '/src/assets/icons/svg/gymexperience.svg';
+import equipment from '/src/assets/icons/svg/equipment.svg';
+
+const cards = [
+  {
+    // Gender card
+    image: '/src/assets/icons/svg/gendermark.svg',
+    heading: 'Gender',
+    subheading: 'Confess your cosmic entity',
+    // other props...
+  },
+  {
+    // Gym experience card
+    image: '/src/assets/icons/svg/gymexperience.svg',
+    heading: 'Gym Experience',
+    subheading: 'Recite your story of suffering',
+    // other props...
+  },
+  {
+    // Grow your muscles card
+    // image: '/src/assets/icons/svg/equipment.svg',
+    image: '/src/assets/icons/svg/equipment.svg',
+    heading: 'Equipment',
+    subheading: 'Pick your torture instruments of choice',
+    // other props...
+  },
+];
+
+
 
 function StartYourJourney() {
   return (
     <>
-      <div className="min-h-svh bg-gray-950 text-gray-200">
+    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
         {/* window bar */}
         <div className="flex flex-row justify-start bg-gray-900">
           {/* icon button container*/}
@@ -45,7 +71,9 @@ function StartYourJourney() {
         </div>
 
         {/* Image bar */}
-        <div className="flex flex-row justify-center bg-red-900"></div>
+        <div className="flex flex-row justify-center text-gray-200">   
+          <img src={startYourJourney} alt="Landing Page Image" className="m-2 w-64" />
+        </div>
 
         {/* Content bar*/}
         <div className="flex flex-wrap justify-center bg-green-900">
@@ -137,58 +165,32 @@ function StartYourJourney() {
             </div>
           </div>
 
-          {/* equipment card*/}
-          <div className="flex flex-wrap justify-center">
-            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
-              <div className="flex min-w-36 flex-col items-center justify-center">
-                <svg
-                  fill="#702848"
-                  height="64px"
-                  width="64px"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xlinkHref="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 442.252 442.252"
-                  xmlSpace="preserve"
-                  stroke="#702848"
-                  strokeWidth="0.004422520000000001">
-                  <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+        <div className="flex flex-wrap justify-center  text-gray-200">
 
-                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
-                  <g id="SVGRepo_iconCarrier">
-                    {' '}
-                    <path
-                      id="XMLID_156_"
-                      d="M176.807,320.352c10.993-14.92,28.604-23.827,47.11-23.827c18.509,0,36.12,8.907,47.11,23.827 c3.112,4.225,2.21,10.172-2.014,13.283c-4.226,3.115-10.171,2.21-13.283-2.014c-7.535-10.229-19.131-16.097-31.813-16.097 c-12.681,0-24.276,5.867-31.813,16.097c-1.862,2.528-4.74,3.866-7.656,3.866c-1.957,0-3.931-0.603-5.627-1.853 C174.596,330.522,173.694,324.575,176.807,320.352z M138.345,414.627h-24.052V70.824h213.664v197.818c0,5.247,4.253,9.5,9.5,9.5 s9.5-4.253,9.5-9.5V70.824h44.987v24.052c0,5.247,4.253,9.5,9.5,9.5s9.5-4.253,9.5-9.5v-3.083c1.479,0.951,3.24,1.503,5.13,1.503 c5.247,0,9.5-4.253,9.5-9.5V70.824h2.864c5.247,0,9.5-4.253,9.5-9.5s-4.253-9.5-9.5-9.5h-2.864V38.854c0-5.247-4.253-9.5-9.5-9.5 c-1.89,0-3.65,0.552-5.13,1.503v-3.083c0-5.247-4.253-9.5-9.5-9.5s-9.5,4.253-9.5,9.5v24.051h-44.987V9.5c0-5.247-4.253-9.5-9.5-9.5 s-9.5,4.253-9.5,9.5v42.324H114.293V9.5c0-5.247-4.253-9.5-9.5-9.5s-9.5,4.253-9.5,9.5v42.324H50.308V27.773 c0-5.247-4.253-9.5-9.5-9.5s-9.5,4.253-9.5,9.5v3.083c-1.479-0.951-3.24-1.503-5.13-1.503c-5.247,0-9.5,4.253-9.5,9.5v12.971h-2.864 c-5.247,0-9.5,4.253-9.5,9.5s4.253,9.5,9.5,9.5h2.864v12.972c0,5.247,4.253,9.5,9.5,9.5c1.89,0,3.65-0.552,5.13-1.503v3.083 c0,5.247,4.253,9.5,9.5,9.5s9.5-4.253,9.5-9.5V70.824h44.985v343.803H71.24c-5.247,0-9.5,4.253-9.5,9.5s4.253,9.5,9.5,9.5h33.316 c0.079,0.002,0.157,0.003,0.236,0.003s0.157-0.001,0.236-0.003h33.315c5.247,0,9.5-4.253,9.5-9.5S143.592,414.627,138.345,414.627z M421.337,374.464c0.403-1.718,0.617-3.507,0.617-5.346v-13.459c0-12.339-9.623-22.474-21.759-23.296 c0.289-1.465,0.44-2.979,0.44-4.526V314.38c0-12.876-10.475-23.352-23.351-23.352h-56.641c-5.247,0-9.5,4.253-9.5,9.5 s4.253,9.5,9.5,9.5h56.641c2.358,0,4.351,1.993,4.351,4.352v13.457c0,2.358-1.992,4.352-4.351,4.352 c-0.518,0-42.311,0.121-42.311,0.121c-5.247,0-9.5,4.253-9.5,9.5s4.253,9.5,9.5,9.5h63.627c2.359,0,4.353,1.992,4.353,4.35v13.459 c0,2.358-1.993,4.352-4.353,4.352h-66.627c-5.247,0-9.5,4.253-9.5,9.5s4.253,9.5,9.5,9.5h82.613c2.358,0,4.351,1.992,4.351,4.351 v13.458c0,2.358-1.992,4.352-4.351,4.352H309.255c-5.247,0-9.5,4.253-9.5,9.5s4.253,9.5,9.5,9.5h105.333 c12.876,0,23.351-10.476,23.351-23.352V396.82C437.938,386.291,430.932,377.366,421.337,374.464z M253.938,355.009 c0,16.554-13.467,30.021-30.021,30.021c-16.553,0-30.02-13.467-30.02-30.021s13.467-30.021,30.02-30.021 C240.471,324.988,253.938,338.455,253.938,355.009z M234.938,355.009c0-6.077-4.943-11.021-11.021-11.021 c-6.076,0-11.02,4.943-11.02,11.021s4.943,11.021,11.02,11.021C229.994,366.029,234.938,361.086,234.938,355.009z M311.16,355.009 c0,48.104-39.137,87.242-87.243,87.243c-48.104-0.001-87.242-39.138-87.244-87.243c0.002-48.105,39.14-87.242,87.244-87.243 C272.023,267.767,311.16,306.904,311.16,355.009z M292.16,355.009c0-37.629-30.614-68.242-68.243-68.243 c-37.628,0.001-68.242,30.615-68.244,68.243c0.002,37.628,30.616,68.242,68.244,68.243 C261.546,423.251,292.16,392.638,292.16,355.009z M269.011,376.383c-4.225-3.11-10.172-2.208-13.283,2.016 c-7.423,10.078-19.314,16.095-31.811,16.095c-12.495,0-24.386-6.017-31.809-16.095c-3.111-4.224-9.058-5.126-13.283-2.016 c-4.225,3.111-5.127,9.059-2.016,13.283c10.989,14.92,28.6,23.827,47.107,23.827c18.51,0,36.12-8.907,47.109-23.827 C274.138,385.441,273.235,379.494,269.011,376.383z"
-                    />{' '}
-                  </g>
-                </svg>
-              </div>
-              <div className="card-body">
-                <div className="flex flex-col items-center">
-                  <h2 className="card-title py-2 font-semibold">Equipment</h2>
-                  <p className="py-1 font-thin">Subheading</p>
-                  {/* <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Listen</button>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* --5. Name this bar */}
-        <div className="flex flex-row justify-center bg-yellow-900"></div>
+        <div className="flex flex-row justify-center"></div>
+
+        {/* Content bar */}
+        <div className="flex flex-wrap justify-center">
+
+
+          <div className="flex flex-wrap justify-center">
+            {cards.map((card, index) => (
+              <UICard 
+              key={index} 
+              image={card.image}
+              heading={card.heading} 
+              subheading={card.subheading} />
+            ))}
+            </div>
+          </div>
+
 
         {/* --7. Name this bar */}
-        <div className="flex flex-row justify-center bg-blue-900">
-          <img src={startYourJorney} alt="Landing Page Image" className="m-2 w-36" />
-        </div>
-
-        {/* --7. Name this bar */}
-        <div className="flex flex-row justify-center bg-yellow-900">
+        <div className="flex flex-row justify-center">
           <div className="mt-6 flex justify-center">
             <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
               <a href="/whatsyourgoal">Next</a>

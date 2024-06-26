@@ -1,0 +1,305 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "name": "",
+      "aim": "",
+      "system": "Fullbody Workout",
+      "level": "",
+      "frequency": "2-3 Days a Week",
+      "duration": "",
+      "planDuration": "",
+      "breakDuration": "",
+      "split": false,
+      "tips": [""],
+      "exercises": [
+        {
+          "id": 1,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [""],
+          "secondaryMuscles": [],
+          "instructions": [""],
+          "category": ""
+        }
+      ],
+      "splits": [
+        {
+          "day": "",
+          "muscleGroups": [
+            {
+              "group": "chest",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "back",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "shoulders",
+              "exercises": [{ "name": "", "sets": "", "reps": "" }]
+            },
+            {
+              "group": "biceps",
+              "exercises": [{ "name": "", "sets": "", "reps": "" }]
+            },
+            {
+              "group": "triceps",
+              "exercises": [{ "name": "", "sets": "", "reps": "" }]
+            },
+            {
+              "group": "legs",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "abs",
+              "exercises": [{ "name": "", "sets": "", "reps": "" }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "",
+      "aim": "",
+      "system": "2-Day Split",
+      "level": "",
+      "frequency": "3-4 Days a Week",
+      "duration": "",
+      "planDuration": "",
+      "breakDuration": "",
+      "split": true,
+      "tips": [""],
+      "exercises": [
+        {
+          "id": 1,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [""],
+          "secondaryMuscles": [],
+          "instructions": [""],
+          "category": ""
+        },
+        {
+          "id": 2,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [""],
+          "secondaryMuscles": [],
+          "instructions": [""],
+          "category": ""
+        },
+        {
+          "id": 3,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [""],
+          "secondaryMuscles": [],
+          "instructions": [""],
+          "category": ""
+        }
+      ],
+      "splits": [
+        {
+          "day": "A",
+          "muscleGroups": [
+            {
+              "group": "chest",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "shoulders",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "triceps",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "abs",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "B",
+          "muscleGroups": [
+            {
+              "group": "legs",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "back",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "biceps",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "",
+      "aim": "",
+      "system": "3-Day Split",
+      "level": "",
+      "frequency": "4-5 Days a Week",
+      "duration": "",
+      "planDuration": "",
+      "breakDuration": "",
+      "split": true,
+      "tips": [""],
+      "exercises": [
+        {
+          "id": 1,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [""],
+          "secondaryMuscles": [],
+          "instructions": [""],
+          "category": ""
+        },
+        {
+          "id": 2,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [""],
+          "secondaryMuscles": [],
+          "instructions": [""],
+          "category": ""
+        },
+        {
+          "id": 3,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [""],
+          "secondaryMuscles": [],
+          "instructions": [""],
+          "category": ""
+        }
+      ],
+      "splits": [
+        {
+          "day": "A",
+          "muscleGroups": [
+            {
+              "group": "chest",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "shoulders",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "triceps",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "B",
+          "muscleGroups": [
+            {
+              "group": "back",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "biceps",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "C",
+          "muscleGroups": [
+            {
+              "group": "legs",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "abs",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
