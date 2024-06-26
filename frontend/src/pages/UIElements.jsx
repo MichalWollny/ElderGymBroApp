@@ -4,8 +4,7 @@ import 'dayjs/locale/en-gb';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import UIElementsCard from './UILibraryCard';
-import UILibraryCard from './UILibraryCard';
+import UICard from './UICard';
 
 function UIElements() {
   return (
@@ -291,7 +290,10 @@ function UIElements() {
 
           <>
             {/*<!-- Component: Rounded base sized datepicker with helper text --> */}
-            <div className="relative my-6"> 
+            <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
+            <p className="font-semibold">Wind UI Datepicker</p>
+            <hr />
+            <br/>
               <input
                 id="id-date08"
                 type="date"
@@ -303,7 +305,7 @@ function UIElements() {
                 className="absolute -top-2 left-2 z-[1] cursor-text px-2 text-xs text-slate-400 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:cursor-default peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent">
                 Date
               </label>
-              <small className="absolute flex w-full justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
+              <small className="px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
                 <span>WindUI date picker</span>
               </small>
             </div>

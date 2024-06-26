@@ -14,6 +14,7 @@ import UIElements from './pages/UIElements';
 import Workouts from './pages/Workouts';
 import SignUp from './pages/SignUp';
 import Registration from './pages/Registration';
+import UICard from './pages/UICard';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/splashscreen" element={<SplashScreen />} />
         <Route path="/uielements" element={<UIElements />} />
         <Route path="/workouts" element={<Workouts />} />
+        <Route path="/uicard" element={<UICard />} />
       </Routes>
     </>
   );

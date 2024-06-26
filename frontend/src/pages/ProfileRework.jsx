@@ -16,7 +16,7 @@ import avatarImage5 from '../assets/images/gymLord.png';
 
 const Profile = () => {
   return (
-    <div className="min-h-svh bg-gradient-to-br from-black to-gray-700 text-gray-200">
+    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
       {/* window bar */}
       <div className="flex flex-row justify-start bg-gray-900">
         {/* icon button container*/}
