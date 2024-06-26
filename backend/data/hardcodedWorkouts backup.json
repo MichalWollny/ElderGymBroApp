@@ -1,0 +1,902 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "name": "Beginner Fullbody Workout",
+      "aim": "Build Muscle",
+      "system": "Fullbody Workout",
+      "level": "Beginner",
+      "frequency": "2-3 Days a Week",
+      "duration": "around 60 Minutes",
+      "planDuration": "6-12 Weeks",
+      "breakDuration": "90 Seconds",
+      "split": false,
+      "tips": [
+        "Train all of your muscle groups on one day, during one trainingsession",
+        "Optimal training for beginners or busy people",
+        "Good training start after an injury, even for experienced people",
+        "Perfect to start building muscle and strength",
+        "2-3 training sessions are more than sufficent",
+        "Shorter training sessions of around 60 minutes",
+        "Optimal regeneration between training sessions",
+        "Theoretically overtraining is not possible"
+      ],
+      "exercises": [
+        {
+          "id": 1,
+          "name": "Barbell Bench Press - Medium Grip",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "barbell",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": ["shoulders", "triceps"],
+          "instructions": [
+            "Lie back on a flat bench. Using a medium width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.",
+            "From the starting position, breathe in and begin coming down slowly until the bar touches your middle chest.",
+            "After a brief pause, push the bar back to the starting position as you breathe out. Focus on pushing the bar using your chest muscles. Lock your arms and squeeze your chest in the contracted position at the top of the motion, hold for a second and then start coming down slowly again. Tip: Ideally, lowering the weight should take about twice as long as raising it.",
+            "Repeat the movement for the prescribed amount of repetitions.",
+            "When you are done, place the bar back in the rack."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 2,
+          "name": "Butterfly",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "machine",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Sit on the machine with your back flat on the pad.",
+            "Take hold of the handles. Tip: Your upper arms should be positioned parallel to the floor; adjust the machine accordingly. This will be your starting position.",
+            "Push the handles together slowly as you squeeze your chest in the middle. Breathe out during this part of the motion and hold the contraction for a second.",
+            "Return back to the starting position slowly as you inhale until your chest muscles are fully stretched.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 3,
+          "name": "Wide-Grip Lat Pulldown",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "cable",
+          "primaryMuscles": ["lats"],
+          "secondaryMuscles": ["biceps", "middle back", "shoulders"],
+          "instructions": [
+            "Sit down on a pull-down machine with a wide bar attached to the top pulley. Make sure that you adjust the knee pad of the machine to fit your height. These pads will prevent your body from being raised by the resistance attached to the bar.",
+            "Grab the bar with the palms facing forward using the prescribed grip. Note on grips: For a wide grip, your hands need to be spaced out at a distance wider than shoulder width. For a medium grip, your hands need to be spaced out at a distance equal to your shoulder width and for a close grip at a distance smaller than your shoulder width.",
+            "As you have both arms extended in front of you holding the bar at the chosen grip width, bring your torso back around 30 degrees or so while creating a curvature on your lower back and sticking your chest out. This is your starting position.",
+            "As you breathe out, bring the bar down until it touches your upper chest by drawing the shoulders and the upper arms down and back. Tip: Concentrate on squeezing the back muscles once you reach the full contracted position. The upper torso should remain stationary and only the arms should move. The forearms should do no other workexcept for holding the bar; therefore do not try to pull down the bar using the forearms.",
+            "After a second at the contracted position squeezing your shoulder blades together, slowly raise the bar back to the starting position when your arms are fully extended and the lats are fully stretched. Inhale during this portion of the movement.",
+            "Repeat this motion for the prescribed amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 4,
+          "name": "Seated Cable Rows",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "cable",
+          "primaryMuscles": ["middle back"],
+          "secondaryMuscles": ["biceps", "lats", "shoulders"],
+          "instructions": [
+            "For this exercise you will need access to a low pulley row machine with a V-bar. Note: The V-bar will enable you to have a neutral grip where the palms of your hands face each other. To get into the starting position, first sit down on the machine and place your feet on the front platform or crossbar provided making sure that your knees are slightly bent and not locked.",
+            "Lean over as you keep the natural alignment of your back and grab the V-bar handles.",
+            "With your arms extended pull back until your torso is at a 90-degree angle from your legs. Your back should be slightly arched and your chest should be sticking out. You should be feeling a nice stretch on your lats as you hold the bar in front of you. This is the starting position of the exercise.",
+            "Keeping the torso stationary, pull the handles back towards your torso while keeping the arms close to it until you touch the abdominals. Breathe out as you perform that movement. At that point you should be squeezing your back muscles hard. Hold that contraction for a second and slowly go back to the original position while breathing in.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 5,
+          "name": "Side Lateral Raise",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "dumbbell",
+          "primaryMuscles": ["shoulders"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Pick a couple of dumbbells and stand with a straight torso and the dumbbells by your side at arms length with the palms of the hand facing you. This will be your starting position.",
+            "While maintaining the torso in a stationary position (no swinging), lift the dumbbells to your side with a slight bend on the elbow and the hands slightly tilted forward as if pouring water in a glass. Continue to go up until you arms are parallel to the floor. Exhale as you execute this movement and pause for a second at the top.",
+            "Lower the dumbbells back down slowly to the starting position as you inhale.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 6,
+          "name": "Close-Grip EZ Bar Curl",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "barbell",
+          "primaryMuscles": ["biceps"],
+          "secondaryMuscles": ["forearms"],
+          "instructions": [
+            "Stand up with your torso upright while holding an E-Z Curl Bar at the closer inner handle. The palm of your hands should be facing forward and they should be slightly tilted inwards due to the shape of the bar. The elbows should be close to the torso. This will be your starting position.",
+            "While holding the upper arms stationary, curl the weights forward while contracting the biceps as you breathe out. Tip: Only the forearms should move.",
+            "Continue the movement until your biceps are fully contracted and the bar is at shoulder level. Hold the contracted position for a second and squeeze the biceps hard.",
+            "Slowly begin to bring the bar back to starting position as your breathe in.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 7,
+          "name": "Low Cable Triceps Extension",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "cable",
+          "primaryMuscles": ["triceps"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Select the desired weight and lay down face up on the bench of a seated row machine that has a rope attached to it. Your head should be pointing towards the attachment.",
+            "Grab the outside of the rope ends with your palms facing each other (neutral grip).",
+            "Position your elbows so that they are bent at a 90 degree angle and your upper arms are perpendicular (90 degree angle) to your torso. Tip: Keep the elbows in and make sure that the upper arms point to the ceiling while your forearms point towards the pulley above your head. This will be your starting position.",
+            "As you breathe out, extend your lower arms until they are straight and vertical. The upper arms and elbows remain stationary throughout the movement. Only the forearms should move. Contract the triceps hard for a second.",
+            "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 8,
+          "name": "Leg Press",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "machine",
+          "primaryMuscles": ["quadriceps"],
+          "secondaryMuscles": ["calves", "glutes", "hamstrings"],
+          "instructions": [
+            "Using a leg press machine, sit down on the machine and place your legs on the platform directly in front of you at a medium (shoulder width) foot stance. (Note: For the purposes of this discussion we will use the medium stance described above which targets overall development; however you can choose any of the three stances described in the foot positioning section).",
+            "Lower the safety bars holding the weighted platform in place and press the platform all the way up until your legs are fully extended in front of you. Tip: Make sure that you do not lock your knees. Your torso and the legs should make a perfect 90-degree angle. This will be your starting position.",
+            "As you inhale, slowly lower the platform until your upper and lower legs make a 90-degree angle.",
+            "Pushing mainly with the heels of your feet and using the quadriceps go back to the starting position as you exhale.",
+            "Repeat for the recommended amount of repetitions and ensure to lock the safety pins properly once you are done. You do not want that platform falling on you fully loaded."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 9,
+          "name": "Lying Leg Curls",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "machine",
+          "primaryMuscles": ["hamstrings"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Adjust the machine lever to fit your height and lie face down on the leg curl machine with the pad of the lever on the back of your legs (just a few inches under the calves). Tip: Preferably use a leg curl machine that is angled as opposed to flat since an angled position is more favorable for hamstrings recruitment.",
+            "Keeping the torso flat on the bench, ensure your legs are fully stretched and grab the side handles of the machine. Position your toes straight (or you can also use any of the other two stances described on the foot positioning section). This will be your starting position.",
+            "As you exhale, curl your legs up as far as possible without lifting the upper legs from the pad. Once you hit the fully contracted position, hold it for a second.",
+            "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 10,
+          "name": "Crunches",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "body only",
+          "primaryMuscles": ["abdominals"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Lie flat on your back with your feet flat on the ground, or resting on a bench with your knees bent at a 90 degree angle. If you are resting your feet on a bench, place them three to four inches apart and point your toes inward so they touch.",
+            "Now place your hands lightly on either side of your head keeping your elbows in. Tip: Don't lock your fingers behind your head.",
+            "While pushing the small of your back down in the floor to better isolate your abdominal muscles, begin to roll your shoulders off the floor.",
+            "Continue to push down as hard as you can with your lower back as you contract your abdominals and exhale. Your shoulders should come up off the floor only about four inches, and your lower back should remain on the floor. At the top of the movement, contract your abdominals hard and keep the contraction for a second. Tip: Focus on slow, controlled movement - don't cheat yourself by using momentum.",
+            "After the one second contraction, begin to come down slowly again to the starting position as you inhale.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        }
+      ],
+      "splits": [
+        {
+          "day": "",
+          "muscleGroups": [
+            {
+              "group": "chest",
+              "exercises": [
+                { "name": "Barbell Bench Press - Medium Grip", "sets": "3", "reps": "10-15" },
+                { "name": "Butterfly", "sets": "3", "reps": "10-15" }
+              ]
+            },
+            {
+              "group": "back",
+              "exercises": [
+                { "name": "Wide-Grip Lat Pulldown", "sets": "3", "reps": "10-15" },
+                { "name": "Seated Cable Rows", "sets": "3", "reps": "10-15" }
+              ]
+            },
+            {
+              "group": "shoulders",
+              "exercises": [{ "name": "Side Lateral Raise", "sets": "3", "reps": "10-15" }]
+            },
+            {
+              "group": "biceps",
+              "exercises": [{ "name": "Close-Grip EZ Bar Curl", "sets": "3", "reps": "10-15" }]
+            },
+            {
+              "group": "triceps",
+              "exercises": [{ "name": "Low Cable Triceps Extension", "sets": "3", "reps": "10-15" }]
+            },
+            {
+              "group": "legs",
+              "exercises": [
+                { "name": "Leg Press", "sets": "3", "reps": "10-15" },
+                { "name": "Lying Leg Curls", "sets": "3", "reps": "10-15" }
+              ]
+            },
+            {
+              "group": "abs",
+              "exercises": [{ "name": "Crunches", "sets": "3", "reps": "10-20" }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Beginner 2-Day Split Workout",
+      "aim": "Build Muscle",
+      "system": "2-Day Split",
+      "level": "Beginner",
+      "frequency": "3-4 Days a Week",
+      "duration": "50-60 Minutes",
+      "planDuration": "16-20 weeks",
+      "breakDuration": "90 Seconds",
+      "split": true,
+      "tips": [
+        "Perfect for beginners",
+        "One of the most popular splits for building musce",
+        "Only 3-4 Workoutdays per week",
+        "Short training duration of 50-60 minutes",
+        "Optimal regeneration due to the push-pull split"
+      ],
+      "exercises": [
+        {
+          "id": 1,
+          "name": "Barbell Bench Press - Medium Grip",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "barbell",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": ["shoulders", "triceps"],
+          "instructions": [
+            "Lie back on a flat bench. Using a medium width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.",
+            "From the starting position, breathe in and begin coming down slowly until the bar touches your middle chest.",
+            "After a brief pause, push the bar back to the starting position as you breathe out. Focus on pushing the bar using your chest muscles. Lock your arms and squeeze your chest in the contracted position at the top of the motion, hold for a second and then start coming down slowly again. Tip: Ideally, lowering the weight should take about twice as long as raising it.",
+            "Repeat the movement for the prescribed amount of repetitions.",
+            "When you are done, place the bar back in the rack."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 2,
+          "name": "Smith Machine Incline Bench Press",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "machine",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": ["shoulders", "triceps"],
+          "instructions": [
+            "Place an incline bench underneath the smith machine. Place the barbell at a height that you can reach when lying down and your arms are almost fully extended. Once the weight you need is selected, lie down on the incline bench and make sure your upper chest is aligned with the barbell. Using a pronated grip (palms facing forward) that is wider than shoulder width, unlock the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.",
+            "As you breathe in, come down slowly until you feel the bar on your upper chest.",
+            "After a second pause, bring the bar back to the starting position as you breathe out and push the bar using your chest muscles. Lock your arms in the contracted position, hold for a second and then start coming down slowly again. Tip: It should take at least twice as long to go down than to come up.",
+            "Repeat the movement for the prescribed amount of repetitions.",
+            "When you are done, place the bar back in the rack."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 3,
+          "name": "Butterfly",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "machine",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Sit on the machine with your back flat on the pad.",
+            "Take hold of the handles. Tip: Your upper arms should be positioned parallel to the floor; adjust the machine accordingly. This will be your starting position.",
+            "Push the handles together slowly as you squeeze your chest in the middle. Breathe out during this part of the motion and hold the contraction for a second.",
+            "Return back to the starting position slowly as you inhale until your chest muscles are fully stretched.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 4,
+          "name": "Smith Machine Overhead Shoulder Press",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "machine",
+          "primaryMuscles": ["shoulders"],
+          "secondaryMuscles": ["triceps"],
+          "instructions": [
+            "To begin, place a flat bench (or preferably one with back support) underneath a smith machine. Position the barbell at a height so that when seated on the flat bench, the arms must be almost fully extended to reach the barbell.",
+            "Once you have the correct height, sit slightly in behind the barbell so that there is an imaginary straight line from the tip of your nose to the barbell. Your feet should be stationary. Grab the barbell with the palms facing forward, unlock it and lift it up so that your arms are fully extended. This is the starting position.",
+            "Slowly begin to lower the barbell until it is level with your chin while inhaling.",
+            "Then lift the barbell back to the starting position using your shoulders while exhaling.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 5,
+          "name": "Side Lateral Raise",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "dumbbell",
+          "primaryMuscles": ["shoulders"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Pick a couple of dumbbells and stand with a straight torso and the dumbbells by your side at arms length with the palms of the hand facing you. This will be your starting position.",
+            "While maintaining the torso in a stationary position (no swinging), lift the dumbbells to your side with a slight bend on the elbow and the hands slightly tilted forward as if pouring water in a glass. Continue to go up until you arms are parallel to the floor. Exhale as you execute this movement and pause for a second at the top.",
+            "Lower the dumbbells back down slowly to the starting position as you inhale.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 6,
+          "name": "Close-Grip EZ-Bar Press",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "e-z curl bar",
+          "primaryMuscles": ["triceps"],
+          "secondaryMuscles": ["chest", "shoulders"],
+          "instructions": [
+            "Lie on a flat bench with an EZ bar loaded to an appropriate weight.",
+            "Using a narrow grip lift the bar and hold it straight over your torso with your elbows in. The arms should be perpendicular to the floor. This will be your starting position.",
+            "Now lower the bar down to your lower chest as you breathe in. Keep the elbows in as you perform this movement.",
+            "Using the triceps to push the bar back up, press it back to the starting position by extending the elbows as you exhale.",
+            "Repeat."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 7,
+          "name": "Triceps Pushdown",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "cable",
+          "primaryMuscles": ["triceps"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Attach a straight or angled bar to a high pulley and grab with an overhand grip (palms facing down) at shoulder width.",
+            "Standing upright with the torso straight and a very small inclination forward, bring the bar down towards your thighs by only moving your forearm. Keep your upper arms still and only move your forearms. This will be your starting position.",
+            "Now, slowly lower the bar down towards your thighs by bending your elbows. Keep your upper arms still and only move your forearms.",
+            "Once you feel the stretch in your triceps, slowly raise the bar back to the starting position by extending your elbows.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 8,
+          "name": "Overhead Dumbbell Extension",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "dumbbell",
+          "primaryMuscles": ["triceps"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Stand with your feet shoulder width apart and hold a dumbbell in each hand overhead with your arms extended.",
+            "Slowly lower the dumbbells behind your head by bending your elbows. Keep your upper arms still and only move your forearms.",
+            "Once you feel the stretch in your triceps, slowly raise the dumbbells back to the starting position by extending your elbows.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 9,
+          "name": "Bent Over Dumbbell Row",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "dumbbell",
+          "primaryMuscles": ["back"],
+          "secondaryMuscles": ["biceps", "shoulders"],
+          "instructions": [
+            "Hold a dumbbell in each hand and bend over at the waist, keeping your back straight and your knees slightly bent.",
+            "Let your arms hang straight down from your shoulders, with your palms facing towards your body.",
+            "Lift the dumbbells up to your sides, keeping your elbows close to your body, until your elbows are at a 90-degree angle.",
+            "Lower the dumbbells back down to the starting position and repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 10,
+          "name": "Lat Pulldown",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "machine",
+          "primaryMuscles": ["back"],
+          "secondaryMuscles": ["biceps", "shoulders"],
+          "instructions": [
+            "Sit at a lat pulldown machine with your knees securely under the knee pad and your feet flat on the floor.",
+            "Grasp the bar with a shoulder-width overhand grip.",
+            "Pull the bar down towards your chest, squeezing your lats at the top of the movement.",
+            "Return the bar to the starting position and repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Intermediate 3-Day Split Workout",
+      "aim": "Build Muscle",
+      "system": "3-Day Split",
+      "level": "intermediate",
+      "frequency": "3-4 Days a Week",
+      "duration": "70-80 Minutes",
+      "planDuration": "12-16 weeks",
+      "breakDuration": "90-120 Seconds",
+      "split": true,
+      "tips": [
+        "Perfect for building muscle and definition",
+        "A succesful plan for more advanced gym goers",
+        "3-6 possible workoutdays a week",
+        "70 minute workout duration per training",
+        "Perfect ratio between volume and regeneration"
+      ],
+      "exercises": [
+        {
+          "id": 1,
+          "name": "Barbell Incline Bench Press - Medium Grip",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "barbell",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": ["shoulders", "triceps"],
+          "instructions": [
+            "Lie back on an incline bench. Using a medium-width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.",
+            "As you breathe in, come down slowly until you feel the bar on you upper chest.",
+            "After a second pause, bring the bar back to the starting position as you breathe out and push the bar using your chest muscles. Lock your arms in the contracted position, squeeze your chest, hold for a second and then start coming down slowly again. Tip: it should take at least twice as long to go down than to come up.",
+            "Repeat the movement for the prescribed amount of repetitions.",
+            "When you are done, place the bar back in the rack."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 2,
+          "name": "Dumbbell Bench Press",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "dumbbell",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": ["shoulders", "triceps"],
+          "instructions": [
+            "Lie down on a flat bench with a dumbbell in each hand resting on top of your thighs. The palms of your hands will be facing each other.",
+            "Then, using your thighs to help raise the dumbbells up, lift the dumbbells one at a time so that you can hold them in front of you at shoulder width.",
+            "Once at shoulder width, rotate your wrists forward so that the palms of your hands are facing away from you. The dumbbells should be just to the sides of your chest, with your upper arm and forearm creating a 90 degree angle. Be sure to maintain full control of the dumbbells at all times. This will be your starting position.",
+            "Then, as you breathe out, use your chest to push the dumbbells up. Lock your arms at the top of the lift and squeeze your chest, hold for a second and then begin coming down slowly. Tip: Ideally, lowering the weight should take about twice as long as raising it.",
+            "Repeat the movement for the prescribed amount of repetitions of your training program."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 3,
+          "name": "Incline Dumbbell Flyes",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "dumbbell",
+          "primaryMuscles": ["chest"],
+          "secondaryMuscles": ["shoulders"],
+          "instructions": [
+            "Hold a dumbbell on each hand and lie on an incline bench that is set to an incline angle of no more than 30 degrees.",
+            "Extend your arms above you with a slight bend at the elbows.",
+            "Now rotate the wrists so that the palms of your hands are facing you. Tip: The pinky fingers should be next to each other. This will be your starting position.",
+            "As you breathe in, start to slowly lower the arms to the side while keeping the arms extended and while rotating the wrists until the palms of the hand are facing each other. Tip: At the end of the movement the arms will be by your side with the palms facing the ceiling.",
+            "As you exhale start to bring the dumbbells back up to the starting position by reversing the motion and rotating the hands so that the pinky fingers are next to each other again. Tip: Keep in mind that the movement will only happen at the shoulder joint and at the wrist. There is no motion that happens at the elbow joint.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 4,
+          "name": "Bench Dips",
+          "force": "push",
+          "level": "beginner",
+          "mechanic": "compound",
+          "equipment": "body only",
+          "primaryMuscles": ["triceps"],
+          "secondaryMuscles": ["chest", "shoulders"],
+          "instructions": [
+            "For this exercise you will need to place a bench behind your back. With the bench perpendicular to your body, and while looking away from it, hold on to the bench on its edge with the hands fully extended, separated at shoulder width. The legs will be extended forward, bent at the waist and perpendicular to your torso. This will be your starting position.",
+            "Slowly lower your body as you inhale by bending at the elbows until you lower yourself far enough to where there is an angle slightly smaller than 90 degrees between the upper arm and the forearm. Tip: Keep the elbows as close as possible throughout the movement. Forearms should always be pointing down.",
+            "Using your triceps to bring your torso up again, lift yourself back to the starting position.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 5,
+          "name": "Barbell Curl",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "barbell",
+          "primaryMuscles": ["biceps"],
+          "secondaryMuscles": ["forearms"],
+          "instructions": [
+            "Stand up with your torso upright while holding a barbell at a shoulder-width grip. The palm of your hands should be facing forward and the elbows should be close to the torso. This will be your starting position.",
+            "While holding the upper arms stationary, curl the weights forward while contracting the biceps as you breathe out. Tip: Only the forearms should move.",
+            "Continue the movement until your biceps are fully contracted and the bar is at shoulder level. Hold the contracted position for a second and squeeze the biceps hard.",
+            "Slowly begin to bring the bar back to starting position as your breathe in.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 6,
+          "name": "Preacher Curl",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "barbell",
+          "primaryMuscles": ["biceps"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "To perform this movement you will need a preacher bench and an E-Z bar. Grab the E-Z curl bar at the close inner handle (either have someone hand you the bar which is preferable or grab the bar from the front bar rest provided by most preacher benches). The palm of your hands should be facing forward and they should be slightly tilted inwards due to the shape of the bar.",
+            "With the upper arms positioned against the preacher bench pad and the chest against it, hold the E-Z Curl Bar at shoulder length. This will be your starting position.",
+            "As you breathe in, slowly lower the bar until your upper arm is extended and the biceps is fully stretched.",
+            "As you exhale, use the biceps to curl the weight up until your biceps is fully contracted and the bar is at shoulder height. Squeeze the biceps hard and hold this position for a second.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 7,
+          "name": "Hammer Curls",
+          "force": "pull",
+          "level": "beginner",
+          "mechanic": "isolation",
+          "equipment": "dumbbell",
+          "primaryMuscles": ["biceps"],
+          "secondaryMuscles": [],
+          "instructions": [
+            "Stand up with your torso upright and a dumbbell on each hand being held at arms length. The elbows should be close to the torso.",
+            "The palms of the hands should be facing your torso. This will be your starting position.",
+            "Now, while holding your upper arm stationary, exhale and curl the weight forward while contracting the biceps. Continue to raise the weight until the biceps are fully contracted and the dumbbell is at shoulder level. Hold the contracted position for a brief moment as you squeeze the biceps. Tip: Focus on keeping the elbow stationary and only moving your forearm.",
+            "After the brief pause, inhale and slowly begin the lower the dumbbells back down to the starting position.",
+            "Repeat for the recommended amount of repetitions."
+          ],
+          "category": "strength"
+        },
+        {
+          "id": 8,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 9,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 10,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 11,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 12,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 13,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 14,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 15,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 16,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 17,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 18,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 19,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 20,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 21,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 22,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 23,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 24,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 25,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 26,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        },
+        {
+          "id": 27,
+          "name": "",
+          "force": "",
+          "level": "",
+          "mechanic": "",
+          "equipment": "",
+          "primaryMuscles": [],
+          "secondaryMuscles": [],
+          "instructions": [],
+          "category": ""
+        }
+      ],
+      "splits": [
+        {
+          "day": "A",
+          "muscleGroups": [
+            {
+              "group": "chest",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "shoulders",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "triceps",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "B",
+          "muscleGroups": [
+            {
+              "group": "back",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "biceps",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "day": "C",
+          "muscleGroups": [
+            {
+              "group": "legs",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            },
+            {
+              "group": "abs",
+              "exercises": [
+                { "name": "", "sets": "", "reps": "" },
+                { "name": "", "sets": "", "reps": "" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
