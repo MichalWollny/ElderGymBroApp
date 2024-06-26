@@ -1,14 +1,19 @@
 import { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import {
+  TextField,
+  Button,
+  Box,
+  LinearProgress,
+  FormControl,
+  InputLabel,
+  InputAdornment,
+  IconButton,
+  Select,
+  MenuItem,
+} from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import zxcvbn from 'zxcvbn';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import LinearProgress from '@mui/material/LinearProgress';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +31,7 @@ const Registration = () => {
     workoutAim: '',
   });
   const [passwordScore, setPasswordScore] = useState(0);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +49,14 @@ const Registration = () => {
       const result = zxcvbn(value); // Calculate the password strength
       setPasswordScore(result.score); // Update the password score state
     }
+  };
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
   };
 
   const getPasswordStrengthColor = (score) => {
@@ -158,11 +172,22 @@ const Registration = () => {
             id="password"
             name="password"
             label="Password"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             variant="outlined"
             value={formData.password}
             onChange={handleChange}
-            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
           <Box sx={{ width: '92%', mx: 'auto' }}>
             <LinearProgress
@@ -179,11 +204,24 @@ const Registration = () => {
           id="confirmPassword"
           name="confirmPassword"
           label="Confirm Password"
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           variant="outlined"
           value={formData.confirmPassword}
           onChange={handleChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}>
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
+
         {/* Age */}
         <TextField
           id="age"
