@@ -80,13 +80,13 @@ function SetYourGrind() {
 
 
         {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row auto-rows-max grid-cols-2">
+        <div className="flex flex-wrap auto-rows-max grid-cols-2 sm:scale-75 md:scale-75">
             {cards.map((card, index) => (
               <UICard 
               key={index} 
               image={card.image}
               heading={card.heading} 
-              
+              className=""
               subheading={card.subheading} />
             ))}
             </div>

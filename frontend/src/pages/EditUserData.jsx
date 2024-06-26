@@ -39,7 +39,7 @@ function EditUserData() {
   };
 
   return (
-    <div className="min-h-svh bg-gray-950 text-gray-200">
+    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
       {/* window bar */}
       <div className="flex flex-row justify-start bg-gray-900">
         {/* icon button container*/}
@@ -62,11 +62,11 @@ function EditUserData() {
         </div>
       </div>
       <div className="flex flex-row justify-center">
-        <h1 className="bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
-          -- Edit Userdata --
+        <h1 className="bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight bg-gradient-to-br from-black to-green-950 sm:text-3xl md:text-4xl">
+          Edit Profile
         </h1>
       </div>
-      <div className="bg-teal-800">
+      <div className="p-6">
         <Box
           component="form"
           sx={{
@@ -194,7 +194,7 @@ function EditUserData() {
           </FormControl>
 
           <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
-            Save Userdata
+            Save
           </Button>
         </Box>
       </div>

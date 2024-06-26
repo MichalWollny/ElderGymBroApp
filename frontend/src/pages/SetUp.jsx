@@ -1,4 +1,4 @@
-import setUp from '../assets/images/startYourJorney.jpeg';
+import setUp from '../assets/images/startYourJourney.jpeg';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
