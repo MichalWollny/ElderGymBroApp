@@ -4,13 +4,14 @@ import 'dayjs/locale/en-gb';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import UICard from './UICard';
 
 function UIElements() {
   return (
     <>
-      <div className="min-h-svh bg-gray-950 text-gray-200">
+      <div className="min-h-svh bg-gray-950 text-gray-200 bg-gradient-to-r from-teal-800 to-gray-950"  >
         {/* window bar */}
-        <div className="flex flex-row justify-start bg-gray-900">
+        <div className="flex flex-row ">
           {/* icon button container*/}
           <div className="flex flex-row">
             {/* link container*/}
@@ -31,62 +32,72 @@ function UIElements() {
           </div>
         </div>
 
-        {/* -- 1. Page title goes here --*/}
         <div className="flex flex-row justify-center">
-          <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-            -- UI Elements Library --
-          </h1>
+          <h2 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+             UI Elements Library
+          </h2>
         </div>
 
-        {/* -- 3. Name this bar */}
-        <div className="flex flex-row justify-center bg-red-900">
-          {/* -- 4. Add content here-- */}
+        {/* <div className="flex flex-row justify-center bg-red-900">
           <div>HTML Input Types</div>
-        </div>
+        </div> */}
 
         {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row auto-rows-max grid-cols-3 bg-green-900">
-          <br />
-          <div className="">
+        {/* <div className="grid grid-flow-row auto-rows-max grid-cols-3"> */}
+        <div className="flex flex-wrap justify-center">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: date (DatePicker)</p>
+            <hr />
+            <br/>
             <label htmlFor="start">Start date:</label>
             <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
             <br />
           </div>
-          <div>
-            <p className="font-semibold">MaterialUI responsive Date Picker</p>
 
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
+            <p className="font-semibold">MaterialUI responsive Date Picker</p>
+            <hr />
+            <br/>
             <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en-gb'}>
               <DatePicker label="Basic date picker" />
               <br />
             </LocalizationProvider>
             <br />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: email</p>
-            <input type="email" id="email" pattern=".+@example\.com" size="30" required />
+            <hr />
+            <br/>
+            <input type="email" id="email" pattern=".+@example\.com" size="15" required />
             <br />
             <p className="font-semibold">Input: button</p>
             <input className="styled" type="button" value="| I'm a button |" />
             <br />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
+          <p className="font-semibold">Input: checkbox</p>
+          <hr />
+          <br/>
             <fieldset>
               <legend>Choose your monster&apos;s features:</legend>
-
               <div>
                 <input type="checkbox" id="scales" name="scales" checked />
                 <label htmlFor="scales">Scales</label>
               </div>
-
               <div>
                 <input type="checkbox" id="horns" name="horns" />
                 <label htmlFor="horns">Horns</label>
               </div>
             </fieldset>
           </div>
-          <div className="card glass w-96">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: color (Color Picker)</p>
+            <hr />
+            <br/>
             <p>Choose your monster&apos;s colors:</p>
             <div>
               <input type="color" id="head" name="head" value="#e66465" />
@@ -97,19 +108,28 @@ function UIElements() {
             </div>
             <br />
           </div>
-          <div className="">
-            <p className="font-semibold">Input: file</p>
-            <label htmlFor="avatar">Choose a profile picture:</label>
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
+            <p className="font-semibold ">Input: file</p>
+            <hr />
+            <br/>
+            <label size="15" htmlFor="avatar">Choose a profile picture:</label>
             <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
             <br />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: image</p>
-            <input type="image" id="image" alt="Login" src="./src/assets/images/123.png" />
+            <hr />
+            <br/>
+            <input class="size-20" type="image" id="image" alt="Login" src="./src/assets/images/landingPage.avif" />
             <br />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: text</p>
+            <hr />
+            <br/>
             <p>Sign in to your account:</p>
             <div>
               <label htmlFor="userId">User ID</label>
@@ -117,20 +137,29 @@ function UIElements() {
             </div>
             <br />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: month</p>
+            <hr />
+            <br/>
             <label htmlFor="start">Start month:</label>
             <input type="month" id="start" name="start" min="2018-03" value="2018-05" />
             <br />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: number (Spinner)</p>
+            <hr />
+            <br/>
             <label htmlFor="tentacles">Number of tentacles (1-10):</label>
             <input type="number" id="tentacles" name="tentacles" min="1" max="10" />
             <br />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: password</p>
+            <hr />
+            <br/>
             <div>
               <label htmlFor="username">Username:</label>
               <input type="text" id="username" name="username" />
@@ -144,8 +173,11 @@ function UIElements() {
             <p className="font-semibold">Input: range (Slider)</p>
             <input type="submit" value="Sign in" />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: radio (Choice group)</p>
+            <hr />
+            <br/>
             <fieldset>
               <legend>Select a maintenance drone:</legend>
 
@@ -165,17 +197,21 @@ function UIElements() {
               </div>
             </fieldset>
           </div>
-          <div className="">
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: range (Slider)</p>
+            <hr />
+            <br/>
             <div>
               <input type="range" id="volume" name="volume" min="0" max="11" />
               <label htmlFor="volume">Volume</label>
             </div>
             <br />
           </div>
-          <br />
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: search</p>
+            <hr />
+            <br/>
             <div>
               <label htmlFor="site-search">Search the site:</label>
               <input type="search" id="site-search" name="q" />
@@ -183,37 +219,52 @@ function UIElements() {
             </div>
             <br />
           </div>
-          <br />
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: search</p>
+            <hr />
+            <br/>
             <input type="submit" value="Send Request" />
             <br />
           </div>
-          <br />
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: checkbox (MaterialUI toggle switch)</p>
+            <hr />
+            <br/>
             {/* <!-- Material toggle --> */}
             <Switch defaultChecked />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: checkbox (DaisyUI toggle switch)</p>
+            <hr />
+            <br/>
             {/* <!-- DaisyUI toggle --> */}
             <input type="checkbox" className="toggle" defaultChecked />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: text</p>
+            <hr />
+            <br/>
             <label htmlFor="name">Name (4 to 8 characters):</label>
             <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" />
           </div>
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: time</p>
+            <hr />
+            <br/>
             <label htmlFor="appt">Choose a time for your meeting:</label>
             <input type="time" id="appt" name="appt" min="09:00" max="18:00" required />
             <small>Office hours are 9am to 6pm</small>
           </div>
-          <br />
-          <div className="">
+
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
             <p className="font-semibold">Input: URL</p>
+            <hr />
+            <br/>
             <form>
               <label htmlFor="url">Enter an https:// URL:</label>
               <input
@@ -222,13 +273,16 @@ function UIElements() {
                 id="url"
                 placeholder="https://example.com"
                 pattern="https://.*"
-                size="30"
+                size="15"
                 required
               />
             </form>
           </div>
-          <br />
-          <div className="">
+          
+          <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
+          <p className="font-semibold">Material UI week picker</p>
+          <hr />
+          <br/>
             <label htmlFor="camp-week">Choose a week in May or June:</label>
             <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
           </div>
@@ -236,7 +290,10 @@ function UIElements() {
 
           <>
             {/*<!-- Component: Rounded base sized datepicker with helper text --> */}
-            <div className="relative my-6">
+            <div className="card glass w-96 m-6 p-6 transition-transform hover:scale-110">
+            <p className="font-semibold">Wind UI Datepicker</p>
+            <hr />
+            <br/>
               <input
                 id="id-date08"
                 type="date"
@@ -248,7 +305,7 @@ function UIElements() {
                 className="absolute -top-2 left-2 z-[1] cursor-text px-2 text-xs text-slate-400 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:cursor-default peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent">
                 Date
               </label>
-              <small className="absolute flex w-full justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
+              <small className="px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
                 <span>WindUI date picker</span>
               </small>
             </div>
@@ -257,7 +314,7 @@ function UIElements() {
         </div>
 
         {/* flex row */}
-        <div className="flex flex-row justify-center bg-purple-900">
+        <div className="flex flex-row justify-center bg-blue-900">
           {/* Button */}
           <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
             Button
