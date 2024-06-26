@@ -20,7 +20,11 @@ function EditUserData() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
+    if (name === 'gender' && value === '') {
+      setFormData((prevState) => ({ ...prevState, gender: '' }));
+    } else {
+      setFormData((prevState) => ({ ...prevState, [name]: value }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -183,6 +187,7 @@ function EditUserData() {
             }}>
             <InputLabel id="gender-label">Gender</InputLabel>
             <Select labelId="gender-label" id="Gender" name="gender" value={formData.gender} onChange={handleChange}>
+              <MenuItem value="">-- Clear Field --</MenuItem>
               <MenuItem value="male">Male</MenuItem>
               <MenuItem value="female">Female</MenuItem>
               <MenuItem value="elder thing">Elder Thing</MenuItem>
@@ -190,6 +195,7 @@ function EditUserData() {
               <MenuItem value="other">Other</MenuItem>
             </Select>
           </FormControl>
+
           <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
             Save Userdata
           </Button>
