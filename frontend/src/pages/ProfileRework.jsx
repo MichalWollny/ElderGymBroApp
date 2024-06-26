@@ -232,7 +232,7 @@ const Profile = () => {
       {/* Edit Userdata Button */}
       <div className="mt-6 flex justify-center">
         <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
-          <a href="/Template">Edit Userdata</a>
+          <a href="/edituserdata">Edit Userdata</a>
         </button>
       </div>
     </div>
