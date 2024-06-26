@@ -58,3 +58,15 @@ export const updateAvatar = asyncHandler(async (req, res, next) => {
   await user.save();
   res.status(200).json({ message: 'Successfully changed avatar link' });
 });
+//Update Profile
+export const updateProfile = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.uid);
+  user.fullName = req.body.fullName;
+  user.username = req.body.username;
+  user.age = req.body.age;
+  user.weight = req.body.weight;
+  user.gender = req.body.gender;
+
+  await user.save();
+  res.status(200).json({ message: 'Successfully updated profile' });
+});
