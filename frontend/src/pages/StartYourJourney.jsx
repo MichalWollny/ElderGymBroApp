@@ -34,12 +34,10 @@ const cards = [
   },
 ];
 
-
-
 function StartYourJourney() {
   return (
     <>
-    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+      <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
         {/* window bar */}
         <div className="flex flex-row justify-start bg-gray-900">
           {/* icon button container*/}
@@ -70,7 +68,7 @@ function StartYourJourney() {
         </div>
 
         {/* Image bar */}
-        <div className="flex flex-row justify-center text-gray-200">   
+        <div className="flex flex-row justify-center text-gray-200">
           <img src={startYourJourney} alt="Landing Page Image" className="m-2 w-64" />
         </div>
 
@@ -164,36 +162,27 @@ function StartYourJourney() {
             </div>
           </div>
 
-        <div className="flex flex-wrap justify-center  text-gray-200">
+          <div className="flex flex-wrap justify-center text-gray-200"></div>
 
+          {/* --5. Name this bar */}
+          <div className="flex flex-row justify-center"></div>
 
-        </div>
-
-        {/* --5. Name this bar */}
-        <div className="flex flex-row justify-center"></div>
-
-        {/* Content bar */}
-        <div className="flex flex-wrap justify-center">
-
-
+          {/* Content bar */}
           <div className="flex flex-wrap justify-center">
-            {cards.map((card, index) => (
-              <UICard 
-              key={index} 
-              image={card.image}
-              heading={card.heading} 
-              subheading={card.subheading} />
-            ))}
+            <div className="flex flex-wrap justify-center">
+              {cards.map((card, index) => (
+                <UICard key={index} image={card.image} heading={card.heading} subheading={card.subheading} />
+              ))}
             </div>
           </div>
 
-
-        {/* --7. Name this bar */}
-        <div className="flex flex-row justify-center">
-          <div className="mt-6 flex justify-center">
-            <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
-              <a href="/whatsyourgoal">Next</a>
-            </button>
+          {/* --7. Name this bar */}
+          <div className="flex flex-row justify-center">
+            <div className="mt-6 flex justify-center">
+              <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
+                <a href="/whatsyourgoal">Next</a>
+              </button>
+            </div>
           </div>
         </div>
       </div>
