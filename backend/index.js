@@ -1,6 +1,6 @@
 import express from 'express';
 import exercises from './data/exercises.json' assert { type: 'json' };
-import hardcodedworkouts from './data/gymBroWorkoutPlans.json' assert { type: 'json' };
+import hardcodedworkouts from './data/hardcodedWorkouts.json' assert { type: 'json' };
 import './db/server.js';
 import { errorHandler } from './middleware/ErrorHandler.js';
 import authRouter from './routes/authRouter.js';
@@ -13,7 +13,12 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(
+  cors({
+    origin: ['https://localhost:5173', 'http://localhost:5173'],
+    credentials: true,
+  }),
+);
 app.use(cookieParser()); // cookie-parser
 
 // ROUTES
