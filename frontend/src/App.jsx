@@ -18,6 +18,9 @@ import UICard from './pages/UICard';
 import EditUserData from './pages/EditUserData';
 import SetUp from './pages/SetUp';
 
+import useFetchData from './utils/FetchData';
+
+
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
 
