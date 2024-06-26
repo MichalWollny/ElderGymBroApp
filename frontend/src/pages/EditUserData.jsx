@@ -62,11 +62,11 @@ function EditUserData() {
         </div>
       </div>
       <div className="flex flex-row justify-center">
-        <h1 className="bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight bg-gradient-to-br from-black to-green-950 sm:text-3xl md:text-4xl">
+      <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Edit Profile
         </h1>
       </div>
-      <div className="p-6">
+      <div className="flex flex-row justify-center p-6">
         <Box
           component="form"
           sx={{
@@ -90,11 +90,11 @@ function EditUserData() {
                 color: 'black', // text color
               },
               '& .MuiInputLabel-root': {
-                color: 'black', // label color
+                color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: 'White',
+                backgroundColor: '#141414',
               },
             }}
           />
@@ -112,11 +112,11 @@ function EditUserData() {
                 color: 'black', // text color
               },
               '& .MuiInputLabel-root': {
-                color: 'black', // label color
+                color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: 'White',
+                backgroundColor: '#141414',
               },
             }}
           />
@@ -135,11 +135,11 @@ function EditUserData() {
                 color: 'black', // text color
               },
               '& .MuiInputLabel-root': {
-                color: 'black', // label color
+                color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: 'White',
+                backgroundColor: '#141414',
               },
             }}
           />
@@ -158,11 +158,11 @@ function EditUserData() {
                 color: 'black', // text color
               },
               '& .MuiInputLabel-root': {
-                color: 'black', // label color
+                color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: 'White',
+                backgroundColor: '#141414',
               },
             }}
           />
@@ -175,11 +175,11 @@ function EditUserData() {
                 color: 'black', // text color
               },
               '& .MuiInputLabel-root': {
-                color: 'black', // label color
+                color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
-                borderColor: 'teal', // border color
-                backgroundColor: 'White',
+                borderColor: '141414', // border color
+                backgroundColor: '#141414',
               },
             }}>
             <InputLabel id="gender-label">Gender</InputLabel>

@@ -55,29 +55,31 @@ function StartYourJourney() {
             </div>
           </div>
         </div>
+
         {/* --1. Page title goes herer --*/}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             Start Your Journey
           </h1>
         </div>
+
         {/* Image bar */}
         <div className="flex flex-row justify-center text-gray-200">
           <img src={startYourJourney} alt="Landing Page Image" className="m-2 w-64" />
         </div>
+
         {/* Content bar*/}
-        <div className="flex flex-wrap justify-center bg-green-900">
-          <div className="flex flex-wrap justify-center text-gray-200"></div>
-          {/* --5. Name this bar */}
-          <div className="flex flex-row justify-center"></div>
+        <div className="flex flex-wrap justify-center">
+          {/* <div className="flex flex-wrap justify-center text-gray-200"></div> */}
+
           {/* Content bar */}
-          <div className="flex flex-wrap justify-center">
             <div className="flex flex-wrap justify-center">
               {cards.map((card, index) => (
                 <UICard key={index} image={card.image} heading={card.heading} subheading={card.subheading} />
               ))}
             </div>
           </div>
+
           {/* --7. Name this bar */}
           <div className="flex flex-row justify-center">
             <div className="mt-6 flex justify-center">
@@ -86,7 +88,7 @@ function StartYourJourney() {
               </button>
             </div>
           </div>
-        </div>
+
       </div>
     </>
   );
