@@ -16,7 +16,10 @@ import SignUp from './pages/SignUp';
 import Registration from './pages/Registration';
 import UICard from './pages/UICard';
 import EditUserData from './pages/EditUserData';
+import SetUp from './pages/SetUp';
+
 import useFetchData from './utils/FetchData';
+
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
@@ -34,6 +37,7 @@ function App() {
         <Route path="/profilerework" element={<Profilerework />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/template" element={<Template />} />
+        <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
