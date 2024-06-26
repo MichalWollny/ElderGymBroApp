@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
@@ -30,7 +29,7 @@ function EditUserData() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .patch('http://localhost:8000/me/', formData)
+      .patch(' http://localhost:8000/profile/me/profileupdate', formData)
       .then((response) => {
         console.log(response);
       })
@@ -79,7 +78,6 @@ function EditUserData() {
           className="flex flex-col items-center">
           {/*Full-Name*/}
           <TextField
-            required
             id="fullName"
             name="fullName"
             label="Full Name"
@@ -102,7 +100,6 @@ function EditUserData() {
           />
           {/*Username*/}
           <TextField
-            required
             id="username"
             name="username"
             label="Username"
