@@ -1,15 +1,11 @@
-
 // components
 import UICard from './UICard';
-
 // images
 import startYourJourney from '/src/assets/images/startYourJourney.jpeg';
-
 // icons
 import gendermark from '/src/assets/icons/svg/gendermark.svg';
 import gymexperience from '/src/assets/icons/svg/gymexperience.svg';
 import equipment from '/src/assets/icons/svg/equipment.svg';
-
 const cards = [
   {
     // Gender card
@@ -34,13 +30,10 @@ const cards = [
     // other props...
   },
 ];
-
-
-
 function StartYourJourney() {
   return (
     <>
-    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+      <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
         {/* window bar */}
         <div className="flex flex-row justify-start bg-gray-900">
           {/* icon button container*/}
@@ -62,59 +55,40 @@ function StartYourJourney() {
             </div>
           </div>
         </div>
-
         {/* --1. Page title goes herer --*/}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             Start Your Journey
           </h1>
         </div>
-
         {/* Image bar */}
-        <div className="flex flex-row justify-center text-gray-200">   
+        <div className="flex flex-row justify-center text-gray-200">
           <img src={startYourJourney} alt="Landing Page Image" className="m-2 w-64" />
         </div>
-
         {/* Content bar*/}
         <div className="flex flex-wrap justify-center bg-green-900">
-
-
-        <div className="flex flex-wrap justify-center  text-gray-200">
-
-
-        </div>
-
-        {/* --5. Name this bar */}
-        <div className="flex flex-row justify-center"></div>
-
-        {/* Content bar */}
-        <div className="flex flex-wrap justify-center">
-
-
+          <div className="flex flex-wrap justify-center text-gray-200"></div>
+          {/* --5. Name this bar */}
+          <div className="flex flex-row justify-center"></div>
+          {/* Content bar */}
           <div className="flex flex-wrap justify-center">
-            {cards.map((card, index) => (
-              <UICard 
-              key={index} 
-              image={card.image}
-              heading={card.heading} 
-              subheading={card.subheading} />
-            ))}
+            <div className="flex flex-wrap justify-center">
+              {cards.map((card, index) => (
+                <UICard key={index} image={card.image} heading={card.heading} subheading={card.subheading} />
+              ))}
             </div>
           </div>
-
-
-        {/* --7. Name this bar */}
-        <div className="flex flex-row justify-center">
-          <div className="mt-6 flex justify-center">
-            <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
-              <a href="/whatsyourgoal">Next</a>
-            </button>
+          {/* --7. Name this bar */}
+          <div className="flex flex-row justify-center">
+            <div className="mt-6 flex justify-center">
+              <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
+                <a href="/whatsyourgoal">Next</a>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-     </div> 
     </>
   );
 }
-
 export default StartYourJourney;
