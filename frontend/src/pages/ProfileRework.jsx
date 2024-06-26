@@ -176,7 +176,7 @@ const Profile = () => {
 
         {/* my active plan tile */}
         <div className="flex flex-wrap justify-center">
-          <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg p-6 shadow-xl transition-transform hover:scale-110">
+          <div className="card glass m-2 w-80 cursor-pointer rounded-lg p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
             <div className="flex min-w-36 flex-col items-center justify-center">
               <svg width="50" height="50" viewBox="0 0 31 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -199,7 +199,7 @@ const Profile = () => {
 
         {/* my trophies tile */}
         <div className="flex flex-wrap justify-center">
-          <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg p-6 shadow-xl transition-transform hover:scale-110">
+          <div className="card glass m-2 w-80 cursor-pointer rounded-lg p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
             <div className="flex min-w-36 flex-col items-center justify-center">
               <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -232,7 +232,7 @@ const Profile = () => {
       {/* Edit Userdata Button */}
       <div className="mt-6 flex justify-center">
         <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
-          <a href="/Template">Edit Userdata</a>
+          <a href="/edituserdata">Edit Userdata</a>
         </button>
       </div>
     </div>

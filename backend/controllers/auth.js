@@ -6,15 +6,6 @@ import jwt from 'jsonwebtoken';
 
 // REGISTER PART
 export const signUp = asyncHandler(async (req, res, next) => {
-  /*
-    Check if user exist(email) [X]
-        - If user exists, return an Error [X]
-        - If user does not exist:
-            - Secure the password using bcrypt [X]
-            - Store the user in DB [X]
-            - Sign a token []
-            - Return the token []    
-*/
   const { fullName, username, email, password, age, weight, gender, fitnesLevel, workoutAim, awards } = req.body;
 
   const existingUser = await User.findOne({ email });

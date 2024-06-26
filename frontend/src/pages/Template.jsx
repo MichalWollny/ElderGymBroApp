@@ -43,7 +43,7 @@ function Template() {
 
           {/* my trophies tile */}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -74,7 +74,7 @@ function Template() {
 
           {/* my trophies tile */}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -105,7 +105,7 @@ function Template() {
 
           {/* my trophies tile */}
           <div className="flex flex-wrap justify-center">
-            <div className="card glass lg:card-side m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform hover:scale-110">
+            <div className="card glass m-2 w-80 cursor-pointer rounded-lg bg-gray-900 p-6 shadow-xl transition-transform lg:card-side hover:scale-110">
               <div className="flex min-w-36 flex-col items-center justify-center">
                 <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -138,7 +138,7 @@ function Template() {
         {/* -- 5. grid-flow-row auto-rows-max -- */}
         <div className="grid grid-flow-row auto-rows-max grid-cols-2 bg-blue-900">
           {/* Dummy Card 1 */}
-          <div className="m-w-40 card glass lg:card-side m-6 cursor-pointer rounded-lg bg-gray-900 p-4 shadow-xl transition-transform hover:scale-105">
+          <div className="m-w-40 card glass m-6 cursor-pointer rounded-lg bg-gray-900 p-4 shadow-xl transition-transform lg:card-side hover:scale-105">
             <div className="flex min-w-36 flex-col items-center justify-center">
               <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -167,7 +167,7 @@ function Template() {
           </div>
 
           {/* Dummy Card 2 */}
-          <div className="m-w-40 card glass lg:card-side m-6 cursor-pointer rounded-lg bg-gray-900 p-4 shadow-xl transition-transform hover:scale-105">
+          <div className="m-w-40 card glass m-6 cursor-pointer rounded-lg bg-gray-900 p-4 shadow-xl transition-transform lg:card-side hover:scale-105">
             <div className="flex min-w-36 flex-col items-center justify-center">
               <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -196,7 +196,7 @@ function Template() {
           </div>
 
           {/* Dummy Card 3 */}
-          <div className="m-w-40 card glass lg:card-side m-6 cursor-pointer rounded-lg bg-gray-900 p-4 shadow-xl transition-transform hover:scale-105">
+          <div className="m-w-40 card glass m-6 cursor-pointer rounded-lg bg-gray-900 p-4 shadow-xl transition-transform lg:card-side hover:scale-105">
             <div className="flex min-w-36 flex-col items-center justify-center">
               <svg width="50" height="50" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

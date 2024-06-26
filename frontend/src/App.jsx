@@ -15,8 +15,12 @@ import Workouts from './pages/Workouts';
 import SignUp from './pages/SignUp';
 import Registration from './pages/Registration';
 import UICard from './pages/UICard';
+import EditUserData from './pages/EditUserData';
+import useFetchData from './utils/FetchData';
 
 function App() {
+  const { hardcodedWorkouts, isLoading } = useFetchData();
+
   return (
     <>
       <Routes>
@@ -26,6 +30,7 @@ function App() {
 
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/template" element={<Template />} />
@@ -36,6 +41,7 @@ function App() {
         <Route path="/uielements" element={<UIElements />} />
         <Route path="/workouts" element={<Workouts />} />
         <Route path="/uicard" element={<UICard />} />
+        <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
       </Routes>
     </>
   );

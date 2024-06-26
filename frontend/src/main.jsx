@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { deDE } from '@mui/x-date-pickers/locales';
 
 // Roboto fonts via npm
@@ -25,6 +26,8 @@ const darkTheme = createTheme(
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={darkTheme}>
+      {/* enforcing dark tehme */}
+      <CssBaseline />
       <BrowserRouter>
         <App />
       </BrowserRouter>

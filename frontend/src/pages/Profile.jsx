@@ -13,7 +13,7 @@ const Profile = () => {
       {/* Profile Image Container */}
       <div className="mb-4 flex flex-col justify-center sm:flex-row">
         <div className="avatar">
-          <div className="ring-primary ring-offset-base-200 mx-auto w-32 rounded-full ring ring-offset-2">
+          <div className="mx-auto w-32 rounded-full ring ring-primary ring-offset-2 ring-offset-base-200">
             <img src={profileimg} alt="Profile Image" className="object-fit-cover rounded-full object-cover" />
           </div>
         </div>
