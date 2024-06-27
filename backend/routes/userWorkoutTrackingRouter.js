@@ -1,15 +1,18 @@
 import { Router } from 'express';
 import {
+  setUserActiveWorkout,
   addWorkoutProgress,
   updateWorkoutProgress,
   getWorkoutProgress,
+  getActiveWorkout,
+  getActiveWorkoutAndProgress,
 } from '../controllers/userWorkoutTrackingController.js';
 import verifyToken from '../middleware/verifyToken.js';
 
 const userWorkoutTrackingRouter = Router();
 
 // Set active workout for a user
-userWorkoutTrackingRouter.patch('/setActiveWorkout', verifyToken, setActiveWorkout);
+userWorkoutTrackingRouter.patch('/setActiveWorkout', verifyToken, setUserActiveWorkout);
 
 // Add workout progress
 userWorkoutTrackingRouter.post('/addWorkoutProgress', verifyToken, addWorkoutProgress);
