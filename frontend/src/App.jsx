@@ -19,7 +19,7 @@ import EditUserData from './pages/EditUserData';
 import SetUp from './pages/SetUp';
 
 import useFetchData from './utils/FetchData';
-
+import Trophys from './pages/Trophys';
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
@@ -35,6 +35,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
+        <Route path="/trophys" element={<Trophys />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/template" element={<Template />} />
         <Route path="/setup" element={<SetUp />} />
