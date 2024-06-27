@@ -1,24 +1,24 @@
 // components
 import UICard from './UICard';
+import Button from '@mui/material/Button';
+
 // images
 import startYourJourney from '/src/assets/images/startYourJourney.jpeg';
-// icons
-import gendermark from '/src/assets/icons/svg/gendermark.svg';
-import gymexperience from '/src/assets/icons/svg/gymexperience.svg';
-import equipment from '/src/assets/icons/svg/equipment.svg';
+
+
 const cards = [
   {
     // Gender card
     image: '/src/assets/icons/svg/gendermark.svg',
     heading: 'Gender',
-    subheading: 'Confess your cosmic entity',
+    subheading: 'Reveal your cosmic entity',
     // other props...
   },
   {
     // Gym experience card
     image: '/src/assets/icons/svg/gymexperience.svg',
     heading: 'Gym Experience',
-    subheading: 'Recite your story of suffering',
+    subheading: 'Recite your records of suffering',
     // other props...
   },
   {
@@ -26,35 +26,35 @@ const cards = [
     // image: '/src/assets/icons/svg/equipment.svg',
     image: '/src/assets/icons/svg/equipment.svg',
     heading: 'Equipment',
-    subheading: 'Pick your torture instruments of choice',
+    subheading: 'Select your device of torture',
     // other props...
   },
 ];
 function StartYourJourney() {
   return (
     <>
-      <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
-        {/* window bar */}
-        <div className="flex flex-row justify-start bg-gray-900">
-          {/* icon button container*/}
-          <div className="flex flex-row">
-            {/* link container*/}
-            <div className="flex flex-row justify-center text-teal-100">
-              <a href="/" className="m-2 font-semibold text-teal-600">
-                {/* icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-4">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                </svg>
-              </a>
-            </div>
+    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+      {/* window bar */}
+      <div className="flex flex-row justify-start bg-gray-900">
+        {/* icon button container*/}
+        <div className="flex flex-row">
+          {/* link container*/}
+          <div className="flex flex-row justify-center text-teal-100">
+            <a href="/" className="m-2 font-semibold text-teal-600">
+              {/* icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+              </svg>
+            </a>
           </div>
         </div>
+      </div>
 
         {/* --1. Page title goes herer --*/}
         <div className="flex flex-row justify-center">
@@ -65,17 +65,22 @@ function StartYourJourney() {
 
         {/* Image bar */}
         <div className="flex flex-row justify-center text-gray-200">
-          <img src={startYourJourney} alt="Landing Page Image" className="m-2 w-64" />
+          <img src={startYourJourney} alt="Landing Page Image" className="m-2 w-24" />
         </div>
 
         {/* Content bar*/}
         <div className="flex flex-wrap justify-center">
           {/* <div className="flex flex-wrap justify-center text-gray-200"></div> */}
 
-          {/* Content bar */}
-            <div className="flex flex-wrap justify-center">
+        {/* -- 5. grid-flow-row auto-rows-max -- */}
+        <div className="grid grid-flow-row auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
               {cards.map((card, index) => (
-                <UICard key={index} image={card.image} heading={card.heading} subheading={card.subheading} />
+                <UICard 
+                class="md:scale-150"
+                key={index} 
+                image={card.image} 
+                heading={card.heading} 
+                subheading={card.subheading} />
               ))}
             </div>
           </div>
@@ -83,9 +88,12 @@ function StartYourJourney() {
           {/* --7. Name this bar */}
           <div className="flex flex-row justify-center">
             <div className="mt-6 flex justify-center">
-              <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
+              <Button type="submit" variant="contained" href="/whatsyourgoal" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+              Next
+              </Button>
+              {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
                 <a href="/whatsyourgoal">Next</a>
-              </button>
+              </button> */}
             </div>
           </div>
 
