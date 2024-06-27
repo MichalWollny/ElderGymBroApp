@@ -1,10 +1,12 @@
-// components
-import UICard from './UICard';
+
+
 import Button from '@mui/material/Button';
 
 // images
 import startYourJourney from '/src/assets/images/startYourJourney.jpeg';
 
+//components
+import UICard from '/src/assets/components/UICard'
 
 const cards = [
   {
@@ -75,12 +77,12 @@ function StartYourJourney() {
         {/* -- 5. grid-flow-row auto-rows-max -- */}
         <div className="grid grid-flow-row auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
               {cards.map((card, index) => (
-                <UICard 
-                class="md:scale-150"
+              <UICard
+              class="md:scale-150"
                 key={index} 
                 image={card.image} 
                 heading={card.heading} 
-                subheading={card.subheading} />
+                subheading={card.subheading}/>
               ))}
             </div>
           </div>

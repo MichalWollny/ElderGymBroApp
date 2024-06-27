@@ -1,9 +1,10 @@
+// components
 
-import UICard from './UICard';
 import Button from '@mui/material/Button';
 
 // images
 import cthulhuGrind from '/src/assets/images/cthulhuGrind.png';
+
 
 
 const cards = [
@@ -81,12 +82,13 @@ function SetYourGrind() {
         {/* -- 5. grid-flow-row auto-rows-max -- */}
         <div className="grid grid-flow-row auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
             {cards.map((card, index) => (
-              <UICard 
+              <UICard
               key={index} 
               image={card.image}
               heading={card.heading} 
               className=""
-              subheading={card.subheading} />
+              subheading={card.subheading}
+              />
             ))}
             </div>
           </div>

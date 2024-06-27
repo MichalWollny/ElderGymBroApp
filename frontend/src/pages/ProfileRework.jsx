@@ -1,8 +1,10 @@
-import UICard from './UICard';
+// components
+
 import Button from '@mui/material/Button';
 
 //images
 import avatarImage5 from '../assets/images/gymLord.png';
+
 
 const cards = [
   {
@@ -137,12 +139,13 @@ const Profile = () => {
       {/* -- 5. grid-flow-row auto-rows-max -- */}
       <div className="grid grid-flow-row auto-rows-max grid-cols-2">
           {cards.map((card, index) => (
-            <UICard 
+            <UICard
             key={index} 
             image={card.image}
             heading={card.heading} 
             className=""
-            subheading={card.subheading} />
+            subheading={card.subheading}
+            />
           ))}
         </div>
       </div>
