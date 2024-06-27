@@ -1,8 +1,10 @@
-import UICard from './UICard';
+// components
+
 import Button from '@mui/material/Button';
 
 //images
 import avatarImage5 from '../assets/images/gymLord.png';
+
 
 const cards = [
   {
@@ -111,14 +113,7 @@ const Profile = () => {
 
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
-          <div className="mt-2 flex justify-center">
-            <Button type="submit" variant="contained" href="/edituserdata" sx={{ mt: 3, mb: 2, backgroundColor: '#831843', color: 'white' }}>
-            Edit profile
-            </Button>
-            {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
-              <a href="/whatsyourgoal">Next</a>
-            </button> */}
-          </div>
+
         </div>
 
           {/* add endpoints for title and name*/}
@@ -126,7 +121,7 @@ const Profile = () => {
             <div className="flex flex-col">
               {/* <h2 className="text-center text-xl font-semibold text-teal-700">-=|</h2> */}
               {/* <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2> */}
-              <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
+              <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-6 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
                 The infamous
               </h1>
               <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
@@ -144,12 +139,13 @@ const Profile = () => {
       {/* -- 5. grid-flow-row auto-rows-max -- */}
       <div className="grid grid-flow-row auto-rows-max grid-cols-2">
           {cards.map((card, index) => (
-            <UICard 
+            <UICard
             key={index} 
             image={card.image}
             heading={card.heading} 
             className=""
-            subheading={card.subheading} />
+            subheading={card.subheading}
+            />
           ))}
         </div>
       </div>
@@ -161,9 +157,9 @@ const Profile = () => {
 
       {/* --7. Name this bar */}
       <div className="flex flex-row justify-center">
-        <div className="mt-6 flex justify-center">
-          <Button type="submit" variant="contained" href="/edituserdata" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
-          Next
+        <div className="mt-2 flex justify-center">
+          <Button type="submit" variant="contained" href="/edituserdata" sx={{ mt: 3, mb: 2, backgroundColor: '#831843', color: 'white' }}>
+          Edit profile
           </Button>
           {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
             <a href="/whatsyourgoal">Next</a>
