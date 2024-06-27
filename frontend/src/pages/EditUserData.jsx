@@ -7,6 +7,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import MenuAppBar from '../assets/components/MenuAppBar';
 
 function EditUserData() {
   const [formData, setFormData] = useState({
@@ -197,7 +198,9 @@ function EditUserData() {
             Save
           </Button>
         </Box>
+
       </div>
+      <MenuAppBar/>
     </div>
   );
 }
