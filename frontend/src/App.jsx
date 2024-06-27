@@ -17,6 +17,7 @@ import SetUp from './pages/SetUp';
 import useFetchData from './utils/FetchData';
 import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
+import { BottomNavigation } from '@mui/material';
 
 
 function App() {
@@ -40,10 +41,11 @@ function App() {
         <Route path="/uielements" element={<UIElements/>} />
         <Route path="/workouts" element={<Workouts />} />
         <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
+        <Route path="/bottomappbar" element={<BottomAppBar/>} />
       </Routes>
-      <Routes>
-        <Route path="/bottomappbar" elemt={<BottomAppBar/>} />
-      </Routes>
+
+        
+
     </>
   );
 }

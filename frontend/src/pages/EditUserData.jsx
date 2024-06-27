@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MenuAppBar from '../assets/components/MenuAppBar';
 import BottomAppBar from '../assets/components/BottomAppBar';
+import { BottomNavigation } from '@mui/material';
 
 function EditUserData() {
   const [formData, setFormData] = useState({
@@ -201,7 +202,7 @@ function EditUserData() {
         </Box>
 
       </div>
-      <MenuAppBar/>
+      {/* <MenuAppBar/> */}
       <BottomAppBar/>
     </div>
   );

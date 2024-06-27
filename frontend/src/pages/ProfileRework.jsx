@@ -1,4 +1,9 @@
 
+
+import MenuAppBar from '../assets/components/MenuAppBar';
+import BottomAppBar from '../assets/components/BottomAppBar';
+import { BottomNavigation } from '@mui/material';
+
 import Button from '@mui/material/Button';
 
 //images
@@ -42,14 +47,14 @@ const cards = [
 const Profile = () => {
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-green-950 text-gray-200">
-      {/* window bar */}
-      <div className="flex flex-row justify-start bg-gray-900">
-        {/* icon button container*/}
+
+      {/* <div className="flex flex-row justify-start bg-gray-900">
+
         <div className="flex flex-row">
-          {/* link container*/}
+
           <div className="flex flex-row justify-center text-teal-100">
             <a href="/" className="m-2 font-semibold text-teal-600">
-              {/* icon */}
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -62,7 +67,7 @@ const Profile = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* window name bar*/}
       <div className="flex flex-row justify-center">
@@ -74,7 +79,7 @@ const Profile = () => {
       {/* profile image bar */}
       <div className="flex flex-row justify-center">
         {/* profile image container */}
-        <div className="my-8 flex flex-col justify-center">
+        <div className="my-4 flex flex-col justify-center">
           {/* profile image */}
           <div className="avatar">
             <div className="mx-auto w-32 rounded-full ring-4 ring-white ring-offset-2 ring-offset-sky-300">
@@ -87,9 +92,8 @@ const Profile = () => {
 
             {/* edit profile image */}
             <div className="-mr-22 -mt-6">
-              <div className="absolute max-w-12 cursor-pointer rounded-full bg-pink-900 p-2 transition-transform hover:scale-110">
-                <label htmlFor="upload" className="flex cursor-pointer flex-col items-center gap-2">
-                  <a href="/PLACEHOLDER">
+              <div  className="absolute max-w-12 cursor-pointer rounded-full bg-pink-900 p-2 transition-transform hover:scale-110">
+                <label htmlFor="profile-image-input" className="flex cursor-pointer flex-col items-center gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -103,9 +107,21 @@ const Profile = () => {
                         d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
                       />
                     </svg>
-                  </a>
                 </label>
-                <input id="upload" type="file" className="hidden" />
+                <input
+              type="file"
+              id="profile-image-input"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                  const imgSrc = event.target.result;
+                  profileimg(imgSrc);
+                };
+                reader.readAsDataURL(file);
+              }}
+            />
               </div>
               
             </div>
@@ -151,10 +167,7 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* --7. Name this bar */}
-      <div className="flex flex-row justify-center">
 
-      </div>
 
       {/* --7. Name this bar */}
       <div className="flex flex-row justify-center">
@@ -167,8 +180,14 @@ const Profile = () => {
           </button> */}
         </div>
       </div>
+      
+      {/* --7. Name this bar */}
+      <div className="flex flex-row justify-center pt-10">
+        <BottomAppBar/>
+      </div>
 
     </div>
+    
     
   );
 };
