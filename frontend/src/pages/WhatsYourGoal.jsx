@@ -1,11 +1,12 @@
-// components
+
 
 import Button from '@mui/material/Button';
 
 // images
 import cthuhluCave from '/src/assets/images/cthuhluCave.png';
 
-
+//components
+import UICard from '/src/assets/components/UICard'
 
 const cards = [
   {

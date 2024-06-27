@@ -1,10 +1,11 @@
-// components
 
 import Button from '@mui/material/Button';
 
 //images
 import avatarImage5 from '../assets/images/gymLord.png';
 
+//components
+import UICard from '/src/assets/components/UICard'
 
 const cards = [
   {
