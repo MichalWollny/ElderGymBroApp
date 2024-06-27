@@ -3,8 +3,10 @@ import ErrorResponse from '../utils/ErrorResponse.js';
 import User from '../models/userSchema.js';
 import { getTitle } from '../utils/karmaUtils.js';
 
+// Karma points required to reach each level
 const karmaPointsPerLevel = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
+// Update karma points and level
 async function updateKarmaFunction(req, res, next) {
   const userId = req.uid;
 

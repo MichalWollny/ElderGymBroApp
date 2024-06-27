@@ -8,7 +8,7 @@ export const getUser = asyncHandler(async (req, res, next) => {
   res.json(user);
 });
 
-// Update User Profile
+// Update User Profile fields
 // Update Full Name
 export const updateFullName = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
