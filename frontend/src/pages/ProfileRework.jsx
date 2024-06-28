@@ -71,7 +71,7 @@ const Profile = () => {
 
       {/* window name bar*/}
       <div className="flex flex-row justify-center">
-        <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+        <h1 className="cursor-default bg-gradient-to-br p-4 from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Profile
         </h1>
       </div>
@@ -79,7 +79,7 @@ const Profile = () => {
       {/* profile image bar */}
       <div className="flex flex-row justify-center">
         {/* profile image container */}
-        <div className="my-4 flex flex-col justify-center">
+        <div className="my-2 flex flex-col justify-center">
           {/* profile image */}
           <div className="avatar">
             <div className="mx-auto w-32 rounded-full ring-4 ring-white ring-offset-2 ring-offset-sky-300">
@@ -92,7 +92,7 @@ const Profile = () => {
 
             {/* edit profile image */}
             <div className="-mr-22 -mt-6">
-              <div  className="absolute max-w-12 cursor-pointer rounded-full bg-pink-900 p-2 transition-transform hover:scale-110">
+              <div className="absolute max-w-12 cursor-pointer rounded-full bg-pink-900 p-2 transition-transform hover:scale-110">
                 <label htmlFor="profile-image-input" className="flex cursor-pointer flex-col items-center gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +154,7 @@ const Profile = () => {
       <div className="flex flex-wrap justify-center">
 
       {/* -- 5. grid-flow-row auto-rows-max -- */}
-      <div className="grid grid-flow-row auto-rows-max grid-cols-2">
+      <div className="grid p-6 pt-0 grid-flow-row auto-rows-max grid-cols-2">
           {cards.map((card, index) => (
             <UICard
             key={index} 
@@ -167,23 +167,16 @@ const Profile = () => {
         </div>
       </div>
 
-
-
       {/* --7. Name this bar */}
       <div className="flex flex-row justify-center">
-        <div className="mt-2 flex justify-center">
+        <div className="-mt-8 flex justify-center">
           <Button type="submit" variant="contained" href="/edituserdata" sx={{ mt: 3, mb: 2, backgroundColor: '#831843', color: 'white' }}>
-          Edit profile
+          Edit
           </Button>
           {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
             <a href="/whatsyourgoal">Next</a>
           </button> */}
         </div>
-      </div>
-      
-      {/* --7. Name this bar */}
-      <div className="flex flex-row justify-center pt-10">
-        <BottomAppBar/>
       </div>
 
     </div>

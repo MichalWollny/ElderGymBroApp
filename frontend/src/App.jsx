@@ -25,11 +25,11 @@ function App() {
 
   return (
     <>
+      <BottomAppBar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/register" element={<Registration />} />
-
         <Route path="/profile" element={<Profile />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
@@ -41,11 +41,7 @@ function App() {
         <Route path="/uielements" element={<UIElements/>} />
         <Route path="/workouts" element={<Workouts />} />
         <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
-        <Route path="/bottomappbar" element={<BottomAppBar/>} />
       </Routes>
-
-        
-
     </>
   );
 }

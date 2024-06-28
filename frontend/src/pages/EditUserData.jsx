@@ -182,7 +182,7 @@ function EditUserData() {
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: '141414', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}>
             <InputLabel id="gender-label">Gender</InputLabel>
@@ -202,8 +202,6 @@ function EditUserData() {
         </Box>
 
       </div>
-      {/* <MenuAppBar/> */}
-      <BottomAppBar/>
     </div>
   );
 }
