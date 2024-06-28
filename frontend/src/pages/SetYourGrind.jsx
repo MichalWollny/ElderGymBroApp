@@ -80,7 +80,7 @@ function SetYourGrind() {
         <div className="flex flex-wrap justify-center">
 
         {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row p-4 auto-rows-max grid-cols-2 sm:scale-75 md:scale-75">
+        <div className="grid grid-flow-row p-4 auto-rows-max grid-cols-2 ">
             {cards.map((card, index) => (
               <UICard
               key={index} 

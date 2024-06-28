@@ -20,7 +20,7 @@ const cards = [
     // Gym experience card
     image: '/src/assets/icons/svg/gymexperience.svg',
     heading: 'Gym Experience',
-    subheading: 'Recite your records of suffering',
+    subheading: 'Recite your story of suffering',
     // other props...
   },
   {

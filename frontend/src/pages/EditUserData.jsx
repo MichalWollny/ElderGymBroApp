@@ -90,7 +90,7 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
@@ -112,7 +112,7 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
@@ -135,7 +135,7 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
@@ -158,7 +158,7 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
@@ -175,14 +175,14 @@ function EditUserData() {
             sx={{
               width: '25ch',
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: '141414', // border color
-                backgroundColor: '141414',
+                backgroundColor: 'black',
               },
             }}>
             <InputLabel id="gender-label">Gender</InputLabel>
