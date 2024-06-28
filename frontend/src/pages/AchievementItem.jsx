@@ -1,9 +1,9 @@
-const AchievementItem = ({ achievement }) => (
+const AchievementItem = ({ achievement, unlocked }) => (
   <div key={achievement.id} className="flex flex-col items-center">
     <img
       src={achievement.imageUrl}
       alt={achievement.name}
-      className="mb-2 h-32 w-32 rounded-full border border-gray-300"
+      className={`mb-2 h-32 w-32 rounded-full border border-gray-300 ${unlocked ? '' : 'opacity-30'}`}
     />
     <span className="text-center font-cthulhumbus text-sm">{achievement.name}</span>
   </div>

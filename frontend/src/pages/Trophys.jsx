@@ -3,7 +3,9 @@ import cuteCthulhu from '../assets/images/cuteCthulhu.png';
 import firstWorkoutDone from '../assets/images/firstworkoutdone.png';
 import trainingNight from '../assets/images/trainingnight.jpeg';
 import chestDay from '../assets/images/Chest1.jpeg';
-import ProgressBar from './ProgressBar';
+import weekendWorkout from '../assets/images/weekendworkout.jpeg';
+import firsplancreated from '../assets/images/firstplancreated.jpeg';
+import { LinearProgress, Box, Typography } from '@mui/material';
 import AchievementItem from './AchievementItem';
 
 const achievements = [
@@ -11,16 +13,30 @@ const achievements = [
   { id: 2, name: 'Firstworkout ', imageUrl: firstWorkoutDone },
   { id: 3, name: 'Training at night', imageUrl: trainingNight },
   { id: 4, name: 'Chestday', imageUrl: chestDay },
+  { id: 5, name: 'Weekend Workout Cultist', imageUrl: weekendWorkout },
+  { id: 6, name: 'First Incantation of Fitness', imageUrl: firsplancreated },
   // Weitere Achievements hier adden.
 ];
 
-const Trophys = ({ progress }) => {
+const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
-  //   const [achievementsUnlocked, setAchievementsUnlocked] = useState({});
+  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false); // Test Workout.
 
+  // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
   useEffect(() => {
     setProgressPercentage(progress);
-  }, [progress]);
+    if (firstWorkoutCompleted && !unlockedAchievments.includes(2)) {
+      toggleAchievement(2, true);
+    } else if (!firstWorkoutCompleted && unlockedAchievments.includes(2)) {
+      toggleAchievement(2, false);
+    }
+  }, [progress, firstWorkoutCompleted, unlockedAchievments, toggleAchievement]);
+
+  useEffect(() => {
+    const newProgress = (unlockedAchievments.length / achievements.length) * 100;
+    setProgressPercentage(newProgress);
+    updateProgress(newProgress);
+  }, [unlockedAchievments, updateProgress]);
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-200">
@@ -161,11 +177,25 @@ const Trophys = ({ progress }) => {
         </svg>
       </div>
       {/* Progressbar Komponente */}
-      <ProgressBar progressPercentage={progressPercentage} />
+      <div className="container mx-auto flex flex-col items-center">
+        <Box sx={{ width: '80%', mt: 1 }}>
+          <LinearProgress variant="determinate" color="warning" value={progressPercentage} sx={{ height: 8 }} />
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
+            <Typography
+              variant="body2"
+              color="textSecondary">{`${Math.round(progressPercentage)}% of all Trophys`}</Typography>
+          </Box>
+        </Box>
+      </div>
+
       {/* Achievement Komponente */}
       <div className="mt-12 grid grid-cols-2 gap-6">
         {achievements.map((achievement) => (
-          <AchievementItem key={achievement.id} achievement={achievement} />
+          <AchievementItem
+            key={achievement.id}
+            achievement={achievement}
+            unlocked={unlockedAchievments.includes(achievement.id)}
+          />
         ))}
       </div>
     </div>

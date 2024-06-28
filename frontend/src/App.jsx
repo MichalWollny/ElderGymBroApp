@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Onboarding from './pages/Onboarding';
@@ -23,6 +24,25 @@ import Trophys from './pages/Trophys';
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
+  const [progress, setProgress] = useState(0);
+  const [unlockedAchievments, setUnlockedAchievments] = useState([]);
+
+  const updateProgress = (newProgress) => {
+    setProgress(newProgress);
+  };
+
+  const toggleAchievement = (id, status) => {
+    setUnlockedAchievments((prev) => {
+      if (status) {
+        if (!prev.includes(id)) {
+          return [...prev, id];
+        }
+      } else {
+        return prev.filter((achievementId) => achievementId !== id);
+      }
+      return prev;
+    });
+  };
 
   return (
     <>
@@ -35,7 +55,17 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
-        <Route path="/trophys" element={<Trophys />} />
+        <Route
+          path="/trophys"
+          element={
+            <Trophys
+              progress={progress}
+              updateProgress={updateProgress}
+              toggleAchievement={toggleAchievement}
+              unlockedAchievments={unlockedAchievments}
+            />
+          }
+        />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/template" element={<Template />} />
         <Route path="/setup" element={<SetUp />} />
