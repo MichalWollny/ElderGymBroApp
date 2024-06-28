@@ -72,7 +72,7 @@ const MenuAppBar = () => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 15 }}
           >
             <HomeIcon />
           </IconButton>
@@ -83,7 +83,7 @@ const MenuAppBar = () => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 5 }}
           >
             <FitnessCenterIcon />
           </IconButton>

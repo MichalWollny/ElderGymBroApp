@@ -75,7 +75,7 @@ function StartYourJourney() {
           {/* <div className="flex flex-wrap justify-center text-gray-200"></div> */}
 
         {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
+        <div className="grid grid-flow-row p-4 -mt-4 auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
               {cards.map((card, index) => (
               <UICard
               class="md:scale-150"
@@ -89,7 +89,7 @@ function StartYourJourney() {
 
           {/* --7. Name this bar */}
           <div className="flex flex-row justify-center">
-            <div className="mt-6 flex justify-center">
+            <div className="-mt-8 flex justify-center">
               <Button type="submit" variant="contained" href="/whatsyourgoal" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
               </Button>
