@@ -3,6 +3,8 @@ import cuteCthulhu from '../assets/images/cuteCthulhu.png';
 import firstWorkoutDone from '../assets/images/firstworkoutdone.png';
 import trainingNight from '../assets/images/trainingnight.jpeg';
 import chestDay from '../assets/images/Chest1.jpeg';
+import ProgressBar from './ProgressBar';
+import AchievementItem from './AchievementItem';
 
 const achievements = [
   { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu },
@@ -12,7 +14,7 @@ const achievements = [
   // Weitere Achievements hier adden.
 ];
 
-const Trophys = ({ progress, achievementsUnlocked }) => {
+const Trophys = ({ progress }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
   //   const [achievementsUnlocked, setAchievementsUnlocked] = useState({});
 
@@ -158,32 +160,13 @@ const Trophys = ({ progress, achievementsUnlocked }) => {
           </g>
         </svg>
       </div>
-      {/* Fortschritt anzeige */}
-      <div className="w-full max-w-md rounded-lg">
-        <div className="flex justify-center">
-          <div className="mt-3 h-3 w-5/6 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500"></div>
-          <div className="flex h-3 rounded-full" style={{ width: `${progressPercentage}%` }}></div>
-        </div>
-        <div className="mb-1 flex justify-center">
-          <span className="mr-2 mt-2 text-lg font-medium text-slate-500">{progressPercentage}%</span>
-          {/* Fortschritt Schriftzug */}
-          <span className="mt-2 text-center text-lg font-medium text-slate-200">of all Trophys </span>
-        </div>
-      </div>
-      {/* Achievement images */}
+      {/* Progressbar Komponente */}
+      <ProgressBar progressPercentage={progressPercentage} />
+      {/* Achievement Komponente */}
       <div className="mt-12 grid grid-cols-2 gap-6">
-        {achievements.map((achievement) => {
-          return (
-            <div key={achievement.id} className="flex flex-col items-center">
-              <img
-                src={achievement.imageUrl}
-                alt={achievement.name}
-                className="mb-2 h-32 w-32 rounded-full border border-gray-300"
-              />
-              <span className="text-center font-cthulhumbus text-sm">{achievement.name}</span>
-            </div>
-          );
-        })}
+        {achievements.map((achievement) => (
+          <AchievementItem key={achievement.id} achievement={achievement} />
+        ))}
       </div>
     </div>
   );
