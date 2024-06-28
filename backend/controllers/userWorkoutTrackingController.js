@@ -1,13 +1,14 @@
 import User from '../models/userSchema.js';
 import axios from 'axios';
+import asyncHandler from '../utils/asyncHandler.js';
 
 // Set the active workout for a user
 export const setUserActiveWorkout = async (req, res) => {
   try {
-    const { userId, workoutId } = req.body;
+    const { workoutId } = req.body;
 
-    // Find the user
-    const user = await User.findById(userId);
+    // Find the user by UID
+    const user = await User.findById(req.uid);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -22,30 +23,28 @@ export const setUserActiveWorkout = async (req, res) => {
   }
 };
 
-// Get active workout details
+// // Get active workout details
 export const getActiveWorkout = async (req, res) => {
   try {
-    const { userId } = req.params;
-
-    // Find the user
-    const user = await User.findById(userId);
+    // Find the user by UID
+    const user = await User.findById(req.uid);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-
+    // Get the activeWorkoutId from the user profile
     const activeWorkoutId = user.activeWorkoutId;
     if (!activeWorkoutId) {
       return res.status(404).json({ error: 'No active workout found' });
     }
 
-    // Fetch the workout details from the JSON file
-    const response = await axios.get('http://localhost:5173/hardcodedworkouts');
+    // Get the workout details from the JSON file
+    const response = await axios.get('http://localhost:8000/hardcodedworkouts');
     const workouts = response.data;
 
-    // Find the active workout by ID
+    // Find the active workout by activeWorkoutId
     const activeWorkout = workouts.find((workout) => workout.id === Number(activeWorkoutId));
     if (!activeWorkout) {
-      return res.status(404).json({ error: 'Active workout not found' });
+      return res.status(404).json({ error: 'Active workout does not exist' });
     }
 
     res.status(200).json({ activeWorkout });
@@ -57,14 +56,18 @@ export const getActiveWorkout = async (req, res) => {
 // Add a new workout progress entry
 export const addWorkoutProgress = async (req, res) => {
   try {
-    const { userId, workoutId, startDate, progress } = req.body;
+    const { workoutId, startDate, progress } = req.body;
 
-    // Find the user
-    const user = await User.findById(userId);
+    // Find the user by UID
+    const user = await User.findById(req.uid);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-
+    // If the user does not have an active workout, set the active workout to the new workout
+    if (!user.activeWorkoutId) {
+      user.activeWorkoutId = workoutId;
+      await user.save();
+    }
     // Add the workout progress
     user.progressTracking.push({ workoutId, startDate, progress });
     await user.save();
@@ -78,11 +81,11 @@ export const addWorkoutProgress = async (req, res) => {
 // Update workout progress entry
 export const updateWorkoutProgress = async (req, res) => {
   try {
-    const { userId, workoutId } = req.params;
+    const { workoutId } = req.params;
     const { progress } = req.body;
 
-    // Find the user
-    const user = await User.findById(userId);
+    // Find the user by UID
+    const user = await User.findById(req.uid);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -106,10 +109,8 @@ export const updateWorkoutProgress = async (req, res) => {
 // Get workout progress for a user
 export const getWorkoutProgress = async (req, res) => {
   try {
-    const { userId } = req.params;
-
-    // Find the user
-    const user = await User.findById(userId);
+    // Find the user by UID
+    const user = await User.findById(req.uid);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -123,10 +124,8 @@ export const getWorkoutProgress = async (req, res) => {
 // Get active workout details and workout progress (COMBINED)
 export const getActiveWorkoutAndProgress = async (req, res) => {
   try {
-    const { userId } = req.params;
-
-    // Find the user
-    const user = await User.findById(userId);
+    // Find the user by UID
+    const user = await User.findById(req.uid);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -137,7 +136,7 @@ export const getActiveWorkoutAndProgress = async (req, res) => {
     }
 
     // Fetch the workout details from the JSON file
-    const response = await axios.get('http://localhost:5173/hardcodedworkouts');
+    const response = await axios.get('http://localhost:8000/hardcodedworkouts');
     const workouts = response.data;
 
     // Find the active workout by ID
@@ -154,3 +153,15 @@ export const getActiveWorkoutAndProgress = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// Reset progress tracking for a user
+export const resetProgressTracking = asyncHandler(async (req, res, next) => {
+  // Find the user by UID
+  const user = await User.findById(req.uid);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  user.progressTracking = [];
+  await user.save();
+  res.status(200).json({ message: 'Progress tracking reset successfully' });
+});
