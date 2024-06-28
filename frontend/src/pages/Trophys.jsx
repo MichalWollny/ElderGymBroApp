@@ -20,7 +20,7 @@ const achievements = [
 
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
-  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false); // Test Workout.
+  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false); // Schaltet Achievment frei wenn (true) und passt Progressbar an.
 
   // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
   useEffect(() => {
