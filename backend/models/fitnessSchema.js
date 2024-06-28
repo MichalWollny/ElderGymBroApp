@@ -45,10 +45,10 @@ const workoutSchema = new mongoose.Schema({
 
 // Exercise progress schema to track individual exercise performance
 const exerciseProgressSchema = new mongoose.Schema({
-  exerciseId: Number,
-  weight: Number,
-  sets: Number,
-  reps: Number,
+  exerciseId: { type: Number, default: 0 },
+  weight: { type: Number, default: 0 },
+  sets: { type: Number, default: 0 },
+  reps: { type: Number, default: 0 },
   date: { type: Date, default: Date.now },
 });
 

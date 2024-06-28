@@ -72,8 +72,8 @@ const userSchema = new mongoose.Schema(
     },
     progressTracking: { type: [userWorkoutTrackingSchema], default: [] },
 
-    // activeWorkoutID should help us render the active workout on the front end
-    activeWorkoutId: { type: String, default: null },
+    // activeWorkoutID should help us render the active workout on the front end side
+    activeWorkoutId: { type: String, default: '' },
   },
   { timestamps: true },
 );
