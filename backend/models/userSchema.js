@@ -1,17 +1,16 @@
 import mongoose from 'mongoose';
 import { getTitle } from '../utils/karmaUtils.js';
 import { getDefaultAvatar } from '../utils/profileUtils.js';
+import { userWorkoutTrackingSchema } from './fitnessSchema.js';
 
 const userSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
-      // required: [true, 'Name is required'],
       default: 'unknown',
     },
     username: {
       type: String,
-      // unique: true,
       required: [true, 'Username is required'],
     },
     email: {
@@ -29,7 +28,6 @@ const userSchema = new mongoose.Schema(
     gender: { type: String, default: '', enum: ['', 'male', 'female', 'elder thing', 'blob', 'other'] },
     fitnesLevel: {
       type: String,
-      // required: [true, 'Please state your current fitness level'],
       default: 'beginner',
       enum: ['beginner', 'intermediate', 'advanced'],
     },
@@ -38,12 +36,16 @@ const userSchema = new mongoose.Schema(
       default: '',
       enum: ['', 'Muscle Worship', 'Fat Fight', 'Stamina Destruction', 'Cardio Crusade'],
     },
+
+    //for now avatar will be an url, image upload will be implemented later (if at all...)
     avatar: {
       type: String,
       default: function () {
         return getDefaultAvatar(this.gender);
       },
     },
+
+    // awards object will store the gamefication elements
     awards: {
       level: {
         type: Number,
@@ -68,9 +70,11 @@ const userSchema = new mongoose.Schema(
         default: null,
       },
     },
-    progressTracking: { type: Array, default: [] },
+    progressTracking: { type: [userWorkoutTrackingSchema], default: [] },
+
+    // activeWorkoutID should help us render the active workout on the front end
+    activeWorkoutId: { type: String, default: null },
   },
-  // Timestamps
   { timestamps: true },
 );
 

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as userProfileController from '../controllers/userProfile.js';
+import * as userProfileController from '../controllers/userProfileController.js';
 import * as userKarmaController from '../controllers/userKarmaController.js';
 import verifyToken from '../middleware/verifyToken.js';
 

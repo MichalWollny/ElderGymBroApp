@@ -5,7 +5,7 @@ import './db/server.js';
 import { errorHandler } from './middleware/ErrorHandler.js';
 import authRouter from './routes/authRouter.js';
 import userProfileRouter from './routes/userProfileRouter.js';
-// import workoutPlansRouter from './routes/workoutPlanRouter.js';
+import userWorkoutTrackingRouter from './routes/userWorkoutTrackingRouter.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -24,7 +24,9 @@ app.use(cookieParser()); // cookie-parser
 // ROUTES
 app.use('/auth', authRouter);
 app.use('/profile', userProfileRouter);
-// app.use('/workouts', workoutPlansRouter);
+app.use('/me/workouttracking', userWorkoutTrackingRouter);
+
+// Data ROUTES
 app.get('/exercises', (req, res) => {
   res.json(exercises);
 });
