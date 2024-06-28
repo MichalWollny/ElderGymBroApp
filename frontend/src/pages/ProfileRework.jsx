@@ -48,12 +48,12 @@ const Profile = () => {
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-green-950 text-gray-200">
 
-      {/* <div className="flex flex-row justify-start bg-gray-900">
+      <div className="flex flex-row justify-start bg-gray-900">
 
         <div className="flex flex-row">
 
           <div className="flex flex-row justify-center text-teal-100">
-            <a href="/" className="m-2 font-semibold text-teal-600">
+            <a href="/setyourgrind" className="m-2 font-semibold text-teal-600">
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,22 +67,22 @@ const Profile = () => {
             </a>
           </div>
         </div>
-      </div> */}
+      </div>
 
-      {/* window name bar*/}
+      {/* Title bar*/}
       <div className="flex flex-row justify-center">
         <h1 className="cursor-default bg-gradient-to-br p-4 from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Profile
         </h1>
       </div>
 
-      {/* profile image bar */}
+      {/* Profile image bar */}
       <div className="flex flex-row justify-center">
         {/* profile image container */}
-        <div className="my-2 flex flex-col justify-center">
+        <div className="my flex flex-col justify-center">
           {/* profile image */}
           <div className="avatar">
-            <div className="mx-auto w-32 rounded-full ring-4 ring-white ring-offset-2 ring-offset-sky-300">
+            <div className="mx-auto w-28 rounded-full ring-4 ring-white ring-offset-2 ring-offset-sky-300">
               <img src={avatarImage5} alt="Profile Image" className="object-fit-cover rounded-full object-cover" />
             </div>
           </div>
@@ -138,10 +138,10 @@ const Profile = () => {
             <div className="flex flex-col">
               {/* <h2 className="text-center text-xl font-semibold text-teal-700">-=|</h2> */}
               {/* <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2> */}
-              <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-6 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
+              <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
                 The infamous
               </h1>
-              <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
+              <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
                 Lord of the Gym
               </h1>
               {/* <h2 className="text-center text-xl font-semibold text-teal-700">|=-</h2> */}

@@ -16,21 +16,27 @@ export default function LabelBottomNavigation() {
   };
 
   return (
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
+   
+    <BottomNavigation position="fixed" sx={{ bgcolor: "black", top: 'auto', bottom: 0, width: 1 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
         label="Recents"
         value="recents"
-        icon={<RestoreIcon />}
+        icon={<HomeIcon />}
       />
       <BottomNavigationAction
         label="Favorites"
         value="favorites"
-        icon={<HomeIcon />}
+        icon={<EmojiEventsIcon />}
       />
       <BottomNavigationAction
         label="Nearby"
         value="nearby"
-        icon={<LocationOnIcon />}
+        icon={<AssignmentTurnedInIcon />}
+      />
+        <BottomNavigationAction
+        label="Nearby"
+        value="nearby"
+        icon={<FitnessCenter />}
       />
       <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
     </BottomNavigation>

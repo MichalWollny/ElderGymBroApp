@@ -75,7 +75,7 @@ function StartYourJourney() {
           {/* <div className="flex flex-wrap justify-center text-gray-200"></div> */}
 
         {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row p-4 -mt-4 auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
+        <div className="grid grid-flow-row p-4 -mt-4 auto-rows-max grid-cols-2">
               {cards.map((card, index) => (
               <UICard
               class="md:scale-150"

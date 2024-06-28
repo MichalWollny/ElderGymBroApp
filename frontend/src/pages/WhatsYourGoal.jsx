@@ -42,7 +42,7 @@ function WhatsYourGoal() {
         <div className="flex flex-row">
           {/* link container*/}
           <div className="flex flex-row justify-center text-teal-100">
-            <a href="/" className="m-2 font-semibold text-teal-600">
+            <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
               {/* icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ function WhatsYourGoal() {
         </div>
       </div>
 
-        {/* --1. What's your goal bar --*/}
+        {/* Page title bar */}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             What's your goal
@@ -67,15 +67,15 @@ function WhatsYourGoal() {
 
         {/* Image bar */}
         <div className="flex flex-row justify-center text-gray-200">
-          <img src={cthuhluCave} alt="Landing Page Image" className="m-2 w-20" />
+          <img src={cthuhluCave} alt="Landing Page Image" className="m-2 max-w-10" />
         </div>
 
-        {/* Content bar*/}
+        
+        {/* -- Content section */}
         <div className="flex flex-wrap justify-center">
-          {/* <div className="flex flex-wrap justify-center text-gray-200"></div> */}
 
-        {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row p-4 auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
+        {/* Cards grid */}
+        <div className="grid grid-flow-row p-4 auto-rows-max grid-cols-2">
               {cards.map((card, index) => (
                 <UICard
                 class="md:scale-150"
@@ -99,7 +99,8 @@ function WhatsYourGoal() {
             </div>
           </div>
 
-      </div>
+          </div>
+
     </>
   );
 }

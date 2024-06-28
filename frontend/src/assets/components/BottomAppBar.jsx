@@ -120,7 +120,7 @@ export default function BottomAppBar() {
           ))}
         </List>
       </Paper> */}
-      <AppBar position="fixed" sx={{ bgcolor: "black", top: 'auto', bottom: 0, width: 370}}>
+      <AppBar position="fixed" sx={{ bgcolor: "black", top: 'auto', bottom: 0, width: 1 }}>
         <Toolbar sx={{ marginX: 1, gap: 7}}>
           <IconButton color="inherit" aria-label="open drawer" >
             <HomeIcon />

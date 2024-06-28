@@ -38,33 +38,14 @@ const MenuAppBar = () => {
     setAnchorEl(null);
   };
 
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, bgcolor: "black", bottom: 0 }}>
       <FormGroup>
-        {/* <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        /> */}
+
       </FormGroup>
       <AppBar position="static">
         <Toolbar>
-
-        {/* Menu button   */}
-        {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
 
           {/* Home Button */}
           <IconButton
@@ -72,7 +53,7 @@ const MenuAppBar = () => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 15 }}
+            sx={{ mr: 2 }}
           >
             <HomeIcon />
           </IconButton>
@@ -83,7 +64,7 @@ const MenuAppBar = () => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 5 }}
+            sx={{ mr: 2 }}
           >
             <FitnessCenterIcon />
           </IconButton>
@@ -99,7 +80,7 @@ const MenuAppBar = () => {
             <AssignmentTurnedInIcon />
           </IconButton>
 
-           {/* Dumbell Button */}
+           {/* Dumbbell Button */}
            <IconButton
             size="large"
             edge="start"
@@ -110,7 +91,16 @@ const MenuAppBar = () => {
             <EmojiEventsIcon />
           </IconButton>
 
-
+          <FormControlLabel
+          control={
+            <Switch
+              checked={auth}
+              onChange={handleChange}
+              aria-label="login switch"
+            />
+          }
+          label={auth ? 'Logout' : 'Login'}
+        />
 
           {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Photos

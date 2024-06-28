@@ -18,6 +18,7 @@ import useFetchData from './utils/FetchData';
 import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
 import { BottomNavigation } from '@mui/material';
+import MenuAppBar from './assets/components/MenuAppBar';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
 
   return (
     <>
+      {/* <MenuAppBar/> */}
+      {/* <BottomNavigation/> */}
       <BottomAppBar />
       <Routes>
         <Route path="/" element={<LandingPage />} />

@@ -48,7 +48,7 @@ function SetYourGrind() {
         <div className="flex flex-row">
           {/* link container*/}
           <div className="flex flex-row justify-center text-teal-100">
-            <a href="/" className="m-2 font-semibold text-teal-600">
+            <a href="/whatsyourgoal" className="m-2 font-semibold text-teal-600">
               {/* icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,19 +64,19 @@ function SetYourGrind() {
         </div>
       </div>
 
-        {/* --1. Set your Grind bar--*/}
+        {/* Title bar */}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             Set Your Grind
           </h1>
         </div>
 
-        {/* Content bar*/}
+        {/* Image bar */}
         <div className="flex flex-row justify-center">
           <img src={cthulhuGrind} alt="Landing Page Image" className="m-2 w-36" />
         </div>
 
-        {/* -- Content bar */}
+        {/* -- Content section */}
         <div className="flex flex-wrap justify-center">
 
         {/* -- 5. grid-flow-row auto-rows-max -- */}

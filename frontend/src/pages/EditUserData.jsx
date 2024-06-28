@@ -97,7 +97,7 @@ function EditUserData() {
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -119,7 +119,7 @@ function EditUserData() {
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -142,7 +142,7 @@ function EditUserData() {
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -165,7 +165,7 @@ function EditUserData() {
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -182,7 +182,7 @@ function EditUserData() {
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: '141414', // border color
-                backgroundColor: 'black',
+                backgroundColor: '141414',
               },
             }}>
             <InputLabel id="gender-label">Gender</InputLabel>
