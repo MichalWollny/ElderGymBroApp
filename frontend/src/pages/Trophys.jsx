@@ -5,7 +5,7 @@ import trainingNight from '../assets/images/trainingnight.jpeg';
 import chestDay from '../assets/images/Chest1.jpeg';
 import weekendWorkout from '../assets/images/weekendworkout.jpeg';
 import firsplancreated from '../assets/images/firstplancreated.jpeg';
-import { LinearProgress, Box, Typography } from '@mui/material';
+import { LinearProgress, Box, Typography, Modal, Button } from '@mui/material';
 import AchievementItem from './AchievementItem';
 
 const achievements = [
@@ -13,14 +13,23 @@ const achievements = [
   { id: 2, name: 'Firstworkout ', imageUrl: firstWorkoutDone },
   { id: 3, name: 'Training at night', imageUrl: trainingNight },
   { id: 4, name: 'Chestday', imageUrl: chestDay },
-  { id: 5, name: 'Weekend Workout Cultist', imageUrl: weekendWorkout },
+  {
+    id: 5,
+    name: 'Weekend Workout Cultist',
+    imageUrl: weekendWorkout,
+    requirements: 'Finish your Workout on Saturday/Sunday',
+  },
   { id: 6, name: 'First Incantation of Fitness', imageUrl: firsplancreated },
   // Weitere Achievements hier adden.
 ];
 
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
-  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false); // Schaltet Achievment frei wenn (true) und passt Progressbar an.
+  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
+  const [selectedAchievement, setSelectedAchievement] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
+  // Schaltet Achievment frei wenn (true) und passt Progressbar an.
 
   // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
   useEffect(() => {
@@ -37,6 +46,17 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
     setProgressPercentage(newProgress);
     updateProgress(newProgress);
   }, [unlockedAchievments, updateProgress]);
+
+  const handleAchievmentClick = (achievement) => {
+    setSelectedAchievement(achievement);
+    setModalPosition({ top: event.clientY, left: event.clientX });
+    setModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setModalOpen(false);
+    setSelectedAchievement(null);
+  };
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-200">
@@ -195,9 +215,36 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
             key={achievement.id}
             achievement={achievement}
             unlocked={unlockedAchievments.includes(achievement.id)}
+            onClick={() => handleAchievmentClick(achievement)}
           />
         ))}
       </div>
+      {/* Modal für Achievment-Informationen */}
+      <Modal open={modalOpen} onClose={handleClose}>
+        <Box
+          sx={{
+            p: 2,
+            bgcolor: 'background.paper',
+            borderRadius: 1,
+            boxShadow: 24,
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            width: '100vw',
+          }}>
+          {selectedAchievement && (
+            <>
+              <Typography variant="h6" component="h2">
+                {selectedAchievement.name}
+              </Typography>
+              <div className="mt-2 text-[#2B777D]">{selectedAchievement.requirements}</div>
+              <Button onClick={handleClose} sx={{ mt: 2 }}>
+                Schließen
+              </Button>
+            </>
+          )}
+        </Box>
+      </Modal>
     </div>
   );
 };
