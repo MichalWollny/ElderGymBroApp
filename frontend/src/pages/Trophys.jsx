@@ -39,8 +39,8 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
   useEffect(() => {
     setProgressPercentage(progress);
-    if (firstWorkoutCompleted && !unlockedAchievments.includes(2)) {
-      toggleAchievement(2, true);
+    if (firstWorkoutCompleted && !unlockedAchievments.includes(1)) {
+      toggleAchievement(1, true);
     } else if (!firstWorkoutCompleted && unlockedAchievments.includes(2)) {
       toggleAchievement(2, false);
     }
@@ -240,7 +240,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
               <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
               <div className="mt-2 text-[#2B777D]">{selectedAchievement.requirements}</div>
               <Button onClick={handleClose} sx={{ mt: 2 }}>
-                Schließen
+                Close
               </Button>
             </>
           )}
