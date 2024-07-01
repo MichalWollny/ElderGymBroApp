@@ -43,7 +43,7 @@ function App() {
       return prev;
     });
   };
-
+  // Stepper Routes
   const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
 
   return (
