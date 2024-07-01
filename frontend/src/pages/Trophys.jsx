@@ -9,17 +9,22 @@ import { LinearProgress, Box, Typography, Modal, Button } from '@mui/material';
 import AchievementItem from './AchievementItem';
 
 const achievements = [
-  { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu },
+  { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu, requirements: 'First Workout completed' },
   { id: 2, name: 'Firstworkout ', imageUrl: firstWorkoutDone },
-  { id: 3, name: 'Training at night', imageUrl: trainingNight },
-  { id: 4, name: 'Chestday', imageUrl: chestDay },
+  { id: 3, name: 'Training at night', imageUrl: trainingNight, requirements: 'Start a workout between 10 pm and 2 am' },
+  { id: 4, name: 'Chestday', imageUrl: chestDay, requirements: 'Chest workout on Mondays' },
   {
     id: 5,
     name: 'Weekend Workout Cultist',
     imageUrl: weekendWorkout,
     requirements: 'Finish your Workout on Saturday/Sunday',
   },
-  { id: 6, name: 'First Incantation of Fitness', imageUrl: firsplancreated },
+  {
+    id: 6,
+    name: 'First Incantation of Fitness',
+    imageUrl: firsplancreated,
+    requirements: 'Create your first personalized workout plan',
+  },
   // Weitere Achievements hier adden.
 ];
 
@@ -28,7 +33,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
   const [selectedAchievement, setSelectedAchievement] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
+
   // Schaltet Achievment frei wenn (true) und passt Progressbar an.
 
   // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
@@ -49,7 +54,6 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
 
   const handleAchievmentClick = (achievement) => {
     setSelectedAchievement(achievement);
-    setModalPosition({ top: event.clientY, left: event.clientX });
     setModalOpen(true);
   };
 
@@ -226,17 +230,14 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
             p: 2,
             bgcolor: 'background.paper',
             borderRadius: 1,
-            boxShadow: 24,
+            boxShadow: 'none',
             position: 'fixed',
             bottom: 0,
-            left: 0,
             width: '100vw',
           }}>
           {selectedAchievement && (
             <>
-              <Typography variant="h6" component="h2">
-                {selectedAchievement.name}
-              </Typography>
+              <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
               <div className="mt-2 text-[#2B777D]">{selectedAchievement.requirements}</div>
               <Button onClick={handleClose} sx={{ mt: 2 }}>
                 Schließen
