@@ -10,7 +10,6 @@ import {
   IconButton,
   Grid,
 } from '@mui/material';
-// import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { zxcvbnAsync, zxcvbnOptions } from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en';
