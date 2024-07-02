@@ -7,6 +7,9 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import MenuAppBar from '../assets/components/MenuAppBar';
+import BottomAppBar from '../assets/components/BottomAppBar';
+import { BottomNavigation } from '@mui/material';
 
 function EditUserData() {
   const [formData, setFormData] = useState({
@@ -87,14 +90,14 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -109,14 +112,14 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -132,14 +135,14 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -155,14 +158,14 @@ function EditUserData() {
             onChange={handleChange}
             sx={{
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: 'teal', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}
           />
@@ -172,14 +175,14 @@ function EditUserData() {
             sx={{
               width: '25ch',
               '& .MuiInputBase-input': {
-                color: 'black', // text color
+                color: '141414', // text color
               },
               '& .MuiInputLabel-root': {
                 color: '141414', // label color
               },
               '& .MuiOutlinedInput-root': {
                 borderColor: '141414', // border color
-                backgroundColor: '#141414',
+                backgroundColor: '141414',
               },
             }}>
             <InputLabel id="gender-label">Gender</InputLabel>
@@ -197,6 +200,7 @@ function EditUserData() {
             Save
           </Button>
         </Box>
+
       </div>
     </div>
   );

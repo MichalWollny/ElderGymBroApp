@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Beginner Gains",
+    "imageUrl": "path/to/cuteCthulhu.png",
+    "requirements": "First Workout completed"
+  },
+  {
+    "id": 2,
+    "name": "Awakening Initiate",
+    "imageUrl": "",
+    "requirements": "Complete the initiation ritual (onboarding)."
+  },
+  {
+    "id": 3,
+    "name": "Training at night",
+    "imageUrl": "",
+    "requirements": "Start a workout between 10 pm and 2 am"
+  },
+  {
+    "id": 4,
+    "name": "Chestday",
+    "imageUrl": "",
+    "requirements": "Chest workout on Mondays"
+  },
+  {
+    "id": 5,
+    "name": "Weekend Workout Cultist",
+    "imageUrl": "",
+    "requirements": "Finish your Workout on Saturday/Sunday"
+  },
+  {
+    "id": 6,
+    "name": "First Incantation of Fitness",
+    "imageUrl": "",
+    "requirements": "Create your first personalized workout plan"
+  },
+  {
+    "id": 7,
+    "name": "Midday Summoning",
+    "imageUrl": "",
+    "requirements": "Start a workout between 12 PM and 2 PM."
+  },
+  {
+    "id": 8,
+    "name": "Herald of the Elder Workweek",
+    "imageUrl": "",
+    "requirements": "Start a workout every day from Monday to Friday in the same week."
+  },
+  {
+    "id": 9,
+    "name": "Weekend Conjuror",
+    "imageUrl": "",
+    "requirements": "Start a workout on both Saturday and Sunday in the same week."
+  },
+  {
+    "id": 10,
+    "name": "Weight of the Abyss",
+    "imageUrl": "",
+    "requirements": "Perform a set of a weight exercise with 4 or fewer reps."
+  }
+]

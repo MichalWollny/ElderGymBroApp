@@ -1,10 +1,11 @@
 
-import UICard from './UICard';
 import Button from '@mui/material/Button';
 
 // images
 import cthulhuGrind from '/src/assets/images/cthulhuGrind.png';
 
+//components
+import UICard from '/src/assets/components/UICard'
 
 const cards = [
   {
@@ -47,7 +48,7 @@ function SetYourGrind() {
         <div className="flex flex-row">
           {/* link container*/}
           <div className="flex flex-row justify-center text-teal-100">
-            <a href="/" className="m-2 font-semibold text-teal-600">
+            <a href="/whatsyourgoal" className="m-2 font-semibold text-teal-600">
               {/* icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,30 +64,31 @@ function SetYourGrind() {
         </div>
       </div>
 
-        {/* --1. Set your Grind bar--*/}
+        {/* Title bar */}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             Set Your Grind
           </h1>
         </div>
 
-        {/* Content bar*/}
+        {/* Image bar */}
         <div className="flex flex-row justify-center">
-          <img src={cthulhuGrind} alt="Landing Page Image" className="m-2 w-48" />
+          <img src={cthulhuGrind} alt="Landing Page Image" className="m-2 w-36" />
         </div>
 
-        {/* -- Content bar */}
+        {/* -- Content section */}
         <div className="flex flex-wrap justify-center">
 
         {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row auto-rows-max grid-cols-2 sm:scale-75 md:scale-50">
+        <div className="grid grid-flow-row p-4 auto-rows-max grid-cols-2 ">
             {cards.map((card, index) => (
-              <UICard 
+              <UICard
               key={index} 
               image={card.image}
               heading={card.heading} 
               className=""
-              subheading={card.subheading} />
+              subheading={card.subheading}
+              />
             ))}
             </div>
           </div>
@@ -97,7 +99,7 @@ function SetYourGrind() {
 
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
-          <div className="mt-6 flex justify-center">
+          <div className="-mt-8 flex justify-center">
             <Button type="submit" variant="contained" href="/Profilerework" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
             Next
             </Button>
