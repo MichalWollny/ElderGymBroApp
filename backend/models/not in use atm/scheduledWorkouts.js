@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-// this would be used by the react-big-calendar for the user-planned workout and would also give a history of past workouts
+// this would be used by the react-big-calendar for the user-planned workouts and would also give a history of past workouts
 
 const scheduledWorkoutSchema = new mongoose.Schema({
   title: {
