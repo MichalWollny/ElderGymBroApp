@@ -9,8 +9,8 @@ import StartYourJourney from './pages/StartYourJourney';
 import WhatsYourGoal from './pages/WhatsYourGoal';
 import SetYourGrind from './pages/SetYourGrind';
 import Workouts from './pages/Workouts';
-import SignUp from './pages/SignUp';
-import Registration from './pages/Registration';
+// import SignUp from './pages/SignUp';
+// import Registration from './pages/Registration';
 import EditUserData from './pages/EditUserData';
 import SetUp from './pages/SetUp';
 import useFetchData from './utils/FetchData';
@@ -22,6 +22,12 @@ import MenuAppBar from './assets/components/MenuAppBar';
 import Dashboard from './pages/Dashboard';
 import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
+
+import { ToastContainer } from 'react-toastify';
+import NotFound from './pages/NotFound';
+import LoginForm from './pages/LoginForm';
+import RegisterForm from './pages/RegisterForm';
+
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
@@ -55,10 +61,13 @@ function App() {
       {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
       {/* <BottomNavigation/> */}
       <BottomAppBar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/register" element={<Registration />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="*" element={<NotFound />} />
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/edituserdata" element={<EditUserData />} />
