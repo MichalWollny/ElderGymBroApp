@@ -19,6 +19,8 @@ import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
 import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
+import Dashboard from './pages/Dashboard';
+
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
@@ -52,8 +54,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
+        <Route path="/edituserdata" element={<EditUserData />} />
         <Route
           path="/trophys"
           element={
@@ -74,6 +76,7 @@ function App() {
         <Route path="/uielements" element={<UIElements />} />
         <Route path="/workouts" element={<Workouts />} />
         <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </>
   );
