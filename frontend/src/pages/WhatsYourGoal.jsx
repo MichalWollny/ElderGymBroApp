@@ -1,5 +1,6 @@
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+
 import Button from '@mui/material/Button';
 
 // images
@@ -37,6 +38,7 @@ function WhatsYourGoal() {
   return (
     <>
       <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+
         {/* window bar */}
         <div className="flex flex-row justify-start bg-gray-900">
           {/* icon button container*/}

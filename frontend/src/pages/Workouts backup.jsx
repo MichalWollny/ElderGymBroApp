@@ -1,6 +1,5 @@
 // ./src/components/WorkoutPlan.js
 
-import React from 'react';
 import { Card, CardContent, Typography, List, ListItem, ListItemText } from '@mui/material';
 
 const Workouts = ({ plan }) => {
