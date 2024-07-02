@@ -5,21 +5,20 @@ import {
   updateWorkoutProgress,
   getWorkoutProgress,
   getActiveWorkout,
-  getActiveWorkoutAndProgress,
+  endWorkout,
   resetProgressTracking,
 } from '../controllers/userWorkoutTrackingController.js';
 import verifyToken from '../middleware/verifyToken.js';
 
 const userWorkoutTrackingRouter = Router();
 
-// Set active workout for a user
-userWorkoutTrackingRouter.patch('/setActiveWorkout', verifyToken, setUserActiveWorkout);
-
-// Add workout progress
-userWorkoutTrackingRouter.post('/addWorkoutProgress', verifyToken, addWorkoutProgress);
-
-// Update workout progress
-userWorkoutTrackingRouter.put('/updateWorkoutProgress/:workoutId', verifyToken, updateWorkoutProgress);
+userWorkoutTrackingRouter
+  // Set active workout for a user
+  .patch('/setActiveWorkout', verifyToken, setUserActiveWorkout)
+  // Add workout progress
+  .post('/addWorkoutProgress', verifyToken, addWorkoutProgress)
+  // Update workout progress
+  .put('/updateWorkoutProgress/:workoutId', verifyToken, updateWorkoutProgress);
 
 // Get workout progress
 userWorkoutTrackingRouter.get('/getWorkoutProgress', verifyToken, getWorkoutProgress);
@@ -27,8 +26,8 @@ userWorkoutTrackingRouter.get('/getWorkoutProgress', verifyToken, getWorkoutProg
 // Get active workout for a user
 userWorkoutTrackingRouter.get('/getActiveWorkout', verifyToken, getActiveWorkout);
 
-// Get active workout and workout progress for a user
-userWorkoutTrackingRouter.get('/getActiveWorkoutAndProgress', verifyToken, getActiveWorkoutAndProgress);
+// End workout for a user
+userWorkoutTrackingRouter.patch('/endWorkout/:workoutId', verifyToken, endWorkout);
 
 // Reset Workout Progress
 userWorkoutTrackingRouter.patch('/resetWorkoutProgress', verifyToken, resetProgressTracking);

@@ -44,25 +44,22 @@ const workoutSchema = new mongoose.Schema({
 });
 
 // Exercise progress schema to track individual exercise performance
-const exerciseTrackingSchema = new mongoose.Schema({
-  exerciseId: { type: Number, default: 0 },
-  weight: { type: Number, default: 0 },
-  sets: { type: Number, default: 0 },
-  reps: { type: Number, default: 0 },
-  date: { type: Date, default: Date.now },
-});
-
-// Define the schema for exercises performed on a specific day
 const exerciseProgressSchema = new mongoose.Schema({
-  day: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
-  exercisesOfTheDay: [exerciseTrackingSchema],
+  day: { type: Date, default: Date.now },
+  exercisesOfTheDay: {
+    exerciseId: { type: Number, default: 0 },
+    weight: { type: Number, default: 0 },
+    sets: { type: Number, default: 0 },
+    reps: { type: Number, default: 0 },
+    date: { type: Date, default: Date.now },
+  },
 });
 
 // User workout tracking schema to track workouts
 const userWorkoutTrackingSchema = new mongoose.Schema({
   workoutId: Number,
-  startDate: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
-  endDate: { type: Date, default: null },
+  startDate: { type: Date, default: Date.now },
+  endDate: Date,
   progress: [exerciseProgressSchema],
 });
 
