@@ -6,6 +6,7 @@ import './index.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { deDE } from '@mui/x-date-pickers/locales';
+import { AuthProvider } from './context/AuthProvider.jsx';
 
 // Roboto fonts via npm
 import '@fontsource/roboto/300.css';
@@ -28,9 +29,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={darkTheme}>
       {/* enforcing dark tehme */}
       <CssBaseline />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
 );

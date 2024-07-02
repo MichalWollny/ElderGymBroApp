@@ -1,4 +1,5 @@
 import { useState, useEffect, useDeferredValue } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Typography,
@@ -18,7 +19,7 @@ import { matcherPwnedFactory } from '@zxcvbn-ts/matcher-pwned';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-// Configure zxcvbn
+// Configure zxcvbn-ts
 const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions);
 zxcvbnOptions.addMatcher('pwned', matcherPwned);
 
@@ -89,6 +90,29 @@ const SignUp = () => {
     event.preventDefault();
   };
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/auth/register',
+        {
+          username,
+          email,
+          password,
+        },
+        { withCredentials: true },
+      );
+
+      if (response.status === 201) {
+        toast.success('Successfully registered! Welcome');
+        navigate('/login');
+      }
+    } catch (error) {
+      // console.error(error);
+      toast.error(error.response.data.error || 'Registration failed');
+    }
+  };
+
   return (
     <Container
       maxWidth="sm"
@@ -112,7 +136,7 @@ const SignUp = () => {
       <Typography variant="h4" gutterBottom>
         Sign Up
       </Typography>
-      <form>
+      <form onSubmit={handleRegister}>
         <Grid container spacing={0}>
           <Grid item xs={12}>
             <TextField
@@ -200,6 +224,9 @@ const SignUp = () => {
           </Grid>
         </Grid>
       </form>
+      <p className="mt-2">
+        Already have an account? <Link to="/login">Login here</Link>
+      </p>
     </Container>
   );
 };
