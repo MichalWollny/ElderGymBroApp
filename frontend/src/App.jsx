@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Profile from './pages/Profile';
 import Profilerework from './pages/ProfileRework';
@@ -19,13 +19,18 @@ import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
 import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
+<<<<<<< HEAD
 import Dashboard from './pages/Dashboard';
 
+=======
+import StepperComponent from './assets/components/StepperComponent';
+>>>>>>> 75cf8b5b1809d20496c8f1c70d9ddebfa6884afa
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
   const [progress, setProgress] = useState(0);
   const [unlockedAchievments, setUnlockedAchievments] = useState([]);
+  const location = useLocation();
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -43,10 +48,14 @@ function App() {
       return prev;
     });
   };
+  // Stepper Routes
+  const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
 
   return (
     <>
       {/* <MenuAppBar/> */}
+      {/* Stepper Settings */}
+      {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
       {/* <BottomNavigation/> */}
       <BottomAppBar />
       <Routes>
@@ -71,6 +80,7 @@ function App() {
         <Route path="/template" element={<Template />} />
         <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
+
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
         <Route path="/uielements" element={<UIElements />} />

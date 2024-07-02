@@ -1,5 +1,5 @@
-const AchievementItem = ({ achievement, unlocked }) => (
-  <div key={achievement.id} className="flex flex-col items-center">
+const AchievementItem = ({ achievement, unlocked, onClick }) => (
+  <div key={achievement.id} className="flex flex-col items-center" onClick={onClick}>
     <img
       src={achievement.imageUrl}
       alt={achievement.name}
