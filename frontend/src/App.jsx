@@ -9,18 +9,24 @@ import StartYourJourney from './pages/StartYourJourney';
 import WhatsYourGoal from './pages/WhatsYourGoal';
 import SetYourGrind from './pages/SetYourGrind';
 import Workouts from './pages/Workouts';
-import SignUp from './pages/SignUp';
-import Registration from './pages/Registration';
+// import SignUp from './pages/SignUp';
+// import Registration from './pages/Registration';
 import EditUserData from './pages/EditUserData';
 import SetUp from './pages/SetUp';
 import useFetchData from './utils/FetchData';
 import Trophys from './pages/Trophys';
 import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
-import { BottomNavigation } from '@mui/material';
-import MenuAppBar from './assets/components/MenuAppBar';
-import StepperComponent from './assets/components/StepperComponent';
+// import { BottomNavigation } from '@mui/material';
+// import MenuAppBar from './assets/components/MenuAppBar';
+// import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import LoginForm from './pages/LoginForm';
+import RegisterForm from './pages/RegisterForm';
+import NotFound from './pages/NotFound';
+import { AuthProvider } from './context/AuthProvider';
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
@@ -45,45 +51,52 @@ function App() {
     });
   };
   // Stepper Routes
-  const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
+  // const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
 
   return (
     <>
-      {/* <MenuAppBar/> */}
-      {/* Stepper Settings */}
-      {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
-      {/* <BottomNavigation/> */}
-      <BottomAppBar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/register" element={<Registration />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/edituserdata" element={<EditUserData />} />
-        <Route path="/profilerework" element={<Profilerework />} />
-        <Route
-          path="/trophys"
-          element={
-            <Trophys
-              progress={progress}
-              updateProgress={updateProgress}
-              toggleAchievement={toggleAchievement}
-              unlockedAchievments={unlockedAchievments}
-            />
-          }
-        />
-        {/* <Route path="/navbar" element={<Navbar />} /> */}
-        <Route path="/template" element={<Template />} />
-        <Route path="/setup" element={<SetUp />} />
-        <Route path="/startyourjourney" element={<StartYourJourney />} />
+      <AuthProvider>
+        {/* <MenuAppBar/> */}
+        {/* Stepper Settings */}
+        {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
+        {/* <BottomNavigation/> */}
+        <BottomAppBar />
+        <ToastContainer />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="*" element={<NotFound />} />
+          {/* <Route path="/signup" element={<SignUp />} /> */}
+          {/* <Route path="/register" element={<Registration />} /> */}
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/edituserdata" element={<EditUserData />} />
+          <Route path="/profilerework" element={<Profilerework />} />
 
-        <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
-        <Route path="/setyourgrind" element={<SetYourGrind />} />
-        <Route path="/uielements" element={<UIElements />} />
-        <Route path="/workouts" element={<Workouts />} />
-        <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
-      </Routes>
+          <Route
+            path="/trophys"
+            element={
+              <Trophys
+                progress={progress}
+                updateProgress={updateProgress}
+                toggleAchievement={toggleAchievement}
+                unlockedAchievments={unlockedAchievments}
+              />
+            }
+          />
+          {/* <Route path="/navbar" element={<Navbar />} /> */}
+          <Route path="/template" element={<Template />} />
+          <Route path="/setup" element={<SetUp />} />
+          <Route path="/startyourjourney" element={<StartYourJourney />} />
+
+          <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
+          <Route path="/setyourgrind" element={<SetYourGrind />} />
+          <Route path="/uielements" element={<UIElements />} />
+          <Route path="/workouts" element={<Workouts />} />
+          <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }

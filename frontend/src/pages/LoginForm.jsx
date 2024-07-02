@@ -28,7 +28,7 @@ function LoginForm() {
         setIsLoggedIn(true);
         checkUser();
         // toast.info('Logged in');
-        navigate('/');
+        navigate('/startyourjourney');
       }
     } catch (error) {
       setError(error.response.data.error || 'Something went wrong');

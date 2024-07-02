@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkUser = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/auth/me', {
+      const response = await axios.get('http://localhost:8000/profile/me', {
         withCredentials: true,
       });
 

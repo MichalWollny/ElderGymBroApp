@@ -22,7 +22,7 @@ const LandingPage = () => {
     // useThree.forceContextLoss(); // Force the context to be lost, cleaning up WebGL resources
     // useThree.dispose();
     // Dispose of the renderer's resources
-    navigate('/setup'); // Navigate to Onboarding page
+    navigate('/register'); // Navigate to Onboarding page
   };
 
   useEffect(() => {
