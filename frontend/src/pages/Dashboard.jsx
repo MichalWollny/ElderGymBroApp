@@ -1,9 +1,10 @@
 //components
-import { Box, LinearProgress, Typography } from '@mui/material';
+import { Box, LinearProgress, Slider, Typography } from '@mui/material';
 import UICardLarge from '../assets/components/UICardLarge';
 import UICard from '/src/assets/components/UICard'
+import SlickSliderResponsive from './SlickSliderResponsive';
 
-const cards = [
+const data  = [
   {
     // My total workouts card
     image: '/src/assets/icons/svg/energy.svg',
@@ -86,6 +87,34 @@ function Dashboard() {
 
          <label htmlFor="camp-week">Choose a week in May or June:</label>
          <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
+
+        {/* Content bar */}
+        <div className="flex flex-row justify-center min-h-svh place-content-center place-items-center overflow-hidden px-4 pt-5 text-gray-200 md:pt-10">
+
+
+        </div>
+
+        <div className='w-3/4 m-auto'>
+          <div className="mt-20">
+            {data.map((d) => (
+              <div>
+                <div>
+                  <img src={d.img} alt=""/>
+                </div>  
+
+                <div>
+                  <p>{d.name}</p>
+                  <p>{d.review}</p>
+                  <button>Read More</button>
+                </div> 
+              </div>
+            ))}
+            
+            
+          </div>
+        </div>
+
+
 
 
         {/* Content bar */}

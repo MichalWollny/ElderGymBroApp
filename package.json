@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-slick": "^0.30.2",
     "react-weekly-day-picker": "^1.0.3"
   }
 }

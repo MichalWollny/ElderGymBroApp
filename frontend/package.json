@@ -37,6 +37,7 @@
     "react-dom": "^18.3.1",
     "react-router": "^6.24.0",
     "react-router-dom": "^6.24.0",
+    "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
     "three": "^0.165.0",
     "zxcvbn": "^4.4.2"
