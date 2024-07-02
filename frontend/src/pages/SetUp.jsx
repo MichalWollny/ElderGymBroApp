@@ -32,7 +32,7 @@ function SetUp() {
           <CardMedia
             sx={{
               width: '100vw', // take up full width
-              height: '50vh', // take up half height
+              height: '25vh', // take up half height
               objectFit: 'cover', // make the image cover the entire container
             }}
             image={setUp}
@@ -51,9 +51,14 @@ function SetUp() {
           </p>
         </div>
         <div className="flex justify-center">
-          <button className="mt-12 rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
+          {/* <button className="mt-12 rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
             <a href="/startyourjourney">Next</a>
-          </button>
+          </button> */}
+
+          <Button type="submit" variant="contained" ref="/startyourjourney" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+              Next
+          </Button>
+
         </div>
       </div>
     </>

@@ -19,12 +19,9 @@ import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
 import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
-<<<<<<< HEAD
 import Dashboard from './pages/Dashboard';
-
-=======
 import StepperComponent from './assets/components/StepperComponent';
->>>>>>> 75cf8b5b1809d20496c8f1c70d9ddebfa6884afa
+
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();

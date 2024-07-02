@@ -147,6 +147,7 @@ const Profile = () => {
               {/* <h2 className="text-center text-xl font-semibold text-teal-700">|=-</h2> */}
             </div>
           </div>
+          
         </div>
       </div>
 

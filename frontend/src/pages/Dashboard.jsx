@@ -88,33 +88,33 @@ function Dashboard() {
          <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
 
 
-    {/* Content grid */}
-    <div className="relative grid min-h-svh place-content-center place-items-center overflow-hidden px-4 pt-5 text-gray-200 md:pt-10">  
-
-        {cards.map((card, index) => (
-          <UICardLarge
-          key={index} 
-          image={card.image}
-          heading={card.heading} 
-          className=""
-          subheading={card.subheading}
-           />
-        ))}
-    </div>
-
         {/* Content bar */}
-      <div className="flex flex-wrap justify-center">
+        <div className="flex flex-row justify-center min-h-svh place-content-center place-items-center overflow-hidden px-4 pt-5 text-gray-200 md:pt-10">  
 
-        {cards.map((card, index) => (
+            {cards.map((card, index) => (
               <UICardLarge
               key={index} 
               image={card.image}
               heading={card.heading} 
               className=""
               subheading={card.subheading}
-          />
-        ))}
-      </div>
+              />
+            ))}
+        </div>
+
+        {/* Content bar */}
+        <div className="flex flex-row justify-center">
+
+          {cards.map((card, index) => (
+                <UICardLarge
+                key={index} 
+                image={card.image}
+                heading={card.heading} 
+                className=""
+                subheading={card.subheading}
+            />
+          ))}
+        </div>
       
     </div>
     </>
