@@ -1,12 +1,14 @@
-
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
 
 import Button from '@mui/material/Button';
 
 // images
-import cthuhluCave from '/src/assets/images/cthuhluCave.png';
+// import cthuhluCave from '/src/assets/images/cthuhluCave.png';
+import whatsyourgoal from '../assets/images/chosegoal.jpg';
 
 //components
-import UICard from '/src/assets/components/UICard'
+import UICard from '/src/assets/components/UICard';
 
 const cards = [
   {
@@ -35,28 +37,29 @@ const cards = [
 function WhatsYourGoal() {
   return (
     <>
-     <div className="min-h-svh bg-gradient-to-br from-black to-green-950 text-gray-200">
-      {/* window bar */}
-      <div className="flex flex-row justify-start bg-gray-900">
-        {/* icon button container*/}
-        <div className="flex flex-row">
-          {/* link container*/}
-          <div className="flex flex-row justify-center text-teal-100">
-            <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
-              {/* icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-            </a>
+      <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+
+        {/* window bar */}
+        <div className="flex flex-row justify-start bg-gray-900">
+          {/* icon button container*/}
+          <div className="flex flex-row">
+            {/* link container*/}
+            <div className="flex flex-row justify-center text-teal-100">
+              <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
+                {/* icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
         {/* Page title bar */}
         <div className="flex flex-row justify-center">
@@ -66,41 +69,53 @@ function WhatsYourGoal() {
         </div>
 
         {/* Image bar */}
-        <div className="flex flex-row justify-center text-gray-200">
+        {/* <div className="flex flex-row justify-center text-gray-200">
           <img src={cthuhluCave} alt="Landing Page Image" className="m-2 max-w-10" />
-        </div>
+        </div> */}
+        <Card sx={{ maxWidth: '100vw' }}>
+          <CardMedia
+            sx={{
+              width: '100vw', // take up full width
+              height: '28vh',
+              objectFit: 'fit', // make the image cover the entire container
+            }}
+            image={whatsyourgoal}
+            title="Whats-your-Goal"
+          />
+        </Card>
 
-        
         {/* -- Content section */}
         <div className="flex flex-wrap justify-center">
-
-        {/* Cards grid */}
-        <div className="grid grid-flow-row p-4 auto-rows-max grid-cols-2">
-              {cards.map((card, index) => (
-                <UICard
+          {/* Cards grid */}
+          <div className="grid grid-flow-row auto-rows-max grid-cols-2 p-4">
+            {cards.map((card, index) => (
+              <UICard
                 class="md:scale-150"
-                key={index} 
-                image={card.image} 
-                heading={card.heading} 
-                subheading={card.subheading}/>
-              ))}
-            </div>
+                key={index}
+                image={card.image}
+                heading={card.heading}
+                subheading={card.subheading}
+              />
+            ))}
           </div>
+        </div>
 
-          {/* --7. Name this bar */}
-          <div className="flex flex-row justify-center">
-            <div className="-mt-8 flex justify-center">
-              <Button type="submit" variant="contained" href="/setyourgrind" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+        {/* --7. Name this bar */}
+        <div className="flex flex-row justify-center">
+          <div className="-mt-8 flex justify-center">
+            <Button
+              type="submit"
+              variant="contained"
+              href="/setyourgrind"
+              sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
-              </Button>
-              {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
+            </Button>
+            {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
                 <a href="/whatsyourgoal">Next</a>
               </button> */}
-            </div>
           </div>
-
-          </div>
-
+        </div>
+      </div>
     </>
   );
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, Typography, List, ListItem, ListItemText } from '@mui/material';
 import PropTypes from 'prop-types';
 
