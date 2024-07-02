@@ -1,7 +1,11 @@
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+
 import Button from '@mui/material/Button';
 
 // images
-import cthuhluCave from '/src/assets/images/cthuhluCave.png';
+// import cthuhluCave from '/src/assets/images/cthuhluCave.png';
+import whatsyourgoal from '../assets/images/chosegoal.jpg';
 
 //components
 import UICard from '/src/assets/components/UICard';
@@ -33,7 +37,8 @@ const cards = [
 function WhatsYourGoal() {
   return (
     <>
-      <div className="min-h-svh bg-gradient-to-br from-black to-green-950 text-gray-200">
+      <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+
         {/* window bar */}
         <div className="flex flex-row justify-start bg-gray-900">
           {/* icon button container*/}
@@ -64,9 +69,20 @@ function WhatsYourGoal() {
         </div>
 
         {/* Image bar */}
-        <div className="flex flex-row justify-center text-gray-200">
+        {/* <div className="flex flex-row justify-center text-gray-200">
           <img src={cthuhluCave} alt="Landing Page Image" className="m-2 max-w-10" />
-        </div>
+        </div> */}
+        <Card sx={{ maxWidth: '100vw' }}>
+          <CardMedia
+            sx={{
+              width: '100vw', // take up full width
+              height: '28vh',
+              objectFit: 'fit', // make the image cover the entire container
+            }}
+            image={whatsyourgoal}
+            title="Whats-your-Goal"
+          />
+        </Card>
 
         {/* -- Content section */}
         <div className="flex flex-wrap justify-center">
