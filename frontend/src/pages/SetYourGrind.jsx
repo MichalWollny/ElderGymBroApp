@@ -1,7 +1,10 @@
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
 
 // images
 import cthulhuGrind from '/src/assets/images/cthulhuGrind.png';
+import setgrind from '../assets/images/setgrind.jpeg';
 
 //components
 import UICard from '/src/assets/components/UICard';
@@ -71,9 +74,20 @@ function SetYourGrind() {
         </div>
 
         {/* Image bar */}
-        <div className="flex flex-row justify-center">
+        {/* <div className="flex flex-row justify-center">
           <img src={cthulhuGrind} alt="Landing Page Image" className="m-2 w-36" />
-        </div>
+        </div> */}
+        <Card sx={{ maxWidth: '100vw' }}>
+          <CardMedia
+            sx={{
+              width: '100vw', // take up full width
+              height: '28vh',
+              objectFit: 'fit', // make the image cover the entire container
+            }}
+            image={setgrind}
+            title="cthuluGrind"
+          />
+        </Card>
 
         {/* -- Content section */}
         <div className="flex flex-wrap justify-center">

@@ -21,10 +21,12 @@ import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
 import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
+
 import { ToastContainer } from 'react-toastify';
 import NotFound from './pages/NotFound';
 import LoginForm from './pages/LoginForm';
 import RegisterForm from './pages/RegisterForm';
+
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
