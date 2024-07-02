@@ -20,6 +20,7 @@ import BottomAppBar from './assets/components/BottomAppBar';
 import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
 import StepperComponent from './assets/components/StepperComponent';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
@@ -58,6 +59,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
         <Route
