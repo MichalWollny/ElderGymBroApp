@@ -64,8 +64,6 @@ const getPasswordStrengthColor = (score) => {
   }
 };
 
-// TODO when in mobile view less space between the TextFields!
-
 function RegisterForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
