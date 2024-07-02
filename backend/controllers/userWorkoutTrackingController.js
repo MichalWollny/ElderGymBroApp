@@ -91,7 +91,7 @@ export const updateWorkoutProgress = async (req, res) => {
     }
 
     // Find the workout tracking entry
-    const workoutTracking = user.progressTracking.find((tracking) => tracking.workoutId === workoutId);
+    const workoutTracking = user.progressTracking.find((tracking) => tracking.workoutId.toString() === workoutId);
     if (!workoutTracking) {
       return res.status(404).json({ error: 'Workout progress not found' });
     }
@@ -161,6 +161,7 @@ export const resetProgressTracking = asyncHandler(async (req, res, next) => {
   if (!user) {
     return res.status(404).json({ error: 'User not found' });
   }
+  // Set ProgressTracking to an empty array
   user.progressTracking = [];
   await user.save();
   res.status(200).json({ message: 'Progress tracking reset successfully' });

@@ -30,6 +30,7 @@ userWorkoutTrackingRouter.get('/getActiveWorkout', verifyToken, getActiveWorkout
 // Get active workout and workout progress for a user
 userWorkoutTrackingRouter.get('/getActiveWorkoutAndProgress', verifyToken, getActiveWorkoutAndProgress);
 
+// Reset Workout Progress
 userWorkoutTrackingRouter.patch('/resetWorkoutProgress', verifyToken, resetProgressTracking);
 
 export default userWorkoutTrackingRouter;
