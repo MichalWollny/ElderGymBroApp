@@ -34,24 +34,37 @@ const WorkoutPlan = ({ workouts }) => {
     <div className="container mx-auto p-4">
       {validWorkouts.map((plan, index) => (
         <div key={plan.id} className="mb-8">
-          <div className="mb-4 rounded-lg border bg-white p-4 shadow-md">
+          <div className="card glass m-2 mb-4 w-80 cursor-pointer rounded-lg border bg-gray-800 p-4 shadow-md transition-transform lg:card-side">
             <div>
               <button onClick={() => togglePlans(index)} className="w-full text-left focus:outline-none">
-                <h5 className="mb-2 text-lg font-bold text-[#2b777d]">{plan.name}</h5>
+                {/* Conditional rendering for the workout image */}
+                {expandedPlans !== index && (
+                  <div className="card glass max-w-screen-sm rounded-md border-solid border-white">
+                    <img
+                      src={`../src/assets/images/workouts/${plan.name}.jpg`}
+                      alt={plan.name}
+                      className="rounded-md"
+                    />
+                  </div>
+                )}
+                <br />
+                <h5 className="card mb-2 bg-white text-center text-2xl font-extrabold text-[#2b777d]">{plan.name}</h5>
               </button>
               {/* Render Plans content */}
               {expandedPlans === index && (
-                <>
-                  <p className="text-gray-600">System: {plan.system}</p>
-                  <p className="text-gray-600">Frequency: {plan.frequency}</p>
-                  <p className="text-gray-600">Split: {plan.split ? 'Yes' : 'No'}</p>
-                  {/* Toggle Tips section */}
-                  <button onClick={() => toggleTips(index)} className="mt-2 w-full text-left focus:outline-none">
-                    <h6 className="text-md cursor-pointer font-semibold text-[#2b777d]">Tips</h6>
-                  </button>
+                <div>
+                  <div className="mb-6 mt-2 rounded-md bg-white p-2">
+                    <span className="text-gray-600">System: </span> <span className="text-gray-600">{plan.system}</span>
+                    <p className="text-gray-600">Frequency: {plan.frequency}</p>
+                    <p className="text-gray-600">Split: {plan.split ? 'Yes' : 'No'}</p>
+                    {/* Toggle Tips section */}
+                    <button onClick={() => toggleTips(index)} className="w-full text-left focus:outline-none">
+                      <h6 className="text-md cursor-pointer font-semibold text-[#2b777d]">Tips</h6>
+                    </button>
+                  </div>
                   {/* Render Tips content */}
                   {expandedTips === index && (
-                    <ul className="mb-2 list-disc pl-5">
+                    <ul className="mb-4 mt-2 list-disc rounded-md bg-white p-2 pl-5">
                       {plan.tips.map((tip, idx) => (
                         <li key={idx} className="text-gray-600">
                           {tip}
@@ -66,7 +79,7 @@ const WorkoutPlan = ({ workouts }) => {
                       {!plan.split &&
                         plan.exercises &&
                         plan.exercises.map((exercise, exIndex) => (
-                          <div key={exercise.id} className="mb-4 rounded-lg border bg-white p-4 shadow-md">
+                          <div key={exercise.id} className="mb-2 mt-2 rounded-lg border bg-white p-4 shadow-md">
                             <div className="cursor-pointer" onClick={() => toggleExercise(exIndex)}>
                               <h6 className="text-md font-bold text-[#2b777d]">{exercise.name}</h6>
                             </div>
@@ -146,7 +159,7 @@ const WorkoutPlan = ({ workouts }) => {
                         ))}
                     </div>
                   )}
-                </>
+                </div>
               )}
             </div>
           </div>

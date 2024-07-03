@@ -9,7 +9,6 @@ import StartYourJourney from './pages/StartYourJourney';
 import WhatsYourGoal from './pages/WhatsYourGoal';
 import SetYourGrind from './pages/SetYourGrind';
 import WorkoutPlan from './pages/Workouts';
-
 import EditUserData from './pages/EditUserData';
 import SetUp from './pages/SetUp';
 import useFetchData from './utils/FetchData';
@@ -20,9 +19,7 @@ import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
 import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
-
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import RegisterForm from './pages/RegisterForm';
 import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
