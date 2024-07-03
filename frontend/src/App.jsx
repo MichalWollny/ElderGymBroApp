@@ -56,10 +56,13 @@ function App() {
       {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
       {/* <BottomNavigation/> */}
       <BottomAppBar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/register" element={<Registration />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="*" element={<NotFound />} />
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/edituserdata" element={<EditUserData />} />
