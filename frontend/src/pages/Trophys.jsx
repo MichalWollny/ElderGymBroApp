@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import cuteCthulhu from '../assets/images/cuteCthulhu.png';
 import firstWorkoutDone from '../assets/images/firstworkoutdone.png';
 import trainingNight from '../assets/images/trainingnight.jpeg';
@@ -30,7 +30,8 @@ const achievements = [
 
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
-  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
+  // const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
+  const [firstWorkoutCompleted] = useState(false);
   const [selectedAchievement, setSelectedAchievement] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -203,7 +204,12 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
       {/* Progressbar Komponente */}
       <div className="container mx-auto flex flex-col items-center">
         <Box sx={{ width: '80%', mt: 1 }}>
-          <LinearProgress variant="determinate" color="warning" value={progressPercentage} sx={{ height: 8 }} />
+          <LinearProgress
+            variant="determinate"
+            color="warning"
+            value={progressPercentage}
+            sx={{ height: 8, borderRadius: 5 }}
+          />
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
             <Typography
               variant="body2"
