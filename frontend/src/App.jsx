@@ -47,6 +47,8 @@ function App() {
   // Stepper Routes
   const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
 
+  console.log(import.meta.env.VITE_API_URL);
+
   return (
     <>
       {/* <MenuAppBar/> */}
