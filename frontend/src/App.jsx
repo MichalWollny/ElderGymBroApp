@@ -25,7 +25,6 @@ import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 
-
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
   const [progress, setProgress] = useState(0);
@@ -80,12 +79,15 @@ function App() {
         <Route
           path="/trophys"
           element={
-            <Trophys
-              progress={progress}
-              updateProgress={updateProgress}
-              toggleAchievement={toggleAchievement}
-              unlockedAchievments={unlockedAchievments}
-            />
+            // add a bottom margin, because otherwise this site goes right trough the navbar and makes it transparent
+            <div className="mb-16">
+              <Trophys
+                progress={progress}
+                updateProgress={updateProgress}
+                toggleAchievement={toggleAchievement}
+                unlockedAchievments={unlockedAchievments}
+              />
+            </div>
           }
         />
         {/* <Route path="/navbar" element={<Navbar />} /> */}
