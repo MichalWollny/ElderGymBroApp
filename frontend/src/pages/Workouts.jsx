@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Card, CardContent, Typography, List, ListItem, ListItemText } from '@mui/material';
 import PropTypes from 'prop-types';
 
 const WorkoutPlan = ({ workouts }) => {
@@ -9,148 +8,148 @@ const WorkoutPlan = ({ workouts }) => {
   // State to manage expanded/collapsed state of exercises and tips
   const [expandedExercise, setExpandedExercise] = useState(null);
   const [expandedTips, setExpandedTips] = useState(null);
-
-  // Toggle functions:
-  // too lazy to make it one toggle...
+  const [expandedPlans, setExpandedPlans] = useState(null);
+  const [expandedSplitDays, setExpandedSplitDays] = useState(null);
 
   // Function to toggle expanded exercise
   const toggleExercise = (index) => {
-    if (expandedExercise === index) {
-      setExpandedExercise(null);
-    } else {
-      setExpandedExercise(index);
-    }
+    setExpandedExercise(expandedExercise === index ? null : index);
   };
 
   // Function to toggle expanded tips
   const toggleTips = (index) => {
-    if (expandedTips === index) {
-      setExpandedTips(null);
-    } else {
-      setExpandedTips(index);
-    }
+    setExpandedTips(expandedTips === index ? null : index);
+  };
+
+  // Function to toggle expanded plans
+  const togglePlans = (index) => {
+    setExpandedPlans(expandedPlans === index ? null : index);
+  };
+  // Function to toggle expanded plans
+  const toggleSplitDays = (index) => {
+    setExpandedSplitDays(expandedSplitDays === index ? null : index);
   };
 
   return (
     <div className="container mx-auto p-4">
       {validWorkouts.map((plan, index) => (
         <div key={plan.id} className="mb-8">
-          <Card className="mb-4">
-            <CardContent>
-              <Typography variant="h5" component="div">
-                {plan.name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                System: {plan.system}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Frequency: {plan.frequency}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Split: {plan.split ? 'Yes' : 'No'}
-              </Typography>
-              {/* Toggle Tips section */}
-              <Typography
-                variant="h6"
-                component="div"
-                className="mt-2 cursor-pointer"
-                onClick={() => toggleTips(index)}>
-                Tips
-              </Typography>
-              {/* Render Tips content */}
-              {expandedTips === index && (
-                <List dense className="mb-2">
-                  {plan.tips.map((tip, idx) => (
-                    <ListItem key={idx}>
-                      <ListItemText primary={tip} />
-                    </ListItem>
-                  ))}
-                </List>
-              )}
-            </CardContent>
-          </Card>
-
-          {/* Render exercises for non-split plans and splits */}
-          {(plan.exercises || plan.splits) && (
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {/* Render exercises for non-split plans */}
-              {!plan.split &&
-                plan.exercises &&
-                plan.exercises.map((exercise, exIndex) => (
-                  <Card key={exercise.id} className="mb-4">
-                    <CardContent>
-                      {/* Exercise name as clickable header */}
-                      <div className="cursor-pointer" onClick={() => toggleExercise(exIndex)}>
-                        <Typography variant="h6" component="div">
-                          {exercise.name}
-                        </Typography>
-                      </div>
-
-                      {/* Collapsible content for exercises */}
-                      {expandedExercise === exIndex && (
-                        <div className="mt-2">
-                          <Typography variant="body2" color="text.secondary">
-                            Force: {exercise.force}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Mechanic: {exercise.mechanic}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Equipment: {exercise.equipment}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Primary Muscles: {exercise.primaryMuscles.join(', ')}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Secondary Muscles: {exercise.secondaryMuscles.join(', ')}
-                          </Typography>
-                          <Typography variant="h6" component="div" className="mt-2">
-                            Instructions:
-                          </Typography>
-                          <List dense>
-                            {exercise.instructions.map((instruction, instrIndex) => (
-                              <ListItem key={instrIndex}>
-                                <ListItemText primary={instruction} />
-                              </ListItem>
-                            ))}
-                          </List>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                ))}
-
-              {/* Render splits for plans with splits */}
-              {/* not working yet */}
-              {plan.split &&
-                plan.splits &&
-                plan.splits.map((split, splitIndex) => (
-                  <Card key={splitIndex} className="mb-4">
-                    <CardContent>
-                      <Typography variant="h6" component="div">
-                        Day {split.day}
-                      </Typography>
-                      {split.muscleGroups.map((group, groupIndex) => (
-                        <div key={groupIndex} className="mt-2">
-                          <Typography variant="subtitle1" component="div">
-                            {group.group}
-                          </Typography>
-                          <List dense>
-                            {group.exercises.map((exercise, exerciseIndex) => (
-                              <ListItem key={exerciseIndex}>
-                                <ListItemText
-                                  primary={`${exercise.name} - Sets: ${exercise.sets}, Reps: ${exercise.reps}`}
-                                />
-                              </ListItem>
-                            ))}
-                          </List>
-                        </div>
+          <div className="mb-4 rounded-lg border bg-white p-4 shadow-md">
+            <div>
+              <button onClick={() => togglePlans(index)} className="w-full text-left focus:outline-none">
+                <h5 className="mb-2 text-lg font-bold text-[#2b777d]">{plan.name}</h5>
+              </button>
+              {/* Render Plans content */}
+              {expandedPlans === index && (
+                <>
+                  <p className="text-gray-600">System: {plan.system}</p>
+                  <p className="text-gray-600">Frequency: {plan.frequency}</p>
+                  <p className="text-gray-600">Split: {plan.split ? 'Yes' : 'No'}</p>
+                  {/* Toggle Tips section */}
+                  <button onClick={() => toggleTips(index)} className="mt-2 w-full text-left focus:outline-none">
+                    <h6 className="text-md cursor-pointer font-semibold text-[#2b777d]">Tips</h6>
+                  </button>
+                  {/* Render Tips content */}
+                  {expandedTips === index && (
+                    <ul className="mb-2 list-disc pl-5">
+                      {plan.tips.map((tip, idx) => (
+                        <li key={idx} className="text-gray-600">
+                          {tip}
+                        </li>
                       ))}
-                    </CardContent>
-                  </Card>
-                ))}
+                    </ul>
+                  )}
+                  {/* Render exercises for non-split plans and splits */}
+                  {(plan.exercises || plan.splits) && (
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                      {/* Render exercises for non-split plans */}
+                      {!plan.split &&
+                        plan.exercises &&
+                        plan.exercises.map((exercise, exIndex) => (
+                          <div key={exercise.id} className="mb-4 rounded-lg border bg-white p-4 shadow-md">
+                            <div className="cursor-pointer" onClick={() => toggleExercise(exIndex)}>
+                              <h6 className="text-md font-bold text-[#2b777d]">{exercise.name}</h6>
+                            </div>
+
+                            {/* Collapsible content for exercises */}
+                            {expandedExercise === exIndex && (
+                              <div className="mt-2">
+                                <p className="text-gray-600">Force: {exercise.force}</p>
+                                <p className="text-gray-600">Mechanic: {exercise.mechanic}</p>
+                                <p className="text-gray-600">Equipment: {exercise.equipment}</p>
+                                <p className="text-gray-600">Primary Muscles: {exercise.primaryMuscles.join(', ')}</p>
+                                <p className="text-gray-600">
+                                  Secondary Muscles: {exercise.secondaryMuscles.join(', ')}
+                                </p>
+                                <h6 className="text-md mt-2 font-bold">Instructions:</h6>
+                                <ul className="list-disc pl-5">
+                                  {exercise.instructions.map((instruction, instrIndex) => (
+                                    <li key={instrIndex} className="text-gray-600">
+                                      {instruction}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+
+                      {/* Render splits for plans with splits */}
+                      {plan.split &&
+                        plan.splits.map((split, splitIndex) => (
+                          <div key={splitIndex} className="mb-4 rounded-lg border bg-white p-4 shadow-md">
+                            <div
+                              onClick={() => toggleSplitDays(index)}
+                              className="w-full cursor-pointer text-left focus:outline-none">
+                              <h6 className="text-md font-bold text-[#2b777d]">Day {split.day}</h6>
+                            </div>
+                            {/* Collapsible content for split days */}
+                            {expandedSplitDays === index && (
+                              <div>
+                                {split.muscleGroups.map((group, groupIndex) => (
+                                  <div key={groupIndex} className="mt-2">
+                                    <div>
+                                      <h6 className="text-sm font-semibold capitalize text-[#2b777d]">{group.group}</h6>
+                                    </div>
+
+                                    <ul className="list-disc pl-5">
+                                      {group.exercises.map((exercise, exerciseIndex) => {
+                                        // Find the exercise in the plan.exercises array by ID
+                                        const fullExercise = plan.exercises.find((e) => e.id === exercise.id);
+                                        return (
+                                          <li key={exerciseIndex} className="text-gray-600">
+                                            <div>
+                                              <div
+                                                className="cursor-pointer"
+                                                onClick={() => toggleExercise(exerciseIndex)}>
+                                                {fullExercise.name}
+                                              </div>
+                                            </div>
+                                            {/* Collapsible content for exercises */}
+                                            {expandedExercise === exerciseIndex && (
+                                              <div>
+                                                <div>Force: {fullExercise.force}</div>
+                                                <div>Level: {fullExercise.level}</div>
+                                                <div>Mechanics: {fullExercise.mechanics}</div>
+                                                {/* Add more details as needed */}
+                                              </div>
+                                            )}
+                                          </li>
+                                        );
+                                      })}
+                                    </ul>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                    </div>
+                  )}
+                </>
+              )}
             </div>
-          )}
+          </div>
         </div>
       ))}
     </div>
@@ -158,8 +157,6 @@ const WorkoutPlan = ({ workouts }) => {
 };
 
 // PropType validation (optional but recommended)
-// Recommended by AI
-
 WorkoutPlan.propTypes = {
   workouts: PropTypes.array,
 };
