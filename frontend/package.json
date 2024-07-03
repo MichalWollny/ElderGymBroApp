@@ -39,7 +39,10 @@
     "react-router": "^6.24.0",
     "react-router-dom": "^6.24.0",
     "react-toastify": "^10.0.5",
-    "three": "^0.165.0"
+    "styled-components": "^6.1.11",
+    "three": "^0.165.0",
+    "zxcvbn": "^4.4.2"
+
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

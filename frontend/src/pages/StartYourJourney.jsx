@@ -74,7 +74,7 @@ function StartYourJourney() {
           <CardMedia
             sx={{
               width: '100vw', // take up full width
-              height: '28vh', // take up half height
+              height: '28vh',
               objectFit: 'cover', // make the image cover the entire container
             }}
             image={startJourney}
