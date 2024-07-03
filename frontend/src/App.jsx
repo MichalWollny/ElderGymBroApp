@@ -8,9 +8,8 @@ import Template from './pages/Template';
 import StartYourJourney from './pages/StartYourJourney';
 import WhatsYourGoal from './pages/WhatsYourGoal';
 import SetYourGrind from './pages/SetYourGrind';
-import Workouts from './pages/Workouts';
-// import SignUp from './pages/SignUp';
-// import Registration from './pages/Registration';
+import WorkoutPlan from './pages/Workouts';
+
 import EditUserData from './pages/EditUserData';
 import SetUp from './pages/SetUp';
 import useFetchData from './utils/FetchData';
@@ -23,10 +22,12 @@ import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
 
 import { ToastContainer } from 'react-toastify';
-import NotFound from './pages/NotFound';
-import LoginForm from './pages/LoginForm';
+import 'react-toastify/dist/ReactToastify.css';
 import RegisterForm from './pages/RegisterForm';
 import BottomNav from './assets/components/BottomNav';
+import LoginForm from './pages/LoginForm';
+import NotFound from './pages/NotFound';
+
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
@@ -56,6 +57,8 @@ function App() {
   };
   // Stepper Routes
   const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
+
+  console.log(import.meta.env.VITE_API_URL);
 
   return (
     <>
@@ -95,8 +98,7 @@ function App() {
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
         <Route path="/uielements" element={<UIElements />} />
-        <Route path="/workouts" element={<Workouts />} />
-        <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
+        <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
       </Routes>
     </>
   );
