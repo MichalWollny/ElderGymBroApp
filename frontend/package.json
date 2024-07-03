@@ -23,11 +23,6 @@
     "@react-three/drei": "^9.108.1",
     "@react-three/fiber": "^8.16.8",
     "@types/three": "^0.165.0",
-    "@zxcvbn-ts/core": "^3.0.4",
-    "@zxcvbn-ts/language-common": "^3.0.4",
-    "@zxcvbn-ts/language-de": "^3.0.2",
-    "@zxcvbn-ts/language-en": "^3.0.2",
-    "@zxcvbn-ts/matcher-pwned": "^3.0.4",
     "axios": "^1.7.2",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.11",
@@ -40,10 +35,7 @@
     "react-router-dom": "^6.24.0",
     "react-toastify": "^10.0.5",
     "styled-components": "^6.1.11",
-    "react-weekly-day-picker": "^1.0.3",
-    "three": "^0.165.0",
-    "zxcvbn": "^4.4.2"
-
+    "three": "^0.165.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
