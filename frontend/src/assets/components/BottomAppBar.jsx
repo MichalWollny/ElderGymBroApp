@@ -21,13 +21,11 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 
 // MUI Icons
 import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home'
+import HomeIcon from '@mui/icons-material/Home';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import FitnessCenter from '@mui/icons-material/FitnessCenter';
-
-
 
 const messages = [
   {
@@ -120,19 +118,17 @@ export default function BottomAppBar() {
           ))}
         </List>
       </Paper> */}
-      <AppBar position="fixed" sx={{ bgcolor: "black", top: 'auto', bottom: 0, width: 1 }}>
-        <Toolbar sx={{ marginX: 1, gap: 7}}>
-          <IconButton color="inherit" aria-label="open drawer" >
+      <AppBar position="fixed" sx={{ bgcolor: 'black', top: 'auto', bottom: 0, width: 1 }}>
+        <Toolbar sx={{ marginX: 1, gap: 7 }}>
+          <IconButton color="inherit" aria-label="open drawer">
             <HomeIcon />
-          </IconButton >
+          </IconButton>
 
           <IconButton color="inherit" aria-label="open drawer">
             <EmojiEventsIcon />
           </IconButton>
 
-          
           {/* <Box sx={{ gap: 6}} /> */}
-          
 
           <IconButton color="inherit">
             <AssignmentTurnedInIcon />
@@ -141,10 +137,8 @@ export default function BottomAppBar() {
           <IconButton color="inherit">
             <FitnessCenter />
           </IconButton>
-
         </Toolbar>
       </AppBar>
     </React.Fragment>
   );
 }
-

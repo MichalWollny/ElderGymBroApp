@@ -1,23 +1,16 @@
-
-function UICard({
-  image,
-  heading,
-  subheading,
-
-}) {
-
+function UICard({ image, heading, subheading }) {
   return (
     <>
       <div className="glass m-2 cursor-pointer rounded-lg p-2 shadow-xl transition-transform hover:scale-105">
-        <a class="">
-        <div className='min-w-6 m-2'>
-          <img src={image} alt="" className="h-full mx-auto w-1/4 rounded-xl" />
-        </div>
-          <div class="flex flex-col items-center">
-            <div class="text-base-content text-sm pt-2 font-normal text-center font-cthulhumbus md:block">{heading}
+        <a className="">
+          <div className="m-2 min-w-6">
+            <img src={image} alt="" className="mx-auto h-full w-1/4 rounded-xl" />
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="pt-2 text-center font-cthulhumbus text-sm font-normal text-base-content md:block">
+              {heading}
             </div>
-            <div class="text-base-content/75 text-sm pt-2 font-normal text-center md:block">{subheading}
-            </div>
+            <div className="pt-2 text-center text-sm font-normal text-base-content/75 md:block">{subheading}</div>
           </div>
         </a>
       </div>
@@ -25,10 +18,4 @@ function UICard({
   );
 }
 
-
 export default UICard;
-
-
-
-
-

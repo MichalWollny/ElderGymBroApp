@@ -70,6 +70,7 @@ export const addWorkoutProgress = async (req, res) => {
     }
     // Add the workout progress
     user.progressTracking.push({ workoutId, startDate, progress });
+    // Save the changes
     await user.save();
 
     res.status(200).json({ message: 'Workout progress added successfully', user });
@@ -82,7 +83,7 @@ export const addWorkoutProgress = async (req, res) => {
 export const updateWorkoutProgress = async (req, res) => {
   try {
     const { workoutId } = req.params;
-    const { progress } = req.body;
+    const { exerciseId, weight, sets, reps } = req.body;
 
     // Find the user by UID
     const user = await User.findById(req.uid);
@@ -91,13 +92,41 @@ export const updateWorkoutProgress = async (req, res) => {
     }
 
     // Find the workout tracking entry
-    const workoutTracking = user.progressTracking.find((tracking) => tracking.workoutId === workoutId);
+    const workoutTracking = user.progressTracking.find((tracking) => tracking.workoutId.toString() === workoutId);
     if (!workoutTracking) {
       return res.status(404).json({ error: 'Workout progress not found' });
     }
 
-    // Update the progress
-    workoutTracking.progress.push(...progress);
+    // Get the current date without time for comparison
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+
+    // Check if there's an entry for the current day
+    let dayEntry = workoutTracking.progress.find((entry) => {
+      const entryDate = new Date(entry.day);
+      entryDate.setHours(0, 0, 0, 0);
+      return entryDate.getTime() === currentDate.getTime();
+    });
+
+    if (!dayEntry) {
+      // If no entry for today, create a new one
+      dayEntry = { day: new Date(), exercisesOfTheDay: [] };
+      workoutTracking.progress.push(dayEntry);
+    }
+
+    console.log(req.body);
+
+    // // Before adding the new exercise progress
+    console.log({ exerciseId, weight, sets, reps }); // Debugging: Log incoming data
+
+    // Basic validation (example for weight, apply similarly for sets and reps)
+    if (typeof weight !== 'number' || isNaN(weight)) {
+      return res.status(400).json({ error: 'Invalid data type for weight' });
+    }
+
+    // Add the new exercise progress to the day's entry
+    dayEntry.exercisesOfTheDay.push({ exerciseId, weight, sets, reps, date: new Date() });
+    // Save the changes
     await user.save();
 
     res.status(200).json({ message: 'Workout progress updated successfully', user });
@@ -121,38 +150,32 @@ export const getWorkoutProgress = async (req, res) => {
   }
 };
 
-// Get active workout details and workout progress (COMBINED)
-export const getActiveWorkoutAndProgress = async (req, res) => {
-  try {
-    // Find the user by UID
-    const user = await User.findById(req.uid);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
+//End Workout
+export const endWorkout = asyncHandler(async (req, res, next) => {
+  const { workoutId } = req.params;
+  // Get the current date without time
+  const currentDate = new Date().setHours(0, 0, 0, 0);
+  // currentDate.setHours(0, 0, 0, 0);
 
-    const activeWorkoutId = user.activeWorkoutId;
-    if (!activeWorkoutId) {
-      return res.status(404).json({ error: 'No active workout found' });
-    }
-
-    // Fetch the workout details from the JSON file
-    const response = await axios.get('http://localhost:8000/hardcodedworkouts');
-    const workouts = response.data;
-
-    // Find the active workout by ID
-    const activeWorkout = workouts.find((workout) => workout.id === Number(activeWorkoutId));
-    if (!activeWorkout) {
-      return res.status(404).json({ error: 'Active workout not found' });
-    }
-
-    // Retrieve the workout progress for the active workout
-    const workoutProgress = user.progressTracking.find((tracking) => tracking.workoutId === activeWorkoutId);
-
-    res.status(200).json({ activeWorkout, workoutProgress });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  // Find the user by UID
+  const user = await User.findById(req.uid);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
   }
-};
+
+  // Find the workout tracking entry
+  const workoutTracking = user.progressTracking.find((tracking) => tracking.workoutId.toString() === workoutId);
+  if (!workoutTracking) {
+    return res.status(404).json({ error: 'Workout progress not found' });
+  }
+
+  // Set the endDate to the current date
+  workoutTracking.endDate = currentDate;
+
+  // Save the changes
+  await user.save();
+  res.status(200).json({ message: 'Workout has been marked as finished' });
+});
 
 // Reset progress tracking for a user
 export const resetProgressTracking = asyncHandler(async (req, res, next) => {
@@ -161,7 +184,9 @@ export const resetProgressTracking = asyncHandler(async (req, res, next) => {
   if (!user) {
     return res.status(404).json({ error: 'User not found' });
   }
+  // Set ProgressTracking to an empty array
   user.progressTracking = [];
+  // Save the changes
   await user.save();
   res.status(200).json({ message: 'Progress tracking reset successfully' });
 });

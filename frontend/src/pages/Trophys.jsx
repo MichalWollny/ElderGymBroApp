@@ -5,28 +5,42 @@ import trainingNight from '../assets/images/trainingnight.jpeg';
 import chestDay from '../assets/images/Chest1.jpeg';
 import weekendWorkout from '../assets/images/weekendworkout.jpeg';
 import firsplancreated from '../assets/images/firstplancreated.jpeg';
-import { LinearProgress, Box, Typography } from '@mui/material';
+import { LinearProgress, Box, Typography, Modal, Button } from '@mui/material';
 import AchievementItem from './AchievementItem';
 
 const achievements = [
-  { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu },
+  { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu, requirements: 'First Workout completed' },
   { id: 2, name: 'Firstworkout ', imageUrl: firstWorkoutDone },
-  { id: 3, name: 'Training at night', imageUrl: trainingNight },
-  { id: 4, name: 'Chestday', imageUrl: chestDay },
-  { id: 5, name: 'Weekend Workout Cultist', imageUrl: weekendWorkout },
-  { id: 6, name: 'First Incantation of Fitness', imageUrl: firsplancreated },
+  { id: 3, name: 'Training at night', imageUrl: trainingNight, requirements: 'Start a workout between 10 pm and 2 am' },
+  { id: 4, name: 'Chestday', imageUrl: chestDay, requirements: 'Chest workout on Mondays' },
+  {
+    id: 5,
+    name: 'Weekend Workout Cultist',
+    imageUrl: weekendWorkout,
+    requirements: 'Finish your Workout on Saturday/Sunday',
+  },
+  {
+    id: 6,
+    name: 'First Incantation of Fitness',
+    imageUrl: firsplancreated,
+    requirements: 'Create your first personalized workout plan',
+  },
   // Weitere Achievements hier adden.
 ];
 
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
-  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false); // Schaltet Achievment frei wenn (true) und passt Progressbar an.
+  const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
+  const [selectedAchievement, setSelectedAchievement] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // Schaltet Achievment frei wenn (true) und passt Progressbar an.
 
   // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
   useEffect(() => {
     setProgressPercentage(progress);
-    if (firstWorkoutCompleted && !unlockedAchievments.includes(2)) {
-      toggleAchievement(2, true);
+    if (firstWorkoutCompleted && !unlockedAchievments.includes(1)) {
+      toggleAchievement(1, true);
     } else if (!firstWorkoutCompleted && unlockedAchievments.includes(2)) {
       toggleAchievement(2, false);
     }
@@ -37,6 +51,16 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
     setProgressPercentage(newProgress);
     updateProgress(newProgress);
   }, [unlockedAchievments, updateProgress]);
+
+  const handleAchievmentClick = (achievement) => {
+    setSelectedAchievement(achievement);
+    setModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setModalOpen(false);
+    setSelectedAchievement(null);
+  };
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-200">
@@ -195,9 +219,33 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
             key={achievement.id}
             achievement={achievement}
             unlocked={unlockedAchievments.includes(achievement.id)}
+            onClick={() => handleAchievmentClick(achievement)}
           />
         ))}
       </div>
+      {/* Modal für Achievment-Informationen */}
+      <Modal open={modalOpen} onClose={handleClose}>
+        <Box
+          sx={{
+            p: 2,
+            bgcolor: 'background.paper',
+            borderRadius: 1,
+            boxShadow: 'none',
+            position: 'fixed',
+            bottom: 0,
+            width: '100vw',
+          }}>
+          {selectedAchievement && (
+            <>
+              <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
+              <div className="mt-2 text-[#2B777D]">{selectedAchievement.requirements}</div>
+              <Button onClick={handleClose} sx={{ mt: 2 }}>
+                Close
+              </Button>
+            </>
+          )}
+        </Box>
+      </Modal>
     </div>
   );
 };

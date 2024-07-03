@@ -14,13 +14,10 @@ import Menu from '@mui/material/Menu';
 
 // MUI Icons
 import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home'
+import HomeIcon from '@mui/icons-material/Home';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-
-
-
 
 const MenuAppBar = () => {
   const [auth, setAuth] = React.useState(true);
@@ -38,69 +35,35 @@ const MenuAppBar = () => {
     setAnchorEl(null);
   };
 
-
   return (
-    <Box sx={{ flexGrow: 1, bgcolor: "black", bottom: 0 }}>
-      <FormGroup>
-
-      </FormGroup>
+    <Box sx={{ flexGrow: 1, bgcolor: 'black', bottom: 0 }}>
+      <FormGroup></FormGroup>
       <AppBar position="static">
         <Toolbar>
-
           {/* Home Button */}
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
+          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <HomeIcon />
           </IconButton>
 
           {/*FitnessCenter Button */}
-           <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
+          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <FitnessCenterIcon />
           </IconButton>
 
           {/*AssignmentTurnedInIcon Button */}
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
+          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <AssignmentTurnedInIcon />
           </IconButton>
 
-           {/* Dumbbell Button */}
-           <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
+          {/* Dumbbell Button */}
+          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <EmojiEventsIcon />
           </IconButton>
 
           <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
+            control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
+            label={auth ? 'Logout' : 'Login'}
+          />
 
           {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Photos
@@ -141,8 +104,6 @@ const MenuAppBar = () => {
         </Toolbar>
       </AppBar>
     </Box>
-
-
   );
 };
 export default MenuAppBar;
