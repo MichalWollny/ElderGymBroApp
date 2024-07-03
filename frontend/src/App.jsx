@@ -26,13 +26,17 @@ import { ToastContainer } from 'react-toastify';
 import NotFound from './pages/NotFound';
 import LoginForm from './pages/LoginForm';
 import RegisterForm from './pages/RegisterForm';
-
+import BottomNav from './assets/components/BottomNav';
 
 function App() {
   const { hardcodedWorkouts, isLoading } = useFetchData();
   const [progress, setProgress] = useState(0);
   const [unlockedAchievments, setUnlockedAchievments] = useState([]);
   const location = useLocation();
+  // Hier die Routes adden, die BottomNav enthalten sollen.
+  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/startyourjourney'].includes(
+    location.pathname,
+  );
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -59,7 +63,8 @@ function App() {
       {/* Stepper Settings */}
       {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
       {/* <BottomNavigation/> */}
-      <BottomAppBar />
+      {showBottomNav && <BottomNav />}
+      {/* <BottomAppBar /> */}
       <ToastContainer />
       <Routes>
         <Route path="/" element={<LandingPage />} />
