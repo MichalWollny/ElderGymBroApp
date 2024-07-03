@@ -138,7 +138,7 @@ function RegisterForm() {
         },
       }}>
       <Typography variant="h4" gutterBottom>
-        Sign Up
+        Register
       </Typography>
       <form onSubmit={handleRegister}>
         <Grid container spacing={0}>
@@ -146,7 +146,7 @@ function RegisterForm() {
             <TextField
               fullWidth
               required
-              label="username"
+              label="Username"
               autoComplete="username"
               name="username"
               value={formData.username}
@@ -233,65 +233,20 @@ function RegisterForm() {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="primary" fullWidth>
-              Sign Up
+            <Button type="submit" variant="contained" fullWidth sx={{ mt: 3, mb: 2, bgcolor: 'teal', color: 'white' }}>
+              Register
             </Button>
           </Grid>
         </Grid>
       </form>
-      <p className="mt-2">
-        Already have an account? <Link to="/login">Login here</Link>
+      <p className="mt-2 text-center text-xs text-slate-400">
+        Already have an account?{' '}
+        <Link to="/login" className="text-teal-600 underline">
+          Login
+        </Link>
       </p>
     </Container>
   );
 }
-
-//   return (
-//     <div className="whadow-gray-500 container mx-auto mt-8 max-w-md rounded-xl shadow-xl">
-//       <div className="p-4">
-//         <h2 className="mb-4 text-2xl font-semibold">Register</h2>
-//         <form onSubmit={handleRegister}>
-//           <div className="mb-4">
-//             <label className="mb-2 block">Username:</label>
-//             <input
-//               type="text"
-//               value={username}
-//               onChange={(e) => setUsername(e.target.value)}
-//               required
-//               className="w-full rounded border p-2"
-//             />
-//           </div>
-//           <div className="mb-4">
-//             <label className="mb-2 block">Email:</label>
-//             <input
-//               type="email"
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//               required
-//               className="w-full rounded border p-2"
-//             />
-//           </div>
-//           <div className="mb-4">
-//             <label className="mb-2 block">Password:</label>
-//             <input
-//               type="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//               required
-//               className="w-full rounded border p-2"
-//             />
-//             {/* validation */}
-//           </div>
-//           <button type="submit" className="mt-2 rounded bg-blue-500 p-2 text-white">
-//             Register
-//           </button>
-//         </form>
-//         <p className="mt-2">
-//           Already have an account? <Link to="/login">Login here</Link>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
 
 export default RegisterForm;
