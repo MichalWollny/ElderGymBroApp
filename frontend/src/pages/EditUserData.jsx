@@ -32,7 +32,7 @@ function EditUserData() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .patch(' http://localhost:8000/profile/me/profileupdate', formData)
+      .patch(`${import.meta.env.VITE_API_URL}/profile/me/profileupdate`, formData)
       .then((response) => {
         console.log(response);
       })
@@ -65,7 +65,7 @@ function EditUserData() {
         </div>
       </div>
       <div className="flex flex-row justify-center">
-      <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+        <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Edit Profile
         </h1>
       </div>
@@ -200,7 +200,6 @@ function EditUserData() {
             Save
           </Button>
         </Box>
-
       </div>
     </div>
   );
