@@ -5,7 +5,9 @@ import FolderIcon from '@mui/icons-material/Folder';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 import { EmojiEventsIcon, AssignmentTurnedInIcon, FitnessCenter } from '@mui/icons-material/';
+import { Link } from 'react-router-dom';
 
 import HomeIcon from '@mui/icons-material/Favorite';
 
@@ -21,12 +23,17 @@ export default function LabelBottomNavigation() {
       position="fixed"
       sx={{ bgcolor: 'black', top: 'auto', bottom: 0, width: 1 }}
       value={value}
-      onChange={handleChange}>
-      <BottomNavigationAction label="Recents" value="recents" icon={<HomeIcon />} />
-      <BottomNavigationAction label="Favorites" value="favorites" icon={<EmojiEventsIcon />} />
-      <BottomNavigationAction label="Nearby" value="nearby" icon={<AssignmentTurnedInIcon />} />
-      <BottomNavigationAction label="Nearby" value="nearby" icon={<FitnessCenter />} />
-      <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+      onChange={this.handleChange}>
+      <BottomNavigationAction 
+        label=""
+        value=""
+        component={Link}
+        to="/"
+        icon={<HomeIcon />} />
+      <BottomNavigationAction label="Favorites" value="" icon={<EmojiEventsIcon />} />
+      <BottomNavigationAction label="Nearby" value="" icon={<AssignmentTurnedInIcon />} />
+      <BottomNavigationAction label="Nearby" value="" icon={<FitnessCenter />} />
+      <BottomNavigationAction label="Folder" value="" icon={<FolderIcon />} />
     </BottomNavigation>
   );
 }

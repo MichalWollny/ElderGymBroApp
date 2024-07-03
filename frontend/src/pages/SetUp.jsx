@@ -1,6 +1,8 @@
 import setUp from '../assets/images/startYourJourney.jpeg';
 import Card from '@mui/material/Card';
 
+
+import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 
 function SetUp() {
@@ -51,13 +53,19 @@ function SetUp() {
           </p>
         </div>
         <div className="flex justify-center">
+
           {/* <button className="mt-12 rounded-full border border-white bg-pink-900 px-4 py-2 text-white transition-transform hover:scale-110">
             <a href="/startyourjourney">Next</a>
           </button> */}
 
-          <Button type="submit" variant="contained" ref="/startyourjourney" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
-              Next
+
+          <Button type="submit"
+            variant="contained"
+            href="/Startyourjourney"
+            sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+            Next
           </Button>
+
 
         </div>
       </div>

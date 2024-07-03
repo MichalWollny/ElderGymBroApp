@@ -25,7 +25,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import FitnessCenter from '@mui/icons-material/FitnessCenter';
+
 
 const messages = [
   {
@@ -120,22 +120,22 @@ export default function BottomAppBar() {
       </Paper> */}
       <AppBar position="fixed" sx={{ bgcolor: 'black', top: 'auto', bottom: 0, width: 1 }}>
         <Toolbar sx={{ marginX: 1, gap: 7 }}>
-          <IconButton color="inherit" aria-label="open drawer">
+          <IconButton color="inherit" href="/dashboard" aria-label="open drawer">
             <HomeIcon />
           </IconButton>
 
-          <IconButton color="inherit" aria-label="open drawer">
+          <IconButton color="inherit" href="/trophys" aria-label="open drawer">
             <EmojiEventsIcon />
           </IconButton>
 
           {/* <Box sx={{ gap: 6}} /> */}
 
-          <IconButton color="inherit">
+          <IconButton color="inherit" href="/workouts" >
             <AssignmentTurnedInIcon />
           </IconButton>
 
-          <IconButton color="inherit">
-            <FitnessCenter />
+          <IconButton color="inherit" href="/workouts">
+            <FitnessCenterIcon />
           </IconButton>
         </Toolbar>
       </AppBar>

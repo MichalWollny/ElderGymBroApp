@@ -94,16 +94,6 @@ function Dashboard() {
 
         </div>
 
-        <div className='w-3/4 m-auto'>
-          <div className="mt-20">
-
-            
-            
-          </div>
-        </div>
-
-
-
 
         {/* Content bar */}
         <div className="flex flex-row justify-center min-h-svh place-content-center place-items-center overflow-hidden px-4 pt-5 text-gray-200 md:pt-10">  
