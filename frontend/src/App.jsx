@@ -17,17 +17,13 @@ import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
 import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
-<<<<<<< HEAD
-import Dashboard from './pages/Dashboard';
-=======
-import StepperComponent from './assets/components/StepperComponent';
+// import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
 import { ToastContainer } from 'react-toastify';
 import RegisterForm from './pages/RegisterForm';
 import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
->>>>>>> 115e82b9f7ad9810b3fba39a7d3faf34dd6ab399
 
 
 function App() {
@@ -77,11 +73,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
 
         <Route path="/profile" element={<Profile />} />
-<<<<<<< HEAD
-=======
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/edituserdata" element={<EditUserData />} />
->>>>>>> 115e82b9f7ad9810b3fba39a7d3faf34dd6ab399
         <Route path="/profilerework" element={<Profilerework />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route
@@ -103,13 +96,7 @@ function App() {
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
         <Route path="/uielements" element={<UIElements />} />
-<<<<<<< HEAD
-        <Route path="/workouts" element={<Workouts />} />
-        <Route path="/workouts" element={<Workouts workouts={hardcodedWorkouts} />} />
-        <Route path="/dashboard" element={<Dashboard/>} />
-=======
         <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
->>>>>>> 115e82b9f7ad9810b3fba39a7d3faf34dd6ab399
       </Routes>
     </>
   );
