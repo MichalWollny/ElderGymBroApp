@@ -99,7 +99,7 @@ function RegisterForm() {
     e.preventDefault(); // Prevent default form submission behavior
     try {
       const response = await axios.post(
-        'http://localhost:8000/auth/register',
+        `${import.meta.env.VITE_API_URL}/auth/register`,
         {
           username: formData.username,
           email: formData.email,

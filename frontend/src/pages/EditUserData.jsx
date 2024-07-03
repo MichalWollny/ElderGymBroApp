@@ -32,7 +32,7 @@ function EditUserData() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .patch(' http://localhost:8000/profile/me/profileupdate', formData)
+      .patch(`${import.meta.env.VITE_API_URL}/profile/me/profileupdate`, formData)
       .then((response) => {
         console.log(response);
       })
