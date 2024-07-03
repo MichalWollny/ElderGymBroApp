@@ -24,7 +24,7 @@ const BottomNav = () => {
   };
 
   return (
-    <nav className="fixed bottom-0 flex h-16 w-full items-center justify-around rounded-t-3xl bg-gray-900 shadow-md">
+    <nav className="fixed bottom-0 z-50 flex h-16 w-full items-center justify-around rounded-t-3xl bg-gray-900 shadow-md">
       {navItems.map((item, index) => (
         <div
           key={index}
