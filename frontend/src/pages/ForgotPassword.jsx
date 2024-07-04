@@ -49,14 +49,14 @@ function ForgotPassword() {
           Forgot Password{' '}
         </h1>
       </div>
-      <div className="mt-10 flex flex-col place-items-center text-center">
+      <div className="mt-6 flex flex-col place-items-center text-center">
         <p className="font-cthulhumbus text-xl md:text-4xl">Forgot Password?</p>
-        <img src={cthulupassword} alt="Cthulu Forgot Password" className="mt-6 size-72" />
+        <img src={cthulupassword} alt="Cthulu Forgot Password" className="mt-4 size-72" />
         <p className="mt-4 text-xs font-light tracking-wide text-slate-400">
           No problem! Please enter your e-mail address to receive a <br /> link to reset your password. Follow the
           instructions in the <br /> email to create a new password.
         </p>
-        <Box component="form" noValidate sx={{ mt: 4 }} onSubmit={handleSubmit}>
+        <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit}>
           <TextField
             margin="normal"
             required
@@ -69,12 +69,12 @@ function ForgotPassword() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, bgcolor: 'teal', color: 'white' }}>
+          <Button type="submit" fullWidth variant="contained" sx={{ mt: 2, mb: 2, bgcolor: 'teal', color: 'white' }}>
             Send Reset Link
           </Button>
         </Box>
         {/* Nachricht an den Nutzer nach dem Submitten */}
-        {message && <p className="mt-4 text-xs font-light tracking-wide text-slate-400">{message}</p>}
+        {message && <p className="mt-2 text-xs font-light tracking-wide text-yellow-400">{message}</p>}
       </div>
     </div>
   );
