@@ -88,7 +88,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
       </div>
       <div className="mt-2 flex flex-row justify-center">
         <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-800 sm:text-3xl md:text-4xl">
-          Trophys{' '}
+          Trophies{' '}
         </h1>
       </div>
       {/* SVG Container */}
@@ -213,7 +213,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
             <Typography
               variant="body2"
-              color="textSecondary">{`${Math.round(progressPercentage)}% of all Trophys`}</Typography>
+              color="textSecondary">{`${Math.round(progressPercentage)}% of all Trophies`}</Typography>
           </Box>
         </Box>
       </div>

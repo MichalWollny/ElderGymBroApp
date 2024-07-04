@@ -20,6 +20,7 @@ import MenuAppBar from './assets/components/MenuAppBar';
 // import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import RegisterForm from './pages/RegisterForm';
 import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
@@ -64,7 +65,19 @@ function App() {
       {/* <BottomNavigation/> */}
       {showBottomNav && <BottomNav />}
       {/* <BottomAppBar /> */}
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+        transition:Slide
+      />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterForm />} />

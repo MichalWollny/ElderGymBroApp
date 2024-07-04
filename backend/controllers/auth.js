@@ -13,6 +13,9 @@ export const signUp = asyncHandler(async (req, res, next) => {
   const existingUser1 = await User.findOne({ username });
   if (existingUser1) throw new ErrorResponse('An account with this Username already exist', 409);
 
+  const existingUser1 = await User.findOne({ username });
+  if (existingUser1) throw new ErrorResponse('An account with this Username already exist', 409);
+
   const hash = await bcrypt.hash(password, 10);
   const newUser = await User.create({
     fullName,
