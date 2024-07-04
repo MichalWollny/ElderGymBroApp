@@ -14,10 +14,6 @@ import SetUp from './pages/SetUp';
 import useFetchData from './utils/FetchData';
 import Trophys from './pages/Trophys';
 import UIElements from './assets/components/UIElements';
-import BottomAppBar from './assets/components/BottomAppBar';
-import { BottomNavigation } from '@mui/material';
-import MenuAppBar from './assets/components/MenuAppBar';
-// import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -55,16 +51,14 @@ function App() {
   // Stepper Routes
   const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
 
-  console.log(import.meta.env.VITE_API_URL);
+  // console.log(import.meta.env.VITE_API_URL);
 
   return (
     <>
-      {/* <MenuAppBar/> */}
       {/* Stepper Settings */}
       {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
-      {/* <BottomNavigation/> */}
+      {/* Bottom Nav */}
       {showBottomNav && <BottomNav />}
-      {/* <BottomAppBar /> */}
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -103,7 +97,6 @@ function App() {
             </div>
           }
         />
-        {/* <Route path="/navbar" element={<Navbar />} /> */}
         <Route path="/template" element={<Template />} />
         <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
