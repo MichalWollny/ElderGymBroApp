@@ -321,12 +321,12 @@ function RegisterForm() {
           <Backdrop sx={{ color: '#fff', zIndex: 99 }} open={openBackdrop} onClick={handleBackdropClick}>
             <div style={{ textAlign: 'center' }}>
               <Typography
-                variant="h4"
+                variant="h3"
                 component="div"
-                className="mx-10 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus font-bold">
+                className="mx-14 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus font-bold">
                 You are now part of the cult. <br /> Continue by logging in.
               </Typography>
-              <CircularProgress color="success" sx={{ marginTop: 2, size: 60 }} />
+              <CircularProgress color="success" sx={{ marginTop: 2, size: 100 }} />
             </div>
           </Backdrop>
         </Container>
