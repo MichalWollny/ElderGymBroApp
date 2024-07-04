@@ -17,7 +17,7 @@ import UIElements from './assets/components/UIElements';
 import BottomAppBar from './assets/components/BottomAppBar';
 import { BottomNavigation } from '@mui/material';
 import MenuAppBar from './assets/components/MenuAppBar';
-import StepperComponent from './assets/components/StepperComponent';
+// import StepperComponent from './assets/components/StepperComponent';
 import ForgotPassword from './pages/ForgotPassword';
 import { ToastContainer } from 'react-toastify';
 import RegisterForm from './pages/RegisterForm';
@@ -75,6 +75,7 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
+        <Route path="/edituserdata" element={<EditUserData />} />
         <Route
           path="/trophys"
           element={
