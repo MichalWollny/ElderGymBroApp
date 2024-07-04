@@ -1,6 +1,18 @@
 import axios from 'axios';
 import { useState, useEffect, useDeferredValue, useMemo } from 'react';
-import { Container, TextField, Button, LinearProgress, Alert, InputAdornment, IconButton, Grid } from '@mui/material';
+import {
+  Backdrop,
+  Typography,
+  Container,
+  TextField,
+  Button,
+  LinearProgress,
+  Alert,
+  InputAdornment,
+  IconButton,
+  Grid,
+} from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import { zxcvbnAsync, zxcvbnOptions } from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en';
@@ -92,6 +104,24 @@ function RegisterForm() {
   // colors for the background gradient
   const COLORS_TOP = useMemo(() => ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'], []);
 
+  // Function to initiate navigation to /login with a delay
+  const [openBackdrop, setOpenBackdrop] = useState(false);
+
+  const naviToLogin = () => {
+    setOpenBackdrop(true);
+
+    const timer = setTimeout(() => {
+      navigate('/login');
+    }, 4000);
+
+    return () => clearTimeout(timer); // Clear the timer if the component unmounts
+  };
+
+  const handleBackdropClick = () => {
+    setOpenBackdrop(false);
+    navigate('/login');
+  };
+
   const handleRegister = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
     // Step 1: Check if the passwords match
@@ -101,7 +131,7 @@ function RegisterForm() {
     }
     // Step 2: Check if 'passwordStrength' indicates a strength of 2, 3, or 4
     if (result.score !== 3 && result.score !== 4) {
-      toast.error('🥀 Your password is too weak!');
+      toast.error('We do not approve your weak password!');
       return; // Stop the function from proceeding further
     }
 
@@ -119,7 +149,7 @@ function RegisterForm() {
 
       if (response.status === 201) {
         toast.success('🫱🏼‍🫲🏾 Welcome new member of the cult!');
-        navigate('/login');
+        naviToLogin();
       }
     } catch (error) {
       toast.error(error.response.data.error);
@@ -288,6 +318,17 @@ function RegisterForm() {
               </Grid>
             </Grid>
           </form>
+          <Backdrop sx={{ color: '#fff', zIndex: 99 }} open={openBackdrop} onClick={handleBackdropClick}>
+            <div style={{ textAlign: 'center' }}>
+              <Typography
+                variant="h4"
+                component="div"
+                className="mx-10 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus font-bold">
+                You are now part of the cult. <br /> Continue by logging in.
+              </Typography>
+              <CircularProgress color="success" sx={{ marginTop: 2, size: 60 }} />
+            </div>
+          </Backdrop>
         </Container>
       </motion.section>
     </div>
