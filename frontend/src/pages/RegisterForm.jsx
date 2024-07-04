@@ -139,7 +139,7 @@ function RegisterForm() {
       toast.error('🙅‍♂ Passwords do not match.');
       return; // Stop the function from proceeding further
     }
-    // Step 2: Check if 'passwordStrength' indicates a strength of 2, 3, or 4
+    // Step 2: Check if 'passwordStrength' indicates a strength of 3, or 4 (out of 4)
     if (result.score !== 3 && result.score !== 4) {
       toast.error('🙅‍♂ We do not approve your weak password!');
       return; // Stop the function from proceeding further
