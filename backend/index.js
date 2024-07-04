@@ -18,10 +18,6 @@ app.use(
     origin: 'https://localhost:5173', // Specify the exact origin
     credentials: true, // Allow credentials
   }),
-  // cors({
-  //   origin: '*',
-  //   credentials: true,
-  // }),
 );
 app.use(cookieParser()); // cookie-parser
 
