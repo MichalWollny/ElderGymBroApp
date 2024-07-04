@@ -122,16 +122,26 @@ function RegisterForm() {
     navigate('/login');
   };
 
+  // Regular expression for validating email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleRegister = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
+
+    // Step 0: Check if formData.email is a valid email address
+    if (!emailRegex.test(formData.email)) {
+      toast.error('🙅‍♂ Please enter a valid email address.');
+      return; // Stop the function from proceeding further
+    }
+
     // Step 1: Check if the passwords match
     if (formData.password !== formData.confirmPassword) {
-      toast.error('🙅‍♂ Passwords do not match. Try again.');
+      toast.error('🙅‍♂ Passwords do not match.');
       return; // Stop the function from proceeding further
     }
     // Step 2: Check if 'passwordStrength' indicates a strength of 2, 3, or 4
     if (result.score !== 3 && result.score !== 4) {
-      toast.error('We do not approve your weak password!');
+      toast.error('🙅‍♂ We do not approve your weak password!');
       return; // Stop the function from proceeding further
     }
 
