@@ -155,6 +155,11 @@ function LoginForm() {
                     Register here
                   </Link>
                 </p>
+                <div className="mt-2 text-center text-xs">
+                  <Link to="/forgotpassword" className="text-teal-600 underline">
+                    Forgot Password?
+                  </Link>
+                </div>
               </Grid>
             </Grid>
           </form>
