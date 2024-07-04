@@ -20,14 +20,15 @@ import RegisterForm from './pages/RegisterForm';
 import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
+import Dashboard from './pages/Dashboard';
 
 function App() {
-  const { hardcodedWorkouts, isLoading } = useFetchData();
+  const { hardcodedWorkouts } = useFetchData();
   const [progress, setProgress] = useState(0);
   const [unlockedAchievments, setUnlockedAchievments] = useState([]);
   const location = useLocation();
   // Hier die Routes adden, die BottomNav enthalten sollen.
-  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/startyourjourney'].includes(
+  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/profile', '/edituserdata'].includes(
     location.pathname,
   );
 
@@ -48,7 +49,7 @@ function App() {
     });
   };
   // Stepper Routes
-  const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
+  // const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
 
   // console.log(import.meta.env.VITE_API_URL);
 
@@ -72,18 +73,15 @@ function App() {
         transition:Slide
       />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/home" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/edituserdata" element={<EditUserData />} />
-        <Route path="/profilerework" element={<Profilerework />} />
-        <Route path="/edituserdata" element={<EditUserData />} />
+        <Route path="/profile" element={<Profilerework />} />
         <Route
           path="/trophys"
           element={
-            // add a bottom margin, because otherwise this site goes right trough the navbar and makes it transparent
+            // added a bottom margin, because otherwise this site goes right trough the navbar and makes it transparent
             <div className="mb-16">
               <Trophys
                 progress={progress}
@@ -94,14 +92,20 @@ function App() {
             </div>
           }
         />
-        <Route path="/template" element={<Template />} />
+        <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
+
+        {/* No Navbar */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+
         <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
-
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
+
+        <Route path="/template" element={<Template />} />
         <Route path="/uielements" element={<UIElements />} />
-        <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
       </Routes>
     </>
   );
