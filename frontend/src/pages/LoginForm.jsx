@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
-import { Container, TextField, Button, Grid } from '@mui/material';
+import { Container, TextField, Button, Grid, InputAdornment, IconButton } from '@mui/material';
 import { toast } from 'react-toastify';
-
 import { Stars } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-
 import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 // colors for the background gradient
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
@@ -16,7 +16,9 @@ const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const { setIsLoggedIn, checkUser } = useAuth();
+
   // for the background gradient
   const color = useMotionValue(COLORS_TOP[0]);
 
@@ -32,7 +34,7 @@ function LoginForm() {
   }, [color]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
-
+  // Handle Login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -54,6 +56,14 @@ function LoginForm() {
     } catch (error) {
       toast.error(error.response.data.error || { error }, {});
     }
+  };
+  //HandleClickShowPassword
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
   };
 
   return (
@@ -108,12 +118,27 @@ function LoginForm() {
 
               <Grid item xs={12}>
                 <TextField
-                  type="password"
+                  fullWidth
+                  required
                   label="Password"
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  autoComplete="new-password"
+                  variant="outlined"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="w-full rounded border p-2"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}>
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
