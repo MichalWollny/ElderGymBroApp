@@ -1,16 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect, useDeferredValue, useMemo } from 'react';
-import {
-  Container,
-  Typography,
-  TextField,
-  Button,
-  LinearProgress,
-  Alert,
-  InputAdornment,
-  IconButton,
-  Grid,
-} from '@mui/material';
+import { Container, TextField, Button, LinearProgress, Alert, InputAdornment, IconButton, Grid } from '@mui/material';
 import { zxcvbnAsync, zxcvbnOptions } from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en';
@@ -104,6 +94,18 @@ function RegisterForm() {
 
   const handleRegister = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
+    // Step 1: Check if the passwords match
+    if (formData.password !== formData.confirmPassword) {
+      toast.error('🙅‍♂ Passwords do not match. Try again.');
+      return; // Stop the function from proceeding further
+    }
+    // Step 2: Check if 'passwordStrength' indicates a strength of 2, 3, or 4
+    if (result.score !== 3 && result.score !== 4) {
+      toast.error('🥀 Your password is too weak!');
+      return; // Stop the function from proceeding further
+    }
+
+    // Proceed with the registration process
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/auth/register`,
@@ -116,11 +118,11 @@ function RegisterForm() {
       );
 
       if (response.status === 201) {
-        toast.success('Successfully registered! Welcome');
+        toast.success('🫱🏼‍🫲🏾 Welcome new member of the cult!');
         navigate('/login');
       }
     } catch (error) {
-      toast.error(error.response.data.error || 'Registration failed');
+      toast.error(error.response.data.error);
     }
   };
 
@@ -136,6 +138,8 @@ function RegisterForm() {
   }, [color, COLORS_TOP]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
+
+  // TODO More space between the TextFields. Same for Login
 
   return (
     <motion.section
@@ -162,9 +166,9 @@ function RegisterForm() {
             mt: 3,
           },
         }}>
-        <Typography variant="h4" gutterBottom>
+        <h2 className="my-10 max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
           Register
-        </Typography>
+        </h2>
         <form onSubmit={handleRegister}>
           <Grid container spacing={0}>
             <Grid item xs={12}>

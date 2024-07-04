@@ -1,9 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
-import { Container, Typography, TextField, Button, Grid } from '@mui/material';
-// import { toast } from 'react-toastify';
+import { Container, TextField, Button, Grid } from '@mui/material';
+import { toast } from 'react-toastify';
 
 import { Stars } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
@@ -11,12 +11,11 @@ import { Canvas } from '@react-three/fiber';
 import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
 
 // colors for the background gradient
-const COLORS_TOP = useMemo(() => ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'], []);
+const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const { setIsLoggedIn, checkUser } = useAuth();
   // for the background gradient
   const color = useMotionValue(COLORS_TOP[0]);
@@ -30,7 +29,7 @@ function LoginForm() {
       repeat: Infinity,
       repeatType: 'mirror',
     });
-  }, [color, COLORS_TOP]);
+  }, [color]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
 
@@ -49,11 +48,11 @@ function LoginForm() {
       if (response.status === 200) {
         setIsLoggedIn(true);
         checkUser();
-        // toast.info('Logged in');
+        toast.success('Successfully logged in! Welcome mortal');
         navigate('/startyourjourney');
       }
     } catch (error) {
-      setError(error.response.data.error || 'Something went wrong');
+      toast.error(error.response.data.error || { error }, {});
     }
   };
 
@@ -79,9 +78,9 @@ function LoginForm() {
             mt: 3,
           },
         }}>
-        <Typography variant="h4" gutterBottom>
+        <h2 className="my-10 max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
           Login
-        </Typography>
+        </h2>
         <form onSubmit={handleLogin}>
           <Grid container spacing={0}>
             <Grid item xs={12}>
