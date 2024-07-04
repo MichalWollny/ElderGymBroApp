@@ -2,7 +2,6 @@ import './App.css';
 import { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Profile from './pages/Profile';
 import Profilerework from './pages/ProfileRework';
 import Template from './pages/Template';
 import StartYourJourney from './pages/StartYourJourney';
@@ -77,8 +76,6 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="*" element={<NotFound />} />
-
-        <Route path="/profile" element={<Profile />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profilerework" element={<Profilerework />} />
