@@ -173,6 +173,9 @@ const WorkoutPlan = ({ workouts }) => {
                                     {group.exercises.map((exercise, exerciseIndex) => {
                                       // Find the exercise in the plan.exercises array by ID
                                       const fullExercise = plan.exercises.find((e) => e.id === exercise.id);
+                                      console.log(
+                                        `../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images`,
+                                      );
                                       return (
                                         <div className="mb-3 mt-3">
                                           <div key={exerciseIndex} className="text-gray-600">
