@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import landingPageImage from '/src/assets/images/landingPage.avif';
 import avatarImage from '../assets/images/avatar.avif';
@@ -19,7 +19,10 @@ const LandingPage = () => {
   const navigate = useNavigate(); // Initialize navigate function
 
   const handleJoinCultClick = () => {
-    navigate('/Onboarding'); // Navigate to Onboarding page
+    // useThree.forceContextLoss(); // Force the context to be lost, cleaning up WebGL resources
+    // useThree.dispose();
+    // Dispose of the renderer's resources
+    navigate('/register'); // Navigate to Onboarding page
   };
 
   useEffect(() => {
@@ -29,8 +32,7 @@ const LandingPage = () => {
       repeat: Infinity,
       repeatType: 'mirror',
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [color]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
   const border = useMotionTemplate`0.2px solid ${color}`;
@@ -77,6 +79,12 @@ const LandingPage = () => {
           Join the Cult
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
         </motion.button>
+        <p className="mt-4 text-xs text-slate-400">
+          Already have an account?{' '}
+          <Link to="/login" className="text-teal-600 underline">
+            Login
+          </Link>
+        </p>
       </div>
 
       <div className="absolute inset-0 z-0">

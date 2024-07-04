@@ -11,15 +11,21 @@
     "workoutBreakDuration": "90 Seconds",
     "workoutExercises": [
       {
-        "name": "",
-        "force": "",
-        "level": "",
-        "mechanic": "",
-        "equipment": "",
-        "primaryMuscles": [""],
-        "secondaryMuscles": [],
-        "instructions": [""],
-        "category": ""
+        "name": "Barbell Bench Press - Medium Grip",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "compound",
+        "equipment": "barbell",
+        "primaryMuscles": ["chest"],
+        "secondaryMuscles": ["shoulders", "triceps"],
+        "instructions": [
+          "Lie back on a flat bench. Using a medium width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.",
+          "From the starting position, breathe in and begin coming down slowly until the bar touches your middle chest.",
+          "After a brief pause, push the bar back to the starting position as you breathe out. Focus on pushing the bar using your chest muscles. Lock your arms and squeeze your chest in the contracted position at the top of the motion, hold for a second and then start coming down slowly again. Tip: Ideally, lowering the weight should take about twice as long as raising it.",
+          "Repeat the movement for the prescribed amount of repetitions.",
+          "When you are done, place the bar back in the rack."
+        ],
+        "category": "strength"
       },
       {
         "name": "Butterfly",
@@ -194,7 +200,7 @@
           {
             "muscleGroup": "chest",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "3", "exerciseReps": "10-15" },
+              { "exerciseName": "Barbell Bench Press - Medium Grip", "exerciseSets": "3", "exerciseReps": "10-15" },
               { "exerciseName": "Butterfly", "exerciseSets": "3", "exerciseReps": "10-15" }
             ]
           },
@@ -235,26 +241,317 @@
     ]
   },
   {
-    "workoutName": "",
-    "workoutAim": "",
+    "workoutName": "Beginner 2-Day Split Workout",
+    "workoutAim": "Build Muscle",
     "workoutSystem": "2-Day Split",
-    "workoutLevel": "",
+    "workoutLevel": "Beginner",
     "workoutFrequency": "3-4 Days a Week",
-    "workoutExampleBreakdown": "",
-    "workoutDuration": "",
-    "workoutPlanDuration": "",
-    "workoutBreakDuration": "",
+    "workoutExampleBreakdown": "Monday (A), Wednesday (B), Friday (A), Monday (B)",
+    "workoutDuration": "50-60 Minutes",
+    "workoutPlanDuration": "16-20 weeks",
+    "workoutBreakDuration": "90 Seconds",
     "workoutExercises": [
       {
-        "name": "",
-        "force": "",
-        "level": "",
-        "mechanic": "",
-        "equipment": "",
-        "primaryMuscles": [""],
+        "name": "Barbell Bench Press - Medium Grip",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "compound",
+        "equipment": "barbell",
+        "primaryMuscles": ["chest"],
+        "secondaryMuscles": ["shoulders", "triceps"],
+        "instructions": [
+          "Lie back on a flat bench. Using a medium width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.",
+          "From the starting position, breathe in and begin coming down slowly until the bar touches your middle chest.",
+          "After a brief pause, push the bar back to the starting position as you breathe out. Focus on pushing the bar using your chest muscles. Lock your arms and squeeze your chest in the contracted position at the top of the motion, hold for a second and then start coming down slowly again. Tip: Ideally, lowering the weight should take about twice as long as raising it.",
+          "Repeat the movement for the prescribed amount of repetitions.",
+          "When you are done, place the bar back in the rack."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Smith Machine Incline Bench Press",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "compound",
+        "equipment": "machine",
+        "primaryMuscles": ["chest"],
+        "secondaryMuscles": ["shoulders", "triceps"],
+        "instructions": [
+          "Place an incline bench underneath the smith machine. Place the barbell at a height that you can reach when lying down and your arms are almost fully extended. Once the weight you need is selected, lie down on the incline bench and make sure your upper chest is aligned with the barbell. Using a pronated grip (palms facing forward) that is wider than shoulder width, unlock the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.",
+          "As you breathe in, come down slowly until you feel the bar on your upper chest.",
+          "After a second pause, bring the bar back to the starting position as you breathe out and push the bar using your chest muscles. Lock your arms in the contracted position, hold for a second and then start coming down slowly again. Tip: It should take at least twice as long to go down than to come up.",
+          "Repeat the movement for the prescribed amount of repetitions.",
+          "When you are done, place the bar back in the rack."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Butterfly",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "machine",
+        "primaryMuscles": ["chest"],
         "secondaryMuscles": [],
-        "instructions": [""],
-        "category": ""
+        "instructions": [
+          "Sit on the machine with your back flat on the pad.",
+          "Take hold of the handles. Tip: Your upper arms should be positioned parallel to the floor; adjust the machine accordingly. This will be your starting position.",
+          "Push the handles together slowly as you squeeze your chest in the middle. Breathe out during this part of the motion and hold the contraction for a second.",
+          "Return back to the starting position slowly as you inhale until your chest muscles are fully stretched.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Smith Machine Overhead Shoulder Press",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "compound",
+        "equipment": "machine",
+        "primaryMuscles": ["shoulders"],
+        "secondaryMuscles": ["triceps"],
+        "instructions": [
+          "To begin, place a flat bench (or preferably one with back support) underneath a smith machine. Position the barbell at a height so that when seated on the flat bench, the arms must be almost fully extended to reach the barbell.",
+          "Once you have the correct height, sit slightly in behind the barbell so that there is an imaginary straight line from the tip of your nose to the barbell. Your feet should be stationary. Grab the barbell with the palms facing forward, unlock it and lift it up so that your arms are fully extended. This is the starting position.",
+          "Slowly begin to lower the barbell until it is level with your chin while inhaling.",
+          "Then lift the barbell back to the starting position using your shoulders while exhaling.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Side Lateral Raise",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "dumbbell",
+        "primaryMuscles": ["shoulders"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Pick a couple of dumbbells and stand with a straight torso and the dumbbells by your side at arms length with the palms of the hand facing you. This will be your starting position.",
+          "While maintaining the torso in a stationary position (no swinging), lift the dumbbells to your side with a slight bend on the elbow and the hands slightly tilted forward as if pouring water in a glass. Continue to go up until you arms are parallel to the floor. Exhale as you execute this movement and pause for a second at the top.",
+          "Lower the dumbbells back down slowly to the starting position as you inhale.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Close-Grip EZ-Bar Press",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "compound",
+        "equipment": "e-z curl bar",
+        "primaryMuscles": ["triceps"],
+        "secondaryMuscles": ["chest", "shoulders"],
+        "instructions": [
+          "Lie on a flat bench with an EZ bar loaded to an appropriate weight.",
+          "Using a narrow grip lift the bar and hold it straight over your torso with your elbows in. The arms should be perpendicular to the floor. This will be your starting position.",
+          "Now lower the bar down to your lower chest as you breathe in. Keep the elbows in as you perform this movement.",
+          "Using the triceps to push the bar back up, press it back to the starting position by extending the elbows as you exhale.",
+          "Repeat."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Triceps Pushdown",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "cable",
+        "primaryMuscles": ["triceps"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Attach a straight or angled bar to a high pulley and grab with an overhand grip (palms facing down) at shoulder width.",
+          "Standing upright with the torso straight and a very small inclination forward, bring the upper arms close to your body and perpendicular to the floor. The forearms should be pointing up towards the pulley as they hold the bar. This is your starting position.",
+          "Using the triceps, bring the bar down until it touches the front of your thighs and the arms are fully extended perpendicular to the floor. The upper arms should always remain stationary next to your torso and only the forearms should move. Exhale as you perform this movement.",
+          "After a second hold at the contracted position, bring the bar slowly up to the starting point. Breathe in as you perform this step.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Crunches",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "body only",
+        "primaryMuscles": ["abdominals"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Lie flat on your back with your feet flat on the ground, or resting on a bench with your knees bent at a 90 degree angle. If you are resting your feet on a bench, place them three to four inches apart and point your toes inward so they touch.",
+          "Now place your hands lightly on either side of your head keeping your elbows in. Tip: Don't lock your fingers behind your head.",
+          "While pushing the small of your back down in the floor to better isolate your abdominal muscles, begin to roll your shoulders off the floor.",
+          "Continue to push down as hard as you can with your lower back as you contract your abdominals and exhale. Your shoulders should come up off the floor only about four inches, and your lower back should remain on the floor. At the top of the movement, contract your abdominals hard and keep the contraction for a second. Tip: Focus on slow, controlled movement - don't cheat yourself by using momentum.",
+          "After the one second contraction, begin to come down slowly again to the starting position as you inhale.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Flat Bench Lying Leg Raise",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "body only",
+        "primaryMuscles": ["abdominals"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Lie with your back flat on a bench and your legs extended in front of you off the end.",
+          "Place your hands either under your glutes with your palms down or by the sides holding on to the bench. This will be your starting position.",
+          "As you keep your legs extended, straight as possible with your knees slightly bent but locked raise your legs until they make a 90-degree angle with the floor. Exhale as you perform this portion of the movement and hold the contraction at the top for a second.",
+          "Now, as you inhale, slowly lower your legs back down to the starting position."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Leg Extensions",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "machine",
+        "primaryMuscles": ["quadriceps"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "For this exercise you will need to use a leg extension machine. First choose your weight and sit on the machine with your legs under the pad (feet pointed forward) and the hands holding the side bars. This will be your starting position. Tip: You will need to adjust the pad so that it falls on top of your lower leg (just above your feet). Also, make sure that your legs form a 90-degree angle between the lower and upper leg. If the angle is less than 90-degrees then that means the knee is over the toes which in turn creates undue stress at the knee joint. If the machine is designed that way, either look for another machine or just make sure that when you start executing the exercise you stop going down once you hit the 90-degree angle.",
+          "Using your quadriceps, extend your legs to the maximum as you exhale. Ensure that the rest of the body remains stationary on the seat. Pause a second on the contracted position.",
+          "Slowly lower the weight back to the original position as you inhale, ensuring that you do not go past the 90-degree angle limit.",
+          "Repeat for the recommended amount of times."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Leg Press",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "compound",
+        "equipment": "machine",
+        "primaryMuscles": ["quadriceps"],
+        "secondaryMuscles": ["calves", "glutes", "hamstrings"],
+        "instructions": [
+          "Using a leg press machine, sit down on the machine and place your legs on the platform directly in front of you at a medium (shoulder width) foot stance. (Note: For the purposes of this discussion we will use the medium stance described above which targets overall development; however you can choose any of the three stances described in the foot positioning section).",
+          "Lower the safety bars holding the weighted platform in place and press the platform all the way up until your legs are fully extended in front of you. Tip: Make sure that you do not lock your knees. Your torso and the legs should make a perfect 90-degree angle. This will be your starting position.",
+          "As you inhale, slowly lower the platform until your upper and lower legs make a 90-degree angle.",
+          "Pushing mainly with the heels of your feet and using the quadriceps go back to the starting position as you exhale.",
+          "Repeat for the recommended amount of repetitions and ensure to lock the safety pins properly once you are done. You do not want that platform falling on you fully loaded."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Lying Leg Curls",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "machine",
+        "primaryMuscles": ["hamstrings"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Adjust the machine lever to fit your height and lie face down on the leg curl machine with the pad of the lever on the back of your legs (just a few inches under the calves). Tip: Preferably use a leg curl machine that is angled as opposed to flat since an angled position is more favorable for hamstrings recruitment.",
+          "Keeping the torso flat on the bench, ensure your legs are fully stretched and grab the side handles of the machine. Position your toes straight (or you can also use any of the other two stances described on the foot positioning section). This will be your starting position.",
+          "As you exhale, curl your legs up as far as possible without lifting the upper legs from the pad. Once you hit the fully contracted position, hold it for a second.",
+          "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Standing Calf Raises",
+        "force": "push",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "machine",
+        "primaryMuscles": ["calves"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Adjust the padded lever of the calf raise machine to fit your height.",
+          "Place your shoulders under the pads provided and position your toes facing forward (or using any of the two other positions described at the beginning of the chapter). The balls of your feet should be secured on top of the calf block with the heels extending off it. Push the lever up by extending your hips and knees until your torso is standing erect. The knees should be kept with a slight bend; never locked. Toes should be facing forward, outwards or inwards as described at the beginning of the chapter. This will be your starting position.",
+          "Raise your heels as you breathe out by extending your ankles as high as possible and flexing your calf. Ensure that the knee is kept stationary at all times. There should be no bending at any time. Hold the contracted position by a second before you start to go back down.",
+          "Go back slowly to the starting position as you breathe in by lowering your heels as you bend the ankles until calves are stretched.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Straight-Arm Pulldown",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "cable",
+        "primaryMuscles": ["lats"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "You will start by grabbing the wide bar from the top pulley of a pulldown machine and using a wider than shoulder-width pronated (palms down) grip. Step backwards two feet or so.",
+          "Bend your torso forward at the waist by around 30-degrees with your arms fully extended in front of you and a slight bend at the elbows. If your arms are not fully extended then you need to step a bit more backwards until they are. Once your arms are fully extended and your torso is slightly bent at the waist, tighten the lats and then you are ready to begin.",
+          "While keeping the arms straight, pull the bar down by contracting the lats until your hands are next to the side of the thighs. Breathe out as you perform this step.",
+          "While keeping the arms straight, go back to the starting position while breathing in.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Bent Over Two-Dumbbell Row",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "compound",
+        "equipment": "dumbbell",
+        "primaryMuscles": ["middle back"],
+        "secondaryMuscles": ["biceps", "lats", "shoulders"],
+        "instructions": [
+          "With a dumbbell in each hand (palms facing your torso), bend your knees slightly and bring your torso forward by bending at the waist; as you bend make sure to keep your back straight until it is almost parallel to the floor. Tip: Make sure that you keep the head up. The weights should hang directly in front of you as your arms hang perpendicular to the floor and your torso. This is your starting position.",
+          "While keeping the torso stationary, lift the dumbbells to your side (as you breathe out), keeping the elbows close to the body (do not exert any force with the forearm other than holding the weights). On the top contracted position, squeeze the back muscles and hold for a second.",
+          "Slowly lower the weight again to the starting position as you inhale.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Hyperextensions (Back Extensions)",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "other",
+        "primaryMuscles": ["lower back"],
+        "secondaryMuscles": ["glutes", "hamstrings"],
+        "instructions": [
+          "Lie face down on a hyperextension bench, tucking your ankles securely under the footpads.",
+          "Adjust the upper pad if possible so your upper thighs lie flat across the wide pad, leaving enough room for you to bend at the waist without any restriction.",
+          "With your body straight, cross your arms in front of you (my preference) or behind your head. This will be your starting position. Tip: You can also hold a weight plate for extra resistance in front of you under your crossed arms.",
+          "Start bending forward slowly at the waist as far as you can while keeping your back flat. Inhale as you perform this movement. Keep moving forward until you feel a nice stretch on the hamstrings and you can no longer keep going without a rounding of the back. Tip: Never round the back as you perform this exercise. Also, some people can go farther than others. The key thing is that you go as far as your body allows you to without rounding the back.",
+          "Slowly raise your torso back to the initial position as you inhale. Tip: Avoid the temptation to arch your back past a straight line. Also, do not swing the torso at any time in order to protect the back from injury.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Standing Biceps Cable Curl",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "cable",
+        "primaryMuscles": ["biceps"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Stand up with your torso upright while holding a cable curl bar that is attached to a low pulley. Grab the cable bar at shoulder width and keep the elbows close to the torso. The palm of your hands should be facing up (supinated grip). This will be your starting position.",
+          "While holding the upper arms stationary, curl the weights while contracting the biceps as you breathe out. Only the forearms should move. Continue the movement until your biceps are fully contracted and the bar is at shoulder level. Hold the contracted position for a second as you squeeze the muscle.",
+          "Slowly begin to bring the curl bar back to starting position as your breathe in.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
+      },
+      {
+        "name": "Preacher Curl",
+        "force": "pull",
+        "level": "beginner",
+        "mechanic": "isolation",
+        "equipment": "barbell",
+        "primaryMuscles": ["biceps"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "To perform this movement you will need a preacher bench and an E-Z bar. Grab the E-Z curl bar at the close inner handle (either have someone hand you the bar which is preferable or grab the bar from the front bar rest provided by most preacher benches). The palm of your hands should be facing forward and they should be slightly tilted inwards due to the shape of the bar.",
+          "With the upper arms positioned against the preacher bench pad and the chest against it, hold the E-Z Curl Bar at shoulder length. This will be your starting position.",
+          "As you breathe in, slowly lower the bar until your upper arm is extended and the biceps is fully stretched.",
+          "As you exhale, use the biceps to curl the weight up until your biceps is fully contracted and the bar is at shoulder height. Squeeze the biceps hard and hold this position for a second.",
+          "Repeat for the recommended amount of repetitions."
+        ],
+        "category": "strength"
       }
     ],
     "workoutTips": [""],
@@ -266,30 +563,43 @@
           {
             "muscleGroup": "chest",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+              {
+                "exerciseName": "Barbell Bench Press - Medium Grip",
+                "exerciseSets": "3",
+                "exerciseReps": "15 | 12 | 10"
+              },
+              {
+                "exerciseName": "Smith Machine Incline Bench Press",
+                "exerciseSets": "3",
+                "exerciseReps": "12 | 10 | 8"
+              },
+              { "exerciseName": "Butterfly", "exerciseSets": "2", "exerciseReps": "15 | 15" }
             ]
           },
           {
             "muscleGroup": "shoulders",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+              {
+                "exerciseName": "Smith Machine Overhead Shoulder Press",
+                "exerciseSets": "2",
+                "exerciseReps": "12 | 10"
+              },
+              { "exerciseName": "Side Lateral Raise", "exerciseSets": "2", "exerciseReps": "12 | 10" }
             ]
           },
 
           {
             "muscleGroup": "triceps",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+              { "exerciseName": "Close-Grip EZ-Bar Press", "exerciseSets": "3", "exerciseReps": "12 | 10 | 8" },
+              { "exerciseName": "Triceps Pushdown", "exerciseSets": "3", "exerciseReps": "10 | 10 | 8" }
             ]
           },
           {
             "muscleGroup": "abs",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+              { "exerciseName": "Crunches", "exerciseSets": "3", "exerciseReps": "15 | 15 | 15" },
+              { "exerciseName": "Flat Bench Lying Leg Raise", "exerciseSets": "3", "exerciseReps": "15 | 15 | 15" }
             ]
           }
         ]
@@ -300,129 +610,28 @@
           {
             "muscleGroup": "legs",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+              { "exerciseName": "Leg Extensions", "exerciseSets": "3", "exerciseReps": "15 | 12 | 10" },
+              { "exerciseName": "Leg Press", "exerciseSets": "3", "exerciseReps": "12 | 10 | 8" },
+              { "exerciseName": "Lying Leg Curls", "exerciseSets": "2", "exerciseReps": "15 | 15" }
             ]
           },
-          { "muscleGroup": "calves", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] },
+          {
+            "muscleGroup": "calves",
+            "exercises": [{ "exerciseName": "Standing Calf Raises", "exerciseSets": "2", "exerciseReps": "15 | 15" }]
+          },
           {
             "muscleGroup": "back",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+              { "exerciseName": "Straight-Arm Pulldown", "exerciseSets": "3", "exerciseReps": "12 | 10 | 8" },
+              { "exerciseName": "Bent Over Two-Dumbbell Row", "exerciseSets": "3", "exerciseReps": "10 | 10 | 8" },
+              { "exerciseName": "Hyperextensions (Back Extensions)", "exerciseSets": "2", "exerciseReps": "10 | 10" }
             ]
           },
           {
             "muscleGroup": "biceps",
             "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "workoutName": "",
-    "workoutAim": "",
-    "workoutSystem": "3-Day Split",
-    "workoutLevel": "",
-    "workoutFrequency": "3-4 Days a Week",
-    "workoutExampleBreakdown": "",
-    "workoutDuration": "",
-    "workoutPlanDuration": "",
-    "workoutBreakDuration": "",
-    "workoutExercises": [
-      {
-        "name": "",
-        "force": "",
-        "level": "",
-        "mechanic": "",
-        "equipment": "",
-        "primaryMuscles": [""],
-        "secondaryMuscles": [],
-        "instructions": [""],
-        "category": ""
-      }
-    ],
-    "workoutTips": [""],
-    "workoutSplit": true,
-    "workoutSplits": [
-      {
-        "workoutDay": "A",
-        "workoutDayBreakdown": [
-          {
-            "muscleGroup": "chest",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          },
-          {
-            "muscleGroup": "biceps",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          },
-
-          {
-            "muscleGroup": "triceps",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          }
-        ]
-      },
-      {
-        "workoutDay": "B",
-        "workoutDayBreakdown": [
-          {
-            "muscleGroup": "legs",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          },
-          { "muscleGroup": "calves", "exercises": [{ "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }] },
-          {
-            "muscleGroup": "back",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          }
-        ]
-      },
-      {
-        "workoutDay": "C",
-        "workoutDayBreakdown": [
-          {
-            "muscleGroup": "back",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          },
-          {
-            "muscleGroup": "shoulders",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
-            ]
-          },
-          {
-            "muscleGroup": "abs",
-            "exercises": [
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" },
-              { "exerciseName": "", "exerciseSets": "", "exerciseReps": "" }
+              { "exerciseName": "Standing Biceps Cable Curl", "exerciseSets": "3", "exerciseReps": "15 | 15 | 15" },
+              { "exerciseName": "Preacher Curl", "exerciseSets": "3", "exerciseReps": "15 | 15 | 15" }
             ]
           }
         ]
