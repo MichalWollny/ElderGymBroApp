@@ -57,77 +57,85 @@ function LoginForm() {
   };
 
   return (
-    <motion.section
+    <div
       style={{
-        backgroundImage,
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+        backgroundImage: 'url(your-background-image-url)',
+        backgroundSize: 'cover',
       }}>
-      <Container
-        maxWidth="sm"
-        sx={{
-          height: '100svh', // Make the Container fill the entire viewport height
-          display: 'flex',
-          flexDirection: 'column', // Stack children vertically
-          justifyContent: 'flex-start', // Align children to the start of the container
-          '& .MuiTextField-root': {
-            mb: 2, // Default margin bottom
-            '@media (max-width:600px)': {
-              mb: 1, // Reduced margin bottom for screens smaller than 600px
-            },
-          },
-          '& .MuiButton-root': {
-            mt: 3,
-          },
+      <Canvas style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
+        <Stars radius={50} count={2500} factor={4} fade speed={2} />
+      </Canvas>
+      <motion.section
+        style={{
+          backgroundImage,
+          zIndex: -99,
         }}>
-        <h2 className="my-10 max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
-          Login
-        </h2>
-        <form onSubmit={handleLogin}>
-          <Grid container spacing={0}>
-            <Grid item xs={12}>
-              <TextField
-                type="text"
-                label="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full rounded border p-2"
-              />
-            </Grid>
+        <Container
+          maxWidth="sm"
+          sx={{
+            height: '100svh', // Make the Container fill the entire viewport height
+            display: 'flex',
+            flexDirection: 'column', // Stack children vertically
+            justifyContent: 'flex-start', // Align children to the start of the container
+            '& .MuiTextField-root': {
+              mb: 2, // Default margin bottom
+              '@media (max-width:600px)': {
+                mb: 1, // Reduced margin bottom for screens smaller than 600px
+              },
+            },
+            '& .MuiButton-root': {
+              mt: 3,
+            },
+          }}>
+          <h2 className="my-8 max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
+            Login
+          </h2>
+          <form onSubmit={handleLogin}>
+            <Grid container spacing={0}>
+              <Grid item xs={12}>
+                <TextField
+                  type="text"
+                  label="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full rounded border p-2"
+                />
+              </Grid>
 
-            <Grid item xs={12}>
-              <TextField
-                type="password"
-                label="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="w-full rounded border p-2"
-              />
+              <Grid item xs={12}>
+                <TextField
+                  type="password"
+                  label="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="w-full rounded border p-2"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  fullWidth
+                  sx={{ mt: 3, mb: 2, bgcolor: 'teal', color: 'white' }}>
+                  Login
+                </Button>
+                <p className="mt-2 text-center text-xs text-slate-400">
+                  Not registered yet?{' '}
+                  <Link to="/register" className="text-teal-600 underline">
+                    Register here
+                  </Link>
+                </p>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                variant="contained"
-                fullWidth
-                sx={{ mt: 3, mb: 2, bgcolor: 'teal', color: 'white' }}>
-                Login
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
-        <p className="mt-2 text-center text-xs text-slate-400">
-          Not registered yet?{' '}
-          <Link to="/register" className="text-teal-600 underline">
-            Register here
-          </Link>
-        </p>
-        <div className="absolute inset-0 z-[-1]">
-          <Canvas>
-            <Stars radius={50} count={2500} factor={4} fade speed={2} />
-          </Canvas>
-        </div>
-      </Container>
-    </motion.section>
+          </form>
+        </Container>
+      </motion.section>
+    </div>
   );
 }
 
