@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useAuth } from '../context/AuthProvider';
+import { useAuth } from '../context/useAuth';
 import { Container, TextField, Button, Grid, InputAdornment, IconButton } from '@mui/material';
 import { toast } from 'react-toastify';
 import { Stars } from '@react-three/drei';
