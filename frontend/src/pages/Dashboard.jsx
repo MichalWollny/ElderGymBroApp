@@ -1,7 +1,17 @@
-//components
 import { Box, LinearProgress, Typography } from '@mui/material';
 import UICardLarge from '../assets/components/UICardLarge';
 import UICard from '/src/assets/components/UICard';
+// import ActiveWorkout from './ActiveWorkout';
+import { useState } from 'react';
+import { useAuth } from '../context/AuthProvider';
+
+// get active workout from context
+// const [userActiveWorkout, setUserActiveWorkout] = useState({});
+
+// function getActiveWorkout() {
+//   // get active workout from context
+//   setUserActiveWorkout({});
+// }
 
 const cards = [
   {
@@ -35,8 +45,15 @@ const cards = [
 ];
 
 function Dashboard() {
+  // get userData from context
+  const { userData } = useAuth();
+  const { isLoggedIn } = useAuth();
+  console.log(userData);
+  console.log(isLoggedIn);
   return (
     <>
+      {/* go back arrow */}
+      {/* maybe a top bar with a username, avatar and title? including the arrow? */}
       <div className="container">
         <div className="flex flex-row justify-start bg-gray-900">
           <div className="flex flex-row justify-center text-teal-100">
@@ -55,11 +72,13 @@ function Dashboard() {
         </div>
 
         {/* Title bar*/}
-        <div className="flex flex-row justify-center">
+        {/* <div className="flex flex-row justify-center">
           <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             Dashboard
           </h1>
-        </div>
+        </div> */}
+
+        <div></div>
 
         {/* Greetings bar */}
         <div className="my flex flex-col justify-center">
@@ -82,9 +101,12 @@ function Dashboard() {
             </div>
           </div>
         </div>
-
-        <label htmlFor="camp-week">Choose a week in May or June:</label>
-        <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
+        {/* <ActiveWorkout workouts={}/> */}
+        <div className="grid place-items-center">
+          <div>PLACEHOLDER FOR CALENDAR</div>
+          <label htmlFor="camp-week">Choose a week in May or June:</label>
+          <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
+        </div>
 
         {/* Content grid */}
         <div className="relative grid min-h-svh place-content-center place-items-center overflow-hidden px-4 pt-5 text-gray-200 md:pt-10">
@@ -102,13 +124,7 @@ function Dashboard() {
         {/* Content bar */}
         <div className="flex flex-wrap justify-center">
           {cards.map((card, index) => (
-            <UICardLarge
-              key={index}
-              image={card.image}
-              heading={card.heading}
-              className=""
-              subheading={card.subheading}
-            />
+            <UICard key={index} image={card.image} heading={card.heading} className="" subheading={card.subheading} />
           ))}
         </div>
       </div>
