@@ -68,11 +68,9 @@ export const signIn = asyncHandler(async (req, res, next) => {
 
   const token = jwt.sign({ uid: existingUser._id }, process.env.JWT_SECRET, {
     expiresIn: '30m',
-    // httpOnly: true,
-    sameSite: 'none',
   });
   // res.json({ token });
-  res.cookie('token', token, { maxAge: 1800000 }); // 30mn
+  res.cookie('token', token, { maxAge: 1800000, httpOnly: true, sameSite: 'none', secure: true }); // 30mn
   res.send({ status: 'success' });
 });
 
