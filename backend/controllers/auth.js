@@ -56,7 +56,7 @@ export const signIn = asyncHandler(async (req, res, next) => {
 
   if (!existingUser.awards.lastLogin || !isSameDay(existingUser.awards.lastLogin, now)) {
     existingUser.awards.karmaPoints += 50;
-    // Award additional karma points for first login of the day
+    // Award additional karma points for first login of the day (Yay!)
     firstLoginOfTheDay = true;
   }
 
@@ -70,7 +70,7 @@ export const signIn = asyncHandler(async (req, res, next) => {
     expiresIn: '30m',
   });
   // res.json({ token });
-  res.cookie('token', token, { maxAge: 1800000 }); // 30mn
+  res.cookie('token', token, { maxAge: 1800000, httpOnly: true, sameSite: 'none', secure: true }); // 30mn
   res.send({ status: 'success' });
 });
 
