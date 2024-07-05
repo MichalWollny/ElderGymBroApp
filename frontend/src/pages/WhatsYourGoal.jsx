@@ -38,9 +38,8 @@ function WhatsYourGoal() {
   return (
     <>
       <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
-
         {/* window bar */}
-        <div className="flex flex-row justify-start bg-gray-900">
+        <div className="flex flex-row justify-start from-black to-blue-950">
           {/* icon button container*/}
           <div className="flex flex-row">
             {/* link container*/}
@@ -53,7 +52,7 @@ function WhatsYourGoal() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-4">
+                  className="size-8">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
               </a>
@@ -100,14 +99,22 @@ function WhatsYourGoal() {
           </div>
         </div>
 
+        <div className='flex flex-col'>
+          <ul className="steps">
+            <li className="step text-xs">Start your journey</li>
+            <li className="step step-info text-xs">What's your goal</li>
+            <li className="step text-xs">Set your grind</li>
+          </ul>
+        </div>
+
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
-          <div className="-mt-8 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <Button
               type="submit"
               variant="contained"
               href="/setyourgrind"
-              sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+              sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
             </Button>
             {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">

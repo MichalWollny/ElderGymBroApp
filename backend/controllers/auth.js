@@ -70,7 +70,7 @@ export const signIn = asyncHandler(async (req, res, next) => {
     expiresIn: '30m',
   });
   // res.json({ token });
-  res.cookie('token', token, { maxAge: 1800000, httpOnly: true, sameSite: 'none', secure: true }); // 30mn
+  res.cookie('token', token, { maxAge: 1800000, httpOnly: true, sameSite: 'none', secure: true }); // 30min
   res.send({ status: 'success' });
 });
 

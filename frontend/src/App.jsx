@@ -28,7 +28,7 @@ function App() {
   const [unlockedAchievments, setUnlockedAchievments] = useState([]);
   const location = useLocation();
   // Hier die Routes adden, die BottomNav enthalten sollen.
-  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/profile', '/edituserdata'].includes(
+  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/Profile', '/edituserdata'].includes(
     location.pathname,
   );
 
