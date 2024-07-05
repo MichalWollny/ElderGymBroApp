@@ -4,9 +4,9 @@ import Shoggoth from '../assets/images/workouts/shoggoth.webp';
 function NotFound() {
   return (
     <>
-      <div className="min-h-svh bg-gray-950 text-gray-200">
+      <div className="min-h-svh bg-black text-gray-200">
         {/* window bar */}
-        <div className="flex flex-row justify-start bg-gray-900">
+        <div className="flex flex-row justify-start bg-black">
           {/* icon button container*/}
           <div className="flex flex-row">
             {/* link container*/}
@@ -19,7 +19,7 @@ function NotFound() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-4">
+                  className="size-8">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
               </a>
