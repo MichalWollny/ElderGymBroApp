@@ -65,6 +65,31 @@ const userSchema = new mongoose.Schema(
           return getTitle(this.awards.karmaPoints);
         },
       },
+      // achievements: [
+      //   { id: 1, name: 'Beginner Gains', requirements: 'First Workout completed', earned: false },
+      //   { id: 2, name: 'Firstworkout ', earned: false },
+      //   {
+      //     id: 3,
+      //     name: 'Training at night',
+      //     requirements: 'Start a workout between 10 pm and 2 am',
+      //     earned: false,
+      //   },
+      //   { id: 4, name: 'Chestday', requirements: 'Chest workout on Mondays', earned: false },
+      //   {
+      //     id: 5,
+      //     name: 'Weekend Workout Cultist',
+
+      //     requirements: 'Finish your Workout on Saturday/Sunday',
+      //     earned: false,
+      //   },
+      //   {
+      //     id: 6,
+      //     name: 'First Incantation of Fitness',
+
+      //     requirements: 'Create your first personalized workout plan',
+      //     earned: false,
+      //   },
+      // ],
       lastLogin: {
         type: Date,
         default: null,
