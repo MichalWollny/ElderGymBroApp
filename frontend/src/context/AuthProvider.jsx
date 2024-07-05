@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkUser = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/profile/me', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/profile/me`, {
         withCredentials: true,
       });
 
@@ -44,6 +44,8 @@ export const AuthProvider = ({ children }) => {
     setUserData,
     checkUser,
   };
+
+  console.log(isLoggedIn, userData);
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
