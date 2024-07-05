@@ -15,7 +15,7 @@ const port = process.env.PORT || 8000;
 app.use(express.json());
 app.use(
   cors({
-    origin: 'https://localhost:5173', // Specify the exact origin
+    origin: ['https://localhost:5173', 'https://eldergymbro.netlify.app'], // Specify the exact origin
     credentials: true, // Allow credentials
   }),
 );

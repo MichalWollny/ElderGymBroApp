@@ -58,7 +58,7 @@ function StartYourJourney() {
           </div>
         </div>
 
-        {/* --1. Page title goes herer --*/}
+        {/* --1. Page title goes here --*/}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             Start Your Journey
@@ -96,12 +96,12 @@ function StartYourJourney() {
 
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
-          <div className="-mt-8 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <Button
               type="submit"
               variant="contained"
               href="/whatsyourgoal"
-              sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+              sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
             </Button>
           </div>

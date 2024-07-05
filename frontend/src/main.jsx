@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
@@ -25,15 +24,15 @@ const darkTheme = createTheme(
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
-      {/* enforcing dark tehme */}
-      <CssBaseline />
-      <AuthProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </AuthProvider>
-    </ThemeProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <ThemeProvider theme={darkTheme}>
+    {/* enforcing dark tehme */}
+    <CssBaseline />
+    <AuthProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
+  </ThemeProvider>,
+  // </React.StrictMode>,
 );

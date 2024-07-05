@@ -50,11 +50,11 @@ function LoginForm() {
       if (response.status === 200) {
         setIsLoggedIn(true);
         checkUser();
-        toast.success('Successfully logged in! Welcome mortal');
+        toast.success('🏆 Successfully logged in! Welcome mortal');
         navigate('/startyourjourney');
       }
     } catch (error) {
-      toast.error(error.response.data.error || { error }, {});
+      toast.error(error.response.data.error);
     }
   };
   //HandleClickShowPassword
@@ -71,7 +71,7 @@ function LoginForm() {
       style={{
         position: 'relative',
         width: '100%',
-        height: '100vh',
+        height: '100svh',
         backgroundImage: 'url(your-background-image-url)',
         backgroundSize: 'cover',
       }}>
