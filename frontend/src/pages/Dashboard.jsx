@@ -186,7 +186,6 @@ const Dashboard = () => {
           <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
         </div>
 
-
       </div>
 
       <div className="flex w-full justify-center gap-2 py-2">

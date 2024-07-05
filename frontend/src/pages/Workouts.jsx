@@ -39,25 +39,54 @@ const WorkoutPlan = ({ workouts }) => {
           <div className="w-90 card m-4 cursor-pointer rounded-lg border-4 border-solid border-teal-800 bg-zinc-800 p-2 shadow-md lg:card-side">
             <div>
               <button onClick={() => togglePlans(index)} className="w-full text-left focus:outline-none">
-                {/* Conditional rendering for the workout image */}
+                {/* Conditional rendering for the workout image */} 
                 {expandedPlans !== index && (
                   <div className="card max-w-screen-sm rounded-t-lg">
+                    
+                    <h5 className="mb-2 rounded-t-sm border-2 border-solid border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 pb-1 pt-1 text-center font-cthulhumbus text-3xl font-extrabold text-teal-500 shadow-2xl">
+                      {plan.name}
+                    </h5>
+
                     <img
                       src={`../src/assets/images/workouts/${plan.name}.jpg`}
                       alt={plan.name}
                       className="rounded-t-lg border-2 border-solid border-pink-800 shadow-lg"
                     />
+
+                    <button onClick={() => togglePlans(index)} className="w-full focus:outline-none">
+                      <div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
+                        <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                          {/* <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /> */}
+                        </svg>
+                      </div>
+                    </button>
                   </div>
                 )}
-                <br />
-                {/* Container Workout Titel */}
-                <h5 className="mb-2 rounded-t-sm border-2 border-solid border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 pb-1 pt-1 text-center font-cthulhumbus text-3xl font-extrabold text-teal-500 shadow-2xl">
-                  {plan.name}
-                </h5>
-              </button>
+                </button>
+
               {/* Render Plans content */}
               {expandedPlans === index && (
-                <div>
+                <div >
+                  <h5 className="mb-2 rounded-t-sm border-2 border-solid border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 pb-1 text-center font-cthulhumbus text-3xl font-extrabold text-teal-500 shadow-2xl">
+                    {plan.name}
+                  </h5>
+
+                  <img
+                    src={`../src/assets/images/workouts/${plan.name}.jpg`}
+                    alt={plan.name}
+                    className="rounded-t-lg border-2 border-solid border-pink-800 shadow-lg"
+                  />
+
+                  <button onClick={() => togglePlans(index)} className="w-full focus:outline-none">
+                    <div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
+                      <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      {/*<path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />*/}
+                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /> 
+                      </svg>
+                    </div>
+                  </button>
+
                   <div className="mb-6 border-b-0 mt-2 rounded-t-lg border-0 border-pink-800 p-2">
                     <span className="font-extrabold text-teal-500">System: </span>
                     <span className="text-slate-300">{plan.system}</span>
@@ -83,26 +112,14 @@ const WorkoutPlan = ({ workouts }) => {
                     ) : (
                       ''
                     )}
-                    <br />
                     {/* Toggle Tips section/Tips Button*/} 
                     <div className="flex justify-center">
-                      <button onClick={() => toggleTips(index)} className="w-full focus:outline-none">
-                        <div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
-                        <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                        </svg>
-
-                          {/* <p className="font-extrabold text-teal-500">
-                            Tips
-                          </p> */}
-                        </div>
-                      </button>
+                      <button onClick={() => toggleTips(index)} className="w-full focus:outline-none"></button>
                     </div>
                   </div>
                   {/* Render Tips content  */}
                   {expandedTips === index &&  (
-                    <ul className="-mt-6 list-disc rounded-b-lg border-2 border-t-0 border-none border-pink-800 bg-zink-700 p-2 pl-6">
-                                            
+                    <ul className="-mt-6 list-disc rounded-b-lg border-2 border-t-0 border-none border-pink-800 bg-zink-700 p-2 pl-6">                  
                       {plan.tips.map((tip, idx) => (
                         <li key={idx} className="text-slate-300">
                           {tip}
@@ -113,8 +130,6 @@ const WorkoutPlan = ({ workouts }) => {
                   {/* Render exercises for non-split plans and splits */}
                   {(plan.exercises || plan.splits) && (
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
-
-
                       {/* Render exercises for non-split plans */}
                       {!plan.split &&
                         plan.exercises &&
@@ -132,8 +147,14 @@ const WorkoutPlan = ({ workouts }) => {
                             </h6>
                             <img src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
                                  alt={exercise.name}
-                                 className="rounded-md"
-                                />
+                                 className="rounded-md"/>
+
+                              <div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center' onClick={() => toggleExercise(exIndex)}>
+                                  <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /> 
+                                     {/* <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /> */}
+                                   </svg>
+                                </div>
                             {/* <div className="cursor-pointer rounded-md border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
                               onClick={() => toggleExercise(exIndex)}>
                                 
@@ -143,19 +164,19 @@ const WorkoutPlan = ({ workouts }) => {
                               
                             </div> */}
 
-                            <div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center' onClick={() => toggleExercise(exIndex)}>
-                        <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                        </svg>
-
-                          {/* <p className="font-extrabold text-teal-500">
-                            Tips
-                          </p> */}
-                        </div>
                             {/* Collapsible content for exercises */}
+
                             {expandedExercise === exIndex && (
-                              <div className="mt-2">
-                                                  
+                              
+                              <div className="">
+
+<div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center' onClick={() => toggleExercise(exIndex)}>
+                                  <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                    {/* <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />  */}
+                                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                                   </svg>
+                                </div>
+       
                                 <span className="font-extrabold text-teal-500">Force: </span>
                                 <span className="capitalize text-slate-300">{exercise.force}</span>
                                 <br />
