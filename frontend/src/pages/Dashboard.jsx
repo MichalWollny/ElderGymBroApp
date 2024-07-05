@@ -46,10 +46,7 @@ const cards = [
 
 function Dashboard() {
   // get userData from context
-  const { userData } = useAuth();
-  const { isLoggedIn } = useAuth();
-  console.log(userData);
-  console.log(isLoggedIn);
+  const { userData, isLoggedIn, setIsLoggedIn } = useAuth();
   return (
     <>
       {/* go back arrow */}

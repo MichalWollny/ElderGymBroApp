@@ -33,7 +33,7 @@ const achievements = [
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
   // const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
-  const [firstWorkoutCompleted] = useState(false);
+  const [firstWorkoutCompleted] = useState(true);
   const [selectedAchievement, setSelectedAchievement] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -42,8 +42,8 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
   useEffect(() => {
     setProgressPercentage(progress);
-    if (firstWorkoutCompleted && !unlockedAchievments.includes(1)) {
-      toggleAchievement(1, true);
+    if (firstWorkoutCompleted && !unlockedAchievments.includes(2)) {
+      toggleAchievement(2, true);
     } else if (!firstWorkoutCompleted && unlockedAchievments.includes(2)) {
       toggleAchievement(2, false);
     }
