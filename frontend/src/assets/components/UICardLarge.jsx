@@ -7,7 +7,6 @@ function UICardLarge({ image, heading, subheading }) {
           <div className="min-w-36 pt-6">
             <img src={image} alt="" className="mx-auto h-full w-8/12 rounded-xl" />
           </div>
-
           <div className="card-body">
             <div className="flex flex-col items-center">
               {/* Heading */}

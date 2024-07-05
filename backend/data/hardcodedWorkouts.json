@@ -113,7 +113,7 @@
       },
       {
         "id": 6,
-        "name": "Close-Grip EZ Bar Curl",
+        "name": "Close Grip EZ Bar Curl",
         "force": "pull",
         "level": "beginner",
         "mechanic": "isolation",
@@ -358,7 +358,7 @@
       },
       {
         "id": 6,
-        "name": "Close-Grip EZ-Bar Press",
+        "name": "Close Grip EZ Bar Press",
         "force": "push",
         "level": "beginner",
         "mechanic": "compound",
@@ -519,7 +519,7 @@
       },
       {
         "id": 15,
-        "name": "Bent Over Dumbbell Row",
+        "name": "Bent Over Two Dumbbell Row",
         "force": "pull",
         "level": "beginner",
         "mechanic": "compound",
@@ -611,7 +611,7 @@
           {
             "group": "triceps",
             "exercises": [
-              { "id": 6, "name": "Close-Grip EZ-Bar Press", "sets": "3", "reps": "12 | 10 | 8" },
+              { "id": 6, "name": "Close Grip EZ Bar Press", "sets": "3", "reps": "12 | 10 | 8" },
               { "id": 7, "name": "Triceps Pushdown", "sets": "3", "reps": "10 | 10 | 8" }
             ]
           },
@@ -643,7 +643,7 @@
             "group": "back",
             "exercises": [
               { "id": 14, "name": "Wide-Grip Lat Pulldown", "sets": "3", "reps": "12 | 10 | 8" },
-              { "id": 15, "name": "Bent Over Dumbbell Row", "sets": "3", "reps": "10 | 10 | 8" },
+              { "id": 15, "name": "Bent Over Two Dumbbell Row", "sets": "3", "reps": "10 | 10 | 8" },
               { "id": 16, "name": "Hyperextensions (Back Extensions)", "sets": "2", "reps": "10 | 10" }
             ]
           },

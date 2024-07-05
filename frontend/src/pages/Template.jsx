@@ -1,7 +1,7 @@
 function Template() {
   return (
     <>
-      <div className="min-h-lvh bg-gray-950 text-gray-200">
+      <div className="min-h-svh bg-gray-950 text-gray-200">
         {/* window bar */}
         <div className="flex flex-row justify-start bg-gray-900">
           {/* icon button container*/}
