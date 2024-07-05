@@ -22,6 +22,7 @@ import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import Testpage from './pages/Testpage';
+import GenderWar from './pages/GenderWar';
 
 function App() {
   const { hardcodedWorkouts } = useFetchData();
@@ -104,6 +105,7 @@ function App() {
         <Route path="/startyourjourney" element={<StartYourJourney />} />
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
+        <Route path="/gender" element={<GenderWar />} />
 
         <Route path="/template" element={<Template />} />
         <Route path="/uielements" element={<UIElements />} />
