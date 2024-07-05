@@ -5,8 +5,10 @@ import trainingNight from '../assets/images/trainingnight.jpeg';
 import chestDay from '../assets/images/Chest1.jpeg';
 import weekendWorkout from '../assets/images/weekendworkout.jpeg';
 import firsplancreated from '../assets/images/firstplancreated.jpeg';
-import { LinearProgress, Box, Typography, Modal, Button } from '@mui/material';
+import { LinearProgress, Box, Typography, Modal, IconButton } from '@mui/material';
 import AchievementItem from './AchievementItem';
+
+import CloseIcon from '@mui/icons-material/Close';
 
 const achievements = [
   { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu, requirements: 'First Workout completed' },
@@ -201,6 +203,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
           </g>
         </svg>
       </div>
+
       {/* Progressbar Komponente */}
       <div className="container mx-auto flex flex-col items-center">
         <Box sx={{ width: '80%', mt: 1 }}>
@@ -229,25 +232,35 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
           />
         ))}
       </div>
+
       {/* Modal für Achievment-Informationen */}
-      <Modal open={modalOpen} onClose={handleClose}>
+      <Modal open={modalOpen} onClose={handleClose} className="flex h-full w-full items-end justify-center">
         <Box
           sx={{
-            p: 2,
+            p: 4,
             bgcolor: 'background.paper',
-            borderRadius: 1,
-            boxShadow: 'none',
-            position: 'fixed',
+            borderRadius: '16px 16px 0 0',
+            boxShadow: '0 -4px 6px rgba(0, 0, 0, 0.1)',
+            position: 'absolute',
             bottom: 0,
-            width: '100vw',
-          }}>
+            width: '90vw',
+            maxWidth: '500px',
+          }}
+          className="mx-auto space-y-4">
           {selectedAchievement && (
             <>
+              <IconButton
+                aria-label="close"
+                onClick={handleClose}
+                sx={{
+                  position: 'absolute',
+                  right: 8,
+                  top: 8,
+                }}>
+                <CloseIcon />
+              </IconButton>
               <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
               <div className="mt-2 text-[#2B777D]">{selectedAchievement.requirements}</div>
-              <Button onClick={handleClose} sx={{ mt: 2 }}>
-                Close
-              </Button>
             </>
           )}
         </Box>
