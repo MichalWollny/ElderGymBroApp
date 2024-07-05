@@ -99,17 +99,25 @@ function SetYourGrind() {
           </div>
         </div>
 
+        <div className='flex flex-col'>
+          <ul className="steps">
+            <li className="step text-xs">Start your journey</li>
+            <li className="step text-xs">What's your goal</li>
+            <li className="step step-info text-xs">Set your grind</li>
+          </ul>
+        </div>
+
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center"></div>
 
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
-          <div className="-mt-8 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <Button
               type="submit"
               variant="contained"
               href="/Profilerework"
-              sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+              sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
             </Button>
             {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
