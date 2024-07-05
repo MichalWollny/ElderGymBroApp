@@ -9,11 +9,10 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
-  const navigate = useNavigate();
 
   const checkUser = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/profile/me`, {
+      const response = await axios.get('http://localhost:8000/profile/me', {
         withCredentials: true,
       });
 
@@ -23,7 +22,6 @@ export const AuthProvider = ({ children }) => {
       } else {
         setIsLoggedIn(false);
         setUserData({});
-        navigate('/login');
       }
     } catch (error) {
       setIsLoggedIn(false);
