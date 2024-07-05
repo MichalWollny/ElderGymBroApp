@@ -243,7 +243,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
             boxShadow: '0 -4px 6px rgba(0, 0, 0, 0.1)',
             position: 'fixed',
             bottom: 0,
-            width: '90vw',
+            width: '100vw',
             maxWidth: '500px',
           }}
           className="mx-auto space-y-4">
@@ -260,7 +260,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
                 <CloseIcon />
               </IconButton>
               <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
-              <div className="mt-2 text-[#2B777D]">{selectedAchievement.requirements}</div>
+              <div className="mt-2 text-teal-500">{selectedAchievement.requirements}</div>
             </>
           )}
         </Box>
