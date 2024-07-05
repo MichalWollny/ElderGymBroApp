@@ -7,18 +7,8 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedInState] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
-
-  const setIsLoggedIn = (loggedIn) => {
-    setIsLoggedInState(loggedIn);
-    if (loggedIn) {
-      // Optionally, you could also store the 'isLoggedIn' state in a cookie
-      Cookies.set('isLoggedIn', 'true', { expires: 1 }); // Expires in 1 day
-    } else {
-      Cookies.remove('isLoggedIn'); // Remove the cookie on logout
-    }
-  };
 
   const checkUser = async () => {
     try {
@@ -41,9 +31,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Check if the 'isLoggedIn' cookie exists and set the initial login state accordingly
-    const isLoggedInCookie = Cookies.get('isLoggedIn');
-    if (isLoggedInCookie === 'true') {
+    const token = Cookies.get('token');
+    if (token) {
       checkUser();
     }
   }, []);

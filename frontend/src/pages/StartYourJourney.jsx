@@ -3,7 +3,6 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
 // images
-// import startYourJourney from '/src/assets/images/startYourJourney.jpeg';
 import startJourney from '../assets/images/startjourney.jpeg';
 
 //components
@@ -38,7 +37,7 @@ function StartYourJourney() {
     <>
       <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
         {/* window bar */}
-        <div className="flex flex-row justify-start bg-gray-900">
+        <div className="flex flex-row justify-start from-black to-blue-950">
           {/* icon button container*/}
           <div className="flex flex-row">
             {/* link container*/}
@@ -51,7 +50,7 @@ function StartYourJourney() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-4">
+                  className="size-8">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
               </a>
@@ -67,9 +66,6 @@ function StartYourJourney() {
         </div>
 
         {/* Image bar */}
-        {/* <div className="flex flex-row justify-center text-gray-200">
-          <img src={startYourJourney} alt="Landing Page Image" className="m-2 w-24" />
-        </div> */}
         <Card sx={{ maxWidth: '100vw' }}>
           <CardMedia
             sx={{
@@ -84,8 +80,6 @@ function StartYourJourney() {
 
         {/* Content bar*/}
         <div className="flex flex-wrap justify-center">
-          {/* <div className="flex flex-wrap justify-center text-gray-200"></div> */}
-
           {/* -- 5. grid-flow-row auto-rows-max -- */}
           <div className="-mt-2 grid grid-flow-row auto-rows-max grid-cols-2 p-4">
             {cards.map((card, index) => (
@@ -100,14 +94,6 @@ function StartYourJourney() {
           </div>
         </div>
 
-        <div className='flex flex-col'>
-          <ul className="steps">
-            <li className="step step-info text-xs">Start your journey</li>
-            <li className="step text-xs">What's your goal</li>
-            <li className="step text-xs">Set your grind</li>
-          </ul>
-        </div>
-
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
           <div className="mt-2 flex justify-center">
@@ -118,13 +104,8 @@ function StartYourJourney() {
               sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
             </Button>
-            {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
-                <a href="/whatsyourgoal">Next</a>
-              </button> */}
-
           </div>
         </div>
-
       </div>
     </>
   );

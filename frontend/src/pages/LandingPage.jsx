@@ -57,12 +57,6 @@ const LandingPage = () => {
       <img src={landingPageImage} alt="Landing Page Image" className="w-full md:w-1/2" />
 
       <div className="relative z-10 flex flex-col items-center">
-        {/* <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">Alpha Now Live!</span> */}
-
-        {/* <p className="my-6 max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
-          Mortal, we shall plunge this world below the thin layer of sanity upon which it resides. <br /> And you get a
-          free mug!
-        </p> */}
         <motion.button
           style={{
             border,
@@ -94,13 +88,6 @@ const LandingPage = () => {
       </div>
       <div className="px-8 text-slate-50 md:py-4">
         <div className="relative -ml-[100px] h-[450px] w-[350px] scale-75 md:-ml-[175px]">
-          {/* <Card
-            imgUrl="https://i.pravatar.cc/100?img=3"
-            testimonial="Join our cult of Cthulhu Fitness! Our slogan? 'Unleash your inner beast and tentacle those muscles!"
-            author="Jenn F. - Marketing Director @ Square"
-            handleShuffle={handleShuffle}
-            position={order[0]}
-          /> */}
           <Card
             imgUrl={avatarImage2}
             testimonial="My workout plan was very... transformative..."
@@ -108,13 +95,6 @@ const LandingPage = () => {
             handleShuffle={handleShuffle}
             position={order[0]}
           />
-          {/* <Card
-            imgUrl="https://i.pravatar.cc/100?img=2"
-            testimonial="At Cthulhu’s gym, we don’t just do squats, we do 'Squid Squats'—because every tentacle deserves a workout!"
-            author="Adrian Y. - Product Marketing @ Meta"
-            handleShuffle={handleShuffle}
-            position={order[1]}
-          /> */}
           <Card
             imgUrl={avatarImage}
             testimonial="Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn"
@@ -122,21 +102,6 @@ const LandingPage = () => {
             handleShuffle={handleShuffle}
             position={order[1]}
           />
-
-          {/* <Card
-            imgUrl="https://i.pravatar.cc/100?img=1"
-            testimonial="Can not believe this is free. If ElderGymBro was $5,000 a month, it would be worth every penny. I plan to name my next child after ElderGymBro."
-            author="Devin R. - Growth Marketing Lead @ OpenAI"
-            handleShuffle={handleShuffle}
-            position={order[2]}
-          /> */}
-          {/* <Card
-            imgUrl={avatarImage3}
-            testimonial="Can not believe this is free. If ElderGymBro was $5,000 a month, it would be worth every penny. I plan to name my next child after ElderGymBro."
-            author="Devine R. - Growth Marketing Lead"
-            handleShuffle={handleShuffle}
-            position={order[2]}
-          /> */}
           <Card
             imgUrl={avatarImage3}
             testimonial="Listen to the siren call & join us at the Elder Gym Bro!"
