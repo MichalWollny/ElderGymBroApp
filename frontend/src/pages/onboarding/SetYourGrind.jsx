@@ -1,40 +1,47 @@
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
-import Button from '@mui/material/Button';
-
 // images
-// import cthuhluCave from '/src/assets/images/cthuhluCave.png';
-import whatsyourgoal from '../assets/images/chosegoal.jpg';
+// import cthulhuGrind from '/src/assets/images/cthulhuGrind.png';
+import setgrind from '../../assets/images/setgrind.jpeg';
 
 //components
-import UICard from '/src/assets/components/UICard';
+// Corrected import statement for UICard
+import UICard from '../../assets/components/UICard';
 
 const cards = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/icons/svg/brandcthulhu.svg',
-    heading: 'Maximize Your Strength',
-    subheading: '4 - 10 Reps',
+    image: '/src/assets/icons/svg/number1.svg',
+    heading: 'per week',
+    subheading: 'A lone tribute to the muscle deity',
     // other props...
   },
   {
     // Built Up Your Stamina Card
-    image: '/src/assets/icons/svg/heartadd.svg',
-    heading: 'Built Up Your Stamina',
-    subheading: '15 - 20+ Reps',
+    image: '/src/assets/icons/svg/number2.svg',
+    heading: 'per week',
+    subheading: 'Strengthening tributes',
     // other props...
   },
   {
     // Grow Your Muscles Card
-    image: '/src/assets/icons/svg/flexedbiceps.svg',
-    heading: 'Grow Your Muscles',
-    subheading: '8 - 15 Reps',
+    image: '/src/assets/icons/svg/number3.svg',
+    heading: 'per week',
+    subheading: 'A ritual of unleashing',
+    // other props...
+  },
+  {
+    // Grow Your Muscles Card
+    image: '/src/assets/icons/svg/number4.svg',
+    heading: 'per week',
+    subheading: 'Echoes of my power in your veins!',
     // other props...
   },
 ];
 
-function WhatsYourGoal() {
+function SetYourGrind() {
   return (
     <>
       <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
@@ -44,7 +51,7 @@ function WhatsYourGoal() {
           <div className="flex flex-row">
             {/* link container*/}
             <div className="flex flex-row justify-center text-teal-100">
-              <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
+              <a href="/whatsyourgoal" className="m-2 font-semibold text-teal-600">
                 {/* icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -60,16 +67,16 @@ function WhatsYourGoal() {
           </div>
         </div>
 
-        {/* Page title bar */}
+        {/* Title bar */}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-            What's your goal
+            Set Your Grind
           </h1>
         </div>
 
         {/* Image bar */}
-        {/* <div className="flex flex-row justify-center text-gray-200">
-          <img src={cthuhluCave} alt="Landing Page Image" className="m-2 max-w-10" />
+        {/* <div className="flex flex-row justify-center">
+          <img src={cthulhuGrind} alt="Landing Page Image" className="m-2 w-36" />
         </div> */}
         <Card sx={{ maxWidth: '100vw' }}>
           <CardMedia
@@ -78,34 +85,31 @@ function WhatsYourGoal() {
               height: '28vh',
               objectFit: 'fit', // make the image cover the entire container
             }}
-            image={whatsyourgoal}
-            title="Whats-your-Goal"
+            image={setgrind}
+            title="cthuluGrind"
           />
         </Card>
 
         {/* -- Content section */}
         <div className="flex flex-wrap justify-center">
-          {/* Cards grid */}
+          {/* -- 5. grid-flow-row auto-rows-max -- */}
           <div className="grid grid-flow-row auto-rows-max grid-cols-2 p-4">
             {cards.map((card, index) => (
-              <UICard
-                class="md:scale-150"
-                key={index}
-                image={card.image}
-                heading={card.heading}
-                subheading={card.subheading}
-              />
+              <UICard key={index} image={card.image} heading={card.heading} className="" subheading={card.subheading} />
             ))}
           </div>
         </div>
 
-        <div className='flex flex-col'>
+        <div className="flex flex-col">
           <ul className="steps">
             <li className="step text-xs">Start your journey</li>
-            <li className="step step-info text-xs">What's your goal</li>
-            <li className="step text-xs">Set your grind</li>
+            <li className="step text-xs">What's your goal</li>
+            <li className="step step-info text-xs">Set your grind</li>
           </ul>
         </div>
+
+        {/* --7. Name this bar */}
+        <div className="flex flex-row justify-center"></div>
 
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
@@ -113,17 +117,18 @@ function WhatsYourGoal() {
             <Button
               type="submit"
               variant="contained"
-              href="/setyourgrind"
+              href="/Profilerework"
               sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
             </Button>
             {/* <button className="rounded-full border border-white bg-pink-900 px-4 py-2 text-white">
-                <a href="/whatsyourgoal">Next</a>
-              </button> */}
+              <a href="/whatsyourgoal">Next</a>
+            </button> */}
           </div>
         </div>
       </div>
     </>
   );
 }
-export default WhatsYourGoal;
+
+export default SetYourGrind;
