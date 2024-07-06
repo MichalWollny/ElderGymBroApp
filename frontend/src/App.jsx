@@ -22,6 +22,7 @@ import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import GenderWar from './pages/onboarding/GenderWar';
+import ProgressTracker from './pages/ProgressTracker';
 
 function App() {
   const { hardcodedWorkouts } = useFetchData();
@@ -29,9 +30,15 @@ function App() {
   const [unlockedAchievments, setUnlockedAchievments] = useState([]);
   const location = useLocation();
   // Hier die Routes adden, die BottomNav enthalten sollen.
-  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/Profile', '/edituserdata'].includes(
-    location.pathname,
-  );
+  const showBottomNav = [
+    '/home',
+    '/workouts',
+    '/trophys',
+    '/progress',
+    '/Profile',
+    '/edituserdata',
+    '/testpage',
+  ].includes(location.pathname);
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -99,6 +106,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/progress" element={<ProgressTracker />} />
+
         <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
