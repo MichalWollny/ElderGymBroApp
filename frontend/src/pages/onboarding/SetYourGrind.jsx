@@ -13,28 +13,28 @@ import UICard from '../../assets/components/UICard';
 const cards = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/icons/svg/number1.svg',
+    image: 'src/assets/icons/svg/number1.svg',
     heading: 'per week',
     subheading: 'A lone tribute to the muscle deity',
     // other props...
   },
   {
     // Built Up Your Stamina Card
-    image: '/src/assets/icons/svg/number2.svg',
+    image: 'src/assets/icons/svg/number2.svg',
     heading: 'per week',
     subheading: 'Strengthening tributes',
     // other props...
   },
   {
     // Grow Your Muscles Card
-    image: '/src/assets/icons/svg/number3.svg',
+    image: 'src/assets/icons/svg/number3.svg',
     heading: 'per week',
     subheading: 'A ritual of unleashing',
     // other props...
   },
   {
     // Grow Your Muscles Card
-    image: '/src/assets/icons/svg/number4.svg',
+    image: 'src/assets/icons/svg/number4.svg',
     heading: 'per week',
     subheading: 'Echoes of my power in your veins!',
     // other props...
