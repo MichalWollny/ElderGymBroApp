@@ -24,7 +24,7 @@ const cards = [
   },
 ];
 
-function WhatsYourGoal() {
+function Testpage() {
   return (
     <>
       <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
@@ -101,4 +101,4 @@ function WhatsYourGoal() {
     </>
   );
 }
-export default WhatsYourGoal;
+export default Testpage;
