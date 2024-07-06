@@ -5,33 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 // images
 import startJourney from '../../assets/images/startjourney.jpeg';
 
-//components
-import UICard from '../../assets/components/UICard';
-
-const cards = [
-  {
-    // Gender card
-    image: '../src/assets/icons/svg/gendermark.svg',
-    heading: 'Gender',
-    subheading: 'Reveal your cosmic entity',
-    // other props...
-  },
-  {
-    // Gym experience card
-    image: '../src/assets/icons/svg/gymexperience.svg',
-    heading: 'Gym Experience',
-    subheading: 'Recite your story of suffering',
-    // other props...
-  },
-  {
-    // Grow your muscles card
-    // image: '/src/assets/icons/svg/equipment.svg',
-    image: '../src/assets/icons/svg/equipment.svg',
-    heading: 'Equipment',
-    subheading: 'Select your device of torture',
-    // other props...
-  },
-];
 function StartYourJourney() {
   return (
     <>
@@ -79,20 +52,7 @@ function StartYourJourney() {
         </Card>
 
         {/* Content bar*/}
-        <div className="flex flex-wrap justify-center">
-          {/* -- 5. grid-flow-row auto-rows-max -- */}
-          <div className="-mt-2 grid grid-flow-row auto-rows-max grid-cols-2 p-4">
-            {cards.map((card, index) => (
-              <UICard
-                class="md:scale-150"
-                key={index}
-                image={card.image}
-                heading={card.heading}
-                subheading={card.subheading}
-              />
-            ))}
-          </div>
-        </div>
+        <div className="flex flex-wrap justify-center">{/* -- 5. grid-flow-row auto-rows-max -- */}</div>
 
         {/* --7. Name this bar */}
         <div className="flex flex-row justify-center">
