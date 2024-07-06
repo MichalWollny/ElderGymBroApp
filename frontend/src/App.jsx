@@ -4,12 +4,12 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Profilerework from './pages/ProfileRework';
 import Template from './pages/Template';
-import StartYourJourney from './pages/StartYourJourney';
-import WhatsYourGoal from './pages/WhatsYourGoal';
-import SetYourGrind from './pages/SetYourGrind';
+import StartYourJourney from './pages/onboarding/StartYourJourney';
+import WhatsYourGoal from './pages/onboarding/WhatsYourGoal';
+import SetYourGrind from './pages/onboarding/SetYourGrind';
 import WorkoutPlan from './pages/Workouts';
 import EditUserData from './pages/EditUserData';
-import SetUp from './pages/SetUp';
+import SetUp from './pages/onboarding/SetUp';
 import useFetchData from './utils/FetchData';
 import Trophys from './pages/Trophys';
 import UIElements from './assets/components/UIElements';
@@ -22,7 +22,7 @@ import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import Testpage from './pages/Testpage';
-import GenderWar from './pages/GenderWar';
+import GenderWar from './pages/onboarding/GenderWar';
 
 function App() {
   const { hardcodedWorkouts } = useFetchData();

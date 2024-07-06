@@ -1,8 +1,8 @@
-import maleImage from '../assets/images/gender/male.jpeg';
-import femaleImage from '../assets/images/gender/female.jpg';
-import eldritchHorrorImage from '../assets/images/gender/horror.jpeg';
-import blobImage from '../assets/images/gender/blob.jpg';
-import otherImage from '../assets/images/gender/other.jpg';
+import maleImage from '../../assets/images/gender/male.jpeg';
+import femaleImage from '../../assets/images/gender/female.jpg';
+import eldritchHorrorImage from '../../assets/images/gender/horror.jpeg';
+import blobImage from '../../assets/images/gender/blob.jpg';
+import otherImage from '../../assets/images/gender/other.jpg';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
