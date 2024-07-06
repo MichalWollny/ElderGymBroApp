@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal, Box } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const genders = [
   {
@@ -124,7 +125,7 @@ const GenderWar = () => {
       <div className="flex flex-row justify-start">
         {/* link container*/}
         <div className="flex flex-row justify-center text-teal-100">
-          <a href="/startyourjourney" className="m-2 font-semibold text-teal-600">
+          <a href="/setyourgrind" className="m-2 font-semibold text-teal-600">
             {/* icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +182,7 @@ const GenderWar = () => {
             {/* Conditional rendering to check if selectedGender is not null */}
             {selectedGender && selectedGender.name !== 'Male' && selectedGender.name !== 'Female' && (
               <div
-                className={`cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg ${selectedImage === 'male' || selectedImage === 'female' ? 'grayscale' : ''}`}>
+                className={`cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg`}>
                 <div className="px-6 py-2 text-center">
                   <div className="font-cthulhumbus text-lg font-bold text-teal-500">{randomMessage}</div>
                 </div>
@@ -212,6 +213,30 @@ const GenderWar = () => {
             )}
           </Box>
         </Modal>
+      </div>
+      {/* --7. Stepper */}
+      <div className="absolute inset-x-0 bottom-4">
+        <div className="flex flex-col">
+          <ul className="steps">
+            <li className="step text-xs">Start</li>
+            <li className="step text-xs">Goal?</li>
+            <li className="step text-xs">Grind?</li>
+            <li className="step step-info text-xs">Beeing?</li>
+            <li className="step text-xs">Go!</li>
+          </ul>
+        </div>
+        {/* --8. Next Button */}
+        <div className="flex flex-row justify-center">
+          <div className="mt-2 flex justify-center">
+            <Button
+              type="submit"
+              variant="contained"
+              href="/setup"
+              sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+              Next
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -102,9 +102,11 @@ function SetYourGrind() {
 
         <div className="flex flex-col">
           <ul className="steps">
-            <li className="step text-xs">Start your journey</li>
-            <li className="step text-xs">What's your goal</li>
-            <li className="step step-info text-xs">Set your grind</li>
+            <li className="step text-xs">Start</li>
+            <li className="step text-xs">Goal?</li>
+            <li className="step step-info text-xs">Grind?</li>
+            <li className="step text-xs">Beeing?</li>
+            <li className="step text-xs">Go!</li>
           </ul>
         </div>
 
@@ -117,7 +119,7 @@ function SetYourGrind() {
             <Button
               type="submit"
               variant="contained"
-              href="/Profilerework"
+              href="/gender"
               sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
               Next
             </Button>
