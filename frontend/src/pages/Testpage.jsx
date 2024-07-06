@@ -24,7 +24,7 @@ const cards = [
   },
 ];
 
-function WhatsYourGoal() {
+function Testpage() {
   return (
     <>
       <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
@@ -52,7 +52,7 @@ function WhatsYourGoal() {
 
         {/* Page title bar */}
         <div className="flex flex-row justify-center">
-          <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+          <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
             What's your goal
           </h1>
         </div>
@@ -101,4 +101,4 @@ function WhatsYourGoal() {
     </>
   );
 }
-export default WhatsYourGoal;
+export default Testpage;
