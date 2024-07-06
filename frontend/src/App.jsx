@@ -21,7 +21,6 @@ import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
-import Testpage from './pages/onboarding/Testpage';
 import GenderWar from './pages/onboarding/GenderWar';
 import ProgressTracker from './pages/ProgressTracker';
 
@@ -108,6 +107,7 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/progress" element={<ProgressTracker />} />
+
         <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
