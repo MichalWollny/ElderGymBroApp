@@ -21,7 +21,7 @@ import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
-import Testpage from './pages/Testpage';
+import Testpage from './pages/onboarding/Testpage';
 import GenderWar from './pages/onboarding/GenderWar';
 
 function App() {

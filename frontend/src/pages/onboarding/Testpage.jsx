@@ -1,29 +1,29 @@
-import growmusclesvg from '../assets/icons/svg/flexedbiceps.svg';
+// import growmusclesvg from '../assets/icons/svg/flexedbiceps.svg';
 
 import Button from '@mui/material/Button';
 
 // images
 // import cthuhluCave from '/src/assets/images/cthuhluCave.png';
-import whatsyourgoal from '../assets/images/chosegoal.jpg';
+// import whatsyourgoal from '../assets/images/chosegoal.jpg';
 
 const cards = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/images/grow muscle.jpg',
+    image: 'src/assets/images/grow muscle.jpg',
     heading: 'Grow Your Muscles',
     subheading: '4 - 10 Reps',
     // other props...
   },
   {
     // Built Up Your Stamina Card
-    image: '/src/assets/images/buildupyourstamina.jpg',
+    image: 'src/assets/images/buildupyourstamina.jpg',
     heading: 'Built Up Your Stamina',
     subheading: '15 - 20+ Reps',
     // other props...
   },
   {
     // Grow Your Muscles Card
-    image: '/src/assets/images/maximizeyourstrength.jpg',
+    image: 'src/assets/images/maximizeyourstrength.jpg',
     heading: 'Maximize Your Strength',
     subheading: '8 - 15 Reps',
     // other props...
@@ -59,7 +59,7 @@ function Testpage() {
         {/* Page title bar */}
         <div className="flex flex-row justify-center">
           <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-            What's your goal
+            What&apos;s your goal
           </h1>
         </div>
 
@@ -87,7 +87,7 @@ function Testpage() {
         <div className="flex flex-col">
           <ul className="steps">
             <li className="step text-xs">Start your journey</li>
-            <li className="step step-info text-xs">What's your goal</li>
+            <li className="step step-info text-xs">What&apos;s your goal</li>
             <li className="step text-xs">Set your grind</li>
           </ul>
         </div>
