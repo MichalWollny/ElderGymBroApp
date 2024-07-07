@@ -54,7 +54,8 @@ export const AuthProvider = ({ children }) => {
     checkUser,
   };
 
-  console.log(isLoggedIn, userData);
+  console.log('User Logged in?', isLoggedIn);
+  console.log(userData);
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
