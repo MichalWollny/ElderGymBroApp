@@ -4,7 +4,7 @@ import App from './App.jsx';
 import './index.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { deDE } from '@mui/x-date-pickers/locales';
+// import { deDE } from '@mui/x-date-pickers/locales';
 import { AuthProvider } from './context/AuthProvider.jsx';
 
 // Roboto fonts via npm
@@ -20,7 +20,7 @@ const darkTheme = createTheme(
       mode: 'dark',
     },
   },
-  { locale: deDE }, // use 'de' locale for UI texts (start, next month, ...)
+  // { locale: deDE }, // use 'de' locale for UI texts (start, next month, ...)
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(

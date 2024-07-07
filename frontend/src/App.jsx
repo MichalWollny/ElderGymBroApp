@@ -4,12 +4,12 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Profilerework from './pages/ProfileRework';
 import Template from './pages/Template';
-import StartYourJourney from './pages/StartYourJourney';
-import WhatsYourGoal from './pages/WhatsYourGoal';
-import SetYourGrind from './pages/SetYourGrind';
+import StartYourJourney from './pages/onboarding/StartYourJourney';
+import WhatsYourGoal from './pages/onboarding/WhatsYourGoal';
+import SetYourGrind from './pages/onboarding/SetYourGrind';
 import WorkoutPlan from './pages/Workouts';
 import EditUserData from './pages/EditUserData';
-import SetUp from './pages/SetUp';
+import SetUp from './pages/onboarding/SetUp';
 import useFetchData from './utils/FetchData';
 import Trophys from './pages/Trophys';
 import UIElements from './assets/components/UIElements';
@@ -21,6 +21,8 @@ import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
+import GenderWar from './pages/onboarding/GenderWar';
+import ProgressTracker from './pages/ProgressTracker';
 import WorkoutsRework from './pages/WorkoutsRework';
 
 function App() {
@@ -29,9 +31,15 @@ function App() {
   const [unlockedAchievments, setUnlockedAchievments] = useState([]);
   const location = useLocation();
   // Hier die Routes adden, die BottomNav enthalten sollen.
-  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/Profile', '/edituserdata'].includes(
-    location.pathname,
-  );
+  const showBottomNav = [
+    '/home',
+    '/workouts',
+    '/trophys',
+    '/progress',
+    '/Profile',
+    '/edituserdata',
+    '/testpage',
+  ].includes(location.pathname);
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -99,11 +107,13 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/progress" element={<ProgressTracker />} />
 
         <Route path="/setup" element={<SetUp />} />
         <Route path="/startyourjourney" element={<StartYourJourney />} />
         <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
         <Route path="/setyourgrind" element={<SetYourGrind />} />
+        <Route path="/gender" element={<GenderWar />} />
 
         <Route path="/template" element={<Template />} />
         <Route path="/uielements" element={<UIElements />} />
