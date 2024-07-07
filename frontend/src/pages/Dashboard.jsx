@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import UICardLarge from '../assets/components/UICardLarge';
-import { useAuth } from '../context/useAuth';
-import axios from 'axios';
 
 //images
-import avatarImage5 from '../assets/images/gymLord.png';
-import ActiveWorkout from './ActiveWorkout';
+// import avatarImage5 from '../assets/images/gymLord.png';
 
 const cards = [
   {
@@ -26,9 +23,6 @@ const Dashboard = () => {
     setExpandedElements(!expandedElement);
   };
 
-  // get userData from context
-  const { userData, isLoggedIn, setIsLoggedIn } = useAuth();
-
   return (
     <>
       <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
@@ -38,8 +32,6 @@ const Dashboard = () => {
             Home
           </h1>
         </div>
-
-        <ActiveWorkout />
 
         {/* add endpoints for title and name*/}
         <div className="flex cursor-pointer flex-row justify-center">
