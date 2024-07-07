@@ -51,8 +51,7 @@ function LoginForm() {
       if (response.status === 200) {
         setIsLoggedIn(true);
         await checkUser();
-        const userData2 = await userData;
-        const { gender, fitnessLevel, workoutAim } = userData2;
+        const { gender, fitnessLevel, workoutAim } = await userData;
 
         // Scenario 1: All fields are filled
         if (gender !== '' && fitnessLevel !== '' && workoutAim !== '') {
