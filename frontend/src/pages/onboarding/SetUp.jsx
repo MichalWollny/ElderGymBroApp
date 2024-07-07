@@ -12,7 +12,10 @@ function SetUp() {
 
   const handleStartClick = async () => {
     try {
+      // Ensure checkUser() is completed before proceeding
       await checkUser();
+
+      // Proceed with the rest of the code
       const { gender, fitnessLevel, workoutAim } = await userData;
 
       // Scenario 1: All fields are filled
