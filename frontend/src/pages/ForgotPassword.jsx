@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import cthulupassword from '../assets/images/cthulupassword.png';
 

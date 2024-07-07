@@ -2,19 +2,17 @@ import { useState } from 'react';
 import UICardLarge from '../assets/components/UICardLarge';
 
 //images
-import avatarImage5 from '../assets/images/gymLord.png';
+// import avatarImage5 from '../assets/images/gymLord.png';
 
 const cards = [
   {
     // My total workouts card
-    image: '/src/assets/images/gymLord.png', 
+    image: '/src/assets/images/gymLord.png',
     heading: 'Active workout heading endpoint',
     subheading: 'Active workout subheading endpoint',
     // other props...
   },
 ];
-
-
 
 const Dashboard = () => {
   // State to manage expanded/collapsed state of elements
@@ -34,9 +32,9 @@ const Dashboard = () => {
             Home
           </h1>
         </div>
-        
+
         {/* add endpoints for title and name*/}
-        <div className="flex flex-row justify-center cursor-pointer">
+        <div className="flex cursor-pointer flex-row justify-center">
           <div className="flex flex-col">
             {/* <h2 className="text-center text-xl font-semibold text-teal-700">-=|</h2> */}
             {/* <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2> */}
@@ -50,40 +48,49 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <h2 className='font-cthulhumbus px-4'>Active workout</h2>
+        <h2 className="px-4 font-cthulhumbus">Active workout</h2>
 
         {cards.map((card, index) => (
-            <UICardLarge key={index} image={card.image} heading={card.heading} className="" subheading={card.subheading} />
-          ))}
-        
-        <br/>
-        <div className='flex flex-col justify-start items-start'>Expander Tryout
+          <UICardLarge
+            key={index}
+            image={card.image}
+            heading={card.heading}
+            className=""
+            subheading={card.subheading}
+          />
+        ))}
+
+        <br />
+        <div className="flex flex-col items-start justify-start">
+          Expander Tryout
           {/* Button to toggle the element */}
-          <button className='font-cthulhumbus px-4' onClick={toggleElement}>Cult News</button>
+          <button className="px-4 font-cthulhumbus" onClick={toggleElement}>
+            Cult News
+          </button>
           {expandedElement && (
             // INHALT start
             <>
               <p>1 Lorem ipsum dolor sit amet.</p>
               <div className="carousel-item">
-                <img className="w-24 " src="/src/assets/images/gymLord.png" alt="Pizza" />
+                <img className="w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
               </div>
               <p>2 In dolorum veritatis dolores.</p>
-                <div className="carousel-item">
-                  <img className="w-24 mx-2" src="/src/assets/images/gymLord.png" alt="Pizza" />
-                </div>
+              <div className="carousel-item">
+                <img className="mx-2 w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              </div>
               <p>3 Odit necessitatibus totam.</p>
-                <div className="carousel-item">
-                    <img className="w-24 mx-2" src="/src/assets/images/gymLord.png" alt="Pizza" />
-                </div>
+              <div className="carousel-item">
+                <img className="mx-2 w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              </div>
             </>
             // INHALT end
           )}
         </div>
-        <br/>
+        <br />
 
-      {/* <h2 className='font-cthulhumbus px-4'>Cult News</h2> */}
+        {/* <h2 className='font-cthulhumbus px-4'>Cult News</h2> */}
 
-      {/* <div className="carousel w-full">
+        {/* <div className="carousel w-full">
         <div id="item1" className="carousel-item w-full">
           <div className='flex flex-col p-2'>
           <h2 className='text-md py-2'>newsItemHeading</h2>
@@ -116,7 +123,7 @@ const Dashboard = () => {
         <a href="#item4" className="btn btn-xs">4</a>
       </div> */}
 
-      {/* <h2 className='font-cthulhumbus px-4'>Cult News</h2>
+        {/* <h2 className='font-cthulhumbus px-4'>Cult News</h2>
       
       <div className='flex flex-col'>
       <div className="carousel carousel-center bg-neutral rounded-box max-w-md space-x-4 p-4">
@@ -166,39 +173,43 @@ const Dashboard = () => {
     </div>
     <br/> */}
 
-    <h2 className='font-cthulhumbus px-4 py-2'>Cult News</h2>
-    <div className='flex flex-col'>
-      <div className="carousel carousel-center w-full">
+        <h2 className="px-4 py-2 font-cthulhumbus">Cult News</h2>
+        <div className="flex flex-col">
+          <div className="carousel carousel-center w-full">
+            <div id="item1" className="carousel-item">
+              <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            </div>
 
-        <div id="item1" className="carousel-item">
-          <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <div id="item2" className="carousel-item">
+              <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            </div>
+
+            <div id="item3" className="carousel-item">
+              <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            </div>
+
+            <div id="item4" className="carousel-item">
+              <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            </div>
+          </div>
+
+          <div className="flex w-full justify-center gap-2 py-2">
+            <a href="#item1" className="btn btn-xs">
+              1
+            </a>
+            <a href="#item2" className="btn btn-xs">
+              2
+            </a>
+            <a href="#item3" className="btn btn-xs">
+              3
+            </a>
+            <a href="#item4" className="btn btn-xs">
+              4
+            </a>
+          </div>
         </div>
 
-        <div id="item2" className="carousel-item">
-          <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
-        </div>
-
-        <div id="item3" className="carousel-item">
-          <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
-        </div>
-
-        <div id="item4" className="carousel-item">
-          <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
-        </div>
-
-
-      </div>
-
-      <div className="flex w-full justify-center gap-2 py-2">
-          <a href="#item1" className="btn btn-xs">1</a>
-          <a href="#item2" className="btn btn-xs">2</a>
-          <a href="#item3" className="btn btn-xs">3</a>
-          <a href="#item4" className="btn btn-xs">4</a>
-        </div>
-    </div>
-
-    <br/>
-
+        <br />
       </div>
     </>
   );
