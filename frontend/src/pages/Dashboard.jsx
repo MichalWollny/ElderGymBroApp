@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import UICardLarge from '../assets/components/UICardLarge';
+import { useAuth } from '../context/useAuth';
 
 //images
 // import avatarImage5 from '../assets/images/gymLord.png';
@@ -15,6 +16,8 @@ const cards = [
 ];
 
 const Dashboard = () => {
+  const { userData, isLoggedIn, setIsLoggedIn } = useAuth();
+
   // State to manage expanded/collapsed state of elements
   const [expandedElement, setExpandedElements] = useState(null);
 
@@ -39,10 +42,10 @@ const Dashboard = () => {
             {/* <h2 className="text-center text-xl font-semibold text-teal-700">-=|</h2> */}
             {/* <h2 className="text-center text-xl font-normal font-cthulhumbus italic text-teal-700">The infamous</h2> */}
             <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
-              Title
+              {userData.awards.title}
             </h1>
             <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
-              Username
+              {userData.username}
             </h1>
             {/* <h2 className="text-center text-xl font-semibold text-teal-700">|=-</h2> */}
           </div>
