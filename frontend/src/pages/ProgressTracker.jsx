@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import { CircularProgress, Container, Typography, Select, MenuItem } from '@mui/material';
@@ -11,9 +12,12 @@ import {
   Title,
   Tooltip,
   Legend,
+
+  Filler,
 } from 'chart.js';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
+
 
 //Image
 import cthuluprogress from '../assets/images/ProgressTracking.png';
