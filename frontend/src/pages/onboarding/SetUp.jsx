@@ -1,10 +1,36 @@
 import setUp from '../../assets/images/startYourJourney.jpeg';
+import { useAuth } from '../../context/useAuth';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function SetUp() {
+  const navigate = useNavigate();
+  const { checkUser, userData } = useAuth();
+
+  const handleStartClick = async () => {
+    try {
+      checkUser();
+      const userData2 = await userData;
+      const { gender, fitnessLevel, workoutAim } = userData2;
+
+      // Scenario 1: All fields are filled
+      if (gender !== '' && fitnessLevel !== '' && workoutAim !== '') {
+        toast.success('🎉 All set up. Happy grinding.');
+        navigate('/home');
+      }
+      // Scenario 2: Otherwise, at least one field is empty
+      else {
+        toast.info('🚀 Answer all questions');
+        // No navigation in this case
+      }
+    } catch (error) {
+      toast.error('An error occurred');
+    }
+  };
+
   return (
     <>
       <div className="min-h-screen bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-teal-500">
@@ -73,12 +99,11 @@ function SetUp() {
           </ul>
         </div>
 
-        {/* // TODO: Check if everything was filled out! */}
         <div className="-mt-4 flex justify-center">
           <Button
             type="submit"
             variant="contained"
-            href="/home"
+            onClick={handleStartClick}
             sx={{ mt: 4, mb: 2, backgroundColor: 'teal', color: 'white' }}>
             Start
           </Button>

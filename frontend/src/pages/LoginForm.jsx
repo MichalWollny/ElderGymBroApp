@@ -17,7 +17,7 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const { setIsLoggedIn, checkUser } = useAuth();
+  const { setIsLoggedIn, checkUser, userData } = useAuth();
 
   // for the background gradient
   const color = useMotionValue(COLORS_TOP[0]);
@@ -34,6 +34,7 @@ function LoginForm() {
   }, [color]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
+
   // Handle Login
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -49,14 +50,31 @@ function LoginForm() {
 
       if (response.status === 200) {
         setIsLoggedIn(true);
-        checkUser();
-        toast.success('🏆 Successfully logged in! Welcome mortal');
-        navigate('/startyourjourney');
+        await checkUser();
+        const userData2 = await userData;
+        const { gender, fitnessLevel, workoutAim } = userData2;
+
+        // Scenario 1: All fields are filled
+        if (gender !== '' && fitnessLevel !== '' && workoutAim !== '') {
+          toast.success('🎉 Welcome back. Happy grinding');
+          navigate('/home');
+        }
+        // Scenario 2: All fields are empty
+        else if (gender === '' && fitnessLevel === '' && workoutAim === '') {
+          toast.success('🏆 Successfully logged in! Welcome mortal');
+          navigate('/startyourjourney');
+        }
+        // Scenario 3: One or two fields are empty
+        else {
+          toast.info('🚀 Finish your onboarding');
+          navigate('/startyourjourney');
+        }
       }
     } catch (error) {
       toast.error(error.response.data.error);
     }
   };
+
   //HandleClickShowPassword
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
