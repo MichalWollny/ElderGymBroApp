@@ -44,14 +44,14 @@ const WorkoutPlan = ({ workouts }) => {
                   <div className="card max-w-screen-sm rounded-t-lg">
                     
                     {/* Beginner Fullbody Workout COLLAPSED starts here */}
-                    <h5 className="mb-2 pb-1 rounded-t-sm border-2 border-solid border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center font-cthulhumbus text-3xl font-extrabold text-teal-500 shadow-2xl">
+                    <h5 className="mb-2 pb-1 rounded-t-sm text-center font-cthulhumbus text-xl font-bold text-teal-500 shadow-2xl">
                       {plan.name}
                     </h5>
 
                     <img
                       src={`../src/assets/images/workouts/${plan.name}.jpg`}
                       alt={plan.name}
-                      className="rounded-t-lg border-2 border-solid border-pink-800 shadow-lg"
+                      className="rounded-t-lg shadow-lg"
                     />
 
                     <button onClick={() => togglePlans(index)} className="w-full focus:outline-none">
@@ -70,14 +70,14 @@ const WorkoutPlan = ({ workouts }) => {
                 {/* Beginner Fullbody Workout EXPANDED starts here */}
                 {expandedPlans === index && (
                   <div>
-                    <h5 className="mb-2 pb-1 rounded-t-sm border-2 border-solid border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center font-cthulhumbus text-3xl font-extrabold text-teal-500 shadow-2xl">
+                    <h5 className="mb-2 pb-1 rounded-t-sm to-zinc-900 text-center font-cthulhumbus text-xl font-extrabold text-teal-500 shadow-2xl">
                       {plan.name}
                     </h5>
 
                     <img
                       src={`../src/assets/images/workouts/${plan.name}.jpg`}
                       alt={plan.name}
-                      className="rounded-t-lg border-2 border-solid border-pink-800 shadow-lg"
+                      className=""
                     />
 
                     <button onClick={() => togglePlans(index)} className="w-full focus:outline-none">
@@ -115,7 +115,7 @@ const WorkoutPlan = ({ workouts }) => {
                         ''
                       )}
                       {/* Toggle Tips section/Tips Button*/} 
-                      <div className="flex justify-center">
+                      <div className="flex justify-center text-center">
                         <button onClick={() => toggleTips(index)} className="w-full focus:outline-none"></button>
                       </div>
                     </div>
@@ -144,7 +144,7 @@ const WorkoutPlan = ({ workouts }) => {
 
                                 <div className="">
 
-                                  <h6 className="flex justify-center mb-2 rounded-md border-0 border-pink-800 text-xl font-bold text-teal-500">
+                                  <h6 className="flex justify-center mb-2 rounded-md border-0 border-pink-800 text-base font-bold text-teal-500">
                                     {exercise.name}
                                   </h6>
 
@@ -172,7 +172,7 @@ const WorkoutPlan = ({ workouts }) => {
                                 
                               <div className="">
 
-                                <h6 className="flex justify-center mb-2 rounded-md border-0 border-pink-800 text-xl font-bold text-teal-500">
+                                <h6 className="flex justify-center mb-2 rounded-md border-0 border-pink-800 text-base font-bold text-teal-500">
                                   {exercise.name}
                                 </h6>
 
@@ -227,111 +227,141 @@ const WorkoutPlan = ({ workouts }) => {
 
                         {/* Render splits for plans with splits */}
                         {plan.split &&
-                          plan.splits.map((split, splitIndex) => (
-                            // Container Split A / B
-                            <div
-                              key={splitIndex}
-                              className="mb-2 mt-2 rounded-lg border-4 border-teal-800 bg-zinc-700 p-4 shadow-md">
-                              <div
-                                onClick={() => toggleSplitDays(index)}
-                                className="w-full cursor-pointer text-left focus:outline-none">
-                                <h6 className="font-cthulhumbus text-2xl font-extrabold capitalize text-teal-500">
-                                  Day {split.day}
-                                </h6>
-                              </div>
-                              {/* Collapsible content for split days */}
-                              {expandedSplitDays === index && (
-                                <div>
-                                  {split.muscleGroups.map((group, groupIndex) => (
-                                    <div key={groupIndex} className="mb-2 mt-2">
-                                      <div className="mb-2">
-                                        {/* Überschrift Muskelgruppe */}
-                                        <h6 className="text-xl font-semibold capitalize text-pink-600 underline">
-                                          {group.group}
-                                        </h6>
-                                      </div>
-                                      <div className="container rounded-lg border-2 border-solid border-zinc-600 p-2">
-                                        {group.exercises.map((exercise, exerciseIndex) => {
-                                          // Find the exercise in the plan.exercises array by ID
-                                          const fullExercise = plan.exercises.find((e) => e.id === exercise.id);
-                                          console.log(
-                                            `../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images`,
-                                          );
-                                          return (
-                                            <div className="mb-3 mt-3">
-                                              <div key={exerciseIndex} className="text-slate-300">
-                                                {expandedExercise !== exerciseIndex && (
-                                                  <div className="max-w-screen-sm rounded-md border-2 border-solid border-pink-800">
-                                                    <img
-                                                      src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
-                                                      alt={exercise.name}
-                                                      className="rounded-md"
-                                                    />
-                                                  </div>
-                                                )}
-                                                <div>
-                                                  <div
-                                                    className="cursor-pointer rounded-md border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
-                                                    onClick={() => toggleExercise(exerciseIndex)}>
-                                                    <h6 className="mt-4 rounded-md border-2 border-pink-00 text-lg font-bold text-teal-500">
-                                                      {fullExercise.name}
-                                                    </h6>
-                                                  </div>
-                                                </div>
-                                                {/* Collapsible content for exercises */}
-                                                {expandedExercise === exerciseIndex && (
-                                                  <div className="mt-2">
-                                                    <span className="font-extrabold text-teal-500">Force: </span>
-                                                    <span className="capitalize text-slate-300">
-                                                      {fullExercise.force}
-                                                    </span>
-                                                    <br />
-                                                    <span className="font-extrabold text-teal-500">Mechanic: </span>
-                                                    <span className="capitalize text-slate-300">
-                                                      {fullExercise.mechanic}
-                                                    </span>
-                                                    <br />
-                                                    <span className="font-extrabold text-teal-500">Equipment: </span>
-                                                    <span className="capitalize text-slate-300">
-                                                      {fullExercise.equipment}
-                                                    </span>
-                                                    <br />
-                                                    <span className="font-extrabold text-teal-500">
-                                                      Primary Muscles:{' '}
-                                                    </span>
-                                                    <span className="capitalize text-slate-300">
-                                                      {fullExercise.primaryMuscles}
-                                                    </span>
-                                                    <br />
-                                                    {fullExercise.secondaryMuscles.length > 0 && (
-                                                      <>
-                                                        <span className="font-extrabold text-teal-500">
-                                                          Secondary Muscles:{' '}
-                                                        </span>
-                                                        <span className="capitalize text-slate-300">
-                                                          {fullExercise.secondaryMuscles.join(', ')}
-                                                        </span>
-                                                        <br />
-                                                      </>
-                                                    )}
-                                                    <h6 className="mt-2 font-extrabold text-teal-500">Instructions:</h6>
-                                                    <ul className="list-disc pl-5">
-                                                      {fullExercise.instructions.map((instruction, instrIndex) => (
-                                                        <li key={instrIndex} className="text-sm text-slate-300">
-                                                          {instruction}
-                                                        </li>
-                                                      ))}
-                                                    </ul>
-                                                  </div>
-                                                )}
-                                              </div>
-                                            </div>
-                                          );
-                                        })}
-                                      </div>
-                                    </div>
-                                  ))}
+                          plan.splits.map((split, splitIndex, group, groupIndex) => (
+
+                          // Container Split A / B COLLAPSED
+                          <div key={splitIndex} className="mb-2 mt-2 rounded-lg border-4 border-teal-800 bg-zinc-700 p-4 shadow-md">
+                              
+                            <div className="w-full cursor-pointer text-left focus:outline-none">
+
+                              <h6 className="text-xl font-semibold font-cthulhumbus capitalize text-center text-teal-500">
+                                Day {split.day} 
+                              </h6>
+                              
+                              <button className="w-full focus:outline-none">
+                                <div onClick={() => toggleSplitDays(index)} className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
+                                  <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                  {/* <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />  */}
+                                  </svg>
                                 </div>
+                              </button>
+
+                            </div>
+
+                          {/* Collapsible content for split days EXPANDED */}
+                          {expandedSplitDays === index && (
+                                
+                            <div>
+                              
+                              {split.muscleGroups.map((group, groupIndex) => (
+                                <div key={groupIndex} className="mb-2 mt-2 ">
+
+                                  <div className="container rounded-lg">
+                                    {group.exercises.map((exercise, exerciseIndex) => {
+                                      // Find the exercise in the plan.exercises array by ID
+                                      const fullExercise = plan.exercises.find((e) => e.id === exercise.id);
+                                      console.log(
+                                        `../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images`,
+                                      );
+
+                                      return (
+                                        <div className="mb-3 mt-3">
+                                          <div key={exerciseIndex} className="text-slate-300">
+                                            {expandedExercise !== exerciseIndex && (
+                                              
+                                              <div className="max-w-screen-sm">
+
+  
+                                              </div>
+                                            )}
+
+                                              <div className="flex flex-row justify-between items-center">    
+                                                  <h6 className="mt-4 rounded-md text-lg font-bold text-teal-500">
+                                                    {fullExercise.name}
+                                                  </h6>
+                                                </div>
+
+                                                <img
+                                                  src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
+                                                  alt={exercise.name}
+                                                  className=""
+                                                />
+
+                                            <div>
+
+
+
+
+
+
+                                            <button className="w-full focus:outline-none">
+                                                <div onClick={() => toggleExercise(exerciseIndex)} className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
+                                                  <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                                  {/* <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />  */}
+                                                  </svg>
+                                                </div>
+                                              </button>
+                                            {/* Collapsible content for exercises */}
+
+
+                                            {expandedExercise === exerciseIndex && (
+                                              <div className="mt-2">
+
+                                                <span className="font-extrabold text-teal-500">Force: </span>
+                                                <span className="capitalize text-slate-300">
+                                                  {fullExercise.force}
+                                                </span>
+                                                <br />
+                                                <span className="font-extrabold text-teal-500">Mechanic: </span>
+                                                <span className="capitalize text-slate-300">
+                                                  {fullExercise.mechanic}
+                                                </span>
+                                                <br />
+                                                <span className="font-extrabold text-teal-500">Equipment: </span>
+                                                <span className="capitalize text-slate-300">
+                                                  {fullExercise.equipment}
+                                                </span>
+                                                <br />
+                                                <span className="font-extrabold text-teal-500">
+                                                  Primary Muscles:{' '}
+                                                </span>
+                                                <span className="capitalize text-slate-300">
+                                                  {fullExercise.primaryMuscles}
+                                                </span>
+                                                <br />
+                                                {fullExercise.secondaryMuscles.length > 0 && (
+                                                  <>
+                                                    <span className="font-extrabold text-teal-500">
+                                                      Secondary Muscles:{' '}
+                                                    </span>
+                                                    <span className="capitalize text-slate-300">
+                                                      {fullExercise.secondaryMuscles.join(', ')}
+                                                    </span>
+                                                    <br />
+                                                  </>
+                                                )}
+                                                <h6 className="mt-2 font-extrabold text-teal-500">Instructions:</h6>
+
+                                                <ul className="list-disc pl-5">
+                                                  {fullExercise.instructions.map((instruction, instrIndex) => (
+                                                    <li key={instrIndex} className="text-sm text-slate-300">
+                                                      {instruction}
+                                                    </li>
+                                                  ))}
+                                                </ul>
+                                              </div>
+                                            )}
+                                          </div>
+                                        </div>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                               )}
                             </div>
                           ))}
