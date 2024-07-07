@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
-      default: 'unknown',
+      default: 'Cultist',
     },
     username: {
       type: String,
@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     age: { type: Number, default: null },
     weight: { type: Number, default: null },
     gender: { type: String, default: '', enum: ['', 'male', 'female', 'elder thing', 'blob', 'other'] },
-    fitnesLevel: {
+    fitnessLevel: {
       type: String,
       default: 'beginner',
       enum: ['beginner', 'intermediate', 'advanced'],

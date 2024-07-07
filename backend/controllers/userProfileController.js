@@ -40,7 +40,7 @@ export const updateGender = asyncHandler(async (req, res, next) => {
 // Update Fitness Level
 export const updateFitnessLevel = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
-  user.fitnesLevel = req.body.fitnesLevel;
+  user.fitnessLevel = req.body.fitnessLevel;
   await user.save();
   res.status(200).json({ message: 'Successfully changed fitness level' });
 });
