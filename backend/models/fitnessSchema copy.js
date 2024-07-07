@@ -1,19 +1,5 @@
 import mongoose from 'mongoose';
 
-//Exercise set progress schema to track individual sets of an exercise
-const exerciseSetTrackingSchema = new mongoose.Schema({
-  reps: { type: Number, required: true },
-  weight: { type: Number, required: true },
-});
-
-// Exercise progress schema to track individual exercise performance
-const exerciseTrackingSchema = new mongoose.Schema({
-  exerciseId: { type: Number, default: 0 },
-  exerciseName: { type: String, default: '' },
-  sets: [exerciseSetTrackingSchema],
-  date: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
-});
-
 // Define the schema for exercises performed on a specific day
 const exerciseProgressSchema = new mongoose.Schema({
   day: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
@@ -24,9 +10,14 @@ const exerciseProgressSchema = new mongoose.Schema({
 const userWorkoutTrackingSchema = new mongoose.Schema({
   workoutId: Number,
   startDate: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
-  endDate: { type: Date, default: null },
+  endDate: { type: Date, type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
   progress: [exerciseProgressSchema],
 });
+
+const Workout = mongoose.model('Workout', workoutSchema);
+const ExerciseProgress = mongoose.model('ExerciseProgress', exerciseProgressSchema);
+
+export { Workout, ExerciseProgress, exerciseProgressSchema, userWorkoutTrackingSchema };
 
 //IRRELEVANT CONTENT BELOW MAYBE FOR FUTURE UPDATES
 
@@ -75,9 +66,11 @@ const workoutSchema = new mongoose.Schema({
   splits: [splitSchema],
 });
 
-// // // // // // // // // // // // // // // // // // // // // // // // // // /
-
-const Workout = mongoose.model('Workout', workoutSchema);
-const ExerciseProgress = mongoose.model('ExerciseProgress', exerciseProgressSchema);
-
-export { Workout, ExerciseProgress, exerciseProgressSchema, userWorkoutTrackingSchema, exerciseSetTrackingSchema };
+// Exercise progress schema to track individual exercise performance
+const exerciseTrackingSchema = new mongoose.Schema({
+  exerciseId: { type: Number, default: 0 },
+  weight: { type: Number, default: 0 },
+  sets: { type: Number, default: 0 },
+  reps: { type: Number, default: 0 },
+  date: { type: Date, type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
+});

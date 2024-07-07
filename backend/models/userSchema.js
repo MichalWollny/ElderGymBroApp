@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
-      default: 'unknown',
+      default: 'Cultist',
     },
     username: {
       type: String,
