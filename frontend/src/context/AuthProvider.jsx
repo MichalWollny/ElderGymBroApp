@@ -1,18 +1,26 @@
-import { useContext, createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const AuthContext = createContext();
-
-export const useAuth = () => useContext(AuthContext);
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedInState] = useState(false);
   const [userData, setUserData] = useState({});
 
-  const checkUser = async () => {
+  const setIsLoggedIn = (loggedIn) => {
+    setIsLoggedInState(loggedIn);
+    if (loggedIn) {
+      // Optionally, you could also store the 'isLoggedIn' state in a cookie
+      Cookies.set('isLoggedIn', 'true', { expires: 1 }); // Expires in 1 day
+    } else {
+      Cookies.remove('isLoggedIn'); // Remove the cookie on logout
+    }
+  };
+
+  const checkUser = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8000/profile/me', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/profile/me`, {
         withCredentials: true,
       });
 
@@ -28,14 +36,15 @@ export const AuthProvider = ({ children }) => {
       setUserData({});
       console.error(error);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    const token = Cookies.get('token');
-    if (token) {
+    // Check if the 'isLoggedIn' cookie exists and set the initial login state accordingly
+    const isLoggedInCookie = Cookies.get('isLoggedIn');
+    if (isLoggedInCookie === 'true') {
       checkUser();
     }
-  }, []);
+  }, [checkUser]);
 
   const values = {
     isLoggedIn,
@@ -44,6 +53,9 @@ export const AuthProvider = ({ children }) => {
     setUserData,
     checkUser,
   };
+
+  console.log('User Logged in?', isLoggedIn);
+  console.log(userData);
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

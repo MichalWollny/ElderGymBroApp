@@ -33,7 +33,7 @@ const achievements = [
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
   // const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
-  const [firstWorkoutCompleted] = useState(false);
+  const [firstWorkoutCompleted] = useState(true);
   const [selectedAchievement, setSelectedAchievement] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -42,8 +42,8 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
   useEffect(() => {
     setProgressPercentage(progress);
-    if (firstWorkoutCompleted && !unlockedAchievments.includes(1)) {
-      toggleAchievement(1, true);
+    if (firstWorkoutCompleted && !unlockedAchievments.includes(2)) {
+      toggleAchievement(2, true);
     } else if (!firstWorkoutCompleted && unlockedAchievments.includes(2)) {
       toggleAchievement(2, false);
     }
@@ -66,13 +66,13 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-200">
+    <div className="min-h-screen bg-gradient-to-br from-black to-blue-950">
       {/* window bar */}
-      <div className="flex flex-row justify-start bg-gray-900">
+      <div className="flex flex-row justify-start from-black to-blue-950">
         {/* icon button container*/}
         <div className="flex flex-row">
           {/* link container*/}
-          <div className="flex flex-row justify-center text-teal-100">
+          <div className="flex flex-row justify-center">
             <a href="/" className="m-2 font-semibold text-teal-600">
               {/* icon */}
               <svg
@@ -81,15 +81,15 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-4">
+                className="size-8">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
               </svg>
             </a>
           </div>
         </div>
       </div>
-      <div className="mt-2 flex flex-row justify-center">
-        <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-800 sm:text-3xl md:text-4xl">
+      <div className="mt-2 flex flex-row justify-center from-black to-blue-950">
+        <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
           Trophies{' '}
         </h1>
       </div>
@@ -241,9 +241,9 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
             bgcolor: 'background.paper',
             borderRadius: '16px 16px 0 0',
             boxShadow: '0 -4px 6px rgba(0, 0, 0, 0.1)',
-            position: 'absolute',
+            position: 'fixed',
             bottom: 0,
-            width: '90vw',
+            width: '100vw',
             maxWidth: '500px',
           }}
           className="mx-auto space-y-4">
@@ -260,7 +260,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
                 <CloseIcon />
               </IconButton>
               <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
-              <div className="mt-2 text-[#2B777D]">{selectedAchievement.requirements}</div>
+              <div className="mt-2 text-teal-500">{selectedAchievement.requirements}</div>
             </>
           )}
         </Box>

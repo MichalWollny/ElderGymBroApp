@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 // REGISTER PART
 export const signUp = asyncHandler(async (req, res, next) => {
-  const { fullName, username, email, password, age, weight, gender, fitnesLevel, workoutAim, awards } = req.body;
+  const { fullName, username, email, password, age, weight, gender, fitnessLevel, workoutAim, awards } = req.body;
 
   const existingUser = await User.findOne({ email });
   if (existingUser) throw new ErrorResponse('An account with this Email already exist', 409);
@@ -22,7 +22,7 @@ export const signUp = asyncHandler(async (req, res, next) => {
     age,
     weight,
     gender,
-    fitnesLevel,
+    fitnessLevel,
     workoutAim,
     awards,
   });
@@ -56,7 +56,7 @@ export const signIn = asyncHandler(async (req, res, next) => {
 
   if (!existingUser.awards.lastLogin || !isSameDay(existingUser.awards.lastLogin, now)) {
     existingUser.awards.karmaPoints += 50;
-    // Award additional karma points for first login of the day
+    // Award additional karma points for first login of the day (Yay!)
     firstLoginOfTheDay = true;
   }
 
@@ -70,7 +70,7 @@ export const signIn = asyncHandler(async (req, res, next) => {
     expiresIn: '30m',
   });
   // res.json({ token });
-  res.cookie('token', token, { maxAge: 1800000 }); // 30mn
+  res.cookie('token', token, { maxAge: 1800000, httpOnly: true, sameSite: 'none', secure: true }); // 30min
   res.send({ status: 'success' });
 });
 

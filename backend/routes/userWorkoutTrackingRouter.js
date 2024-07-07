@@ -2,7 +2,9 @@ import { Router } from 'express';
 import {
   setUserActiveWorkout,
   addWorkoutProgress,
-  updateWorkoutProgress,
+  addExerciseProgress,
+  // addSetProgress,
+  // updateWorkoutProgress,
   getWorkoutProgress,
   getActiveWorkout,
   endWorkout,
@@ -16,9 +18,16 @@ userWorkoutTrackingRouter
   // Set active workout for a user
   .patch('/setActiveWorkout', verifyToken, setUserActiveWorkout)
   // Add workout progress
-  .post('/addWorkoutProgress', verifyToken, addWorkoutProgress)
-  // Update workout progress
-  .put('/updateWorkoutProgress/:workoutId', verifyToken, updateWorkoutProgress);
+  .post('/addWorkoutProgress', verifyToken, addWorkoutProgress);
+
+userWorkoutTrackingRouter
+  // Add exercise progress
+  .post('/addExerciseProgress/:workoutId/:exerciseId', verifyToken, addExerciseProgress);
+
+// userWorkoutTrackingRouter.post('/addSetProgress/:workoutId/:exerciseId', verifyToken, addSetProgress);
+
+// Update workout progress
+// .put('/updateWorkoutProgress/:workoutId', verifyToken, updateWorkoutProgress); (old)
 
 // Get workout progress
 userWorkoutTrackingRouter.get('/getWorkoutProgress', verifyToken, getWorkoutProgress);

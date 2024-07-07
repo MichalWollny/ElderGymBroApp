@@ -184,7 +184,7 @@ function RegisterForm() {
       style={{
         position: 'relative',
         width: '100%',
-        height: '100vh',
+        height: '100svh',
         backgroundImage: 'url(your-background-image-url)',
         backgroundSize: 'cover',
       }}>
