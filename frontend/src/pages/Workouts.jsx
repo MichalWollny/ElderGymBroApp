@@ -68,6 +68,7 @@ const WorkoutPlan = ({ workouts }) => {
                 </button>
 
                 {/* Beginner Fullbody Workout EXPANDED starts here */}
+                <button>
                 {expandedPlans === index && (
                   <div>
                     <h5 className="mb-2 pb-1 rounded-t-sm to-zinc-900 text-center font-cthulhumbus text-xl font-extrabold text-teal-500 shadow-2xl">
@@ -119,6 +120,8 @@ const WorkoutPlan = ({ workouts }) => {
                         <button onClick={() => toggleTips(index)} className="w-full focus:outline-none"></button>
                       </div>
                     </div>
+
+                    
                     {/* Render Tips content  */}
                     {expandedTips === index &&  (
                       <ul className="-mt-6 list-disc rounded-b-lg border-2 border-t-0 border-none border-pink-800 bg-zink-700 p-2 pl-6">                  
@@ -227,9 +230,10 @@ const WorkoutPlan = ({ workouts }) => {
 
                         {/* Render splits for plans with splits */}
                         {plan.split &&
-                          plan.splits.map((split, splitIndex, group, groupIndex) => (
+                          plan.splits.map((split, splitIndex) => (
 
                           // Container Split A / B COLLAPSED
+                          
                           <div key={splitIndex} className="mb-2 mt-2 rounded-lg border-4 border-teal-800 bg-zinc-700 p-4 shadow-md">
                               
                             <div className="w-full cursor-pointer text-left focus:outline-none">
@@ -237,6 +241,7 @@ const WorkoutPlan = ({ workouts }) => {
                               <h6 className="text-xl font-semibold font-cthulhumbus capitalize text-center text-teal-500">
                                 Day {split.day} 
                               </h6>
+                              
                               
                               <button className="w-full focus:outline-none">
                                 <div onClick={() => toggleSplitDays(index)} className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
@@ -249,9 +254,11 @@ const WorkoutPlan = ({ workouts }) => {
 
                             </div>
 
-                          {/* Collapsible content for split days EXPANDED */}
-                          {expandedSplitDays === index && (
-                                
+                            
+
+                            <button className="w-full text-left focus:outline-none">
+                {/* Conditional rendering for the workout image */} 
+                {expandedPlans !== index && (
                             <div>
                               
                               {split.muscleGroups.map((group, groupIndex) => (
@@ -362,13 +369,17 @@ const WorkoutPlan = ({ workouts }) => {
                                 </div>
                               ))}
                             </div>
-                              )}
-                            </div>
+                          )}
+                          </button>
+
+
+                      </div>
                           ))}
                       </div>
                     )}
                   </div>
                 )}
+                </button>
 
             </div>
           </div>
