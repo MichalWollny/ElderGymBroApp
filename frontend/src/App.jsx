@@ -21,6 +21,7 @@ import BottomNav from './assets/components/BottomNav';
 import LoginForm from './pages/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
+import WorkoutsRework from './pages/WorkoutsRework';
 
 function App() {
   const { hardcodedWorkouts } = useFetchData();
@@ -93,7 +94,7 @@ function App() {
           }
         />
         <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
-
+        <Route path="/workoutsrework" element={<WorkoutsRework />} />
         {/* No Navbar */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterForm />} />
