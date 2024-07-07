@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 // REGISTER PART
 export const signUp = asyncHandler(async (req, res, next) => {
-  const { fullName, username, email, password, age, weight, gender, fitnesLevel, workoutAim, awards } = req.body;
+  const { fullName, username, email, password, age, weight, gender, fitnessLevel, workoutAim, awards } = req.body;
 
   const existingUser = await User.findOne({ email });
   if (existingUser) throw new ErrorResponse('An account with this Email already exist', 409);
@@ -22,7 +22,7 @@ export const signUp = asyncHandler(async (req, res, next) => {
     age,
     weight,
     gender,
-    fitnesLevel,
+    fitnessLevel,
     workoutAim,
     awards,
   });

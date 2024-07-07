@@ -26,15 +26,22 @@ const userSchema = new mongoose.Schema(
     age: { type: Number, default: null },
     weight: { type: Number, default: null },
     gender: { type: String, default: '', enum: ['', 'male', 'female', 'elder thing', 'blob', 'other'] },
-    fitnesLevel: {
+    fitnessLevel: {
       type: String,
-      default: 'beginner',
-      enum: ['beginner', 'intermediate', 'advanced'],
+      default: '',
+      enum: ['', 'beginner', 'intermediate', 'advanced'],
     },
     workoutAim: {
       type: String,
       default: '',
-      enum: ['', 'Muscle Worship', 'Fat Fight', 'Stamina Destruction', 'Cardio Crusade'],
+      enum: [
+        '',
+        'Grow Your Muscles',
+        'Build Your Stamina',
+        'Maximize Your Strength',
+        'Cardio Crusade',
+        'Achieve Weight Loss',
+      ],
     },
 
     //for now avatar will be an url, image upload will be implemented later (if at all...)

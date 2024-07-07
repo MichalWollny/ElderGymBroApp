@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal, Box } from '@mui/material';
-import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const genders = [
   {
@@ -125,7 +125,7 @@ const GenderWar = () => {
       <div className="flex flex-row justify-start">
         {/* link container*/}
         <div className="flex flex-row justify-center text-teal-100">
-          <a href="/setyourgrind" className="m-2 font-semibold text-teal-600">
+          <a href="/whatsyourgoal" className="m-2 font-semibold text-teal-600">
             {/* icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -142,11 +142,10 @@ const GenderWar = () => {
 
       {/* Page title bar */}
       <div className="flex flex-row justify-center">
-        <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+        <h2 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Choose your gender
-        </h1>
+        </h2>
       </div>
-
       <div>
         {/* Cards */}
         <div className="grid grid-cols-2 gap-3 p-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
@@ -161,6 +160,27 @@ const GenderWar = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* --7. Stepper */}
+        <div className="inset-x-0 bottom-6 mt-1 pb-6">
+          <div className="flex flex-col">
+            <ul className="steps">
+              <li className="step text-xs">
+                <Link to="/startyourjourney">Start</Link>
+              </li>
+              <li className="step text-xs">
+                <Link to="/setyourgrind">Grind?</Link>
+              </li>
+              <li className="step text-xs">
+                <Link to="/whatsyourgoal">Goal?</Link>
+              </li>
+              <li className="step step-info text-xs">Beeing?</li>
+              <li className="step text-xs">
+                <Link to="/setup">Go!</Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Modal */}
@@ -189,11 +209,16 @@ const GenderWar = () => {
                 <img src={selectedImage} alt={selectedGender.name} />
                 <div className="px-6 py-2 text-center">
                   <div className="font-cthulhumbus text-lg font-bold text-teal-500">{selectedGender.name}</div>
-                  <button
-                    onClick={() => updateGenderAndNavigate(selectedGender.server)}
-                    className="mt-4 rounded bg-teal-500 px-4 py-2 font-semibold text-white transition duration-300 hover:bg-teal-600">
-                    This is me
-                  </button>
+                  <div className="mt-2 flex justify-between">
+                    <button className="rounded bg-gray-800 px-2 text-white hover:bg-gray-700" onClick={handleClose}>
+                      Close
+                    </button>
+                    <button
+                      onClick={() => updateGenderAndNavigate(selectedGender.server)}
+                      className="rounded bg-teal-500 px-4 py-2 font-semibold text-white transition duration-300 hover:bg-teal-600">
+                      This is me
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -213,30 +238,6 @@ const GenderWar = () => {
             )}
           </Box>
         </Modal>
-      </div>
-      {/* --7. Stepper */}
-      <div className="absolute inset-x-0 bottom-4">
-        <div className="flex flex-col">
-          <ul className="steps">
-            <li className="step text-xs">Start</li>
-            <li className="step text-xs">Goal?</li>
-            <li className="step text-xs">Grind?</li>
-            <li className="step step-info text-xs">Beeing?</li>
-            <li className="step text-xs">Go!</li>
-          </ul>
-        </div>
-        {/* --8. Next Button */}
-        <div className="flex flex-row justify-center">
-          <div className="mt-2 flex justify-center">
-            <Button
-              type="submit"
-              variant="contained"
-              href="/setup"
-              sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
-              Next
-            </Button>
-          </div>
-        </div>
       </div>
     </div>
   );

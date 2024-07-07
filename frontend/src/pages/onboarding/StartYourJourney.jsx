@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import { Link } from 'react-router-dom';
 
 // images
 import startJourney from '../../assets/images/startjourney.jpeg';
@@ -73,10 +74,18 @@ function StartYourJourney() {
           <div className="flex flex-col">
             <ul className="steps">
               <li className="step step-info text-xs">Start</li>
-              <li className="step text-xs">Goal?</li>
-              <li className="step text-xs">Grind?</li>
-              <li className="step text-xs">Beeing?</li>
-              <li className="step text-xs">Go!</li>
+              <li className="step text-xs">
+                <Link to="/setyourgrind">Grind?</Link>
+              </li>
+              <li className="step text-xs">
+                <Link to="/whatsyourgoal">Goal?</Link>
+              </li>
+              <li className="step text-xs">
+                <Link to="/gender">Beeing?</Link>
+              </li>
+              <li className="step text-xs">
+                <Link to="/setup">Go!</Link>
+              </li>
             </ul>
           </div>
           {/* --8. Next Button */}
@@ -85,7 +94,7 @@ function StartYourJourney() {
               <Button
                 type="submit"
                 variant="contained"
-                href="/whatsyourgoal"
+                href="/setyourgrind"
                 sx={{ mt: 1, mb: 2, backgroundColor: 'teal', color: 'white' }}>
                 Next
               </Button>
