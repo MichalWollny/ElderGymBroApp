@@ -1,7 +1,7 @@
 import User from '../models/userSchema.js';
 import asyncHandler from '../utils/asyncHandler.js';
 import { getDefaultAvatar } from '../utils/profileUtils.js';
-import ErrorResponse from '../utils/ErrorResponse.js';
+// import ErrorResponse from '../utils/ErrorResponse.js';
 
 // Verify User
 export const getUser = asyncHandler(async (req, res, next) => {
