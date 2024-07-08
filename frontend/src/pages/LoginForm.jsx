@@ -40,6 +40,7 @@ function LoginForm() {
       setCheckingUser(false); // Set checkingUser to false after checkUser completes
     };
     fetchUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ function LoginForm() {
       if (isLoggedIn && userData) {
         const { gender, fitnessLevel, workoutAim } = userData;
         if (gender && fitnessLevel && workoutAim) {
-          toast.success('🎉 Welcome back. Happy grinding');
+          toast.success('🎉 Welcome back. Happy grinding', { autoClose: 2000 });
           navigate('/home');
         } else if (!gender && !fitnessLevel && !workoutAim) {
           toast.success('🏆 Successfully logged in! Welcome mortal');
@@ -96,7 +97,6 @@ function LoginForm() {
         position: 'relative',
         width: '100%',
         height: '100svh',
-        backgroundImage: 'url(your-background-image-url)',
         backgroundSize: 'cover',
       }}>
       <Canvas style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
