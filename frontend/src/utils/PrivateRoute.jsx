@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthProvider';
 
 const ProtectedRoute = () => {
   const { isLoggedIn } = useAuth();
-  return isLoggedIn ? <Outlet /> : <Navigate to="/" />;
+  return isLoggedIn ? <Outlet /> : <Navigate to="/accessdenied" />;
 };
 
 export default ProtectedRoute;
