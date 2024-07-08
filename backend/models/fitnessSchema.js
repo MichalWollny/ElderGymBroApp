@@ -11,19 +11,19 @@ const exerciseTrackingSchema = new mongoose.Schema({
   exerciseId: { type: Number, default: 0 },
   exerciseName: { type: String, default: '' },
   sets: [exerciseSetTrackingSchema],
-  date: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
+  date: { type: Date, default: Date.now },
 });
 
 // Define the schema for exercises performed on a specific day
 const exerciseProgressSchema = new mongoose.Schema({
-  day: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
+  day: { type: Date, default: Date.now },
   exercisesOfTheDay: [exerciseTrackingSchema],
 });
 
 // User workout tracking schema to track workouts
 const userWorkoutTrackingSchema = new mongoose.Schema({
   workoutId: Number,
-  startDate: { type: Date, default: () => new Date(new Date().setHours(0, 0, 0, 0)) },
+  startDate: { type: Date, default: Date.now },
   endDate: { type: Date, default: null },
   progress: [exerciseProgressSchema],
 });

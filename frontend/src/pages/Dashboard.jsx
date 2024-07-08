@@ -16,7 +16,7 @@ const Dashboard = () => {
   const { userData, checkUser } = useAuth();
   const [expandedElement, setExpandedElements] = useState(null);
   const navigate = useNavigate();
-  const [activeWorkout, setActiveWorkout] = useState();
+  const [activeWorkout, setActiveWorkout] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -30,49 +30,47 @@ const Dashboard = () => {
     setExpandedElements(!expandedElement);
   };
 
+  useEffect(() => {
+    const getActiveWorkout = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
+          withCredentials: true,
+        });
+        setActiveWorkout(response.data.activeWorkout);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error.message);
+        console.error(error);
+        setIsLoading(false);
+      }
+    };
+    getActiveWorkout();
+  }, []);
+
+  const activateWorkout = async (activeWorkout) => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/me/workouttracking/addWorkoutProgress`,
+        {
+          workoutId: `${activeWorkout.id}`,
+          progress: [],
+        },
+        {
+          withCredentials: true,
+        },
+      );
+
+      // Navigate to /userworkout after successful tracking update
+      navigate('/userworkout');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   if (!userData || !userData.username) {
     return <div>Loading...</div>; // Show loading state while fetching data
   }
-  console.log(userData);
-
-  // useEffect(() => {
-  //   const getActiveWorkout = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
-  //         withCredentials: true,
-  //       });
-  //       setActiveWorkout(response.data.activeWorkout);
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setError(error.message);
-  //       console.error(error);
-  //       setIsLoading(false);
-  //     }
-  //   };
-  //   getActiveWorkout();
-  // }, []);
-  // console.log(activateWorkout);
-
-  // const activateWorkout = async (activeWorkout) => {
-  //   try {
-  //     await axios.patch(
-  //       `${import.meta.env.VITE_API_URL}/me/workouttracking/addWorkoutProgress`,
-  //       {
-  //         activeWorkoutId: `${activeWorkout.id}`,
-  //         progress: [],
-  //       },
-  //       {
-  //         withCredentials: true,
-  //       },
-  //     );
-
-  //     // Navigate to /userworkout after successful tracking update
-  //     navigate('/userworkout');
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
@@ -93,8 +91,7 @@ const Dashboard = () => {
         </div>
         <button
           className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
-          // onClick={() => activateWorkout(activeWorkout)}>
-          onClick={() => navigate('/userworkout')}>
+          onClick={() => activateWorkout(activeWorkout)}>
           Start Workout!
         </button>
       </div>
