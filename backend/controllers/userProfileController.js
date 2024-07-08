@@ -54,7 +54,7 @@ export const updateWorkoutAim = asyncHandler(async (req, res, next) => {
 // Update Avatar
 export const updateAvatar = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
-  user.avatar = req.body.avatar;
+  user.avatar = req.file.path;
   await user.save();
   res.status(200).json({ message: 'Successfully changed avatar link' });
 });

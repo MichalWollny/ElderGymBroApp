@@ -1,10 +1,10 @@
 import setUp from '../../assets/images/startYourJourney.jpeg';
-import { useAuth } from '../../context/useAuth';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useAuth } from '../../context/AuthProvider';
 
 function SetUp() {
   const navigate = useNavigate();

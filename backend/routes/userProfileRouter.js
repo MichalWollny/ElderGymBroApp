@@ -2,6 +2,7 @@ import { Router } from 'express';
 import * as userProfileController from '../controllers/userProfileController.js';
 import * as userKarmaController from '../controllers/userKarmaController.js';
 import verifyToken from '../middleware/verifyToken.js';
+import upload from '../services/Upload.js';
 
 const userProfileRouter = Router();
 
@@ -14,7 +15,7 @@ userProfileRouter.patch('/me/weight', verifyToken, userProfileController.updateW
 userProfileRouter.patch('/me/gender', verifyToken, userProfileController.updateGender);
 userProfileRouter.patch('/me/fitnessLevel', verifyToken, userProfileController.updateFitnessLevel);
 userProfileRouter.patch('/me/workoutAim', verifyToken, userProfileController.updateWorkoutAim);
-userProfileRouter.patch('/me/avatar', verifyToken, userProfileController.updateAvatar);
+userProfileRouter.patch('/me/avatar', verifyToken, upload.single('avatar'), userProfileController.updateAvatar);
 userProfileRouter.patch('/me/profileupdate', verifyToken, userProfileController.updateProfile);
 
 export default userProfileRouter;
