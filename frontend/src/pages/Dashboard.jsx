@@ -27,7 +27,7 @@ const Dashboard = () => {
   if (!userData || !userData.username) {
     return <div>Loading...</div>; // Show loading state while fetching data
   }
-
+  console.log(userData);
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
       <div className="flex flex-row justify-center">
