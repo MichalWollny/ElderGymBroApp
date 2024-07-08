@@ -51,7 +51,7 @@ const WorkoutPlan = ({ workouts }) => {
                     <img
                       src={`../src/assets/images/workouts/${plan.name}.jpg`}
                       alt={plan.name}
-                      className="rounded-t-lg shadow-lg"
+                      className=""
                     />
 
                     <button onClick={() => togglePlans(index)} className="w-full focus:outline-none">
