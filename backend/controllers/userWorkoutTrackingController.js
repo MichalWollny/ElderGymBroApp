@@ -139,6 +139,8 @@ export const addExerciseProgress = async (req, res) => {
     // Add the new exercise progress to the day's entry
     dayEntry.exercisesOfTheDay.push({ exerciseId, exerciseName, sets, date: currentDate });
 
+    console.log(req.body);
+
     // Save the changes
     await user.save();
     res.status(200).json({ message: 'Exercise progress added successfully' });

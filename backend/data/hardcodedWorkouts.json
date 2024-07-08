@@ -37,7 +37,9 @@
           "Repeat the movement for the prescribed amount of repetitions.",
           "When you are done, place the bar back in the rack."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 2,
@@ -55,7 +57,9 @@
           "Return back to the starting position slowly as you inhale until your chest muscles are fully stretched.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 3,
@@ -74,7 +78,9 @@
           "After a second at the contracted position squeezing your shoulder blades together, slowly raise the bar back to the starting position when your arms are fully extended and the lats are fully stretched. Inhale during this portion of the movement.",
           "Repeat this motion for the prescribed amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 4,
@@ -92,7 +98,9 @@
           "Keeping the torso stationary, pull the handles back towards your torso while keeping the arms close to it until you touch the abdominals. Breathe out as you perform that movement. At that point you should be squeezing your back muscles hard. Hold that contraction for a second and slowly go back to the original position while breathing in.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 5,
@@ -109,7 +117,9 @@
           "Lower the dumbbells back down slowly to the starting position as you inhale.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 6,
@@ -127,7 +137,9 @@
           "Slowly begin to bring the bar back to starting position as your breathe in.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 7,
@@ -145,7 +157,9 @@
           "As you breathe out, extend your lower arms until they are straight and vertical. The upper arms and elbows remain stationary throughout the movement. Only the forearms should move. Contract the triceps hard for a second.",
           "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 8,
@@ -163,7 +177,9 @@
           "Pushing mainly with the heels of your feet and using the quadriceps go back to the starting position as you exhale.",
           "Repeat for the recommended amount of repetitions and ensure to lock the safety pins properly once you are done. You do not want that platform falling on you fully loaded."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 9,
@@ -180,7 +196,9 @@
           "As you exhale, curl your legs up as far as possible without lifting the upper legs from the pad. Once you hit the fully contracted position, hold it for a second.",
           "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 10,
@@ -199,7 +217,9 @@
           "After the one second contraction, begin to come down slowly again to the starting position as you inhale.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-20"
       }
     ],
     "splits": [
