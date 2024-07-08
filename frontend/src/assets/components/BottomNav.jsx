@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { PiBarbell } from 'react-icons/pi';
 import { BsBarChart } from 'react-icons/bs';
@@ -9,15 +9,29 @@ const BottomNav = () => {
   // activeIndex, speicherung des geraden aktiven Navpkts.
   const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  //Path festlegen
-  const navItems = [
-    { label: 'Home', icon: <AiOutlineHome />, path: '/home' },
-    { label: 'Workouts', icon: <PiBarbell />, path: '/workouts' },
-    { label: 'Progress', icon: <BsBarChart />, path: '/progress' },
-    { label: 'Trophys', icon: <GoTrophy />, path: '/trophys' },
-    { label: 'Profile', icon: <GoPerson/>, path: '/profile' },
-  ];
+  // Memoize navItems to prevent unnecessary re-renders
+  const navItems = useMemo(
+    () => [
+      { label: 'Home', icon: <AiOutlineHome />, path: '/home' },
+      { label: 'Workouts', icon: <PiBarbell />, path: '/workouts' },
+      { label: 'Progress', icon: <BsBarChart />, path: '/progress' },
+      { label: 'Trophys', icon: <GoTrophy />, path: '/trophys' },
+      { label: 'Profile', icon: <GoPerson />, path: '/profile', paths: ['/profile', '/edituserdata'] },
+    ],
+    [],
+  );
+
+  // Update active index based on current location
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const index = navItems.findIndex(
+      (item) => item.path === currentPath || (item.paths && item.paths.includes(currentPath)),
+    );
+    setActiveIndex(index);
+  }, [location, navItems]);
+
   //Path übergeben
   const handleNavigation = (index, path) => {
     setActiveIndex(index);

@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 import { useAuth } from '../context/AuthProvider';
 import Button from '@mui/material/Button';
-import axios from 'axios';
 
 const Profile = () => {
-  const { userData, isLoggedIn, setUserData } = useAuth();
+  const { userData, isLoggedIn, setUserData, setIsLoggedIn } = useAuth();
   const [avatar, setAvatar] = useState(userData.avatar || '../src/assets/images/default-avatar.png');
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
@@ -30,6 +33,25 @@ const Profile = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const logOut = async () => {
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, { withCredentials: true });
+      console.log('Logout response:', response.data);
+      console.log('Logout successful, you have escaped... for now', response);
+      Cookies.remove('token'); // Clear the cookie on the client side
+      setIsLoggedIn(false);
+      setUserData({});
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout failed', error);
+      console.error('Logout failed, you will never leave the cult!', error.message);
+    }
+  };
+
+  const handleEdit = () => {
+    navigate('/edituserdata');
   };
 
   return (
@@ -77,10 +99,7 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* --7. Name this bar */}
-          <div className="flex flex-row justify-center"></div>
-
-          {/* add endpoints for title and name */}
+          {/* Name and title bar */}
           <div className="flex cursor-pointer flex-row justify-center">
             <div className="flex flex-col">
               <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
@@ -94,17 +113,28 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* --7. Name this bar */}
+      {/* Edit button */}
       <div className="flex flex-row justify-center">
         <div className="-mt-8 flex justify-center">
           <Button
             type="submit"
             variant="contained"
-            href="/edituserdata"
+            onClick={handleEdit}
             sx={{ mt: 3, mb: 2, backgroundColor: '#831843', color: 'white' }}>
             Edit
           </Button>
         </div>
+      </div>
+
+      {/* Logout button */}
+      <div className="flex flex-row justify-center">
+        <Button
+          type="button"
+          variant="contained"
+          onClick={logOut}
+          sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: 'white' }}>
+          Logout
+        </Button>
       </div>
     </div>
   );

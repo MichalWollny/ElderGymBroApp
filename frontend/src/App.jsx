@@ -97,8 +97,8 @@ function App() {
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/edituserdata" element={<EditUserData />} />
           <Route path="/profile" element={<Profilerework />} />
+          <Route path="/edituserdata" element={<EditUserData />} />
           <Route
             path="/trophys"
             element={

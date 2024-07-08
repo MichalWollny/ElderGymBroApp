@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { Line } from 'react-chartjs-2';
-import { CircularProgress, Container, Typography, Select, MenuItem } from '@mui/material';
+import { CircularProgress, Container, Select, MenuItem } from '@mui/material';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -104,30 +104,9 @@ const ProgressTracker = ({ userId }) => {
 
   return (
     <div className="min-h-screen overflow-auto bg-gradient-to-br from-black to-blue-950">
-      {/* window bar */}
-      <div className="flex flex-row justify-start from-black to-blue-950">
-        {/* icon button container*/}
-        <div className="flex flex-row">
-          {/* link container*/}
-          <div className="flex flex-row justify-center">
-            <a href="/" className="m-2 font-semibold text-teal-600">
-              {/* icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
       <div className="mt-6 flex flex-row justify-center from-black to-blue-950">
         <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
-          Trainingsprogress{' '}
+          Training progress{' '}
         </h1>
       </div>
       <div className="mx-auto mb-6 mt-6 flex size-5/6 items-center justify-center">
