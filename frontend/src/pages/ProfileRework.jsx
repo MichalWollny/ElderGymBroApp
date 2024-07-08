@@ -1,23 +1,40 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthProvider';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
 const Profile = () => {
-  const { userData, isLoggedIn } = useAuth();
+  const { userData, isLoggedIn, setUserData } = useAuth();
   const [avatar, setAvatar] = useState(userData.avatar || '../src/assets/images/default-avatar.png');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setAvatar(event.target.result);
-    };
-    reader.readAsDataURL(file);
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    try {
+      setIsLoading(true);
+      const response = await axios.patch(`${import.meta.env.VITE_API_URL}/profile/me/avatar`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        withCredentials: true,
+      });
+
+      const updatedAvatar = response.data.avatar;
+      setAvatar(updatedAvatar);
+      setUserData((prevData) => ({ ...prevData, avatar: updatedAvatar }));
+    } catch (error) {
+      console.error('Failed to upload avatar', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 pt-20 text-gray-200">
-      {/* Title bar*/}
+      {/* Title bar */}
       <div className="mflex flex-row justify-center">
         <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Profile
@@ -31,11 +48,7 @@ const Profile = () => {
           {/* profile image */}
           <div className="avatar">
             <div className="mx-auto w-28 rounded-full ring-4 ring-teal-700 ring-offset-2 ring-offset-pink-800">
-              <img
-                src={isLoggedIn && userData.avatar ? avatar : '../src/assets/images/default-avatar.png'}
-                alt="Profile Image"
-                className="object-fit-cover rounded-full object-cover"
-              />
+              <img src={avatar} alt="Profile Image" className="object-fit-cover rounded-full object-cover" />
             </div>
           </div>
 
@@ -67,7 +80,7 @@ const Profile = () => {
           {/* --7. Name this bar */}
           <div className="flex flex-row justify-center"></div>
 
-          {/* add endpoints for title and name*/}
+          {/* add endpoints for title and name */}
           <div className="flex cursor-pointer flex-row justify-center">
             <div className="flex flex-col">
               <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
