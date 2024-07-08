@@ -5,9 +5,9 @@ import axios from 'axios';
 
 // images
 import setgrind from '../../assets/images/setgrind.jpeg';
-import beginner from '../../assets/images/beginner.png';
-import intermediate from '../../assets/images/intermediate.png';
-import advanced from '../../assets/images/advanced2.jpg';
+import beginner from '../../assets/images/beginner.jpeg';
+import intermediate from '../../assets/images/intermediate.jpeg';
+import advanced from '../../assets/images/advanced.jpeg';
 
 const cards = [
   {

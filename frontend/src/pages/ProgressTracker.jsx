@@ -44,7 +44,7 @@ const ProgressTracker = ({ userId }) => {
           { date: '2023-12-01', exercise: 'LatPullDown', weight: 72.5 },
         ];
         setProgress(mockData);
-        setSelectedExercise(mockData[0].exercise); // Set initial selected exercise
+        setSelectedExercise(mockData[0].exercise); // Ausgewählte Anfangsübung einstellen
       } catch (err) {
         setError(err.message);
       } finally {
