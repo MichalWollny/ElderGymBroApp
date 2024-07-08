@@ -24,7 +24,6 @@ import Dashboard from './pages/Dashboard';
 import GenderWar from './pages/onboarding/GenderWar';
 import ProgressTracker from './pages/ProgressTracker';
 import UserBar from './assets/components/UserBar';
-// import UserBar from './assets/components/UserBar';
 
 function App() {
   const { hardcodedWorkouts } = useFetchData();
