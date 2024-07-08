@@ -83,6 +83,7 @@ export const getUser = asyncHandler(async (req, res, next) => {
 // LOGOUT PART
 export const logout = asyncHandler(async (req, res, next) => {
   console.log('Logging out user');
-  res.clearCookie('token');
+  res.clearCookie('token', { httpOnly: true, sameSite: 'none', secure: true });
+  console.log('Cookie cleared');
   res.send({ status: 'success' });
 });

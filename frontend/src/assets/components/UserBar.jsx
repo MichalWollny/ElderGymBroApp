@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Cookies from 'js-cookie'; // Import js-cookie
+import Cookies from 'js-cookie';
 import { useAuth } from '../../context/AuthProvider';
 
 const UserBar = () => {
@@ -10,18 +10,15 @@ const UserBar = () => {
 
   const logOut = async () => {
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/logout`,
-        {},
-        {
-          withCredentials: true,
-        },
-      );
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, { withCredentials: true });
+      console.log('Logout response:', response.data);
       console.log('Logout successful, you have escaped... for now', response);
+      Cookies.remove('token'); // Clear the cookie on the client side
       setIsLoggedIn(false);
       setUserData({});
       navigate('/login');
     } catch (error) {
+      console.error('Logout failed', error);
       console.error('Logout failed, you will never leave the cult!', error.message);
     }
   };
@@ -82,7 +79,7 @@ const UserBar = () => {
   };
 
   return (
-    <nav className="bg-to-transparent fixed top-0 z-50 flex h-20 w-full items-center justify-between rounded-b-3xl bg-gray-900 font-cthulhumbus shadow-md">
+    <nav className="bg-to-transparent top-0 z-50 flex h-20 w-full items-center justify-between rounded-b-3xl bg-gray-900 font-cthulhumbus shadow-md">
       {navItems.map((item, index) => (
         <div
           key={index}
