@@ -75,26 +75,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   return (
     <div className="min-h-screen bg-gradient-to-br from-black to-blue-950">
       {/* window bar */}
-      <div className="flex flex-row justify-start from-black to-blue-950">
-        {/* icon button container*/}
-        <div className="flex flex-row">
-          {/* link container*/}
-          <div className="flex flex-row justify-center">
-            <a href="/" className="m-2 font-semibold text-teal-600">
-              {/* icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
+
       <div className="mt-2 flex flex-row justify-center from-black to-blue-950">
         <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
           Trophies{' '}
@@ -244,7 +225,8 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
       <Modal open={modalOpen} onClose={handleClose} className="flex h-full w-full items-end justify-center">
         <Box
           sx={{
-            p: 4,
+            px: 4,
+            py: 2,
             bgcolor: 'background.paper',
             borderRadius: '16px 16px 0 0',
             boxShadow: '0 -4px 6px rgba(0, 0, 0, 0.1)',
@@ -253,20 +235,21 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
             width: '100vw',
             maxWidth: '500px',
           }}
-          className="mx-auto space-y-4">
+          className="mx-auto space-y-5">
           {selectedAchievement && (
             <>
+              <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
               <IconButton
                 aria-label="close"
                 onClick={handleClose}
                 sx={{
                   position: 'absolute',
                   right: 8,
-                  top: 8,
+                  top: -6,
                 }}>
                 <CloseIcon />
               </IconButton>
-              <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
+
               <div className="mt-2 text-teal-500">{selectedAchievement.requirements}</div>
             </>
           )}

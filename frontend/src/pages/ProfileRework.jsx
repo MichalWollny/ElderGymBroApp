@@ -39,27 +39,11 @@ const cards = [
 
 const Profile = () => {
   return (
-    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
-      <div className="flex flex-row justify-start bg-gray-900">
-        <div className="flex flex-row">
-          <div className="flex flex-row justify-center text-teal-100">
-            <a href="/setyourgrind" className="m-2 font-semibold text-teal-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div className="pt-20 min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+
 
       {/* Title bar*/}
-      <div className="flex flex-row justify-center">
+      <div className="mflex flex-row justify-center">
         <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Profile
         </h1>
@@ -134,15 +118,7 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* -- Content bar */}
-      <div className="flex flex-wrap justify-center">
-        {/* -- 5. grid-flow-row auto-rows-max -- */}
-        <div className="grid grid-flow-row auto-rows-max grid-cols-2 p-6 pt-0">
-          {cards.map((card, index) => (
-            <UICard key={index} image={card.image} heading={card.heading} className="" subheading={card.subheading} />
-          ))}
-        </div>
-      </div>
+
 
       {/* --7. Name this bar */}
       <div className="flex flex-row justify-center">

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { PiBarbell } from 'react-icons/pi';
 import { BsBarChart } from 'react-icons/bs';
-import { GoTrophy } from 'react-icons/go';
+import { GoPerson, GoTrophy } from 'react-icons/go';
 
 const BottomNav = () => {
   // activeIndex, speicherung des geraden aktiven Navpkts.
@@ -16,6 +16,7 @@ const BottomNav = () => {
     { label: 'Workouts', icon: <PiBarbell />, path: '/workouts' },
     { label: 'Progress', icon: <BsBarChart />, path: '/progress' },
     { label: 'Trophys', icon: <GoTrophy />, path: '/trophys' },
+    { label: 'Profile', icon: <GoPerson/>, path: '/profile' },
   ];
   //Path übergeben
   const handleNavigation = (index, path) => {
