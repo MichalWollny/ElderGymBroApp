@@ -33,7 +33,8 @@ const achievements = [
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
   // const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
-  const [firstWorkoutCompleted] = useState(true);
+  const [firstWorkoutCompleted] = useState(true); //// Archievment 2
+  const [weekEndWorkout] = useState(true); // Archievment 5
   const [selectedAchievement, setSelectedAchievement] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -47,7 +48,13 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
     } else if (!firstWorkoutCompleted && unlockedAchievments.includes(2)) {
       toggleAchievement(2, false);
     }
-  }, [progress, firstWorkoutCompleted, unlockedAchievments, toggleAchievement]);
+    //Bedingung für Achievement 5
+    if (weekEndWorkout && !unlockedAchievments.includes(5)) {
+      toggleAchievement(5, true);
+    } else if (!weekEndWorkout && unlockedAchievments.includes(2)) {
+      toggleAchievement(2, false);
+    }
+  }, [progress, firstWorkoutCompleted, weekEndWorkout, unlockedAchievments, toggleAchievement]);
 
   useEffect(() => {
     const newProgress = (unlockedAchievments.length / achievements.length) * 100;
