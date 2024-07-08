@@ -80,8 +80,7 @@ const UserBar = () => {
   };
 
   return (
-
-    <nav className="bg-to-transparent top-0 z-50 flex h-20 w-full items-center justify-between rounded-b-3xl bg-gray-900 font-cthulhumbus shadow-md">
+    <nav className="bg-to-transparent fixed top-0 z-50 flex h-20 w-full items-center justify-between rounded-b-3xl bg-gray-900 font-cthulhumbus shadow-md">
       {navItems.map((item, index) => (
         <div
           key={index}

@@ -97,7 +97,6 @@ function LoginForm() {
         position: 'relative',
         width: '100%',
         height: '100svh',
-        backgroundImage: 'url(your-background-image-url)',
         backgroundSize: 'cover',
       }}>
       <Canvas style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
