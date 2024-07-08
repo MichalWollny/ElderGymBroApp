@@ -25,6 +25,7 @@ import GenderWar from './pages/onboarding/GenderWar';
 import ProgressTracker from './pages/ProgressTracker';
 import UserBar from './assets/components/UserBar';
 import PrivateRoute from './utils/PrivateRoute';
+import AccessDeniedPage from './pages/AccessDeniedPage';
 
 function App() {
   const { hardcodedWorkouts } = useFetchData();
@@ -87,6 +88,7 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/accessdenied" element={<AccessDeniedPage />} />
 
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
