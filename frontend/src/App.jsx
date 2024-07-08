@@ -72,7 +72,7 @@ function App() {
       {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
       {/* Bottom Nav */}
       {showBottomNav && <BottomNav />}
-      {/* {showUserBar && <UserBar />} */}
+      {showUserBar && <UserBar />}
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
