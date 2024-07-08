@@ -25,14 +25,14 @@ const darkTheme = createTheme(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-  <ThemeProvider theme={darkTheme}>
-    {/* enforcing dark tehme */}
-    <CssBaseline />
-    <AuthProvider>
+  <AuthProvider>
+    <ThemeProvider theme={darkTheme}>
+      {/* enforcing dark tehme */}
+      <CssBaseline />
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </AuthProvider>
-  </ThemeProvider>,
+    </ThemeProvider>
+  </AuthProvider>,
   // </React.StrictMode>,
 );
