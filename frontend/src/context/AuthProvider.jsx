@@ -1,25 +1,19 @@
-import { createContext, useEffect, useState, useCallback } from 'react';
+import { useContext, createContext, useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
+
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedInState] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
+  const didMount = useRef(false);
 
-  const setIsLoggedIn = (loggedIn) => {
-    setIsLoggedInState(loggedIn);
-    if (loggedIn) {
-      // Optionally, you could also store the 'isLoggedIn' state in a cookie
-      Cookies.set('isLoggedIn', 'true', { expires: 1 }); // Expires in 1 day
-    } else {
-      Cookies.remove('isLoggedIn'); // Remove the cookie on logout
-    }
-  };
-
-  const checkUser = useCallback(async () => {
+  const checkUser = async () => {
     try {
+      // console.log('checkUser called');
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/profile/me`, {
         withCredentials: true,
       });
@@ -27,6 +21,7 @@ export const AuthProvider = ({ children }) => {
       if (response.data && response.data._id) {
         setIsLoggedIn(true);
         setUserData(response.data);
+        // console.log('User data:', response.data);
       } else {
         setIsLoggedIn(false);
         setUserData({});
@@ -34,17 +29,27 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       setIsLoggedIn(false);
       setUserData({});
-      console.error(error);
+      console.error('Error in checkUser:', error);
     }
-  }, []);
+  };
 
   useEffect(() => {
-    // Check if the 'isLoggedIn' cookie exists and set the initial login state accordingly
-    const isLoggedInCookie = Cookies.get('isLoggedIn');
-    if (isLoggedInCookie === 'true') {
-      checkUser();
+    if (didMount.current) {
+      // This block ensures the effect runs only after the initial render
+      return;
     }
-  }, [checkUser]);
+
+    didMount.current = true;
+    const token = Cookies.get('token');
+    // console.log('Token from cookies:', token); // Log the token value
+
+    if (token) {
+      // console.log('Token exists, calling checkUser');
+      checkUser();
+    } else {
+      // console.log('No token found, not calling checkUser');
+    }
+  }, []);
 
   const values = {
     isLoggedIn,
@@ -53,9 +58,6 @@ export const AuthProvider = ({ children }) => {
     setUserData,
     checkUser,
   };
-
-  console.log('User Logged in?', isLoggedIn);
-  console.log(userData);
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
