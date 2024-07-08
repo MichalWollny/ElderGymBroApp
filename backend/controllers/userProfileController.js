@@ -1,5 +1,6 @@
 import User from '../models/userSchema.js';
 import asyncHandler from '../utils/asyncHandler.js';
+import { getDefaultAvatar } from '../utils/profileUtils.js';
 import ErrorResponse from '../utils/ErrorResponse.js';
 
 // Verify User
@@ -34,8 +35,9 @@ export const updateWeight = asyncHandler(async (req, res, next) => {
 export const updateGender = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
   user.gender = req.body.gender;
+  user.avatar = getDefaultAvatar(req.body.gender);
   await user.save();
-  res.status(200).json({ message: 'Successfully changed gender' });
+  res.status(200).json({ message: 'Successfully changed gender and updated avatar' });
 });
 // Update Fitness Level
 export const updateFitnessLevel = asyncHandler(async (req, res, next) => {
@@ -66,7 +68,7 @@ export const updateProfile = asyncHandler(async (req, res, next) => {
   user.age = req.body.age;
   user.weight = req.body.weight;
   user.gender = req.body.gender;
-
+  user.avatar = getDefaultAvatar(req.body.gender);
   await user.save();
   res.status(200).json({ message: 'Successfully updated profile' });
 });
