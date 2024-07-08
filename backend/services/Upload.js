@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'profileAvatar',
-    allowedFormats: ['jpeg', 'jpg', 'png', 'heic', 'heif'],
+    allowedFormats: ['jpeg', 'jpg', 'png', 'heic', 'heif', 'webp', 'avif'],
   },
 });
 

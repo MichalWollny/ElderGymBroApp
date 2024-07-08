@@ -1,7 +1,6 @@
 import User from '../models/userSchema.js';
 import asyncHandler from '../utils/asyncHandler.js';
 import { getDefaultAvatar } from '../utils/profileUtils.js';
-import ErrorResponse from '../utils/ErrorResponse.js';
 
 // Verify User
 export const getUser = asyncHandler(async (req, res, next) => {
@@ -17,6 +16,7 @@ export const updateFullName = asyncHandler(async (req, res, next) => {
   await user.save();
   res.status(200).json({ message: 'Successfully changed Full Name' });
 });
+
 // Update Age
 export const updateAge = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
@@ -24,6 +24,7 @@ export const updateAge = asyncHandler(async (req, res, next) => {
   await user.save();
   res.status(200).json({ message: 'Successfully changed age' });
 });
+
 // Update Weight
 export const updateWeight = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
@@ -31,6 +32,7 @@ export const updateWeight = asyncHandler(async (req, res, next) => {
   await user.save();
   res.status(200).json({ message: 'Successfully changed weight' });
 });
+
 // Update Gender
 export const updateGender = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
@@ -39,6 +41,7 @@ export const updateGender = asyncHandler(async (req, res, next) => {
   await user.save();
   res.status(200).json({ message: 'Successfully changed gender and updated avatar' });
 });
+
 // Update Fitness Level
 export const updateFitnessLevel = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
@@ -46,6 +49,7 @@ export const updateFitnessLevel = asyncHandler(async (req, res, next) => {
   await user.save();
   res.status(200).json({ message: 'Successfully changed fitness level' });
 });
+
 // Update Workout Aim
 export const updateWorkoutAim = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
@@ -53,14 +57,16 @@ export const updateWorkoutAim = asyncHandler(async (req, res, next) => {
   await user.save();
   res.status(200).json({ message: 'Successfully changed workout aim' });
 });
+
 // Update Avatar
 export const updateAvatar = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
   user.avatar = req.file.path;
   await user.save();
-  res.status(200).json({ message: 'Successfully changed avatar link' });
+  res.status(200).json({ avatar: user.avatar, message: 'Successfully changed avatar link' });
 });
-//Update Profile
+
+// Update Profile
 export const updateProfile = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.uid);
   user.fullName = req.body.fullName;
