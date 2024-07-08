@@ -19,9 +19,9 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const { checkUser } = useAuth();
 
-  useEffect(() => {
-    checkUser();
-  }, []);
+  // useEffect(() => {
+  //   checkUser();
+  // }, []);
 
   useEffect(() => {
     animate(color, COLORS_TOP, {
