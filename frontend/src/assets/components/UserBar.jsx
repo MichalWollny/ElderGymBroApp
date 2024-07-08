@@ -35,7 +35,7 @@ const UserBar = () => {
       // label: 'Logout',
       icon: (
         <button className="flex h-12 w-12 items-center" onClick={logOut}>
-          <img className="h-auto min-w-16" src="../src/assets/icons/logout1.png" alt="Logout" />
+          <img className="h-auto min-w-12" src="../src/assets/icons/logout1.png" alt="Logout" />
         </button>
       ),
       path: '/',
@@ -82,7 +82,7 @@ const UserBar = () => {
   };
 
   return (
-    <nav className="bg-to-transparent fixed top-0 z-50 flex h-20 w-full items-center justify-between rounded-b-3xl bg-gray-900 font-cthulhumbus shadow-md">
+    <nav className="bg-to-transparent fixed top-0 z-50 flex h-auto w-full items-center justify-between rounded-b-3xl bg-gray-900 font-cthulhumbus shadow-md">
       {navItems.map((item, index) => (
         <div
           key={index}
