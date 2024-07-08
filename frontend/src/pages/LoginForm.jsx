@@ -40,6 +40,7 @@ function LoginForm() {
       setCheckingUser(false); // Set checkingUser to false after checkUser completes
     };
     fetchUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

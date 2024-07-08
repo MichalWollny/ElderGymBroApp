@@ -85,9 +85,13 @@ function App() {
         transition:Slide
       />
       <Routes>
-        <Route path="/home" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+
+        <Route path="/home" element={<Dashboard />} />
         <Route path="/edituserdata" element={<EditUserData />} />
         <Route path="/profile" element={<Profilerework />} />
         <Route
@@ -107,9 +111,7 @@ function App() {
         <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
 
         {/* No Navbar */}
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
+
         <Route path="/progress" element={<ProgressTracker />} />
 
         <Route path="/setup" element={<SetUp />} />
