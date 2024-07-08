@@ -48,7 +48,7 @@ function LoginForm() {
       if (isLoggedIn && userData) {
         const { gender, fitnessLevel, workoutAim } = userData;
         if (gender && fitnessLevel && workoutAim) {
-          toast.success('🎉 Welcome back. Happy grinding');
+          toast.success('🎉 Welcome back. Happy grinding', { autoClose: 2000 });
           navigate('/home');
         } else if (!gender && !fitnessLevel && !workoutAim) {
           toast.success('🏆 Successfully logged in! Welcome mortal');
