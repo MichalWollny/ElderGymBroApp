@@ -2,7 +2,7 @@ export function getDefaultAvatar(gender) {
   if ('') {
     return 'unknown';
   } else if ('male') {
-    return 'https://i.pinimg.com/736x/3e/42/b1/3e42b1c802226a211c690c9b02d06ffd.jpg';
+    return 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/B%26W_Portrait_of_H._P._Lovecraft.svg/512px-B%26W_Portrait_of_H._P._Lovecraft.svg.png';
   } else if ('female') {
     return 'https://i.seadn.io/gae/k01LjPxdfW0LhgSjNksj3KhPIbskLJb-B27latpNhb9fHEJqcoOlVX9RcRInKdQTWekaTF70-tGzxv_F_wACE-77Dlm1qSH4kayE-A?auto=format&dpr=1&w=1000';
   } else if ('elder thing') {
