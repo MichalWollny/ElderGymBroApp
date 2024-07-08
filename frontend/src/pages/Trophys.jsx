@@ -12,7 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const achievements = [
   { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu, requirements: 'First Workout completed' },
-  { id: 2, name: 'Firstworkout ', imageUrl: firstWorkoutDone },
+  { id: 2, name: 'Joined the Cult! ', imageUrl: firstWorkoutDone },
   { id: 3, name: 'Training at night', imageUrl: trainingNight, requirements: 'Start a workout between 10 pm and 2 am' },
   { id: 4, name: 'Chestday', imageUrl: chestDay, requirements: 'Chest workout on Mondays' },
   {

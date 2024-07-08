@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
+import gymLordImage from '../assets/images/gymLord.png';
 
 const cards = [
   {
-    image: '/src/assets/images/gymLord.png',
+    image: gymLordImage,
     heading: 'Active workout heading endpoint',
     subheading: 'Active workout subheading endpoint',
   },
@@ -63,15 +64,15 @@ const Dashboard = () => {
           <>
             <p>1 Lorem ipsum dolor sit amet.</p>
             <div className="carousel-item">
-              <img className="w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              <img className="w-24" src={gymLordImage} alt="Pizza" />
             </div>
             <p>2 In dolorum veritatis dolores.</p>
             <div className="carousel-item">
-              <img className="mx-2 w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
             </div>
             <p>3 Odit necessitatibus totam.</p>
             <div className="carousel-item">
-              <img className="mx-2 w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
             </div>
           </>
         )}
@@ -82,19 +83,19 @@ const Dashboard = () => {
       <div className="flex flex-col">
         <div className="carousel carousel-center w-full">
           <div id="item1" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
           <div id="item2" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
           <div id="item3" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
           <div id="item4" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
         </div>
 
