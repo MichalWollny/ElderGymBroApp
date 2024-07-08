@@ -19,7 +19,7 @@ const cards = [
   {
     // Built Up Your Stamina Card
     image: buildStaminaImage,
-    heading: 'Build Up Your Stamina',
+    heading: 'Build Your Stamina',
     subheading: '15 - 20+ Reps',
     // other props...
   },
