@@ -55,9 +55,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 pt-20 text-gray-200">
+    <div className="min-h-screen bg-gradient-to-br from-black to-blue-950 pt-20 text-gray-200">
       {/* Title bar */}
-      <div className="mflex flex-row justify-center">
+      <div className="flex flex-row justify-center">
         <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Profile
         </h1>
@@ -113,21 +113,16 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Edit button */}
-      <div className="flex flex-row justify-center">
-        <div className="-mt-8 flex justify-center">
-          <Button
-            type="submit"
-            variant="contained"
-            onClick={handleEdit}
-            sx={{ mt: 3, mb: 2, backgroundColor: '#831843', color: 'white' }}>
-            Edit
-          </Button>
-        </div>
-      </div>
+      {/* Edit and Logout buttons */}
+      <div className="mt-8 flex flex-col items-center space-y-4">
+        <Button
+          type="submit"
+          variant="contained"
+          onClick={handleEdit}
+          sx={{ mt: 3, mb: 2, backgroundColor: '#831843', color: 'white' }}>
+          Edit
+        </Button>
 
-      {/* Logout button */}
-      <div className="flex flex-row justify-center">
         <Button
           type="button"
           variant="contained"
