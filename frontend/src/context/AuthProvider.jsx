@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
 
   const checkUser = async () => {
     try {
-      // console.log('checkUser called');
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/profile/me`, {
         withCredentials: true,
       });
@@ -21,7 +20,6 @@ export const AuthProvider = ({ children }) => {
       if (response.data && response.data._id) {
         setIsLoggedIn(true);
         setUserData(response.data);
-        // console.log('User data:', response.data);
       } else {
         setIsLoggedIn(false);
         setUserData({});
@@ -41,13 +39,9 @@ export const AuthProvider = ({ children }) => {
 
     didMount.current = true;
     const token = Cookies.get('token');
-    // console.log('Token from cookies:', token); // Log the token value
 
     if (token) {
-      // console.log('Token exists, calling checkUser');
       checkUser();
-    } else {
-      // console.log('No token found, not calling checkUser');
     }
   }, []);
 
