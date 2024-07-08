@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useAuth } from '../context/useAuth';
+
 import { Container, TextField, Button, Grid, InputAdornment, IconButton } from '@mui/material';
 import { toast } from 'react-toastify';
 import { Stars } from '@react-three/drei';
@@ -9,6 +9,7 @@ import { Canvas } from '@react-three/fiber';
 import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useAuth } from '../context/AuthProvider';
 
 // colors for the background gradient
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
@@ -36,7 +37,6 @@ function LoginForm() {
 
   useEffect(() => {
     const checkLoginStatus = async () => {
-      await checkUser(); // Check if the user is logged in
       if (isLoggedIn) {
         const { gender, fitnessLevel, workoutAim } = userData;
         // Scenario 1: All fields are filled
