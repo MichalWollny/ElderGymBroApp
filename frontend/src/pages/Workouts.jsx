@@ -36,12 +36,12 @@ const WorkoutPlan = ({ workouts }) => {
       {/* --- */}
       {validWorkouts.map((plan, index) => (
         <div key={plan.id} className="mb-2 mt-2">
-          <div className="w-90 card m-4 cursor-pointer rounded-lg border-4 border-solid border-teal-800 bg-zinc-800 p-2 shadow-md lg:card-side">
+          <div className="w-90 card m-4 cursor-pointer rounded-lg border-4 border-solid border-teal-800 bg-zinc-800 p-2 shadow-md ">
 
               <button className="w-full text-left focus:outline-none">
                 {/* Conditional rendering for the workout image */} 
                 {expandedPlans !== index && (
-                  <div className="card max-w-screen-sm rounded-t-lg">
+                  <div className="max-w-screen-sm rounded-t-lg">
                     
                     {/* Beginner Fullbody Workout COLLAPSED starts here */}
                     <h5 className="mb-2 pb-1 rounded-t-sm text-center font-cthulhumbus text-xl font-bold text-teal-500 shadow-2xl">
@@ -65,11 +65,11 @@ const WorkoutPlan = ({ workouts }) => {
                     
                   </div>
                 )}
-                </button>
+              </button>
 
                 {/* Beginner Fullbody Workout EXPANDED starts here */}
                 {expandedPlans === index && (
-                  <div>
+                  <div className=" max-w-screen-sm rounded-t-lg">
                     <h5 className="mb-2 pb-1 rounded-t-sm to-zinc-900 text-center font-cthulhumbus text-xl font-extrabold text-teal-500 shadow-2xl">
                       {plan.name}
                     </h5>
@@ -161,13 +161,11 @@ const WorkoutPlan = ({ workouts }) => {
                                     </div>
                                   </button>
 
+
                                 </div>
                               )}
 
-
-
                               {/* COLLAPSED content for exercises */}
-
                               {expandedExercise === exIndex && (
                                 
                               <div className="">
@@ -227,7 +225,7 @@ const WorkoutPlan = ({ workouts }) => {
 
                         {/* Render splits for plans with splits */}
                         {plan.split &&
-                          plan.splits.map((split, splitIndex, group, groupIndex) => (
+                          plan.splits.map((split, splitIndex) => (
 
                           // Container Split A / B COLLAPSED
                           <div key={splitIndex} className="mb-2 mt-2 rounded-lg border-4 border-teal-800 bg-zinc-700 p-4 shadow-md">
@@ -272,11 +270,7 @@ const WorkoutPlan = ({ workouts }) => {
                                               
                                               <div className="max-w-screen-sm">
 
-  
-                                              </div>
-                                            )}
-
-                                              <div className="flex flex-row justify-between items-center">    
+                                                <div className="flex flex-row justify-between items-center">    
                                                   <h6 className="mt-4 rounded-md text-lg font-bold text-teal-500">
                                                     {fullExercise.name}
                                                   </h6>
@@ -288,28 +282,86 @@ const WorkoutPlan = ({ workouts }) => {
                                                   className=""
                                                 />
 
-                                            <div>
+
+                                                <button className="w-full focus:outline-none">
+
+                                                  
+                                                  <div onClick={() => toggleExercise(exerciseIndex)} className='flex flex-row justify-center text-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900'>
+
+
+                                                    
+                                                    <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                                    {/* <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />  */}
+                                                    </svg>
+                                                    </div>
+                                                </button>
 
 
 
+                                              </div>
+                                            )}
 
+                                          <div>
 
-
-                                            <button className="w-full focus:outline-none">
-                                                <div onClick={() => toggleExercise(exerciseIndex)} className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
-                                                  <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                                                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                                  {/* <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />  */}
-                                                  </svg>
-                                                </div>
-                                              </button>
                                             {/* Collapsible content for exercises */}
-
-
                                             {expandedExercise === exerciseIndex && (
                                               <div className="mt-2">
 
-                                                <span className="font-extrabold text-teal-500">Force: </span>
+
+
+
+
+
+                                                                                    {/* SANDBOX START */}
+                                                                                    <button onClick={() => toggleExercise(index)} className="w-full focus:outline-none">
+
+{/* COLLAPSED Exercise Content */}
+{expandedExercise !== exerciseIndex && (
+  <div className="card max-w-screen-sm rounded-t-lg">
+                    
+    <button onClick={() => toggleExercise(index)} className="w-full focus:outline-none">
+      <div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
+        <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          {/* <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /> */}
+        </svg>
+      </div>
+    </button>
+
+
+
+  </div>
+  )}
+
+{/* EXPANDED Exercise Content */}
+{setExpandedExercise !== exerciseIndex && (
+  <div className="card max-w-screen-sm rounded-t-lg">
+
+    <div className="flex flex-row justify-between items-center">    
+      <h6 className="mt-4 rounded-md text-lg font-bold text-teal-500">
+        {fullExercise.name}
+      </h6>
+    </div>
+
+    <img
+      src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
+      alt={exercise.name}
+      className=""
+    />
+
+    <button onClick={() => toggleExercise(index)} className="w-full focus:outline-none">
+      <div className='flex flex-row justify-center mt-2 cursor-pointer rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center'>
+        <svg className="text-teal-500 size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          {/* <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /> */}
+          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </svg>
+      </div>
+    </button>
+
+    <h6 className="mt-2 font-extrabold text-teal-500">Instructions:</h6>
+
+    <span className="font-extrabold text-teal-500">Force: </span>
                                                 <span className="capitalize text-slate-300">
                                                   {fullExercise.force}
                                                 </span>
@@ -342,17 +394,23 @@ const WorkoutPlan = ({ workouts }) => {
                                                     <br />
                                                   </>
                                                 )}
-                                                <h6 className="mt-2 font-extrabold text-teal-500">Instructions:</h6>
+<ul className="list-disc pl-5">
+  {fullExercise.instructions.map((instruction, instrIndex) => (
+    <li key={instrIndex} className="text-sm text-slate-300">
+      {instruction}
+    </li>
+  ))}
+</ul>
+  </div>
+)}
 
-                                                <ul className="list-disc pl-5">
-                                                  {fullExercise.instructions.map((instruction, instrIndex) => (
-                                                    <li key={instrIndex} className="text-sm text-slate-300">
-                                                      {instruction}
-                                                    </li>
-                                                  ))}
-                                                </ul>
-                                              </div>
-                                            )}
+</button>
+{/* SANDBOX END */}
+                                            </div>
+                                           )}
+
+
+
                                           </div>
                                         </div>
                                         </div>
