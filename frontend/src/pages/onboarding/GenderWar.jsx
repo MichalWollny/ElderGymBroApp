@@ -201,8 +201,7 @@ const GenderWar = () => {
             {/* Modal content */}
             {/* Conditional rendering to check if selectedGender is not null */}
             {selectedGender && selectedGender.name !== 'Male' && selectedGender.name !== 'Female' && (
-              <div
-                className={`cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg`}>
+              <div className="cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg">
                 <div className="px-6 py-2 text-center">
                   <div className="font-cthulhumbus text-lg font-bold text-teal-500">{randomMessage}</div>
                 </div>
@@ -223,8 +222,7 @@ const GenderWar = () => {
               </div>
             )}
             {selectedGender && (selectedGender.name === 'Male' || selectedGender.name === 'Female') && (
-              <div
-                className={`cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg`}>
+              <div className="cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg">
                 <div className="px-6 py-2 text-center">
                   <div className="font-cthulhumbus text-lg font-bold text-teal-500">{randomMessage}</div>
                 </div>
