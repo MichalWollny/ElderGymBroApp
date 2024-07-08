@@ -14,15 +14,14 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
 function LoginForm() {
+  const { setIsLoggedIn, isLoggedIn, checkUser, userData } = useAuth();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const { setIsLoggedIn, checkUser, userData } = useAuth();
-
   // for the background gradient
   const color = useMotionValue(COLORS_TOP[0]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     animate(color, COLORS_TOP, {
@@ -34,6 +33,32 @@ function LoginForm() {
   }, [color]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      await checkUser(); // Check if the user is logged in
+      if (isLoggedIn) {
+        const { gender, fitnessLevel, workoutAim } = userData;
+        // Scenario 1: All fields are filled
+        if (gender !== '' && fitnessLevel !== '' && workoutAim !== '') {
+          toast.success('🎉 Welcome back. Happy grinding');
+          navigate('/home');
+        }
+        // Scenario 2: All fields are empty
+        else if (gender === '' && fitnessLevel === '' && workoutAim === '') {
+          toast.success('🏆 Successfully logged in! Welcome mortal');
+          navigate('/startyourjourney');
+        }
+        // Scenario 3: One or two fields are empty
+        else {
+          toast.info('🚀 Finish your onboarding');
+          navigate('/startyourjourney');
+        }
+      }
+    };
+
+    checkLoginStatus();
+  }, []); // The empty array ensures this effect runs only once on component mount. Ignore the "Problem"
 
   // Handle Login
   const handleLogin = async (e) => {
