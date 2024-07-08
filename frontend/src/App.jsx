@@ -24,6 +24,7 @@ import Dashboard from './pages/Dashboard';
 import GenderWar from './pages/onboarding/GenderWar';
 import ProgressTracker from './pages/ProgressTracker';
 import UserBar from './assets/components/UserBar';
+import UserWorkout from './pages/UserWorkout';
 import PrivateRoute from './utils/PrivateRoute';
 import AccessDeniedPage from './pages/AccessDeniedPage';
 
@@ -41,9 +42,12 @@ function App() {
     '/profile',
     '/edituserdata',
     '/testpage',
+    '/userworkout',
   ].includes(location.pathname);
 
-  // const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage', '/profile'].includes(location.pathname);
+  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/userworkouts', '/testpage'].includes(
+    location.pathname,
+  );
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -68,7 +72,7 @@ function App() {
       {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
       {/* Bottom Nav */}
       {showBottomNav && <BottomNav />}
-      {/* {showUserBar && <UserBar />} */}
+      {showUserBar && <UserBar />}
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -116,6 +120,7 @@ function App() {
           <Route path="/gender" element={<GenderWar />} />
           <Route path="/template" element={<Template />} />
           <Route path="/uielements" element={<UIElements />} />
+          <Route path="/userworkout" element={<UserWorkout />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
