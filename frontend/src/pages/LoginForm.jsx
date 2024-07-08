@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 import { Container, TextField, Button, Grid, InputAdornment, IconButton } from '@mui/material';
 import { toast } from 'react-toastify';
 import { Stars } from '@react-three/drei';
@@ -11,7 +10,6 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useAuth } from '../context/AuthProvider';
 
-// colors for the background gradient
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
 function LoginForm() {
@@ -21,7 +19,8 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  // for the background gradient
+  const [checkingUser, setCheckingUser] = useState(true); // State to track user data check
+
   const color = useMotionValue(COLORS_TOP[0]);
 
   useEffect(() => {
@@ -36,70 +35,53 @@ function LoginForm() {
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
 
   useEffect(() => {
-    const checkLoginStatus = async () => {
-      if (isLoggedIn) {
+    const fetchUserData = async () => {
+      await checkUser();
+      setCheckingUser(false); // Set checkingUser to false after checkUser completes
+    };
+    fetchUserData();
+  }, []);
+
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      if (isLoggedIn && userData) {
         const { gender, fitnessLevel, workoutAim } = userData;
-        // Scenario 1: All fields are filled
-        if (gender !== '' && fitnessLevel !== '' && workoutAim !== '') {
+        if (gender && fitnessLevel && workoutAim) {
           toast.success('🎉 Welcome back. Happy grinding');
           navigate('/home');
-        }
-        // Scenario 2: All fields are empty
-        else if (gender === '' && fitnessLevel === '' && workoutAim === '') {
+        } else if (!gender && !fitnessLevel && !workoutAim) {
           toast.success('🏆 Successfully logged in! Welcome mortal');
           navigate('/startyourjourney');
-        }
-        // Scenario 3: One or two fields are empty
-        else {
+        } else {
           toast.info('🚀 Finish your onboarding');
           navigate('/startyourjourney');
         }
       }
     };
 
-    checkLoginStatus();
-  }, []); // The empty array ensures this effect runs only once on component mount. Ignore the "Problem"
+    if (!checkingUser) {
+      checkLoginStatus();
+    }
+  }, [isLoggedIn, userData, checkingUser, navigate]);
 
-  // Handle Login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/auth/login`,
-        {
-          email,
-          password,
-        },
+        { email, password },
         { withCredentials: true },
       );
 
       if (response.status === 200) {
-        setIsLoggedIn(true);
         await checkUser();
-        const { gender, fitnessLevel, workoutAim } = await userData;
-
-        // Scenario 1: All fields are filled
-        if (gender !== '' && fitnessLevel !== '' && workoutAim !== '') {
-          toast.success('🎉 Welcome back. Happy grinding');
-          navigate('/home');
-        }
-        // Scenario 2: All fields are empty
-        else if (gender === '' && fitnessLevel === '' && workoutAim === '') {
-          toast.success('🏆 Successfully logged in! Welcome mortal');
-          navigate('/startyourjourney');
-        }
-        // Scenario 3: One or two fields are empty
-        else {
-          toast.info('🚀 Finish your onboarding');
-          navigate('/startyourjourney');
-        }
+        setIsLoggedIn(true);
       }
     } catch (error) {
       toast.error(error.response.data.error);
     }
   };
 
-  //HandleClickShowPassword
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
