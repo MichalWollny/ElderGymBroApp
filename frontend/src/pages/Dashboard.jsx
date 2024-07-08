@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const cards = [
   {
@@ -13,6 +15,10 @@ const cards = [
 const Dashboard = () => {
   const { userData, checkUser } = useAuth();
   const [expandedElement, setExpandedElements] = useState(null);
+  const navigate = useNavigate();
+  const [activeWorkout, setActiveWorkout] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!userData || !userData.username) {
@@ -28,6 +34,46 @@ const Dashboard = () => {
     return <div>Loading...</div>; // Show loading state while fetching data
   }
   console.log(userData);
+
+  // useEffect(() => {
+  //   const getActiveWorkout = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
+  //         withCredentials: true,
+  //       });
+  //       setActiveWorkout(response.data.activeWorkout);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       setError(error.message);
+  //       console.error(error);
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   getActiveWorkout();
+  // }, []);
+  // console.log(activateWorkout);
+
+  // const activateWorkout = async (activeWorkout) => {
+  //   try {
+  //     await axios.patch(
+  //       `${import.meta.env.VITE_API_URL}/me/workouttracking/addWorkoutProgress`,
+  //       {
+  //         activeWorkoutId: `${activeWorkout.id}`,
+  //         progress: [],
+  //       },
+  //       {
+  //         withCredentials: true,
+  //       },
+  //     );
+
+  //     // Navigate to /userworkout after successful tracking update
+  //     navigate('/userworkout');
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
       <div className="flex flex-row justify-center">
@@ -36,7 +82,7 @@ const Dashboard = () => {
         </h1>
       </div>
 
-      <div className="flex cursor-pointer flex-row justify-center">
+      <div className="flex cursor-pointer flex-col justify-center">
         <div className="flex flex-col">
           <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
             {userData.awards?.title || 'No Title'}
@@ -45,6 +91,12 @@ const Dashboard = () => {
             Welcome Dear {userData.fullName || 'No Name'}
           </h1>
         </div>
+        <button
+          className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
+          // onClick={() => activateWorkout(activeWorkout)}>
+          onClick={() => navigate('/userworkout')}>
+          Start Workout!
+        </button>
       </div>
 
       <h2 className="px-4 font-cthulhumbus">Active workout</h2>
