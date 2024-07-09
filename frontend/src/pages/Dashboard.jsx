@@ -3,8 +3,6 @@ import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import gymLordImage from '../assets/images/gymLord.png';
-import Button from '@mui/material/Button';
 import Slider from 'react-slick';
 import React from 'react';
 import UICard from '../assets/components/UICard';
@@ -45,7 +43,6 @@ const cards = [
 
 const Dashboard = ({ workouts }) => {
   const { userData, checkUser } = useAuth();
-  const [expandedElement, setExpandedElements] = useState(null);
   const navigate = useNavigate();
   const [activeWorkout, setActiveWorkout] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -55,14 +52,9 @@ const Dashboard = ({ workouts }) => {
   const [workoutCompleted, setWorkoutCompleted] = useState(false);
 
   useEffect(() => {
-    if (!userData || !userData.username) {
-      checkUser(); // Fetch user data if not already available
-    }
-  }, [userData, checkUser]);
-
-  const toggleElement = () => {
-    setExpandedElements(!expandedElement);
-  };
+    checkUser(); // Fetch the latest user data when the component is loaded
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const getActiveWorkout = async () => {
