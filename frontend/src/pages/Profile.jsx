@@ -143,7 +143,7 @@ const Profile = () => {
                     {userData.title || 'The infamous'}
                   </h1>
                   <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
-                    {userData.username || 'Lord of the Gym'}
+                    {userData.fullName || 'Lord of the Gym'}
                   </h1>
                 </div>
               </div>
