@@ -22,23 +22,23 @@ const activeworkout = [
 const cards = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/icons/svg/number1.svg',
-    heading: 'News Headline 1',
-    subheading: 'News Subheadline1',
+    image: '/src/assets/images/firstlogin.jpeg',
+    heading: 'Mike',
+    subheading: 'First Incantation of Fitness',
     // other props...
   },
   {
     // Built Up Your Stamina Card
-    image: '/src/assets/icons/svg/number2.svg',
-    heading: 'News Headline 2',
-    subheading: 'News Subheadline2',
+    image: '/src/assets/images/firstplancreated.jpeg',
+    heading: 'Malte',
+    subheading: 'First Incantation of Fitness',
     // other props...
   },
   {
     // Grow Your Muscles Card
-    image: '/src/assets/icons/svg/number3.svg',
-    heading: 'News Headline 3',
-    subheading: 'News Subheadline3',
+    image: '/src/assets/images/weekendworkout.jpeg',
+    heading: 'Walter',
+    subheading: 'Weekend Workout Cultist',
     // other props...
   },
 
@@ -112,8 +112,10 @@ const Dashboard = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1.5,
+    slidesToShow: 1,
     slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '20%',
   };
 
    // UICard small settings
@@ -121,8 +123,10 @@ const Dashboard = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3.5,
+    slidesToShow: 1,
     slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '35%',
   };
 
 
@@ -135,7 +139,7 @@ const Dashboard = () => {
         </h1>
 
         <div className="flex flex-col ">
-          <h2 className="px-4 font-cthulhumbus text-base">Active workout</h2>
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">Active workout</h2>
         </div>
 
       <div className="flex flex-row">
@@ -146,11 +150,11 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
-        <button
+        {/* <button
           className="mt-4 px-2  rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
           onClick={() => activateWorkout(activeWorkout)}>
           Start Workout
-        </button>
+        </button> */}
         {/* <Button
           type="button"
           variant="contained"
@@ -160,16 +164,8 @@ const Dashboard = () => {
         </Button> */}
       </div> 
 
+        <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">Workout Selection</h2>
 
-
-
-
-        <h2 className="px-4 font-cthulhumbus text-base">Cult News</h2>
-        <br/>
-
-        <div className="flex flex-col ">
-          <h2 className="px-4 font-cthulhumbus text-base">Slider with large UICards</h2>
-        </div>
         <div className=' px-4'>
           <Slider {...settingslarge}>
             {cards.map((card, index) => (
@@ -182,7 +178,7 @@ const Dashboard = () => {
         <br/>
         <br/>
         <div className="flex flex-col ">
-          <h2 className="px-4 font-cthulhumbus text-base">Slider with small UICards</h2>
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">Other Cultists' Achievments</h2>
         </div>
         <div className='px-4'>
           <Slider {...settingssmall}>
