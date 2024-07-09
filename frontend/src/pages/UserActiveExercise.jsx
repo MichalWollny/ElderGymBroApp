@@ -58,7 +58,7 @@ const UserActiveExercise = ({
           withCredentials: true,
         },
       );
-      onComplete(); // Call the onComplete function
+      onComplete(); // Call the onComplete function in UserWorkout.jsx
     } catch (error) {
       console.error(error);
     }
