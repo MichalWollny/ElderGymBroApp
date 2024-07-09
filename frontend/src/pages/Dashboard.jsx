@@ -7,37 +7,39 @@ import Slider from 'react-slick';
 import React from 'react';
 import UICard from '../assets/components/UICard';
 
+// Importing images directly
+import beginnerFullbodyWorkoutImage from '../assets/images/workouts/Beginner_Fullbody_Workout.jpg';
+import firstLoginImage from '../assets/images/firstlogin.jpeg';
+import firstPlanCreatedImage from '../assets/images/firstplancreated.jpeg';
+import weekendWorkoutImage from '../assets/images/weekendworkout.jpeg';
+
 const activeworkout = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/images/workouts/Beginner_Fullbody_Workout.jpg',
+    image: beginnerFullbodyWorkoutImage,
     heading: 'Beginner Fullbody Workout',
     subheading: 'A lone tribute to the muscle deity',
-    // other props...
   },
 ];
 
 const cards = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/images/firstlogin.jpeg',
+    image: firstLoginImage,
     heading: 'Mike',
     subheading: 'First Incantation of Fitness',
-    // other props...
   },
   {
     // Built Up Your Stamina Card
-    image: '/src/assets/images/firstplancreated.jpeg',
+    image: firstPlanCreatedImage,
     heading: 'Malte',
     subheading: 'First Incantation of Fitness',
-    // other props...
   },
   {
     // Grow Your Muscles Card
-    image: '/src/assets/images/weekendworkout.jpeg',
+    image: weekendWorkoutImage,
     heading: 'Walter',
     subheading: 'Weekend Workout Cultist',
-    // other props...
   },
 ];
 
@@ -171,56 +173,58 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container mx-auto mb-8 flex min-h-svh flex-col bg-gradient-to-br from-black to-blue-950 p-4">
-      <div className="mt-16 flex flex-col justify-center">
-        <div className="flex cursor-pointer flex-col justify-center">
-          <div className="flex flex-col">
-            <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
+    <div className="container mx-auto flex min-h-screen flex-col bg-gradient-to-br from-black to-blue-950 p-4 pb-24 text-white">
+      <div className="mt-16 flex flex-col items-center justify-center">
+        <div className="flex cursor-pointer flex-col items-center justify-center">
+          <div className="flex flex-col items-center">
+            <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-4xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
               Welcome Dear <br /> {userData.fullName}!
             </h1>
           </div>
-          <div className="flex items-center justify-center">
-            {(!workoutCompleted && (
-              <button
-                className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center"
-                onClick={() => activateWorkout(activeWorkout)}>
-                Start Workout!
-              </button>
-            )) || (
-              <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-2xl">
-                <span className="text-xl">Your workout for the day is complete!</span> <br />
-                <span>Cthulhu is pleased!</span>
-              </div>
-            )}
-          </div>
-          {/* placeholder  */}
         </div>
 
-        <div className="flex flex-col">
-          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+        <div className="mt-2 w-full">
+          <hr className="my-4 w-full border-gray-500 opacity-50" />
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
             Active workout
           </h2>
         </div>
 
-        <div className="flex flex-row">
-          <div className="flex flex-row">
-            {activeworkout.map((activeworkout, index) => (
-              <div key={index}>
-                <UICardLarge
-                  image={activeworkout.image}
-                  heading={activeworkout.heading}
-                  subheading={activeworkout.subheading}
-                />
-              </div>
-            ))}
-          </div>
+        <div className="flex items-center justify-center text-center">
+          {activeworkout.map((activeworkout, index) => (
+            <div key={index}>
+              <UICardLarge
+                image={activeworkout.image}
+                heading={activeworkout.heading}
+                subheading={activeworkout.subheading}
+              />
+            </div>
+          ))}
         </div>
 
-        <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-          Workout Selection
-        </h2>
+        <div className="mt-0 flex items-center justify-center">
+          {!workoutCompleted ? (
+            <button
+              className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-3 text-center"
+              onClick={() => activateWorkout(activeWorkout)}>
+              Start Workout
+            </button>
+          ) : (
+            <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-4 text-center font-cthulhumbus text-2xl">
+              <span className="text-xl">Your workout for the day is complete!</span> <br />
+              <span>Cthulhu is pleased!</span>
+            </div>
+          )}
+        </div>
 
-        <div className="px-4">
+        <div className="mt-4 w-full">
+          <hr className="my-4 w-full border-gray-500 opacity-50" />
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
+            Workout Selection
+          </h2>
+        </div>
+
+        <div className="mt-4 w-full px-4">
           <Slider {...settingslarge}>
             {cards.map((card, index) => (
               <div key={index}>
@@ -229,14 +233,15 @@ const Dashboard = () => {
             ))}
           </Slider>
         </div>
-        <br />
-        <br />
-        <div className="flex flex-col">
-          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-            Other Cultists&apos; Achievments
+
+        <div className="mt-8 w-full">
+          <hr className="my-4 w-full border-gray-500 opacity-50" />
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
+            Other Cultists&apos; Achievements
           </h2>
         </div>
-        <div className="px-4">
+
+        <div className="mt-4 w-full px-4">
           <Slider {...settingssmall}>
             {cards.map((card, index) => (
               <div key={index}>
@@ -245,7 +250,6 @@ const Dashboard = () => {
             ))}
           </Slider>
         </div>
-        <br />
       </div>
     </div>
   );
