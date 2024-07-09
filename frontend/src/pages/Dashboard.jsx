@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import gymLordImage from '../assets/images/gymLord.png';
 
@@ -34,8 +34,6 @@ const Dashboard = () => {
     setExpandedElements(!expandedElement);
   };
 
-  console.log(userData);
-
   useEffect(() => {
     const getActiveWorkout = async () => {
       setIsLoading(true);
@@ -43,45 +41,53 @@ const Dashboard = () => {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
           withCredentials: true,
         });
-        setActiveWorkout(response.data.activeWorkout || {});
-        setWorkoutExercises(response.data.activeWorkout?.exercises || []);
-        setIsLoading(false);
 
-        if (userData && response.data.activeWorkout) {
-          const todaysProgress = userData?.progressTracking
-            ?.find((progressTracking) => progressTracking?.workoutId === response?.data?.activeWorkout?.id)
-            ?.progress?.find((day) => day?.date === today);
+        const activeWorkoutData = response.data.activeWorkout;
+        setActiveWorkout(activeWorkoutData || {});
+        setWorkoutExercises(activeWorkoutData?.exercises || []);
 
-          const todaysDate = new Date().now;
+        if (userData && activeWorkoutData) {
+          const today = new Date().toISOString().split('T')[0]; // Ensure date comparison format is correct
+          console.log('Today:', today);
 
-          console.log(today);
-          console.log(
-            userData.progressTracking
-              .find((progressTracking) => progressTracking.workoutId)
-              .progress.find((progress) => progress.day === todaysDate),
+          // Log userData to check the structure
+          console.log('UserData:', userData);
+
+          const progressTracking = userData.progressTracking?.find(
+            (progressTracking) => progressTracking.workoutId === activeWorkoutData.id,
           );
-          setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay);
+
+          console.log('ProgressTracking:', progressTracking);
+
+          const todaysProgress = progressTracking?.progress?.find((day) => {
+            const dayDate = new Date(day.day).toISOString().split('T')[0];
+            console.log('Comparing:', dayDate, 'with', today);
+            return dayDate === today;
+          });
+
+          console.log('TodaysProgress:', todaysProgress);
+
+          setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay || []);
 
           // Check if the workout is completed
-          if (todaysProgress?.exercisesOfTheDay.length >= response.data.activeWorkout.exercises.length) {
+          if (todaysProgress?.exercisesOfTheDay?.length == activeWorkoutData.exercises.length) {
             setWorkoutCompleted(true);
           } else {
             setWorkoutCompleted(false);
           }
-
-          console.log(todaysProgress?.exercisesOfTheDay.length);
-          console.log(activeWorkout);
-          console.log(workoutCompleted);
         }
-
-        setIsLoading(false);
+        console.log(workoutCompleted);
       } catch (error) {
         setError(error.message);
         console.error('Error fetching active workout:', error);
+      } finally {
         setIsLoading(false);
       }
     };
-    getActiveWorkout();
+
+    if (userData) {
+      getActiveWorkout();
+    }
   }, [userData]);
 
   const activateWorkout = async (activeWorkout) => {
@@ -104,12 +110,20 @@ const Dashboard = () => {
     }
   };
 
-  if (!userData || !userData.username) {
+  if (isLoading) {
     // Show loading state while fetching data
     return <div>Loading...</div>;
   }
 
-  console.log(activeWorkout);
+  if (error) {
+    // Show error state
+    return <div>Error: {error}</div>;
+  }
+
+  if (!userData || !userData.username) {
+    // Show loading state while fetching data
+    return <div>Loading user data...</div>;
+  }
 
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 pt-20 text-gray-200">
@@ -121,13 +135,20 @@ const Dashboard = () => {
             Welcome Dear {userData.fullName || 'No Name'}
           </h1>
         </div>
-        {!workoutCompleted && (
-          <button
-            className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
-            onClick={() => activateWorkout(activeWorkout)}>
-            Start Workout!
-          </button>
-        )}
+        <div className="flex items-center justify-center">
+          {(!workoutCompleted && (
+            <button
+              className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
+              onClick={() => activateWorkout(activeWorkout)}>
+              Start Workout!
+            </button>
+          )) || (
+            <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-2xl">
+              <span className="text-xl">Yor workout for the the day is complete!</span> <br />
+              <span>Cthulhu is pleased!</span>
+            </div>
+          )}
+        </div>
       </div>
 
       <h2 className="px-4 font-cthulhumbus">Active workout</h2>
