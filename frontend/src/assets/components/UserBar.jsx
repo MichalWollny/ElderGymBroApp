@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Cookies from 'js-cookie';
+import Cookies from 'js-cookie'; // Import js-cookie
 import { useAuth } from '../../context/AuthProvider';
 
 const UserBar = () => {
@@ -10,15 +10,18 @@ const UserBar = () => {
 
   const logOut = async () => {
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, { withCredentials: true });
-      console.log('Logout response:', response.data);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/logout`,
+        {},
+        {
+          withCredentials: true,
+        },
+      );
       console.log('Logout successful, you have escaped... for now', response);
-      Cookies.remove('token'); // Clear the cookie on the client side
       setIsLoggedIn(false);
       setUserData({});
       navigate('/login');
     } catch (error) {
-      console.error('Logout failed', error);
       console.error('Logout failed, you will never leave the cult!', error.message);
     }
   };
@@ -32,7 +35,7 @@ const UserBar = () => {
       // label: 'Logout',
       icon: (
         <button className="flex h-12 w-12 items-center" onClick={logOut}>
-          <img className="h-auto min-w-12" src="../src/assets/icons/logout1.png" alt="Logout" />
+          <img className="h-auto min-w-16" src="../src/assets/icons/logout1.png" alt="Logout" />
         </button>
       ),
       path: '/',
