@@ -6,9 +6,12 @@ import Slider from 'react-slick';
 import UserActiveExercise from './UserActiveExercise';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './carousel.css'; // Import custom CSS for the carousel
+import './carousel.css';
 import Confetti from 'react-confetti';
 import doneImage from '../assets/images/finished.png';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'daisyui/dist/full.css';
 
 const UserWorkout = () => {
   const { userData, checkUser } = useAuth();
@@ -19,6 +22,7 @@ const UserWorkout = () => {
   const [selectedIndex, setSelectedIndex] = useState(0); // Track selected index
   const [completedExercises, setCompletedExercises] = useState([]); // Track completed exercises
   const [showModal, setShowModal] = useState(false); // Track modal visibility
+  const [karmaPoints, setKarmaPoints] = useState(0); // Track karma points
   const sliderRef = useRef(null); // Reference to the slider
   const navigate = useNavigate(); // Use navigate for routing
 
@@ -77,6 +81,40 @@ const UserWorkout = () => {
     }
   };
 
+  const completeExerciseWithKarma = async (exercise) => {
+    try {
+      // Complete exercise
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/me/workouttracking/addExerciseProgress/${activeWorkout.id}/${exercise.id}`,
+        {
+          exerciseId: exercise.id,
+          exerciseName: exercise.name,
+          sets: exercise.setsData,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+
+      // Award karma points
+      await axios.patch(
+        `${import.meta.env.VITE_API_URL}/profile/me/karma`,
+        { awards: { karmaPoints: { $inc: 10 } } },
+        { withCredentials: true },
+      );
+
+      // Update local karma points state
+      setKarmaPoints(karmaPoints + 10);
+
+      // Show toast notification
+      toast.success('✨ 10 dark blessings received!', { autoClose: 2000 });
+
+      handleCompleteExercise(); // Move to the next exercise and handle completion logic
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   // Slider settings
   const settings = {
     dots: true,
@@ -115,8 +153,17 @@ const UserWorkout = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-2 font-cthulhumbus">
-      <div className="w-full max-w-screen-sm">
+    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-0 font-cthulhumbus">
+      <div className="fixed left-0 right-0 top-0 z-50 bg-black p-0 text-center text-white shadow-md">
+        <div className="flex items-center justify-center">
+          <span className="mr-2">Karma</span>
+          <progress className="progress progress-accent w-56" value={karmaPoints} max="100"></progress>
+          <span className="ml-2">+ {karmaPoints} pts</span>
+        </div>
+      </div>
+      <div className="mt-6 w-full max-w-screen-sm">
+        {' '}
+        {/* Adjust margin to make space for the progress bar */}
         <h2 className="px-4 py-2 text-center font-cthulhumbus text-xl text-white">Exercise List</h2>
         {isLoading ? (
           <div>Loading...</div>
@@ -148,11 +195,15 @@ const UserWorkout = () => {
           <UserActiveExercise
             exercise={activeExercise}
             activeWorkout={activeWorkout}
-            onComplete={handleCompleteExercise}
+            onComplete={completeExerciseWithKarma}
+            onCompleteWithoutKarma={handleCompleteExercise} // New prop for skipping without karma
             isCompleted={completedExercises.includes(selectedIndex)}
             setCompletedExercises={setCompletedExercises}
             completedExercises={completedExercises}
             selectedIndex={selectedIndex}
+            sliderRef={sliderRef} // Pass sliderRef
+            handleExerciseClick={handleExerciseClick} // Pass handleExerciseClick
+            setShowModal={setShowModal} // Pass setShowModal
           />
         ) : (
           <p className="text-center text-white">Choose an Exercise</p>
@@ -169,7 +220,8 @@ const UserWorkout = () => {
           />
           <div className="relative z-10 w-full max-w-sm rounded-lg bg-white p-6 shadow-lg">
             <h2 className="text-center text-2xl font-bold text-green-500">Well done!</h2>
-            <p className="mt-4 pb-4 text-center text-green-500">You have completed all exercises.</p>
+            <p className="mt-4 text-center text-green-500">You have completed all exercises.</p>
+            <p className="pb-4 text-center text-green-500">Total Karma Points Collected: {karmaPoints}</p>
             <img src={doneImage} alt="Well done" className="mx-auto mb-4 h-32 w-32" />
             <button className="mt-6 w-full rounded-md bg-green-500 py-2 text-white" onClick={() => navigate('/home')}>
               Completed
