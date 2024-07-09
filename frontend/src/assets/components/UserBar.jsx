@@ -1,59 +1,41 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Cookies from 'js-cookie';
 import { useAuth } from '../../context/AuthProvider';
 import StyledCircularProgressbar from './CircularProgress';
 
 const UserBar = () => {
-  const { userData, setUserData, isLoggedIn, setIsLoggedIn } = useAuth();
-  const navigate = useNavigate();
-
-  // activeIndex, storing the currently active nav item index
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Handle navigation
-  const handleNavigation = (index, path) => {
-    setActiveIndex(index);
-    navigate(path);
-  };
-
-  console.log(userData.awards);
+  const { userData, isLoggedIn } = useAuth();
 
   return (
-    <nav className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-gray-900 font-cthulhumbus shadow-md">
-      {/* Wrapper div to center the username */}
-      <div className="flex w-full items-center justify-center">
+    <nav className="fixed top-0 z-50 flex w-full items-center justify-between bg-gray-900 py-2 font-cthulhumbus shadow-md">
+      <div className="grid w-full grid-cols-3">
+        <div></div>
         {isLoggedIn && userData ? (
-          <p className="text-center text-teal-700" style={{ zIndex: 2 }}>
-            <span className="mb-0 pb-0 text-lg">{userData.username || 'No username'}</span> <br />
-            <span className="mt-0 cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-sm font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
+          <div className="flex flex-col items-center justify-center">
+            <div className="mt-2 cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text text-center font-cthulhumbus text-xl font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+              {userData.username || 'No username'}
+            </div>
+            <div className="mt-0 cursor-default text-nowrap bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text text-center font-cthulhumbus text-lg font-medium leading-tight text-transparent sm:text-2xl md:text-xl">
               {userData.awards?.title || 'No title'}
-            </span>
-          </p>
+            </div>
+          </div>
         ) : (
           <p className="text-center text-teal-700">Loading...</p>
         )}
-      </div>
-      <div className="relative h-auto w-20 font-cthulhumbus">
-        {/* <img
-          src="../src/assets/icons/levelbackground2.png"
-          alt="Level Background"
-          className="absolute inset-0 left-12 top-4 -m-10 h-[210%] w-[210%] object-cover"
-        /> */}
-        <div className="relative z-10 flex h-full items-center justify-center">
-          {isLoggedIn && userData ? (
-            <StyledCircularProgressbar
-              value={userData.awards?.progress}
-              text={userData.awards?.level}
-              className="pr-5"
-              background={true}
-              strokeWidth={15}
-              backgroundPadding={0}
-            />
-          ) : (
-            <p className="text-center text-teal-700">Loading...</p>
-          )}
+        <div className="ml-6 flex flex-col justify-center">
+          <div className="mx-auto mt-2 w-8 sm:w-12 md:w-16">
+            {isLoggedIn && userData ? (
+              <StyledCircularProgressbar
+                value={userData.awards?.progress}
+                text={userData.awards?.level}
+                className=""
+                background={true}
+                strokeWidth={15}
+                backgroundPadding={0}
+              />
+            ) : (
+              <p className="text-center text-teal-500">Loading...</p>
+            )}
+          </div>
+          <p className="pt-1 text-center font-cthulhumbus text-xs text-teal-500">Karma</p>
         </div>
       </div>
     </nav>

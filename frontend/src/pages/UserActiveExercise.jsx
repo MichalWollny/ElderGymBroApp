@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import skippingImage from '../assets/images/skipping.png'; // Import the skipping image
+import skippingImage from '../assets/images/skipping.png';
 
 const UserActiveExercise = ({
   exercise,
   activeWorkout,
   onComplete,
+  onCompleteWithoutKarma, // New prop
   isCompleted,
   setCompletedExercises,
   completedExercises,
   selectedIndex,
+  sliderRef, // New prop
+  handleExerciseClick, // New prop
+  setShowModal, // New prop
 }) => {
   const [setsData, setSetsData] = useState([]);
   const [showSkipModal, setShowSkipModal] = useState(false); // Track skip modal visibility
@@ -46,22 +49,12 @@ const UserActiveExercise = ({
       return;
     }
 
-    try {
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/me/workouttracking/addExerciseProgress/${activeWorkout.id}/${exercise.id}`,
-        {
-          exerciseId: exercise.id,
-          exerciseName: exercise.name,
-          sets: setsData,
-        },
-        {
-          withCredentials: true,
-        },
-      );
-      onComplete(); // Call the onComplete function in UserWorkout.jsx
-    } catch (error) {
-      console.error(error);
-    }
+    // Call the onComplete function with exercise data to handle submission and karma points
+    await onComplete({
+      id: exercise.id,
+      name: exercise.name,
+      setsData: setsData,
+    });
   };
 
   const handleSkipExercise = () => {
@@ -69,8 +62,8 @@ const UserActiveExercise = ({
     setCompletedExercises([...completedExercises, selectedIndex]);
     // Close the skip modal
     setShowSkipModal(false);
-    // Move to the next exercise
-    onComplete();
+    // Move to the next exercise directly without awarding karma
+    onCompleteWithoutKarma();
   };
 
   const handleInputKeyDown = (e) => {
@@ -91,18 +84,20 @@ const UserActiveExercise = ({
     <div
       key={exercise.id}
       className={`m-4 border-4 border-solid ${isCompleted ? 'border-gray-500 bg-gray-300' : 'border-teal-800 bg-zinc-800'} rounded-lg p-4 font-cthulhumbus text-white shadow-md`}>
-      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'} pl-2`}>{exercise.name}</h2>
-      <img
+      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'} pb-2 pl-2 pt-2 text-center text-lg`}>
+        {exercise.name}
+      </h2>
+      {/* <img
         src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
         alt={exercise.name}
         className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''} pl-3`}
-      />
+      /> */}
       <form onSubmit={handleSubmit}>
         {setsData.map((set, index) => (
           <div
             key={index}
             className={`m-2 border-2 border-solid ${isCompleted ? 'border-gray-500 bg-gray-400' : 'border-teal-800 bg-zinc-700'} rounded-md p-2`}>
-            <p className={`${isCompleted ? 'text-gray-500' : ''} pb-2 text-pink-600 underline`}>
+            <p className={`${isCompleted ? 'text-gray-500' : ''} pb-2`}>
               Set <span>{index + 1}</span>
             </p>
             <label className={`${isCompleted ? 'text-gray-500' : ''}`}>Weight (kg)</label>
@@ -111,7 +106,7 @@ const UserActiveExercise = ({
               value={set.weight}
               onChange={(e) => handleSetChange(index, 'weight', e.target.value)}
               onKeyDown={handleInputKeyDown}
-              className="block w-full rounded-md border-0 bg-slate-200 py-1.5 pl-7 pr-20 text-gray-900 ring-2 ring-inset ring-pink-800 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-teal-800 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 bg-white py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               disabled={isCompleted}
             />
 
@@ -121,7 +116,7 @@ const UserActiveExercise = ({
               value={set.reps}
               onChange={(e) => handleSetChange(index, 'reps', e.target.value)}
               onKeyDown={handleInputKeyDown}
-              className="block w-full rounded-md border-0 bg-slate-200 py-1.5 pl-7 pr-20 text-gray-900 ring-2 ring-inset ring-pink-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-800 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 bg-white py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               disabled={isCompleted}
             />
           </div>
