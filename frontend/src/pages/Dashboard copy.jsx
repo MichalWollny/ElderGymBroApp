@@ -17,12 +17,9 @@ const Dashboard = () => {
   const { userData, checkUser } = useAuth();
   const [expandedElement, setExpandedElements] = useState(null);
   const navigate = useNavigate();
-  const [activeWorkout, setActiveWorkout] = useState({});
+  const [activeWorkout, setActiveWorkout] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [workoutExercises, setWorkoutExercises] = useState([]);
-  const [todaysDoneExercises, setTodaysDoneExercises] = useState([]);
-  const [workoutCompleted, setWorkoutCompleted] = useState(false);
 
   useEffect(() => {
     if (!userData || !userData.username) {
@@ -34,46 +31,17 @@ const Dashboard = () => {
     setExpandedElements(!expandedElement);
   };
 
-  console.log(userData);
-
   useEffect(() => {
     const getActiveWorkout = async () => {
       setIsLoading(true);
+      const apiUrl = `${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`;
+      console.log('Request URL:', apiUrl); // Log the URL
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
+        const response = await axios.get(apiUrl, {
           withCredentials: true,
         });
-        setActiveWorkout(response.data.activeWorkout || {});
-        setWorkoutExercises(response.data.activeWorkout?.exercises || []);
-        setIsLoading(false);
-
-        if (userData && response.data.activeWorkout) {
-          const todaysProgress = userData?.progressTracking
-            ?.find((progressTracking) => progressTracking?.workoutId === response?.data?.activeWorkout?.id)
-            ?.progress?.find((day) => day?.date === today);
-
-          const todaysDate = new Date().now;
-
-          console.log(today);
-          console.log(
-            userData.progressTracking
-              .find((progressTracking) => progressTracking.workoutId)
-              .progress.find((progress) => progress.day === todaysDate),
-          );
-          setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay);
-
-          // Check if the workout is completed
-          if (todaysProgress?.exercisesOfTheDay.length >= response.data.activeWorkout.exercises.length) {
-            setWorkoutCompleted(true);
-          } else {
-            setWorkoutCompleted(false);
-          }
-
-          console.log(todaysProgress?.exercisesOfTheDay.length);
-          console.log(activeWorkout);
-          console.log(workoutCompleted);
-        }
-
+        console.log('Response data:', response.data);
+        setActiveWorkout(response.data.activeWorkout);
         setIsLoading(false);
       } catch (error) {
         setError(error.message);
@@ -82,7 +50,7 @@ const Dashboard = () => {
       }
     };
     getActiveWorkout();
-  }, [userData]);
+  }, []);
 
   const activateWorkout = async (activeWorkout) => {
     try {
@@ -105,11 +73,8 @@ const Dashboard = () => {
   };
 
   if (!userData || !userData.username) {
-    // Show loading state while fetching data
-    return <div>Loading...</div>;
+    return <div>Loading...</div>; // Show loading state while fetching data
   }
-
-  console.log(activeWorkout);
 
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 pt-20 text-gray-200">
@@ -121,13 +86,11 @@ const Dashboard = () => {
             Welcome Dear {userData.fullName || 'No Name'}
           </h1>
         </div>
-        {!workoutCompleted && (
-          <button
-            className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
-            onClick={() => activateWorkout(activeWorkout)}>
-            Start Workout!
-          </button>
-        )}
+        <button
+          className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
+          onClick={() => activateWorkout(activeWorkout)}>
+          Start Workout!
+        </button>
       </div>
 
       <h2 className="px-4 font-cthulhumbus">Active workout</h2>

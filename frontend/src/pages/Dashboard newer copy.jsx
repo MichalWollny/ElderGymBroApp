@@ -39,27 +39,22 @@ const Dashboard = () => {
   useEffect(() => {
     const getActiveWorkout = async () => {
       setIsLoading(true);
+      const apiUrl = `${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`;
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
+        const response = await axios.get(apiUrl, {
           withCredentials: true,
         });
         setActiveWorkout(response.data.activeWorkout || {});
         setWorkoutExercises(response.data.activeWorkout?.exercises || []);
-        setIsLoading(false);
 
         if (userData && response.data.activeWorkout) {
-          const todaysProgress = userData?.progressTracking
-            ?.find((progressTracking) => progressTracking?.workoutId === response?.data?.activeWorkout?.id)
-            ?.progress?.find((day) => day?.date === today);
-
-          const todaysDate = new Date().now;
+          const today = new Date().toISOString(); // Get today's date in YYYY-MM-DD format for easy comparison
+          const todaysProgress = userData.progressTracking
+            .find((progressTracking) => progressTracking.workoutId === response.data.activeWorkout.id)
+            ?.progress.find((day) => day.date === today);
 
           console.log(today);
-          console.log(
-            userData.progressTracking
-              .find((progressTracking) => progressTracking.workoutId)
-              .progress.find((progress) => progress.day === todaysDate),
-          );
+
           setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay);
 
           // Check if the workout is completed
