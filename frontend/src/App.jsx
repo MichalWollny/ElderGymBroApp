@@ -44,9 +44,7 @@ function App() {
     '/testpage',
   ].includes(location.pathname);
 
-  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage', '/profile'].includes(
-    location.pathname,
-  );
+  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage'].includes(location.pathname);
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
