@@ -8,7 +8,7 @@ const userProfileRouter = Router();
 
 userProfileRouter
   .get('/me', verifyToken, userProfileController.getUser)
-  .patch('/me/karma', verifyToken, userKarmaController.updateKarma);
+  .patch('/me/karma', verifyToken, userKarmaController.updateKarmaFunction);
 userProfileRouter.patch('/me/fullname', verifyToken, userProfileController.updateFullName);
 userProfileRouter.patch('/me/age', verifyToken, userProfileController.updateAge);
 userProfileRouter.patch('/me/weight', verifyToken, userProfileController.updateWeight);

@@ -51,7 +51,7 @@ const UserWorkout = () => {
 
   return (
     // Background Container
-    <div className="container mx-auto mb-8 flex flex-col items-center bg-gradient-to-br from-black to-blue-950 bg-repeat-y pt-4 font-cthulhumbus">
+    <div className="container mx-auto mb-8 flex flex-col items-center bg-gradient-to-br from-black to-blue-950 bg-repeat-y pt-20 font-cthulhumbus">
       <div className="min-w-full bg-[url('../src/assets/images/mistBG.webp')] bg-repeat-x">
         <h2 className="px-4 py-2 font-cthulhumbus">Exercise List</h2>
         <div className="carousel-center flex h-full w-24 flex-row">

@@ -19,6 +19,7 @@ const UserActiveExercise = ({ exercise, activeWorkout }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Post comes first
       await axios.post(
         `${import.meta.env.VITE_API_URL}/me/workouttracking/addExerciseProgress/${activeWorkout.id}/${exercise.id}`,
         {
@@ -30,10 +31,32 @@ const UserActiveExercise = ({ exercise, activeWorkout }) => {
           withCredentials: true,
         },
       );
+
+      // Then comes the karma with patch
+
       // Navigate to X after successful update
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleSubmit2 = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.patch(
+        `${import.meta.env.VITE_API_URL}/profile/me/karma`,
+        { awards: { karmaPoints: { $inc: 10 } } },
+        { withCredentials: true },
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const combinedSubmitHandler = async (e) => {
+    e.preventDefault();
+    await handleSubmit(e);
+    handleSubmit2(e);
   };
 
   return (
@@ -44,7 +67,7 @@ const UserActiveExercise = ({ exercise, activeWorkout }) => {
         alt={exercise.name}
         className="h-auto w-20 rounded-md"
       />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={combinedSubmitHandler}>
         {setsData.map((set, index) => (
           <div key={index} className="m-2 border-2 border-solid border-black p-2">
             <p className="pb-2 underline">
