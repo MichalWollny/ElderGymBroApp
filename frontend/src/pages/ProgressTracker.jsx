@@ -30,18 +30,21 @@ const ProgressTracker = ({ userId }) => {
       try {
         // Simulierte Daten
         const mockData = [
-          { date: '2023-01-01', exercise: 'Squat', weight: 55 },
-          { date: '2023-02-01', exercise: 'Squat', weight: 62 },
-          { date: '2023-03-01', exercise: 'Squat', weight: 74 },
-          { date: '2023-01-01', exercise: 'Bench Press', weight: 40 },
-          { date: '2023-02-01', exercise: 'Bench Press', weight: 45 },
-          { date: '2023-017-01', exercise: 'Bench Press', weight: 72 },
-          { date: '2023-25-01', exercise: 'Bench Press', weight: 85 },
-          { date: '2023-03-01', exercise: 'Bench Press', weight: 50 },
-          { date: '2023-04-01', exercise: 'Deadlift', weight: 80 },
-          { date: '2023-08-01', exercise: 'Deadlift', weight: 50 },
-          { date: '2023-03-01', exercise: 'LatPullDown', weight: 45 },
-          { date: '2023-12-01', exercise: 'LatPullDown', weight: 72.5 },
+          { date: '01.03.2024', exercise: 'Squat', weight: 55 },
+          { date: '15.03.2024', exercise: 'Squat', weight: 62 },
+          { date: '23.03.2024', exercise: 'Squat', weight: 74 },
+
+          { date: '01.03.2024', exercise: 'Bench Press', weight: 40 },
+          { date: '15.03.2024', exercise: 'Bench Press', weight: 45 },
+          { date: '20.03.2024', exercise: 'Bench Press', weight: 72 },
+          { date: '01.04.2024', exercise: 'Bench Press', weight: 85 },
+          { date: '17.04.2024', exercise: 'Bench Press', weight: 50 },
+
+          { date: '01.03.2024', exercise: 'Deadlift', weight: 80 },
+          { date: '20.03.2024', exercise: 'Deadlift', weight: 50 },
+
+          { date: '01.03.2024', exercise: 'LatPullDown', weight: 45 },
+          { date: '15.03.2024', exercise: 'LatPullDown', weight: 72.5 },
         ];
         setProgress(mockData);
         setSelectedExercise(mockData[0].exercise); // Ausgewählte Anfangsübung einstellen
