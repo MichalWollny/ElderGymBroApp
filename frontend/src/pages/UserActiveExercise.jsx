@@ -102,7 +102,7 @@ const UserActiveExercise = ({
           <div
             key={index}
             className={`m-2 border-2 border-solid ${isCompleted ? 'border-gray-500 bg-gray-400' : 'border-teal-800 bg-zinc-700'} rounded-md p-2`}>
-            <p className={`${isCompleted ? 'text-gray-500' : ''} pb-2 underline`}>
+            <p className={`${isCompleted ? 'text-gray-500' : ''} pb-2 text-pink-600 underline`}>
               Set <span>{index + 1}</span>
             </p>
             <label className={`${isCompleted ? 'text-gray-500' : ''}`}>Weight (kg)</label>
@@ -111,7 +111,7 @@ const UserActiveExercise = ({
               value={set.weight}
               onChange={(e) => handleSetChange(index, 'weight', e.target.value)}
               onKeyDown={handleInputKeyDown}
-              className="block w-full rounded-md border-0 bg-white py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 bg-slate-200 py-1.5 pl-7 pr-20 text-gray-900 ring-2 ring-inset ring-pink-800 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-teal-800 sm:text-sm sm:leading-6"
               disabled={isCompleted}
             />
 
@@ -121,7 +121,7 @@ const UserActiveExercise = ({
               value={set.reps}
               onChange={(e) => handleSetChange(index, 'reps', e.target.value)}
               onKeyDown={handleInputKeyDown}
-              className="block w-full rounded-md border-0 bg-white py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 bg-slate-200 py-1.5 pl-7 pr-20 text-gray-900 ring-2 ring-inset ring-pink-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-800 sm:text-sm sm:leading-6"
               disabled={isCompleted}
             />
           </div>
