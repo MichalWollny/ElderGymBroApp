@@ -34,15 +34,18 @@ const Dashboard = () => {
   useEffect(() => {
     const getActiveWorkout = async () => {
       setIsLoading(true);
+      const apiUrl = `${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`;
+      console.log('Request URL:', apiUrl); // Log the URL
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
+        const response = await axios.get(apiUrl, {
           withCredentials: true,
         });
+        console.log('Response data:', response.data);
         setActiveWorkout(response.data.activeWorkout);
         setIsLoading(false);
       } catch (error) {
         setError(error.message);
-        console.error(error);
+        console.error('Error fetching active workout:', error);
         setIsLoading(false);
       }
     };
