@@ -155,8 +155,8 @@ const Profile = () => {
               type="submit"
               variant="contained"
               onClick={handleEdit}
-              sx={{ mt: 4, mb: 2, backgroundColor: '#831843', color: 'white' }}>
-              Edit your Profile
+              sx={{ mt: 4, mb: 2, backgroundColor: '#831843', color: 'white', textTransform: 'none' }}>
+              Edit Profile
             </Button>
             {/* Logout Button */}
             <div className="absolute right-4 top-0">

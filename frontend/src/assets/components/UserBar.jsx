@@ -8,11 +8,11 @@ const UserBar = () => {
   const navigate = useNavigate();
 
   // activeIndex, storing the currently active nav item index
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeNavIndex, setActiveNavIndex] = useState(0);
 
   // Handle navigation
   const handleNavigation = (index, path) => {
-    setActiveIndex(index);
+    setActiveNavIndex(index);
     navigate(path);
   };
 
