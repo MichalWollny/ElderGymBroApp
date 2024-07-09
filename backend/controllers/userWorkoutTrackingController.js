@@ -101,12 +101,14 @@ export const addExerciseProgress = asyncHandler(async (req, res) => {
 
   // Get the current date without time for comparison
   const currentDate = new Date();
-  currentDate.setHours(0, 0, 0, 0);
+
+  // currentDate.setHours(0, 0, 0, 0);
 
   // Check if there's an entry for the current day
   let dayEntry = workoutTracking.progress.find((entry) => {
     const entryDate = new Date(entry.day);
     entryDate.setHours(0, 0, 0, 0);
+    currentDate.setHours(0, 0, 0, 0);
     return entryDate.getTime() === currentDate.getTime();
   });
 
