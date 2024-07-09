@@ -43,7 +43,7 @@ const cards = [
   },
 ];
 
-const Dashboard = () => {
+const Dashboard = ({ workouts }) => {
   const { userData, checkUser } = useAuth();
   const [expandedElement, setExpandedElements] = useState(null);
   const navigate = useNavigate();
@@ -100,7 +100,7 @@ const Dashboard = () => {
           setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay || []);
 
           // Check if the workout is completed
-          if (todaysProgress?.exercisesOfTheDay?.length == activeWorkoutData.exercises.length) {
+          if (todaysProgress?.exercisesOfTheDay?.length === activeWorkoutData.exercises.length) {
             setWorkoutCompleted(true);
           } else {
             setWorkoutCompleted(false);
@@ -200,6 +200,7 @@ const Dashboard = () => {
               </div>
             )}
           </div>
+          {/* placeholder  */}
         </div>
 
         <div className="flex flex-col">

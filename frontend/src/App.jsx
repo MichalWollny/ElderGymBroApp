@@ -85,7 +85,7 @@ function App() {
 
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
-          <Route path="/home" element={<Dashboard />} />
+          <Route path="/home" element={<Dashboard workouts={hardcodedWorkouts} />} />
           <Route path="/profile" element={<Profile />} />
           {/* <Route path="/edituserdata" element={<EditUserData />} /> */}
           <Route
