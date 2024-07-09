@@ -10,6 +10,7 @@ import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
+import { toast } from 'react-toastify';
 
 const Profile = () => {
   const { userData, isLoggedIn, setUserData, setIsLoggedIn, checkUser } = useAuth();
@@ -74,14 +75,30 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.patch(`${import.meta.env.VITE_API_URL}/profile/me/profileupdate`, formData, {
-        withCredentials: true,
-      });
+      const response = await axios.patch(
+        `${import.meta.env.VITE_API_URL}/profile/me/profileupdate`,
+        {
+          fullName: formData.fullName,
+          username: formData.username,
+          age: formData.age,
+          weight: formData.weight,
+          gender: formData.gender,
+          avatar: formData.avatar,
+        },
+        {
+          withCredentials: true,
+        },
+      );
       console.log(response.data);
       await checkUser(); // Re-fetch the user data to get the updated avatar
       setEditMode(false);
     } catch (error) {
       console.error('Failed to update profile', error);
+      if (error.response && error.response.status === 409) {
+        toast.error('Username already exists. Please choose a different one.');
+      } else {
+        toast.error('Failed to update profile. Please try again later.');
+      }
     }
   };
 
