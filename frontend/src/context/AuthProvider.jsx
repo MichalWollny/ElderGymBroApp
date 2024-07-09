@@ -32,10 +32,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (didMount.current) {
+    if (didMount.current)
       // This block ensures the effect runs only after the initial render
       return;
-    }
 
     didMount.current = true;
     const token = Cookies.get('token');

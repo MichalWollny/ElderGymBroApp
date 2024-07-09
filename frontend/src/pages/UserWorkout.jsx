@@ -6,9 +6,9 @@ import Slider from 'react-slick';
 import UserActiveExercise from './UserActiveExercise';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './carousel.css'; // Import your custom CSS
-import Confetti from 'react-confetti'; // Import the confetti component
-import doneImage from '../assets/images/finished.png'; // Import the done image
+import './carousel.css'; // Import custom CSS for the carousel
+import Confetti from 'react-confetti';
+import doneImage from '../assets/images/finished.png';
 
 const UserWorkout = () => {
   const { userData, checkUser } = useAuth();

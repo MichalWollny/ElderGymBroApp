@@ -58,7 +58,7 @@ const UserActiveExercise = ({
           withCredentials: true,
         },
       );
-      onComplete(); // Call the onComplete function
+      onComplete(); // Call the onComplete function in UserWorkout.jsx
     } catch (error) {
       console.error(error);
     }
@@ -152,7 +152,7 @@ const UserActiveExercise = ({
                 No, continue
               </button>
               <button className="rounded-md bg-green-500 px-4 py-2 text-white" onClick={handleSkipExercise}>
-                Yes, really skip this one
+                Yes, skip this one
               </button>
             </div>
           </div>

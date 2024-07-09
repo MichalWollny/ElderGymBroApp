@@ -17,8 +17,8 @@ const BottomNav = () => {
       { label: 'Home', icon: <AiOutlineHome />, path: '/home' },
       { label: 'Workouts', icon: <PiBarbell />, path: '/workouts' },
       { label: 'Progress', icon: <BsBarChart />, path: '/progress' },
-      { label: 'Trophys', icon: <GoTrophy />, path: '/trophys' },
-      { label: 'Profile', icon: <GoPerson />, path: '/profile', paths: ['/profile', '/edituserdata'] },
+      { label: 'Trophies', icon: <GoTrophy />, path: '/trophys' },
+      { label: 'Profile', icon: <GoPerson />, path: '/profile' },
     ],
     [],
   );
