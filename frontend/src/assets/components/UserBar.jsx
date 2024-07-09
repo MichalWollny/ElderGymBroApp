@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Cookies from 'js-cookie';
 import { useAuth } from '../../context/AuthProvider';
 import StyledCircularProgressbar from './CircularProgress';
 
@@ -17,8 +15,6 @@ const UserBar = () => {
     setActiveIndex(index);
     navigate(path);
   };
-
-  console.log(userData.awards);
 
   return (
     <nav className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-gray-900 font-cthulhumbus shadow-md">
@@ -36,11 +32,6 @@ const UserBar = () => {
         )}
       </div>
       <div className="relative h-auto w-20 font-cthulhumbus">
-        {/* <img
-          src="../src/assets/icons/levelbackground2.png"
-          alt="Level Background"
-          className="absolute inset-0 left-12 top-4 -m-10 h-[210%] w-[210%] object-cover"
-        /> */}
         <div className="relative z-10 flex h-full items-center justify-center">
           {isLoggedIn && userData ? (
             <StyledCircularProgressbar
