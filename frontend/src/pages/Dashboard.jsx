@@ -5,6 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import gymLordImage from '../assets/images/gymLord.png';
 
+
+import Cookies from 'js-cookie';
+
+import Button from '@mui/material/Button';
+
 const cards = [
   {
     image: gymLordImage,
@@ -77,97 +82,35 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
-      <div className="flex flex-row justify-center">
-        <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-          Home
-        </h1>
-      </div>
+    <div className="container mx-auto mb-8 flex min-h-svh flex-col bg-gradient-to-br from-black to-blue-950 p-4">
 
-      <div className="flex cursor-pointer flex-col justify-center">
-        <div className="flex flex-col">
-          <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
-            {userData.awards?.title || 'No Title'}
+        <div className="mt-16 flex flex-col justify-center">
+          <h1 className="mb-4 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+            Home
           </h1>
-          <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
-            Welcome Dear {userData.fullName || 'No Name'}
-          </h1>
-        </div>
-        <button
-          className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
-          onClick={() => activateWorkout(activeWorkout)}>
-          Start Workout!
-        </button>
-      </div>
 
-      <h2 className="px-4 font-cthulhumbus">Active workout</h2>
+          {/* <button
+            className="px-2 mx-auto rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
+            onClick={() => activateWorkout(activeWorkout)}>
+            Start Workout
+          </button> */}
+          
+            <Button
+              type="button"
+              variant="contained"
+              onClick={() => activateWorkout(activeWorkout)}
+              sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: 'white' }}>
+              Start Workout
+            </Button>
 
-      {cards.map((card, index) => (
-        <UICardLarge key={index} image={card.image} heading={card.heading} className="" subheading={card.subheading} />
-      ))}
-
-      <br />
-      <div className="flex flex-col items-start justify-start">
-        Expander Tryout
-        <button className="px-4 font-cthulhumbus" onClick={toggleElement}>
-          Cult News
-        </button>
-        {expandedElement && (
-          <>
-            <p>1 Lorem ipsum dolor sit amet.</p>
-            <div className="carousel-item">
-              <img className="w-24" src={gymLordImage} alt="Pizza" />
-            </div>
-            <p>2 In dolorum veritatis dolores.</p>
-            <div className="carousel-item">
-              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
-            </div>
-            <p>3 Odit necessitatibus totam.</p>
-            <div className="carousel-item">
-              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
-            </div>
-          </>
-        )}
-      </div>
-      <br />
-
-      <h2 className="px-4 py-2 font-cthulhumbus">Cult News</h2>
-      <div className="flex flex-col">
-        <div className="carousel carousel-center w-full">
-          <div id="item1" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
-          <div id="item2" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
+          <div className="flex flex-col ">
+            <h2 className="px-4 font-cthulhumbus">Active workout</h2>
           </div>
 
-          <div id="item3" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
-          <div id="item4" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
-          </div>
-        </div>
-
-        <div className="flex w-full justify-center gap-2 py-2">
-          <a href="#item1" className="btn btn-xs">
-            1
-          </a>
-          <a href="#item2" className="btn btn-xs">
-            2
-          </a>
-          <a href="#item3" className="btn btn-xs">
-            3
-          </a>
-          <a href="#item4" className="btn btn-xs">
-            4
-          </a>
-        </div>
-      </div>
-      <br />
-    </div>
   );
 };
 
