@@ -24,6 +24,7 @@ import Dashboard from './pages/Dashboard';
 import GenderWar from './pages/onboarding/GenderWar';
 import ProgressTracker from './pages/ProgressTracker';
 import UserBar from './assets/components/UserBar';
+import UserWorkout from './pages/UserWorkout';
 import PrivateRoute from './utils/PrivateRoute';
 import AccessDeniedPage from './pages/AccessDeniedPage';
 
@@ -41,9 +42,12 @@ function App() {
     '/profile',
     '/edituserdata',
     '/testpage',
+    '/userworkout',
   ].includes(location.pathname);
 
-  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage', '/profile'].includes(location.pathname);
+  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/userworkouts', '/testpage'].includes(
+    location.pathname,
+  );
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -93,8 +97,8 @@ function App() {
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/edituserdata" element={<EditUserData />} />
           <Route path="/profile" element={<Profilerework />} />
+          <Route path="/edituserdata" element={<EditUserData />} />
           <Route
             path="/trophys"
             element={
@@ -116,6 +120,7 @@ function App() {
           <Route path="/gender" element={<GenderWar />} />
           <Route path="/template" element={<Template />} />
           <Route path="/uielements" element={<UIElements />} />
+          <Route path="/userworkout" element={<UserWorkout />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

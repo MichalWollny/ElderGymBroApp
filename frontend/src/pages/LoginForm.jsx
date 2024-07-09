@@ -9,6 +9,7 @@ import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motio
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useAuth } from '../context/AuthProvider';
+import Cookies from 'js-cookie';
 
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
@@ -48,7 +49,7 @@ function LoginForm() {
       if (isLoggedIn && userData) {
         const { gender, fitnessLevel, workoutAim } = userData;
         if (gender && fitnessLevel && workoutAim) {
-          toast.success('🎉 Welcome back. Happy grinding', { autoClose: 2000 });
+          toast.success('🎉 Welcome back. Happy grinding', { autoClose: 1000 });
           navigate('/home');
         } else if (!gender && !fitnessLevel && !workoutAim) {
           toast.success('🏆 Successfully logged in! Welcome mortal');
@@ -67,6 +68,17 @@ function LoginForm() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    // Get all cookies
+    const allCookies = document.cookie.split(';');
+
+    // Loop through each cookie and remove it
+    allCookies.forEach((cookie) => {
+      const eqPos = cookie.indexOf('=');
+      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      Cookies.remove(name.trim());
+    });
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/auth/login`,
