@@ -3,8 +3,6 @@ import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import gymLordImage from '../assets/images/gymLord.png';
-import Button from '@mui/material/Button';
 import Slider from 'react-slick';
 import React from 'react';
 import UICard from '../assets/components/UICard';
@@ -55,14 +53,9 @@ const Dashboard = () => {
   const [workoutCompleted, setWorkoutCompleted] = useState(false);
 
   useEffect(() => {
-    if (!userData || !userData.username) {
-      checkUser(); // Fetch user data if not already available
-    }
-  }, [userData, checkUser]);
-
-  const toggleElement = () => {
-    setExpandedElements(!expandedElement);
-  };
+    checkUser(); // Fetch the latest user data when the component is loaded
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const getActiveWorkout = async () => {
@@ -77,7 +70,7 @@ const Dashboard = () => {
         setWorkoutExercises(activeWorkoutData?.exercises || []);
 
         if (userData && activeWorkoutData) {
-          const today = new Date().toISOString().split('T')[0]; // Ensure date comparison format is correct
+          const today = new Date().toISOString().split('T')[0];
           console.log('Today:', today);
 
           // Log userData to check the structure
@@ -100,7 +93,7 @@ const Dashboard = () => {
           setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay || []);
 
           // Check if the workout is completed
-          if (todaysProgress?.exercisesOfTheDay?.length == activeWorkoutData.exercises.length) {
+          if (todaysProgress?.exercisesOfTheDay?.length === activeWorkoutData.exercises.length) {
             setWorkoutCompleted(true);
           } else {
             setWorkoutCompleted(false);
@@ -195,7 +188,7 @@ const Dashboard = () => {
               </button>
             )) || (
               <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-2xl">
-                <span className="text-xl">Yor workout for the the day is complete!</span> <br />
+                <span className="text-xl">Your workout for the day is complete!</span> <br />
                 <span>Cthulhu is pleased!</span>
               </div>
             )}
@@ -220,18 +213,6 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-          {/* <button
-          className="mt-4 px-2  rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
-          onClick={() => activateWorkout(activeWorkout)}>
-          Start Workout
-        </button> */}
-          {/* <Button
-          type="button"
-          variant="contained"
-          onClick={() => activateWorkout(activeWorkout)}
-          sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: 'white', my: 'auto' }}>
-          Start Workout
-        </Button> */}
         </div>
 
         <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
@@ -251,7 +232,7 @@ const Dashboard = () => {
         <br />
         <div className="flex flex-col">
           <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-            Other Cultists' Achievments
+            Other Cultists&apos; Achievments
           </h2>
         </div>
         <div className="px-4">
