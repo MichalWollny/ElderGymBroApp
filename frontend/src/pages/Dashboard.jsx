@@ -70,7 +70,7 @@ const Dashboard = () => {
         setWorkoutExercises(activeWorkoutData?.exercises || []);
 
         if (userData && activeWorkoutData) {
-          const today = new Date().toISOString().split('T')[0];
+          const today = new Date().toISOString().split('T')[0]; // Ensure date comparison format is correct
           console.log('Today:', today);
 
           // Log userData to check the structure
@@ -111,7 +111,7 @@ const Dashboard = () => {
     if (userData) {
       getActiveWorkout();
     }
-  }, [userData]);
+  }, [userData, workoutCompleted]);
 
   const activateWorkout = async (activeWorkout) => {
     try {
@@ -193,6 +193,7 @@ const Dashboard = () => {
               </div>
             )}
           </div>
+          {/* placeholder  */}
         </div>
 
         <div className="flex flex-col">
