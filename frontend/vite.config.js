@@ -10,5 +10,6 @@ export default defineConfig({
   plugins: [react(), basicSsl()],
   server: {
     https: process.env.HTTPS === 'true', // use environment variable
+    port: 5173, // Explicitly set the port here
   },
 });
