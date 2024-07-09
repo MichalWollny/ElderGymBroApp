@@ -73,7 +73,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-blue-950">
+    <div className="min-h-screen bg-gradient-to-br from-black to-blue-950 pt-20">
       {/* window bar */}
 
       <div className="mt-2 flex flex-row justify-center from-black to-blue-950">
