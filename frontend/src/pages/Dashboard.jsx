@@ -41,9 +41,8 @@ const cards = [
   },
 ];
 
-const Dashboard = () => {
+const Dashboard = ({ workouts }) => {
   const { userData, checkUser } = useAuth();
-  const [expandedElement, setExpandedElements] = useState(null);
   const navigate = useNavigate();
   const [activeWorkout, setActiveWorkout] = useState({});
   const [isLoading, setIsLoading] = useState(true);
