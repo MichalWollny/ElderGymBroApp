@@ -2,13 +2,13 @@ import './App.css';
 import { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Profilerework from './pages/ProfileRework';
+import Profile from './pages/Profile';
 import Template from './pages/Template';
 import StartYourJourney from './pages/onboarding/StartYourJourney';
 import WhatsYourGoal from './pages/onboarding/WhatsYourGoal';
 import SetYourGrind from './pages/onboarding/SetYourGrind';
 import WorkoutPlan from './pages/Workouts';
-import EditUserData from './pages/EditUserData';
+// import EditUserData from './pages/EditUserData';
 import SetUp from './pages/onboarding/SetUp';
 import useFetchData from './utils/FetchData';
 import Trophys from './pages/Trophys';
@@ -40,11 +40,13 @@ function App() {
     '/trophys',
     '/progress',
     '/profile',
-    '/edituserdata',
+    // '/edituserdata',
     '/testpage',
   ].includes(location.pathname);
 
-  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage'].includes(location.pathname);
+  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage', '/profile'].includes(
+    location.pathname,
+  );
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -94,8 +96,8 @@ function App() {
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/profile" element={<Profilerework />} />
-          <Route path="/edituserdata" element={<EditUserData />} />
+          <Route path="/profile" element={<Profile />} />
+          {/* <Route path="/edituserdata" element={<EditUserData />} /> */}
           <Route
             path="/trophys"
             element={
