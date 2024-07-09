@@ -84,12 +84,14 @@ const UserActiveExercise = ({
     <div
       key={exercise.id}
       className={`m-4 border-4 border-solid ${isCompleted ? 'border-gray-500 bg-gray-300' : 'border-teal-800 bg-zinc-800'} rounded-lg p-4 font-cthulhumbus text-white shadow-md`}>
-      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'} pl-2`}>{exercise.name}</h2>
-      <img
+      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'} pb-2 pl-2 pt-2 text-center text-lg`}>
+        {exercise.name}
+      </h2>
+      {/* <img
         src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
         alt={exercise.name}
         className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''} pl-3`}
-      />
+      /> */}
       <form onSubmit={handleSubmit}>
         {setsData.map((set, index) => (
           <div
