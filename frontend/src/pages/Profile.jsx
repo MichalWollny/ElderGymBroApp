@@ -113,6 +113,139 @@ const Profile = () => {
         </div>
       </div>
 
+      <div className="flex flex-row justify-center p-6">
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center">
+          {/*Full-Name*/}
+          <TextField
+            id="fullName"
+            name="fullName"
+            label="Full Name"
+            type="text"
+            variant="outlined"
+            value={formData.fullName}
+            onChange={handleChange}
+            sx={{
+              '& .MuiInputBase-input': {
+                color: '141414', // text color
+              },
+              '& .MuiInputLabel-root': {
+                color: '141414', // label color
+              },
+              '& .MuiOutlinedInput-root': {
+                borderColor: 'teal', // border color
+                backgroundColor: '141414',
+              },
+            }}
+          />
+          {/*Username*/}
+          <TextField
+            id="username"
+            name="username"
+            label="Username"
+            type="text"
+            variant="outlined"
+            value={formData.username}
+            onChange={handleChange}
+            sx={{
+              '& .MuiInputBase-input': {
+                color: '141414', // text color
+              },
+              '& .MuiInputLabel-root': {
+                color: '141414', // label color
+              },
+              '& .MuiOutlinedInput-root': {
+                borderColor: 'teal', // border color
+                backgroundColor: '141414',
+              },
+            }}
+          />
+
+          {/* Age */}
+          <TextField
+            id="age"
+            name="age"
+            label="Age"
+            type="number"
+            variant="outlined"
+            value={formData.age}
+            onChange={handleChange}
+            sx={{
+              '& .MuiInputBase-input': {
+                color: '141414', // text color
+              },
+              '& .MuiInputLabel-root': {
+                color: '141414', // label color
+              },
+              '& .MuiOutlinedInput-root': {
+                borderColor: 'teal', // border color
+                backgroundColor: '141414',
+              },
+            }}
+          />
+
+          {/* Weight */}
+          <TextField
+            id="weight"
+            name="weight"
+            label="Weight (kg)"
+            type="number"
+            variant="outlined"
+            value={formData.weight}
+            onChange={handleChange}
+            sx={{
+              '& .MuiInputBase-input': {
+                color: '141414', // text color
+              },
+              '& .MuiInputLabel-root': {
+                color: '141414', // label color
+              },
+              '& .MuiOutlinedInput-root': {
+                borderColor: 'teal', // border color
+                backgroundColor: '141414',
+              },
+            }}
+          />
+
+          {/* Gender */}
+          <FormControl
+            sx={{
+              width: '25ch',
+              '& .MuiInputBase-input': {
+                color: '141414', // text color
+              },
+              '& .MuiInputLabel-root': {
+                color: '141414', // label color
+              },
+              '& .MuiOutlinedInput-root': {
+                borderColor: '141414', // border color
+                backgroundColor: '141414',
+              },
+            }}>
+            <InputLabel id="gender-label">Gender</InputLabel>
+            <Select labelId="gender-label" id="Gender" name="gender" value={formData.gender} onChange={handleChange}>
+              <MenuItem value="">-- Clear Field --</MenuItem>
+              <MenuItem value="male">Male</MenuItem>
+              <MenuItem value="female">Female</MenuItem>
+              <MenuItem value="elder thing">Elder Thing</MenuItem>
+              <MenuItem value="blob">Blob</MenuItem>
+              <MenuItem value="other">Other</MenuItem>
+            </Select>
+          </FormControl>
+
+          <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: 'teal', color: 'white' }}>
+            Save
+          </Button>
+        </Box>
+      </div>
+
       {/* Edit and Logout buttons */}
       <div className="mt-8 flex flex-col items-center space-y-4">
         <Button
