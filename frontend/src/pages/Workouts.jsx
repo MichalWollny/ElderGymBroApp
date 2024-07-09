@@ -37,16 +37,16 @@ const WorkoutPlan = ({ workouts }) => {
     <div className="container mx-auto mb-8 flex min-h-svh flex-col items-center bg-gradient-to-br from-black to-blue-950 p-4">
       {validWorkouts.map((plan, index) => (
         <div key={plan.id} className="mb-2 mt-2">
-          <div className="w-90 card m-4 cursor-pointer rounded-lg border-4 border-solid border-teal-800 bg-zinc-800 p-2 shadow-md">
+          <div className="w-90 card m-4 cursor-pointer rounded-lg border-4 border-solid border-teal-800 bg-zinc-800 p-2 shadow-md ">
             {/* Main Plan Header */}
             <div className="w-full text-left focus:outline-none">
               {expandedPlans !== index && (
-                <div className="max-w-screen-sm rounded-t-lg">
+                <div className="max-w-screen-sm rounded-t-lg ">
                   <h5 className="mb-2 rounded-t-sm pb-1 text-center font-cthulhumbus text-xl font-bold text-teal-500 shadow-2xl">
                     {plan.name}
                   </h5>
                   <img src={getImage(workoutImages, plan.name)} alt={plan.name} className="rounded-t-lg shadow-lg" />
-                  <div onClick={() => togglePlans(index)} className="w-full focus:outline-none">
+                  <div onClick={() => togglePlans(index)} className="w-full focus:outline-none transition duration-150 ease-in-out">
                     <div className="mt-2 flex cursor-pointer flex-row justify-center rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center">
                       <svg
                         className="size-8 text-teal-500"

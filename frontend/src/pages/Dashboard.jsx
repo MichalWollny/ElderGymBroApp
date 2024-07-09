@@ -37,7 +37,7 @@ const Dashboard = () => {
         </h1>
       </div>
 
-      <div className="flex cursor-pointer flex-row justify-center">
+      {/* <div className="flex cursor-pointer flex-row justify-center">
         <div className="flex flex-col">
           <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
             {userData.awards?.title || 'No Title'}
@@ -46,7 +46,7 @@ const Dashboard = () => {
             {userData.username}
           </h1>
         </div>
-      </div>
+      </div> */}
 
       <h2 className="px-4 font-cthulhumbus">Active workout</h2>
 
