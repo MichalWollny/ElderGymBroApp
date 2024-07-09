@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import gymLordImage from '../assets/images/gymLord.png';
 
 const cards = [
   {
-    image: '/src/assets/images/gymLord.png',
+    image: gymLordImage,
     heading: 'Active workout heading endpoint',
     subheading: 'Active workout subheading endpoint',
   },
@@ -13,6 +16,10 @@ const cards = [
 const Dashboard = () => {
   const { userData, checkUser } = useAuth();
   const [expandedElement, setExpandedElements] = useState(null);
+  const navigate = useNavigate();
+  const [activeWorkout, setActiveWorkout] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!userData || !userData.username) {
@@ -24,10 +31,48 @@ const Dashboard = () => {
     setExpandedElements(!expandedElement);
   };
 
+  useEffect(() => {
+    const getActiveWorkout = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/me/workouttracking/getActiveWorkout`, {
+          withCredentials: true,
+        });
+        setActiveWorkout(response.data.activeWorkout);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error.message);
+        console.error(error);
+        setIsLoading(false);
+      }
+    };
+    getActiveWorkout();
+  }, []);
+
+  const activateWorkout = async (activeWorkout) => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/me/workouttracking/addWorkoutProgress`,
+        {
+          workoutId: `${activeWorkout.id}`,
+          progress: [],
+        },
+        {
+          withCredentials: true,
+        },
+      );
+
+      // Navigate to /userworkout after successful tracking update
+      navigate('/userworkout');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   if (!userData || !userData.username) {
     return <div>Loading...</div>; // Show loading state while fetching data
   }
-  console.log(userData);
+
   return (
     <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
       <div className="flex flex-row justify-center">
@@ -36,15 +81,20 @@ const Dashboard = () => {
         </h1>
       </div>
 
-      <div className="flex cursor-pointer flex-row justify-center">
+      <div className="flex cursor-pointer flex-col justify-center">
         <div className="flex flex-col">
           <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
             {userData.awards?.title || 'No Title'}
           </h1>
           <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
-            {userData.username}
+            Welcome Dear {userData.fullName || 'No Name'}
           </h1>
         </div>
+        <button
+          className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
+          onClick={() => activateWorkout(activeWorkout)}>
+          Start Workout!
+        </button>
       </div>
 
       <h2 className="px-4 font-cthulhumbus">Active workout</h2>
@@ -63,15 +113,15 @@ const Dashboard = () => {
           <>
             <p>1 Lorem ipsum dolor sit amet.</p>
             <div className="carousel-item">
-              <img className="w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              <img className="w-24" src={gymLordImage} alt="Pizza" />
             </div>
             <p>2 In dolorum veritatis dolores.</p>
             <div className="carousel-item">
-              <img className="mx-2 w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
             </div>
             <p>3 Odit necessitatibus totam.</p>
             <div className="carousel-item">
-              <img className="mx-2 w-24" src="/src/assets/images/gymLord.png" alt="Pizza" />
+              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
             </div>
           </>
         )}
@@ -82,19 +132,19 @@ const Dashboard = () => {
       <div className="flex flex-col">
         <div className="carousel carousel-center w-full">
           <div id="item1" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
           <div id="item2" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
           <div id="item3" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
 
           <div id="item4" className="carousel-item">
-            <img className="w-40" src="/src/assets/images/gymLord.png" alt="Pizza" />
+            <img className="w-40" src={gymLordImage} alt="Pizza" />
           </div>
         </div>
 

@@ -1,10 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import cthulupassword from '../assets/images/cthulupassword.png';
+import { useAuth } from '../context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 function ForgotPassword() {
+  const { isLoggedIn, checkUser } = useAuth();
+  const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      await checkUser();
+    };
+    fetchUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/home');
+    }
+  }, [isLoggedIn, navigate]);
 
   //Regex ist eine Email validierung die checkt ob wirklich eine E-mail eingetragen wurde.
   const handleSubmit = (e) => {

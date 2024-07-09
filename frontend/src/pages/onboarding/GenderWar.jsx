@@ -201,8 +201,7 @@ const GenderWar = () => {
             {/* Modal content */}
             {/* Conditional rendering to check if selectedGender is not null */}
             {selectedGender && selectedGender.name !== 'Male' && selectedGender.name !== 'Female' && (
-              <div
-                className={`cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg`}>
+              <div className="cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg">
                 <div className="px-6 py-2 text-center">
                   <div className="font-cthulhumbus text-lg font-bold text-teal-500">{randomMessage}</div>
                 </div>
@@ -223,8 +222,7 @@ const GenderWar = () => {
               </div>
             )}
             {selectedGender && (selectedGender.name === 'Male' || selectedGender.name === 'Female') && (
-              <div
-                className={`cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg`}>
+              <div className="cursor-pointer overflow-hidden rounded border-teal-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 object-cover text-gray-800 shadow-lg">
                 <div className="px-6 py-2 text-center">
                   <div className="font-cthulhumbus text-lg font-bold text-teal-500">{randomMessage}</div>
                 </div>
@@ -233,6 +231,17 @@ const GenderWar = () => {
                   <div className="font-cthulhumbus text-lg font-bold text-teal-500 grayscale">
                     {selectedGender.name}
                   </div>
+                  <div className="mt-2 flex justify-between">
+                    <button className="rounded bg-gray-800 px-2 text-white hover:bg-gray-700" onClick={handleClose}>
+                      Close
+                    </button>
+                    <button
+                      className="rounded bg-red-500 px-4 py-2 font-semibold text-white transition duration-300 hover:bg-red-600"
+                      onClick={handleClose}>
+                      Denied
+                    </button>
+                  </div>
+                  <div className="mt-2 text-red-500">No mundane choices allowed</div>
                 </div>
               </div>
             )}

@@ -16,12 +16,22 @@ const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 const LandingPage = () => {
   const color = useMotionValue(COLORS_TOP[0]);
   const [order, setOrder] = useState(['front', 'middle', 'back']);
+  const { isLoggedIn, checkUser } = useAuth();
   const navigate = useNavigate();
-  const { checkUser } = useAuth();
 
   useEffect(() => {
-    checkUser();
+    const fetchUserData = async () => {
+      await checkUser();
+    };
+    fetchUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/home');
+    }
+  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     animate(color, COLORS_TOP, {

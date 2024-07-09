@@ -42,11 +42,13 @@ const UserBar = () => {
     },
     {
       icon: (
-        <div>
+        <div className="">
           {isLoggedIn && userData ? (
             <p className="text-center text-teal-700" style={{ zIndex: 2 }}>
               <span className="mb-0 pb-0 text-lg">{userData.username || 'No username'}</span> <br />
-              <span className="mt-0 pt-0 text-sm">{userData.awards?.title || 'No title'}</span>
+              <span className="mt-0 cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-sm font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
+                {userData.awards?.title || 'No title'}
+              </span>
             </p>
           ) : (
             <p className="text-center text-teal-700">Loading...</p>
@@ -55,7 +57,6 @@ const UserBar = () => {
       ),
     },
     {
-      label: 'Profile',
       icon: (
         <div className="size-fit h-12 w-12 rounded-full border-4 border-solid border-black bg-black">
           {isLoggedIn && userData ? (
