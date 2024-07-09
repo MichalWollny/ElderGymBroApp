@@ -38,6 +38,7 @@ export const getActiveWorkout = asyncHandler(async (req, res) => {
 
   // Get the workout details from the JSON file
   const response = await axios.get('http://localhost:8000/hardcodedworkouts');
+  // const response = await axios.get('https://eldergymbroapp.onrender.com/hardcodedworkouts');
   const workouts = response.data;
 
   // Find the active workout by activeWorkoutId
@@ -155,8 +156,6 @@ export const endWorkout = asyncHandler(async (req, res, next) => {
   const { workoutId } = req.params;
   // Get the current date without time
   const currentDate = new Date();
-  currentDate.setHours(0, 0, 0, 0);
-
   // Find the user by UID
   const user = await User.findById(req.uid);
   if (!user) {

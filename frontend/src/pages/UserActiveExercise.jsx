@@ -47,6 +47,7 @@ const UserActiveExercise = ({
     }
 
     try {
+      // Post comes first
       await axios.post(
         `${import.meta.env.VITE_API_URL}/me/workouttracking/addExerciseProgress/${activeWorkout.id}/${exercise.id}`,
         {
@@ -97,7 +98,7 @@ const UserActiveExercise = ({
         alt={exercise.name}
         className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''} pl-3`}
       />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={combinedSubmitHandler}>
         {setsData.map((set, index) => (
           <div
             key={index}
