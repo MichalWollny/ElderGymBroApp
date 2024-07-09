@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { Line } from 'react-chartjs-2';
-import { CircularProgress, Container, Typography, Select, MenuItem } from '@mui/material';
+import { CircularProgress, Container, Select, MenuItem } from '@mui/material';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -44,7 +44,7 @@ const ProgressTracker = ({ userId }) => {
           { date: '2023-12-01', exercise: 'LatPullDown', weight: 72.5 },
         ];
         setProgress(mockData);
-        setSelectedExercise(mockData[0].exercise); // Set initial selected exercise
+        setSelectedExercise(mockData[0].exercise); // Ausgewählte Anfangsübung einstellen
       } catch (err) {
         setError(err.message);
       } finally {
@@ -103,41 +103,20 @@ const ProgressTracker = ({ userId }) => {
   };
 
   return (
-    <div className="relativ z-10 min-h-screen bg-gradient-to-br from-black to-blue-950">
-      {/* window bar */}
-      <div className="flex flex-row justify-start from-black to-blue-950">
-        {/* icon button container*/}
-        <div className="flex flex-row">
-          {/* link container*/}
-          <div className="flex flex-row justify-center">
-            <a href="/" className="m-2 font-semibold text-teal-600">
-              {/* icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="mt-2 flex flex-row justify-center from-black to-blue-950">
+    <div className="min-h-screen overflow-auto bg-gradient-to-br from-black to-blue-950 pt-20">
+      <div className="mt-6 flex flex-row justify-center from-black to-blue-950">
         <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
-          Trainingsprogress{' '}
+          Training progress{' '}
         </h1>
       </div>
-      <div className="mb-6 mt-6">
+      <div className="mx-auto mb-6 mt-6 flex size-5/6 items-center justify-center">
         <img src={cthuluprogress} alt="cthulu-progress" />
       </div>
-      <Container className="">
+      <Container className="h-full">
         <Select
           value={selectedExercise}
           onChange={(e) => setSelectedExercise(e.target.value)}
-          className="mb-4"
+          className="mb-6 w-full"
           sx={{ color: '#db2777', borderColor: '#ff0000' }}>
           {exercises.map((exercise) => (
             <MenuItem key={exercise} value={exercise} sx={{ color: '#14b8a6' }}>
@@ -146,9 +125,9 @@ const ProgressTracker = ({ userId }) => {
           ))}
         </Select>
         <div>
-          <Typography variant="h5" sx={{ color: '#14b8a6' }}>
+          {/* <Typography variant="h5" sx={{ color: '#14b8a6' }}>
             {selectedExercise}
-          </Typography>
+          </Typography> */}
           <Line data={data} options={options} />
         </div>
       </Container>

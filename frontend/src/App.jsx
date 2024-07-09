@@ -24,6 +24,9 @@ import Dashboard from './pages/Dashboard';
 import GenderWar from './pages/onboarding/GenderWar';
 import ProgressTracker from './pages/ProgressTracker';
 import UserBar from './assets/components/UserBar';
+import UserWorkout from './pages/UserWorkout';
+import PrivateRoute from './utils/PrivateRoute';
+import AccessDeniedPage from './pages/AccessDeniedPage';
 
 function App() {
   const { hardcodedWorkouts } = useFetchData();
@@ -36,10 +39,12 @@ function App() {
     '/workouts',
     '/trophys',
     '/progress',
-    '/Profile',
+    '/profile',
     '/edituserdata',
     '/testpage',
   ].includes(location.pathname);
+
+  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage'].includes(location.pathname);
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
@@ -57,10 +62,6 @@ function App() {
       return prev;
     });
   };
-  // Stepper Routes
-  // const stepRoutes = ['/startyourjourney', '/whatsyourgoal', '/setyourgrind'];
-
-  // console.log(import.meta.env.VITE_API_URL);
 
   return (
     <>
@@ -68,6 +69,7 @@ function App() {
       {/* {stepRoutes.includes(location.pathname) && <StepperComponent />} */}
       {/* Bottom Nav */}
       {showBottomNav && <BottomNav />}
+      {showUserBar && <UserBar />}
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -82,41 +84,43 @@ function App() {
         transition:Slide
       />
       <Routes>
-        <Route path="/home" element={<Dashboard />} />
-        <Route path="*" element={<NotFound />} />
+        {/* Open Routes */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/edituserdata" element={<EditUserData />} />
-        <Route path="/profile" element={<Profilerework />} />
-        <Route
-          path="/trophys"
-          element={
-            // added a bottom margin, because otherwise this site goes right trough the navbar and makes it transparent
-            <div className="mb-16">
+        <Route path="/accessdenied" element={<AccessDeniedPage />} />
+
+        {/* Protected Routes */}
+        <Route element={<PrivateRoute />}>
+          <Route path="/home" element={<Dashboard />} />
+          <Route path="/profile" element={<Profilerework />} />
+          <Route path="/edituserdata" element={<EditUserData />} />
+          <Route
+            path="/trophys"
+            element={
               <Trophys
                 progress={progress}
                 updateProgress={updateProgress}
                 toggleAchievement={toggleAchievement}
                 unlockedAchievments={unlockedAchievments}
               />
-            </div>
-          }
-        />
-        <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
+            }
+          />
+          <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
+          {/* No Navbar */}
+          <Route path="/progress" element={<ProgressTracker />} />
+          <Route path="/setup" element={<SetUp />} />
+          <Route path="/startyourjourney" element={<StartYourJourney />} />
+          <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
+          <Route path="/setyourgrind" element={<SetYourGrind />} />
+          <Route path="/gender" element={<GenderWar />} />
+          <Route path="/template" element={<Template />} />
+          <Route path="/uielements" element={<UIElements />} />
+          <Route path="/userworkout" element={<UserWorkout />} />
+        </Route>
 
-        {/* No Navbar */}
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/progress" element={<ProgressTracker />} />
-
-        <Route path="/setup" element={<SetUp />} />
-        <Route path="/startyourjourney" element={<StartYourJourney />} />
-        <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
-        <Route path="/setyourgrind" element={<SetYourGrind />} />
-        <Route path="/gender" element={<GenderWar />} />
-
-        <Route path="/template" element={<Template />} />
-        <Route path="/uielements" element={<UIElements />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

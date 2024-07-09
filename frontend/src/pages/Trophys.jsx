@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import cuteCthulhu from '../assets/images/cuteCthulhu.png';
 import firstWorkoutDone from '../assets/images/firstworkoutdone.png';
 import trainingNight from '../assets/images/trainingnight.jpeg';
 import chestDay from '../assets/images/Chest1.jpeg';
 import weekendWorkout from '../assets/images/weekendworkout.jpeg';
 import firsplancreated from '../assets/images/firstplancreated.jpeg';
+import firstlogin from '../assets/images/firstlogin.jpeg';
 import { LinearProgress, Box, Typography, Modal, IconButton } from '@mui/material';
 import AchievementItem from './AchievementItem';
-
 import CloseIcon from '@mui/icons-material/Close';
 
 const achievements = [
-  { id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu, requirements: 'First Workout completed' },
-  { id: 2, name: 'Firstworkout ', imageUrl: firstWorkoutDone },
+  { id: 1, name: 'Call of Cthulhu', imageUrl: firstlogin, requirements: 'Log into ELDERGYMBRO for the first time' },
+  { id: 2, name: 'Joined the Cult! ', imageUrl: firstWorkoutDone },
   { id: 3, name: 'Training at night', imageUrl: trainingNight, requirements: 'Start a workout between 10 pm and 2 am' },
   { id: 4, name: 'Chestday', imageUrl: chestDay, requirements: 'Chest workout on Mondays' },
   {
@@ -27,27 +29,52 @@ const achievements = [
     imageUrl: firsplancreated,
     requirements: 'Create your first personalized workout plan',
   },
+  {
+    id: 7,
+    name: 'Beginner Gains',
+    imageUrl: cuteCthulhu,
+    requirements: 'First Workout completed',
+  },
   // Weitere Achievements hier adden.
 ];
-
+// id: 1, name: 'Beginner Gains', imageUrl: cuteCthulhu, requirements: 'First Workout completed'
 const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievments }) => {
   const [progressPercentage, setProgressPercentage] = useState(0);
   // const [firstWorkoutCompleted, setFirstWorkoutCompleted] = useState(false);
-  const [firstWorkoutCompleted] = useState(true);
+  const [firstlogin] = useState(true); //// Achievement 1
+  const [weekEndWorkout] = useState(false); // Achievement 5
+  const [firstplancreated] = useState(true); // Achievement 6
   const [selectedAchievement, setSelectedAchievement] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // Schaltet Achievment frei wenn (true) und passt Progressbar an.
+  // Schaltet Achievement frei wenn (true) und passt Progressbar an.
 
-  // Hier fügen wir die Bedingungen für das Freischalten der Achievments ein.
+  // Hier fügen wir die Bedingungen für das Freischalten der Achievements ein.
   useEffect(() => {
     setProgressPercentage(progress);
-    if (firstWorkoutCompleted && !unlockedAchievments.includes(2)) {
-      toggleAchievement(2, true);
-    } else if (!firstWorkoutCompleted && unlockedAchievments.includes(2)) {
-      toggleAchievement(2, false);
+    const achievementById = (id) => achievements.find((achievement) => achievement.id === id);
+
+    if (firstlogin && !unlockedAchievments.includes(1)) {
+      toggleAchievement(1, true);
+      toast.success(`🏆 ${achievementById(1).name}`);
+    } else if (!firstlogin && unlockedAchievments.includes(1)) {
+      toggleAchievement(1, false);
     }
-  }, [progress, firstWorkoutCompleted, unlockedAchievments, toggleAchievement]);
+    //Bedingung für Achievement 5
+    if (weekEndWorkout && !unlockedAchievments.includes(5)) {
+      toggleAchievement(5, true);
+      toast.success(`🏆 ${achievementById(5).name}`);
+    } else if (!weekEndWorkout && unlockedAchievments.includes(5)) {
+      toggleAchievement(5, false);
+    }
+    //Achievement 6
+    if (firstplancreated && !unlockedAchievments.includes(6)) {
+      toggleAchievement(6, true);
+      toast.success(`🏆 ${achievementById(6).name}`);
+    } else if (!firstplancreated && unlockedAchievments.includes(6)) {
+      toggleAchievement(6, false);
+    }
+  }, [progress, firstlogin, weekEndWorkout, firstplancreated, unlockedAchievments, toggleAchievement]);
 
   useEffect(() => {
     const newProgress = (unlockedAchievments.length / achievements.length) * 100;
@@ -66,35 +93,16 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-blue-950">
+    <div className="min-h-screen bg-gradient-to-br from-black to-blue-950 pt-20">
       {/* window bar */}
-      <div className="flex flex-row justify-start from-black to-blue-950">
-        {/* icon button container*/}
-        <div className="flex flex-row">
-          {/* link container*/}
-          <div className="flex flex-row justify-center">
-            <a href="/" className="m-2 font-semibold text-teal-600">
-              {/* icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
+
       <div className="mt-2 flex flex-row justify-center from-black to-blue-950">
         <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
           Trophies{' '}
         </h1>
       </div>
       {/* SVG Container */}
-      <div className="mt-4 flex justify-center">
+      <div className="mt-8 flex justify-center">
         <svg width="150px" height="150px" viewBox="0 -0.5 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
           <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
@@ -222,7 +230,7 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
       </div>
 
       {/* Achievement Komponente */}
-      <div className="mt-12 grid grid-cols-2 gap-6">
+      <div className="mb-16 mt-8 grid grid-cols-2 gap-x-4 gap-y-4">
         {achievements.map((achievement) => (
           <AchievementItem
             key={achievement.id}
@@ -237,7 +245,8 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
       <Modal open={modalOpen} onClose={handleClose} className="flex h-full w-full items-end justify-center">
         <Box
           sx={{
-            p: 4,
+            px: 4,
+            py: 2,
             bgcolor: 'background.paper',
             borderRadius: '16px 16px 0 0',
             boxShadow: '0 -4px 6px rgba(0, 0, 0, 0.1)',
@@ -246,20 +255,21 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
             width: '100vw',
             maxWidth: '500px',
           }}
-          className="mx-auto space-y-4">
+          className="mx-auto space-y-5">
           {selectedAchievement && (
             <>
+              <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
               <IconButton
                 aria-label="close"
                 onClick={handleClose}
                 sx={{
                   position: 'absolute',
                   right: 8,
-                  top: 8,
+                  top: -6,
                 }}>
                 <CloseIcon />
               </IconButton>
-              <div className="font-cthulhumbus text-2xl">{selectedAchievement.name}</div>
+
               <div className="mt-2 text-teal-500">{selectedAchievement.requirements}</div>
             </>
           )}

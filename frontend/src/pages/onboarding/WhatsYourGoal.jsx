@@ -2,32 +2,37 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+// Importing images
+import growMuscleImage from '../../assets/images/growmuscle.jpg';
+import buildStaminaImage from '../../assets/images/buildupyourstamina.jpg';
+import maximizeStrengthImage from '../../assets/images/maximizeyourstrength.jpg';
+import weightGainImage from '../../assets/images/weightgain.jpeg';
+
 const cards = [
   {
     // Grow Your Muscle Card
-    image: '/src/assets/images/grow muscle.jpg',
+    image: growMuscleImage,
     heading: 'Grow Your Muscles',
     subheading: '8 - 15 Reps',
     // other props...
   },
   {
     // Built Up Your Stamina Card
-    image: '/src/assets/images/buildupyourstamina.jpg',
-    heading: 'Build Up Your Stamina',
+    image: buildStaminaImage,
+    heading: 'Build Your Stamina',
     subheading: '15 - 20+ Reps',
     // other props...
   },
-
   {
-    // Maximize your Strengh Card
-    image: '/src/assets/images/maximizeyourstrength.jpg',
+    // Maximize your Strength Card
+    image: maximizeStrengthImage,
     heading: 'Maximize Your Strength',
     subheading: '4 - 10 Reps',
     // other props...
   },
   {
-    // Maximize your Strengh Card
-    image: '/src/assets/images/weightgain.jpeg',
+    // Achieve Weight Loss Card
+    image: weightGainImage,
     heading: 'Achieve Weight Loss',
     subheading: '15 - 30+ Reps',
     // other props...

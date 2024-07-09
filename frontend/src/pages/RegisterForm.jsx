@@ -28,6 +28,8 @@ import { Canvas } from '@react-three/fiber';
 
 import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
 
+import { useAuth } from '../context/AuthProvider';
+
 // Configure zxcvbn-ts
 const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions);
 zxcvbnOptions.addMatcher('pwned', matcherPwned);
@@ -72,6 +74,7 @@ const getPasswordStrengthColor = (score) => {
 };
 
 function RegisterForm() {
+  const { isLoggedIn, checkUser } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
@@ -82,6 +85,20 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const result = usePasswordStrength(password);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      await checkUser();
+    };
+    fetchUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/home');
+    }
+  }, [isLoggedIn, navigate]);
 
   // when typing into the input fields, update the state
   const handleChange = (e) => {

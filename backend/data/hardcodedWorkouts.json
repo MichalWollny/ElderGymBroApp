@@ -37,7 +37,9 @@
           "Repeat the movement for the prescribed amount of repetitions.",
           "When you are done, place the bar back in the rack."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 2,
@@ -55,7 +57,9 @@
           "Return back to the starting position slowly as you inhale until your chest muscles are fully stretched.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 3,
@@ -74,7 +78,9 @@
           "After a second at the contracted position squeezing your shoulder blades together, slowly raise the bar back to the starting position when your arms are fully extended and the lats are fully stretched. Inhale during this portion of the movement.",
           "Repeat this motion for the prescribed amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 4,
@@ -92,7 +98,9 @@
           "Keeping the torso stationary, pull the handles back towards your torso while keeping the arms close to it until you touch the abdominals. Breathe out as you perform that movement. At that point you should be squeezing your back muscles hard. Hold that contraction for a second and slowly go back to the original position while breathing in.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 5,
@@ -109,7 +117,9 @@
           "Lower the dumbbells back down slowly to the starting position as you inhale.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 6,
@@ -127,7 +137,9 @@
           "Slowly begin to bring the bar back to starting position as your breathe in.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 7,
@@ -145,7 +157,9 @@
           "As you breathe out, extend your lower arms until they are straight and vertical. The upper arms and elbows remain stationary throughout the movement. Only the forearms should move. Contract the triceps hard for a second.",
           "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 8,
@@ -163,7 +177,9 @@
           "Pushing mainly with the heels of your feet and using the quadriceps go back to the starting position as you exhale.",
           "Repeat for the recommended amount of repetitions and ensure to lock the safety pins properly once you are done. You do not want that platform falling on you fully loaded."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 9,
@@ -180,7 +196,9 @@
           "As you exhale, curl your legs up as far as possible without lifting the upper legs from the pad. Once you hit the fully contracted position, hold it for a second.",
           "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-15"
       },
       {
         "id": 10,
@@ -199,7 +217,9 @@
           "After the one second contraction, begin to come down slowly again to the starting position as you inhale.",
           "Repeat for the recommended amount of repetitions."
         ],
-        "category": "strength"
+        "category": "strength",
+        "sets": 3,
+        "reps": "10-20"
       }
     ],
     "splits": [
@@ -247,9 +267,301 @@
       }
     ]
   },
-
   {
     "id": 2,
+    "name": "Intermediate Upper Body Workout",
+    "aim": "Build Strength",
+    "system": "Upper Body Workout",
+    "level": "Intermediate",
+    "frequency": "3-4 Days a Week",
+    "duration": "around 75 Minutes",
+    "planDuration": "8-16 Weeks",
+    "breakDuration": "60 Seconds",
+    "split": false,
+    "tips": [
+      "Focus on form and controlled movements",
+      "Incorporate compound and isolation exercises",
+      "Gradually increase weights to avoid plateaus",
+      "Ensure proper warm-up and cool-down",
+      "Stay hydrated and maintain a balanced diet",
+      "Listen to your body to prevent injuries"
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Barbell Bench Press - Medium Grip",
+        "force": "push",
+        "level": "intermediate",
+        "mechanic": "compound",
+        "equipment": "barbell",
+        "primaryMuscles": ["chest"],
+        "secondaryMuscles": ["shoulders", "triceps"],
+        "instructions": [
+          "Lie back on a flat bench. Using a medium width grip, lift the bar from the rack and hold it straight over you with your arms locked.",
+          "From the starting position, breathe in and begin coming down slowly until the bar touches your middle chest.",
+          "After a brief pause, push the bar back to the starting position as you breathe out. Focus on pushing the bar using your chest muscles.",
+          "Repeat the movement for the prescribed amount of repetitions.",
+          "When you are done, place the bar back in the rack."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "8-12"
+      },
+      {
+        "id": 2,
+        "name": "Bent Over Barbell Row",
+        "force": "pull",
+        "level": "intermediate",
+        "mechanic": "compound",
+        "equipment": "barbell",
+        "primaryMuscles": ["middle back"],
+        "secondaryMuscles": ["biceps", "lats", "shoulders"],
+        "instructions": [
+          "Stand with your feet shoulder-width apart. Bend your knees slightly and lean forward at your waist.",
+          "Grasp the bar with an overhand grip, hands slightly wider than shoulder-width apart.",
+          "Pull the bar towards your torso, keeping your elbows close to your body.",
+          "Pause at the top, then slowly lower the bar back to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "8-12"
+      },
+      {
+        "id": 3,
+        "name": "Seated Dumbbell Shoulder Press",
+        "force": "push",
+        "level": "intermediate",
+        "mechanic": "compound",
+        "equipment": "dumbbell",
+        "primaryMuscles": ["shoulders"],
+        "secondaryMuscles": ["triceps"],
+        "instructions": [
+          "Sit on a bench with back support and hold a dumbbell in each hand at shoulder height.",
+          "Press the dumbbells upward until your arms are fully extended overhead.",
+          "Lower the dumbbells back to shoulder height.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "8-12"
+      },
+      {
+        "id": 4,
+        "name": "Dumbbell Bicep Curl",
+        "force": "pull",
+        "level": "intermediate",
+        "mechanic": "isolation",
+        "equipment": "dumbbell",
+        "primaryMuscles": ["biceps"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Stand with a dumbbell in each hand, arms fully extended and palms facing forward.",
+          "Curl the weights while contracting your biceps.",
+          "Continue until your biceps are fully contracted and the dumbbells are at shoulder level.",
+          "Hold the contracted position for a moment, then slowly lower the dumbbells back to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "8-12"
+      },
+      {
+        "id": 5,
+        "name": "Tricep Dips",
+        "force": "push",
+        "level": "intermediate",
+        "mechanic": "compound",
+        "equipment": "body only",
+        "primaryMuscles": ["triceps"],
+        "secondaryMuscles": ["chest", "shoulders"],
+        "instructions": [
+          "Position yourself at the edge of a bench or chair with your hands gripping the edge.",
+          "Extend your legs in front of you.",
+          "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+          "Press back up to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "8-12"
+      }
+    ],
+    "splits": [
+      {
+        "day": "",
+        "muscleGroups": [
+          {
+            "group": "chest",
+            "exercises": [{ "name": "Barbell Bench Press - Medium Grip", "sets": "4", "reps": "8-12" }]
+          },
+          {
+            "group": "back",
+            "exercises": [{ "name": "Bent Over Barbell Row", "sets": "4", "reps": "8-12" }]
+          },
+          {
+            "group": "shoulders",
+            "exercises": [{ "name": "Seated Dumbbell Shoulder Press", "sets": "4", "reps": "8-12" }]
+          },
+          {
+            "group": "biceps",
+            "exercises": [{ "name": "Dumbbell Bicep Curl", "sets": "4", "reps": "8-12" }]
+          },
+          {
+            "group": "triceps",
+            "exercises": [{ "name": "Tricep Dips", "sets": "4", "reps": "8-12" }]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Advanced Lower Body Workout",
+    "aim": "Increase Strength and Size",
+    "system": "Lower Body Workout",
+    "level": "Advanced",
+    "frequency": "3-4 Days a Week",
+    "duration": "around 90 Minutes",
+    "planDuration": "8-16 Weeks",
+    "breakDuration": "60-90 Seconds",
+    "split": false,
+    "tips": [
+      "Focus on proper form and depth in all exercises",
+      "Incorporate progressive overload to continue making gains",
+      "Include a mix of compound and isolation exercises",
+      "Ensure adequate recovery between workouts",
+      "Maintain a balanced diet rich in protein",
+      "Warm-up thoroughly before starting the workout"
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Barbell Squat",
+        "force": "push",
+        "level": "advanced",
+        "mechanic": "compound",
+        "equipment": "barbell",
+        "primaryMuscles": ["quadriceps"],
+        "secondaryMuscles": ["calves", "glutes", "hamstrings"],
+        "instructions": [
+          "Position a barbell at shoulder height on a squat rack.",
+          "Step under the bar and place it across your shoulders.",
+          "Lift the bar off the rack and step back, standing with your feet shoulder-width apart.",
+          "Lower your body by bending your knees and hips until your thighs are parallel to the floor.",
+          "Push through your heels to return to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "6-10"
+      },
+      {
+        "id": 2,
+        "name": "Romanian Deadlift",
+        "force": "pull",
+        "level": "advanced",
+        "mechanic": "compound",
+        "equipment": "barbell",
+        "primaryMuscles": ["hamstrings"],
+        "secondaryMuscles": ["glutes", "lower back"],
+        "instructions": [
+          "Stand with your feet shoulder-width apart, holding a barbell in front of you.",
+          "Keep a slight bend in your knees and hinge at your hips to lower the barbell down your legs.",
+          "Lower the bar until you feel a stretch in your hamstrings, then return to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "6-10"
+      },
+      {
+        "id": 3,
+        "name": "Leg Press",
+        "force": "push",
+        "level": "advanced",
+        "mechanic": "compound",
+        "equipment": "machine",
+        "primaryMuscles": ["quadriceps"],
+        "secondaryMuscles": ["calves", "glutes", "hamstrings"],
+        "instructions": [
+          "Sit down on the leg press machine and place your feet on the platform shoulder-width apart.",
+          "Lower the safety bars and press the platform up until your legs are fully extended.",
+          "Slowly lower the platform until your knees form a 90-degree angle.",
+          "Press the platform back up to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "8-12"
+      },
+      {
+        "id": 4,
+        "name": "Standing Calf Raise",
+        "force": "push",
+        "level": "advanced",
+        "mechanic": "isolation",
+        "equipment": "machine",
+        "primaryMuscles": ["calves"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Stand on the calf raise machine with your shoulders under the pads and the balls of your feet on the platform.",
+          "Raise your heels as high as possible by contracting your calves.",
+          "Hold the contraction for a moment, then slowly lower your heels back to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "12-15"
+      },
+      {
+        "id": 5,
+        "name": "Lying Leg Curls",
+        "force": "pull",
+        "level": "advanced",
+        "mechanic": "isolation",
+        "equipment": "machine",
+        "primaryMuscles": ["hamstrings"],
+        "secondaryMuscles": [],
+        "instructions": [
+          "Lie face down on the leg curl machine with the pad of the lever on the back of your legs.",
+          "Curl your legs up as far as possible without lifting your upper legs from the pad.",
+          "Hold the contraction for a moment, then slowly lower your legs back to the starting position.",
+          "Repeat for the prescribed number of repetitions."
+        ],
+        "category": "strength",
+        "sets": 4,
+        "reps": "8-12"
+      }
+    ],
+    "splits": [
+      {
+        "day": "",
+        "muscleGroups": [
+          {
+            "group": "quadriceps",
+            "exercises": [
+              { "name": "Barbell Squat", "sets": "4", "reps": "6-10" },
+              { "name": "Leg Press", "sets": "4", "reps": "8-12" }
+            ]
+          },
+          {
+            "group": "hamstrings",
+            "exercises": [
+              { "name": "Romanian Deadlift", "sets": "4", "reps": "6-10" },
+              { "name": "Lying Leg Curls", "sets": "4", "reps": "8-12" }
+            ]
+          },
+          {
+            "group": "calves",
+            "exercises": [{ "name": "Standing Calf Raise", "sets": "4", "reps": "12-15" }]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
     "name": "Beginner 2-Day Split Workout",
     "aim": "Build Muscle",
     "system": "2-Day Split",
