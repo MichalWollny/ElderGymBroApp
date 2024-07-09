@@ -42,8 +42,8 @@ const UserBar = () => {
         <div>
           {isLoggedIn && userData ? (
             <p className="text-center text-teal-700" style={{ zIndex: 2 }}>
-              <span className="mb-0 pb-0 text-lg">{userData.username || 'No username'}</span> <br />
-              <span className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-2xl md:text-4xl mt-0 text-sm">{userData.awards?.title || 'No title'}</span>
+              <span className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-4xl md:text-3xl">{userData.username || 'No username'}</span> <br />
+              <span className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-xl md:text-2xl mt-0 text-sm">{userData.awards?.title || 'No title'}</span>
             </p>
           ) : (
             <p className="text-center text-teal-700">Loading...</p>
