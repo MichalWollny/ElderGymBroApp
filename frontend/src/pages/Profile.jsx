@@ -101,15 +101,15 @@ const Profile = () => {
       {!editMode ? (
         <>
           <div className="flex flex-row justify-center">
-            <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+            <h1 className="mb-2 mt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
               Profile
             </h1>
           </div>
 
-          <div className="flex flex-row justify-center">
+          <div className="mt-4 flex flex-row justify-center">
             <div className="flex flex-col justify-center">
               <div className="avatar">
-                <div className="mx-auto w-28 rounded-full ring-4 ring-teal-700 ring-offset-2 ring-offset-pink-800">
+                <div className="mx-auto w-36 rounded-full ring-4 ring-teal-700 ring-offset-2 ring-offset-pink-800">
                   <img src={avatar} alt="Profile Image" className="object-fit-cover rounded-full object-cover" />
                 </div>
               </div>
@@ -139,7 +139,7 @@ const Profile = () => {
 
               <div className="flex cursor-pointer flex-row justify-center">
                 <div className="flex flex-col">
-                  <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
+                  <h1 className="mt-4 cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-4xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
                     {userData.title || 'The infamous'}
                   </h1>
                   <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
@@ -149,23 +149,24 @@ const Profile = () => {
               </div>
             </div>
           </div>
-
-          <div className="mt-8 flex flex-col items-center space-y-4">
+          {/* Edit Your Profile Button */}
+          <div className="mt-6 flex flex-col items-center space-y-4">
             <Button
               type="submit"
               variant="contained"
               onClick={handleEdit}
-              sx={{ mt: 3, mb: 2, backgroundColor: '#831843', color: 'white' }}>
-              Edit
+              sx={{ mt: 4, mb: 2, backgroundColor: '#831843', color: 'white', textTransform: 'none' }}>
+              Edit Profile
             </Button>
-
-            <Button
-              type="button"
-              variant="contained"
-              onClick={logOut}
-              sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: 'white' }}>
-              Logout
-            </Button>
+            {/* Logout Button */}
+            <div className="absolute right-4 top-0">
+              <img
+                src="../src/assets/icons/logout1.png"
+                className="w-16 cursor-pointer"
+                alt="Logout"
+                onClick={logOut}
+              />
+            </div>
           </div>
         </>
       ) : (

@@ -34,19 +34,9 @@ function App() {
   const [unlockedAchievments, setUnlockedAchievments] = useState([]);
   const location = useLocation();
   // Hier die Routes adden, die BottomNav enthalten sollen.
-  const showBottomNav = [
-    '/home',
-    '/workouts',
-    '/trophys',
-    '/progress',
-    '/profile',
-    // '/edituserdata',
-    '/testpage',
-  ].includes(location.pathname);
+  const showBottomNav = ['/home', '/workouts', '/trophys', '/progress', '/profile'].includes(location.pathname);
 
-  const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/testpage', '/profile'].includes(
-    location.pathname,
-  );
+  const showUserBar = ['/home', '/workouts', '/trophys', '/progress'].includes(location.pathname);
 
   const updateProgress = (newProgress) => {
     setProgress(newProgress);
