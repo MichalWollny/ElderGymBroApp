@@ -91,11 +91,11 @@ const UserActiveExercise = ({
     <div
       key={exercise.id}
       className={`m-4 border-4 border-solid ${isCompleted ? 'border-gray-500 bg-gray-300' : 'border-teal-800 bg-zinc-800'} rounded-lg p-4 font-cthulhumbus text-white shadow-md`}>
-      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'}`}>{exercise.name}</h2>
+      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'} pl-2`}>{exercise.name}</h2>
       <img
         src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
         alt={exercise.name}
-        className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''}`}
+        className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''} pl-3`}
       />
       <form onSubmit={handleSubmit}>
         {setsData.map((set, index) => (
@@ -129,16 +129,16 @@ const UserActiveExercise = ({
 
         <div className="flex justify-center space-x-4">
           <button
-            type="submit"
-            className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-600 to-zinc-900 px-4 py-2 text-white"
-            disabled={isCompleted}>
-            Complete Exercise
-          </button>
-          <button
             type="button"
             className="rounded-md border-2 border-yellow-800 bg-gradient-to-tr from-gray-900 via-yellow-600 to-zinc-900 px-4 py-2 text-white"
             onClick={() => setShowSkipModal(true)}>
             Skip
+          </button>
+          <button
+            type="submit"
+            className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-600 to-zinc-900 px-4 py-2 text-white"
+            disabled={isCompleted}>
+            Complete Exercise
           </button>
         </div>
       </form>
