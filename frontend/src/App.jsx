@@ -42,7 +42,6 @@ function App() {
     '/profile',
     '/edituserdata',
     '/testpage',
-    '/userworkout',
   ].includes(location.pathname);
 
   const showUserBar = ['/home', '/workouts', '/trophys', '/progress', '/userworkouts', '/testpage'].includes(

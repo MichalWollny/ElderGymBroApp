@@ -1,0 +1,36 @@
+.slick-slide {
+  transition: transform 0.3s ease;
+}
+
+.slick-center .carousel-item {
+  margin: 0 15px; /* Adjust the margin as needed */
+}
+
+.slick-slide:not(.slick-center) .carousel-item img {
+  transform: scale(0.8); /* Adjust the scale as needed */
+  opacity: 0.6; /* Optional: to make non-center images less prominent */
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.slick-center .carousel-item img {
+  transform: scale(1);
+  opacity: 1;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.slick-dots li button:before {
+  color: gray; /* Color of inactive dots */
+}
+
+.slick-dots li.slick-active button:before {
+  color: white; /* Color of active dots */
+}
+
+/* Adjust the size of the dots if necessary */
+.slick-dots li button:before {
+  font-size: 12px;
+}
