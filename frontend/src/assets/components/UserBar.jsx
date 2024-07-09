@@ -9,7 +9,6 @@ const UserBar = () => {
   const { userData, setUserData, isLoggedIn, setIsLoggedIn } = useAuth();
   const navigate = useNavigate();
 
-
   const logOut = async () => {
     try {
       const response = await axios.post(
@@ -27,9 +26,6 @@ const UserBar = () => {
       console.error('Logout failed, you will never leave the cult!', error.message);
     }
   };
-
-  // activeIndex, storing the currently active nav item index
-  const [activeIndex, setActiveIndex] = useState(0);
 
   // Define paths
   const navItems = [
@@ -77,10 +73,10 @@ const UserBar = () => {
       path: '/profile',
     },
   ];
-  
+
   // activeIndex, storing the currently active nav item index
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   // Handle navigation
   const handleNavigation = (index, path) => {
     setActiveIndex(index);
