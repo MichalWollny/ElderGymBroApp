@@ -77,18 +77,18 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
+    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 pt-20 text-gray-200">
       <div className="flex flex-row justify-center">
-        <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+        {/* <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
           Home
-        </h1>
+        </h1> */}
       </div>
 
       <div className="flex cursor-pointer flex-col justify-center">
         <div className="flex flex-col">
-          <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
+          {/* <h1 className="cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
             {userData.awards?.title || 'No Title'}
-          </h1>
+          </h1> */}
           <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
             Welcome Dear {userData.fullName || 'No Name'}
           </h1>

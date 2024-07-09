@@ -34,7 +34,7 @@ const WorkoutPlan = ({ workouts }) => {
   };
 
   return (
-    <div className="container mx-auto mb-8 flex min-h-svh flex-col items-center bg-gradient-to-br from-black to-blue-950 p-4">
+    <div className="container mx-auto mb-8 flex min-h-svh flex-col items-center bg-gradient-to-br from-black to-blue-950 p-4 pt-20">
       {validWorkouts.map((plan, index) => (
         <div key={plan.id} className="mb-2 mt-2">
           <div className="w-90 card m-4 cursor-pointer rounded-lg border-4 border-solid border-teal-800 bg-zinc-800 p-2 shadow-md">
