@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import skippingImage from '../assets/images/skipping.png';
+import skippingImage from '../assets/images/skipping.png'; // Import the skipping image
 
 const UserActiveExercise = ({
   exercise,
@@ -47,7 +47,6 @@ const UserActiveExercise = ({
     }
 
     try {
-      // Post comes first
       await axios.post(
         `${import.meta.env.VITE_API_URL}/me/workouttracking/addExerciseProgress/${activeWorkout.id}/${exercise.id}`,
         {
@@ -92,18 +91,18 @@ const UserActiveExercise = ({
     <div
       key={exercise.id}
       className={`m-4 border-4 border-solid ${isCompleted ? 'border-gray-500 bg-gray-300' : 'border-teal-800 bg-zinc-800'} rounded-lg p-4 font-cthulhumbus text-white shadow-md`}>
-      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'} pb-1 pl-2`}>{exercise.name}</h2>
+      <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'}`}>{exercise.name}</h2>
       <img
         src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
         alt={exercise.name}
-        className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''} pl-3`}
+        className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''}`}
       />
-      <form onSubmit={combinedSubmitHandler}>
+      <form onSubmit={handleSubmit}>
         {setsData.map((set, index) => (
           <div
             key={index}
             className={`m-2 border-2 border-solid ${isCompleted ? 'border-gray-500 bg-gray-400' : 'border-teal-800 bg-zinc-700'} rounded-md p-2`}>
-            <p className={`${isCompleted ? 'text-gray-500' : ''} pb-2`}>
+            <p className={`${isCompleted ? 'text-gray-500' : ''} pb-2 underline`}>
               Set <span>{index + 1}</span>
             </p>
             <label className={`${isCompleted ? 'text-gray-500' : ''}`}>Weight (kg)</label>
@@ -130,16 +129,16 @@ const UserActiveExercise = ({
 
         <div className="flex justify-center space-x-4">
           <button
-            type="button"
-            className="rounded-md border-2 border-yellow-800 bg-gradient-to-tr from-gray-900 via-yellow-600 to-zinc-900 px-4 py-2 text-white"
-            onClick={() => setShowSkipModal(true)}>
-            Skip
-          </button>
-          <button
             type="submit"
             className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-600 to-zinc-900 px-4 py-2 text-white"
             disabled={isCompleted}>
             Complete Exercise
+          </button>
+          <button
+            type="button"
+            className="rounded-md border-2 border-yellow-800 bg-gradient-to-tr from-gray-900 via-yellow-600 to-zinc-900 px-4 py-2 text-white"
+            onClick={() => setShowSkipModal(true)}>
+            Skip
           </button>
         </div>
       </form>
@@ -153,7 +152,7 @@ const UserActiveExercise = ({
                 No, continue
               </button>
               <button className="rounded-md bg-green-500 px-4 py-2 text-white" onClick={handleSkipExercise}>
-                Yes, skip this one
+                Yes, really skip this one
               </button>
             </div>
           </div>
