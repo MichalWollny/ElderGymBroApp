@@ -1,10 +1,13 @@
 import { useAuth } from '../context/AuthProvider';
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
+import UserActiveExercise from './UserActiveExercise';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './carousel2.css';
+import './carousel.css';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'daisyui/dist/full.css';
 import useFetchData from '../utils/FetchData';
@@ -19,10 +22,12 @@ const getImage = (images, name) => {
 const SetActiveWorkout = () => {
   const { hardcodedWorkouts } = useFetchData();
   const { userData, checkUser } = useAuth();
+  const [activeWorkout, setActiveWorkout] = useState({ exercises: [] });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeExercise, setActiveExercise] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0); // Initialize selectedIndex to 0
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [completedExercises, setCompletedExercises] = useState([]);
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -32,52 +37,44 @@ const SetActiveWorkout = () => {
   }, [userData, checkUser]);
 
   useEffect(() => {
-    if (userData && userData.username) {
-      setIsLoading(false);
-    }
-  }, [userData]);
-
-  useEffect(() => {
-    const updateActiveWorkout = async () => {
+    const setActiveWorkout = async () => {
       setIsLoading(true);
       try {
         const response = await axios.patch(
           `${import.meta.env.VITE_API_URL}/me/workouttracking/setActiveWorkout`,
-          { workoutId: hardcodedWorkouts[selectedIndex]?.id || hardcodedWorkouts[0].id },
+          { workoutId: `1` },
           {
             withCredentials: true,
           },
         );
 
-        if (response.data.activeWorkout && response.data.activeWorkout.exercises.length > 0) {
-          const activeWorkoutIndex = hardcodedWorkouts.findIndex(
-            (workout) => workout.id === response.data.activeWorkout.id,
-          );
-          setSelectedIndex(activeWorkoutIndex !== -1 ? activeWorkoutIndex : 0);
+        if (response.data.activeWorkout.exercises.length > 0) {
+          setSelectedIndex(0);
+          setActiveExercise(response.data.activeWorkout.exercises[0]);
         }
       } catch (error) {
         setError(error.message);
         console.error(error);
-        // toast.error('Failed to load active workout');
-      } finally {
         setIsLoading(false);
+        toast.error('Failed to load active workout');
       }
     };
 
-    if (hardcodedWorkouts.length > 0) {
-      updateActiveWorkout();
+    if (userData && userData.username) {
+      setActiveWorkout();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hardcodedWorkouts]);
+  }, [userData, checkUser]);
 
-  const handleWorkoutClick = (exercise, index) => {
+  const handleExerciseClick = (exercise, index) => {
     setActiveExercise(exercise);
     setSelectedIndex(index);
   };
 
   const handleAfterChange = (current) => {
-    handleWorkoutClick(hardcodedWorkouts[current], current);
+    handleExerciseClick(hardcodedWorkouts.id[current], current);
   };
+
+  //   console.log(current);
 
   const settings = {
     dots: true,
@@ -91,7 +88,6 @@ const SetActiveWorkout = () => {
     accessibility: true,
     focusOnSelect: true,
     afterChange: handleAfterChange,
-    initialSlide: selectedIndex, // Set initialSlide to selectedIndex
     responsive: [
       {
         breakpoint: 1024,
@@ -114,35 +110,37 @@ const SetActiveWorkout = () => {
     ],
   };
 
-  return (
-    <div className="flex flex-col items-center pb-2 font-cthulhumbus">
-      <div className="mt-0 w-full max-w-screen-sm">
-        <h2 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text px-4 py-2 pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
-          Choose your workout:
-        </h2>
+  console.log(hardcodedWorkouts);
 
-        <div className="pb-6">
-          {!isLoading && hardcodedWorkouts.length > 0 ? (
+  return (
+    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-0 font-cthulhumbus">
+      <div className="mt-6 w-full max-w-screen-sm">
+        <h2 className="px-4 py-2 text-center font-cthulhumbus text-xl text-white">Choose your workout:</h2>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <div className="pb-6">
             <Slider {...settings} className="max-w-full" ref={sliderRef}>
               {hardcodedWorkouts.map((workout, index) => (
                 <div
                   key={workout.id || index}
                   id={`item-${index}`}
                   className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
-                  onClick={() => handleWorkoutClick(workout, index)}>
+                  onClick={() => handleExerciseClick(workout, index)}>
                   <img
                     src={getImage(workoutImages, workout.name)}
                     alt={workout.name}
                     className="rounded-t-lg shadow-lg"
                   />
-                  <p className="mt-2 text-center text-xs text-white">{workout.name}</p>
+
+                  <button className="mb-2 h-auto w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-xl">
+                    Activate Workout
+                  </button>
                 </div>
               ))}
             </Slider>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

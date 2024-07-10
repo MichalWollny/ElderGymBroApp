@@ -11,10 +11,11 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import { toast } from 'react-toastify';
+import logoutIcon from '../assets/icons/logout1.png';
 
 const Profile = () => {
   const { userData, isLoggedIn, setUserData, setIsLoggedIn, checkUser } = useAuth();
-  const [avatar, setAvatar] = useState(userData.avatar || '../src/assets/images/default-avatar.png');
+  const [avatar, setAvatar] = useState(userData.avatar);
   const [isLoading, setIsLoading] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ const Profile = () => {
   const logOut = async () => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, { withCredentials: true });
-      console.log('Logout response:', response.data);
+      // console.log('Logout response:', response.data);
       Cookies.remove('token'); // Clear the cookie on the client side
       setIsLoggedIn(false);
       setUserData({});
@@ -89,7 +90,7 @@ const Profile = () => {
           withCredentials: true,
         },
       );
-      console.log(response.data);
+      // console.log(response.data);
       await checkUser(); // Re-fetch the user data to get the updated avatar
       setEditMode(false);
     } catch (error) {
@@ -118,12 +119,12 @@ const Profile = () => {
       {!editMode ? (
         <>
           <div className="flex flex-row justify-center">
-            <h1 className="mb-2 mt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+            <h2 className="py-2 sm:py-4 md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
               Profile
-            </h1>
+            </h2>
           </div>
 
-          <div className="mt-4 flex flex-row justify-center">
+          <div className="mt-2 flex flex-row justify-center">
             <div className="flex flex-col justify-center">
               <div className="avatar">
                 <div className="mx-auto w-36 rounded-full ring-4 ring-teal-700 ring-offset-2 ring-offset-pink-800">
@@ -157,7 +158,7 @@ const Profile = () => {
               <div className="flex cursor-pointer flex-row justify-center">
                 <div className="flex flex-col">
                   <h1 className="mt-4 cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-4xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
-                    {userData.title || 'The infamous'}
+                    {userData.awards.title || 'The infamous'}
                   </h1>
                   <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
                     {userData.fullName || 'Lord of the Gym'}
@@ -177,12 +178,7 @@ const Profile = () => {
             </Button>
             {/* Logout Button */}
             <div className="absolute right-4 top-0">
-              <img
-                src="../src/assets/icons/logout1.png"
-                className="w-16 cursor-pointer"
-                alt="Logout"
-                onClick={logOut}
-              />
+              <img src={logoutIcon} className="w-16 cursor-pointer" alt="Logout" onClick={logOut} />
             </div>
           </div>
         </>

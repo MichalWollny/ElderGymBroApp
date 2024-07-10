@@ -7,14 +7,14 @@ const UserActiveExercise = ({
   exercise,
   activeWorkout,
   onComplete,
-  onCompleteWithoutKarma, // New prop
+  onCompleteWithoutKarma,
   isCompleted,
   setCompletedExercises,
   completedExercises,
   selectedIndex,
-  sliderRef, // New prop
-  handleExerciseClick, // New prop
-  setShowModal, // New prop
+  sliderRef,
+  handleExerciseClick,
+  setShowModal,
 }) => {
   const [setsData, setSetsData] = useState([]);
   const [showSkipModal, setShowSkipModal] = useState(false); // Track skip modal visibility

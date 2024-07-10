@@ -3,19 +3,47 @@ import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import gymLordImage from '../assets/images/gymLord.png';
+import Slider from 'react-slick';
+import React from 'react';
+import UICard from '../assets/components/UICard';
+import SetActiveWorkout from './SetActiveWorkout';
 
-const cards = [
+const activeworkout = [
   {
-    image: gymLordImage,
-    heading: 'Active workout heading endpoint',
-    subheading: 'Active workout subheading endpoint',
+    // Maximize Your Strength Card
+    image: '/src/assets/images/workouts/Beginner_Fullbody_Workout.jpg',
+    heading: 'Beginner Fullbody Workout',
+    subheading: 'A lone tribute to the muscle deity',
+    // other props...
   },
 ];
 
-const Dashboard = () => {
+const cards = [
+  {
+    // Maximize Your Strength Card
+    image: '/src/assets/images/firstlogin.jpeg',
+    heading: 'Mike',
+    subheading: 'First Incantation of Fitness',
+    // other props...
+  },
+  {
+    // Built Up Your Stamina Card
+    image: '/src/assets/images/firstplancreated.jpeg',
+    heading: 'Malte',
+    subheading: 'First Incantation of Fitness',
+    // other props...
+  },
+  {
+    // Grow Your Muscles Card
+    image: '/src/assets/images/weekendworkout.jpeg',
+    heading: 'Walter',
+    subheading: 'Weekend Workout Cultist',
+    // other props...
+  },
+];
+
+const Dashboard = ({ workouts }) => {
   const { userData, checkUser } = useAuth();
-  const [expandedElement, setExpandedElements] = useState(null);
   const navigate = useNavigate();
   const [activeWorkout, setActiveWorkout] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -25,14 +53,9 @@ const Dashboard = () => {
   const [workoutCompleted, setWorkoutCompleted] = useState(false);
 
   useEffect(() => {
-    if (!userData || !userData.username) {
-      checkUser(); // Fetch user data if not already available
-    }
-  }, [userData, checkUser]);
-
-  const toggleElement = () => {
-    setExpandedElements(!expandedElement);
-  };
+    checkUser(); // Fetch the latest user data when the component is loaded
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const getActiveWorkout = async () => {
@@ -70,7 +93,7 @@ const Dashboard = () => {
           setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay || []);
 
           // Check if the workout is completed
-          if (todaysProgress?.exercisesOfTheDay?.length == activeWorkoutData.exercises.length) {
+          if (todaysProgress?.exercisesOfTheDay?.length === activeWorkoutData.exercises.length) {
             setWorkoutCompleted(true);
           } else {
             setWorkoutCompleted(false);
@@ -125,99 +148,118 @@ const Dashboard = () => {
     return <div>Loading user data...</div>;
   }
 
+  // UICard large settings
+  var settingslarge = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '20%',
+  };
+
+  // UICard small settings
+  var settingssmall = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '35%',
+  };
+
   return (
-    <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 pt-20 text-gray-200">
-      <div className="flex flex-row justify-center"></div>
+    <div className="container mx-auto mb-8 flex min-h-svh flex-col bg-gradient-to-br from-black to-blue-950 p-4">
+      <div className="mt-16 flex flex-col justify-center">
+        <div className="flex cursor-pointer flex-col justify-center">
+          <div className="flex flex-col">
+            <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
+              Welcome Dear <br /> {userData.fullName}!
+            </h1>
+          </div>
+          <div className="flex items-center justify-center">
+            {(!workoutCompleted && (
+              <button
+                className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center"
+                onClick={() => activateWorkout(activeWorkout)}>
+                Start Workout!
+              </button>
+            )) || (
+              <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-2xl">
+                <span className="text-xl">Your workout for the the day is complete!</span> <br />
+                <span>Cthulhu is pleased!</span>
+              </div>
+            )}
+          </div>
+          {/* placeholder  */}
+          <SetActiveWorkout />
+        </div>
 
-      <div className="flex cursor-pointer flex-col justify-center">
         <div className="flex flex-col">
-          <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
-            Welcome Dear {userData.fullName || 'No Name'}
-          </h1>
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+            Active workout
+          </h2>
         </div>
-        <div className="flex items-center justify-center">
-          {(!workoutCompleted && (
-            <button
-              className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
-              onClick={() => activateWorkout(activeWorkout)}>
-              Start Workout!
-            </button>
-          )) || (
-            <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-2xl">
-              <span className="text-xl">Yor workout for the the day is complete!</span> <br />
-              <span>Cthulhu is pleased!</span>
-            </div>
-          )}
+
+        <div className="flex flex-row">
+          <div className="flex flex-row">
+            {activeworkout.map((activeworkout, index) => (
+              <div key={index}>
+                <UICardLarge
+                  image={activeworkout.image}
+                  heading={activeworkout.heading}
+                  subheading={activeworkout.subheading}
+                />
+              </div>
+            ))}
+          </div>
+          {/* <button
+          className="mt-4 px-2  rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 text-center"
+          onClick={() => activateWorkout(activeWorkout)}>
+          Start Workout
+        </button> */}
+          {/* <Button
+          type="button"
+          variant="contained"
+          onClick={() => activateWorkout(activeWorkout)}
+          sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: 'white', my: 'auto' }}>
+          Start Workout
+        </Button> */}
         </div>
+
+        <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+          Workout Selection
+        </h2>
+
+        <div className="px-4">
+          <Slider {...settingslarge}>
+            {cards.map((card, index) => (
+              <div key={index}>
+                <UICardLarge image={card.image} heading={card.heading} subheading={card.subheading} />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <br />
+        <br />
+        <div className="flex flex-col">
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+            Other Cultists' Achievments
+          </h2>
+        </div>
+        <div className="px-4">
+          <Slider {...settingssmall}>
+            {cards.map((card, index) => (
+              <div key={index}>
+                <UICard image={card.image} heading={card.heading} subheading={card.subheading} />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <br />
       </div>
-
-      <h2 className="px-4 font-cthulhumbus">Active workout</h2>
-
-      {cards.map((card, index) => (
-        <UICardLarge key={index} image={card.image} heading={card.heading} className="" subheading={card.subheading} />
-      ))}
-
-      <br />
-      <div className="flex flex-col items-start justify-start">
-        Expander Tryout
-        <button className="px-4 font-cthulhumbus" onClick={toggleElement}>
-          Cult News
-        </button>
-        {expandedElement && (
-          <>
-            <p>1 Lorem ipsum dolor sit amet.</p>
-            <div className="carousel-item">
-              <img className="w-24" src={gymLordImage} alt="Pizza" />
-            </div>
-            <p>2 In dolorum veritatis dolores.</p>
-            <div className="carousel-item">
-              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
-            </div>
-            <p>3 Odit necessitatibus totam.</p>
-            <div className="carousel-item">
-              <img className="mx-2 w-24" src={gymLordImage} alt="Pizza" />
-            </div>
-          </>
-        )}
-      </div>
-      <br />
-
-      <h2 className="px-4 py-2 font-cthulhumbus">Cult News</h2>
-      <div className="flex flex-col">
-        <div className="carousel carousel-center w-full">
-          <div id="item1" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
-          </div>
-
-          <div id="item2" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
-          </div>
-
-          <div id="item3" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
-          </div>
-
-          <div id="item4" className="carousel-item">
-            <img className="w-40" src={gymLordImage} alt="Pizza" />
-          </div>
-        </div>
-
-        <div className="flex w-full justify-center gap-2 py-2">
-          <a href="#item1" className="btn btn-xs">
-            1
-          </a>
-          <a href="#item2" className="btn btn-xs">
-            2
-          </a>
-          <a href="#item3" className="btn btn-xs">
-            3
-          </a>
-          <a href="#item4" className="btn btn-xs">
-            4
-          </a>
-        </div>
-      </div>
-      <br />
     </div>
   );
 };

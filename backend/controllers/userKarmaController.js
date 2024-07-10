@@ -57,7 +57,7 @@ export const updateKarmaFunction = async (req, res, next) => {
     // If level remains the same, only update progress
     user.awards.progress = calculateProgressToNextLevel(user.awards.karmaPoints);
   }
-  console.log(req.body);
+  // console.log(req.body);
 
   user.awards.title = getTitle(user.awards.karmaPoints);
 

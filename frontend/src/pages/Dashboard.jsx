@@ -4,40 +4,44 @@ import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
-import React from 'react';
-import UICard from '../assets/components/UICard';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './carousel2.css';
+import SetActiveWorkout from './SetActiveWorkout';
 
-const activeworkout = [
+// Importing images directly
+import beginnerFullbodyWorkoutImage from '../assets/images/workouts/Beginner_Fullbody_Workout.jpg';
+import firstLoginImage from '../assets/images/firstlogin.jpeg';
+import firstPlanCreatedImage from '../assets/images/firstplancreated.jpeg';
+import weekendWorkoutImage from '../assets/images/weekendworkout.jpeg';
+
+const initialActiveWorkout = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/images/workouts/Beginner_Fullbody_Workout.jpg',
+    image: beginnerFullbodyWorkoutImage,
     heading: 'Beginner Fullbody Workout',
     subheading: 'A lone tribute to the muscle deity',
-    // other props...
   },
 ];
 
-const cards = [
+const initialCards = [
   {
     // Maximize Your Strength Card
-    image: '/src/assets/images/firstlogin.jpeg',
+    image: firstLoginImage,
     heading: 'Mike',
     subheading: 'First Incantation of Fitness',
-    // other props...
   },
   {
     // Built Up Your Stamina Card
-    image: '/src/assets/images/firstplancreated.jpeg',
+    image: firstPlanCreatedImage,
     heading: 'Malte',
     subheading: 'First Incantation of Fitness',
-    // other props...
   },
   {
     // Grow Your Muscles Card
-    image: '/src/assets/images/weekendworkout.jpeg',
+    image: weekendWorkoutImage,
     heading: 'Walter',
     subheading: 'Weekend Workout Cultist',
-    // other props...
   },
 ];
 
@@ -70,24 +74,24 @@ const Dashboard = ({ workouts }) => {
 
         if (userData && activeWorkoutData) {
           const today = new Date().toISOString().split('T')[0]; // Ensure date comparison format is correct
-          console.log('Today:', today);
+          // console.log('Today:', today);
 
           // Log userData to check the structure
-          console.log('UserData:', userData);
+          // console.log('UserData:', userData);
 
           const progressTracking = userData.progressTracking?.find(
             (progressTracking) => progressTracking.workoutId === activeWorkoutData.id,
           );
 
-          console.log('ProgressTracking:', progressTracking);
+          // console.log('ProgressTracking:', progressTracking);
 
           const todaysProgress = progressTracking?.progress?.find((day) => {
             const dayDate = new Date(day.day).toISOString().split('T')[0];
-            console.log('Comparing:', dayDate, 'with', today);
+            // console.log('Comparing:', dayDate, 'with', today);
             return dayDate === today;
           });
 
-          console.log('TodaysProgress:', todaysProgress);
+          // console.log('TodaysProgress:', todaysProgress);
 
           setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay || []);
 
@@ -98,7 +102,7 @@ const Dashboard = ({ workouts }) => {
             setWorkoutCompleted(false);
           }
         }
-        console.log(workoutCompleted);
+        // console.log(workoutCompleted);
       } catch (error) {
         setError(error.message);
         console.error('Error fetching active workout:', error);
@@ -147,104 +151,100 @@ const Dashboard = ({ workouts }) => {
     return <div>Loading user data...</div>;
   }
 
-  // UICard large settings
-  var settingslarge = {
+  // Slider settings
+  const settings = {
+    className: 'center',
     dots: true,
-    infinite: true,
+    infinite: false, // Make the slider non-infinite
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '20%',
-  };
-
-  // UICard small settings
-  var settingssmall = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '35%',
+    centerPadding: '30%', // Decrease padding to make images smaller
+    arrows: false, // Hide the default arrows
+    accessibility: true, // Enable keyboard navigation
+    focusOnSelect: true, // Focus on select to enable keyboard interaction
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          centerMode: true,
+          centerPadding: '30%', // Decrease padding to make images smaller
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '30%', // Decrease padding to make images smaller
+        },
+      },
+    ],
   };
 
   return (
-    <div className="container mx-auto mb-8 flex min-h-svh flex-col bg-gradient-to-br from-black to-blue-950 p-4">
-      <div className="mt-16 flex flex-col justify-center">
-        <div className="flex cursor-pointer flex-col justify-center">
-          <div className="flex flex-col">
-            <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
+    <div className="container mx-auto flex min-h-screen flex-col bg-gradient-to-br from-black to-blue-950 p-4 pb-24 text-white">
+      <div className="mt-16 flex flex-col items-center justify-center">
+        <div className="flex cursor-pointer flex-col items-center justify-center">
+          <div className="flex flex-col items-center">
+          <h2 className="pt-2 sm: md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
               Welcome Dear <br /> {userData.fullName}!
-            </h1>
+            </h2>
           </div>
-          <div className="flex items-center justify-center">
-            {(!workoutCompleted && (
-              <button
-                className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center"
-                onClick={() => activateWorkout(activeWorkout)}>
-                Start Workout!
-              </button>
-            )) || (
-              <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-2xl">
-                <span className="text-xl">Your workout for the day is complete!</span> <br />
-                <span>Cthulhu is pleased!</span>
-              </div>
-            )}
-          </div>
-          {/* placeholder  */}
         </div>
 
-        <div className="flex flex-col">
-          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-            Active workout
+        {/* <div className="mt-2 w-full">
+          <hr className="my-4 w-full border-gray-500 opacity-50" />
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
+            Active Workout
+          </h2>
+        </div> */}
+        <hr className="my-4 w-full border-gray-500 opacity-50" />
+        <div className="w-full px-4">
+          {' '}
+          {/* Wrap the SetActiveWorkout component */}
+          <SetActiveWorkout />
+        </div>
+
+        <div className="mt-0 flex items-center justify-center">
+          {!workoutCompleted ? (
+            <button
+              className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-3 text-center"
+              onClick={() => activateWorkout(activeWorkout)}>
+              Start Workout
+            </button>
+          ) : (
+            <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-4 text-center font-cthulhumbus text-2xl">
+              <span className="text-xl">Your workout for the day is complete!</span> <br />
+              <span>Cthulhu is pleased!</span>
+            </div>
+          )}
+        </div>
+
+        <div className="mt-8 w-full">
+          <hr className="my-4 w-full border-gray-500 opacity-50" />
+          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
+            Other Cultists&apos; Achievements
           </h2>
         </div>
 
-        <div className="flex flex-row">
-          <div className="flex flex-row">
-            {activeworkout.map((activeworkout, index) => (
-              <div key={index}>
-                <UICardLarge
-                  image={activeworkout.image}
-                  heading={activeworkout.heading}
-                  subheading={activeworkout.subheading}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-          Workout Selection
-        </h2>
-
-        <div className="px-4">
-          <Slider {...settingslarge}>
-            {cards.map((card, index) => (
-              <div key={index}>
-                <UICardLarge image={card.image} heading={card.heading} subheading={card.subheading} />
+        <div className="mt-4 w-full px-4">
+          <Slider {...settings}>
+            {initialCards.map((card, index) => (
+              <div key={index} className="carousel-item">
+                <img src={card.image} alt={card.heading} className="mx-auto rounded-lg" />
+                <h3 className="text-center text-xl font-medium">{card.heading}</h3>
+                <p className="text-center text-sm">{card.subheading}</p>
               </div>
             ))}
           </Slider>
         </div>
-        <br />
-        <br />
-        <div className="flex flex-col">
-          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-start font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
-            Other Cultists&apos; Achievments
-          </h2>
-        </div>
-        <div className="px-4">
-          <Slider {...settingssmall}>
-            {cards.map((card, index) => (
-              <div key={index}>
-                <UICard image={card.image} heading={card.heading} subheading={card.subheading} />
-              </div>
-            ))}
-          </Slider>
-        </div>
-        <br />
       </div>
     </div>
   );

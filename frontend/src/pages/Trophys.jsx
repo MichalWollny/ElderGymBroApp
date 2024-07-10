@@ -101,13 +101,13 @@ const Trophys = ({ progress, updateProgress, toggleAchievement, unlockedAchievme
     <div className="min-h-screen bg-gradient-to-br from-black to-blue-950 pt-20">
       {/* window bar */}
 
-      <div className="mt-2 flex flex-row justify-center from-black to-blue-950">
-        <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
+      <div className="flex flex-row justify-center from-black to-blue-950">
+      <h2 className="py-2 sm:py-4 md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
           Trophies{' '}
-        </h1>
+        </h2>
       </div>
       {/* SVG Container */}
-      <div className="mt-8 flex justify-center">
+      <div className="flex justify-center">
         <svg width="150px" height="150px" viewBox="0 -0.5 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
           <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>

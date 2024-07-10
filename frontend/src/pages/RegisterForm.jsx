@@ -129,7 +129,7 @@ function RegisterForm() {
 
     const timer = setTimeout(() => {
       navigate('/login');
-    }, 4000);
+    }, 3000);
 
     return () => clearTimeout(timer); // Clear the timer if the component unmounts
   };

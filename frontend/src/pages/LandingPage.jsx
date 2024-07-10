@@ -11,6 +11,8 @@ import avatarImage2 from '../assets/images/avatar2.avif';
 import avatarImage3 from '../assets/images/avatar3.avif';
 import { useAuth } from '../context/AuthProvider';
 
+import logoImage from '../assets/icons/elderGymBroLogo.png';
+
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
 const LandingPage = () => {
@@ -60,11 +62,15 @@ const LandingPage = () => {
     <motion.section
       style={{ backgroundImage }}
       className="relative grid min-h-svh place-content-center place-items-center overflow-hidden bg-gray-950 px-4 pt-5 text-gray-200 md:pt-10">
-      <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
-        Train Like an <br />
-        Ancient God
-      </h1>
-      <img src={landingPageImage} alt="Landing Page Image" className="w-full md:w-1/2" />
+      <div className="mb-2 flex flex-row justify-evenly space-x-10">
+        <img src={logoImage} alt="Logo" className="h-16 w-16" />
+        <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
+          Train Like an <br />
+          Ancient God
+        </h1>
+      </div>
+
+      <img src={landingPageImage} alt="Landing Page Image" className="w-4/5 md:w-auto" />
       <div className="relative z-10 flex flex-col items-center">
         <motion.button
           style={{ border, boxShadow }}

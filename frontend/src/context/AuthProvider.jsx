@@ -20,14 +20,17 @@ export const AuthProvider = ({ children }) => {
       if (response.data && response.data._id) {
         setIsLoggedIn(true);
         setUserData(response.data);
+        return response.data; // Return the user data
       } else {
         setIsLoggedIn(false);
         setUserData({});
+        return {}; // Return empty object if no user data
       }
     } catch (error) {
       setIsLoggedIn(false);
       setUserData({});
       console.error('Error in checkUser:', error);
+      return {}; // Return empty object in case of error
     }
   };
 
