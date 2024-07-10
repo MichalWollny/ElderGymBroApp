@@ -1,6 +1,8 @@
 # Elder Gym Bro App
 
-<img src="./frontend/src/assets/videos/demo.gif" alt="Demo" style="width:auto; height:250px;">
+<div align="center">
+  <img src="./frontend/src/assets/videos/demo.gif" alt="Demo" style="width:auto; height:250px;">
+</div>
 
 Welcome to the **Elder Gym Bro App** 💪🔱, your Cthulhu-themed workout companion designed to guide you through the depths of fitness with an eldritch twist. Dive into a world where physical training meets the mysterious and ancient lore of the Great Old Ones. 🐙
 
