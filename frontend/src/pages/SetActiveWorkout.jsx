@@ -1,13 +1,10 @@
 import { useAuth } from '../context/AuthProvider';
 import { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
-import UserActiveExercise from './UserActiveExercise';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './carousel2.css';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'daisyui/dist/full.css';
 import useFetchData from '../utils/FetchData';
@@ -26,9 +23,7 @@ const SetActiveWorkout = () => {
   const [error, setError] = useState(null);
   const [activeExercise, setActiveExercise] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0); // Initialize selectedIndex to 0
-  const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
-  const [activeWorkout, setActiveWorkoutState] = useState(null);
 
   useEffect(() => {
     if (!userData || !userData.username) {
@@ -48,32 +43,36 @@ const SetActiveWorkout = () => {
       try {
         const response = await axios.patch(
           `${import.meta.env.VITE_API_URL}/me/workouttracking/setActiveWorkout`,
-          { workoutId: hardcodedWorkouts[selectedIndex].id },
+          { workoutId: hardcodedWorkouts[selectedIndex]?.id || hardcodedWorkouts[0].id },
           {
             withCredentials: true,
           },
         );
 
         if (response.data.activeWorkout && response.data.activeWorkout.exercises.length > 0) {
-          setActiveWorkoutState(response.data.activeWorkout.id);
+          const activeWorkoutIndex = hardcodedWorkouts.findIndex(
+            (workout) => workout.id === response.data.activeWorkout.id,
+          );
+          setSelectedIndex(activeWorkoutIndex !== -1 ? activeWorkoutIndex : 0);
         }
       } catch (error) {
         setError(error.message);
         console.error(error);
-        setIsLoading(false);
         // toast.error('Failed to load active workout');
+      } finally {
+        setIsLoading(false);
       }
     };
 
     if (hardcodedWorkouts.length > 0) {
       updateActiveWorkout();
     }
-  }, [selectedIndex, hardcodedWorkouts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hardcodedWorkouts]);
 
   const handleWorkoutClick = (exercise, index) => {
     setActiveExercise(exercise);
     setSelectedIndex(index);
-    setCurrentSlide(index);
   };
 
   const handleAfterChange = (current) => {
@@ -123,22 +122,26 @@ const SetActiveWorkout = () => {
         </h2>
 
         <div className="pb-6">
-          <Slider {...settings} className="max-w-full" ref={sliderRef}>
-            {hardcodedWorkouts.map((workout, index) => (
-              <div
-                key={workout.id || index}
-                id={`item-${index}`}
-                className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
-                onClick={() => handleWorkoutClick(workout, index)}>
-                <img
-                  src={getImage(workoutImages, workout.name)}
-                  alt={workout.name}
-                  className="rounded-t-lg shadow-lg"
-                />
-                <p className="mt-2 text-center text-xs text-white">{workout.name}</p>
-              </div>
-            ))}
-          </Slider>
+          {!isLoading && hardcodedWorkouts.length > 0 ? (
+            <Slider {...settings} className="max-w-full" ref={sliderRef}>
+              {hardcodedWorkouts.map((workout, index) => (
+                <div
+                  key={workout.id || index}
+                  id={`item-${index}`}
+                  className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
+                  onClick={() => handleWorkoutClick(workout, index)}>
+                  <img
+                    src={getImage(workoutImages, workout.name)}
+                    alt={workout.name}
+                    className="rounded-t-lg shadow-lg"
+                  />
+                  <p className="mt-2 text-center text-xs text-white">{workout.name}</p>
+                </div>
+              ))}
+            </Slider>
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
     </div>
