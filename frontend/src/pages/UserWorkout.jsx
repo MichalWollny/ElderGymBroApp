@@ -13,6 +13,67 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'daisyui/dist/full.css';
 
+// Pre-import all images
+import barbellBenchPressMediumGripImage from '../assets/images/Exercises/Barbell_Bench_Press_-_Medium_Grip/images/0.jpg';
+import barbellSquatImage from '../assets/images/Exercises/Barbell_Squat/images/0.jpg';
+import bentOverBarbellRowImage from '../assets/images/Exercises/Bent_Over_Barbell_Row/images/0.jpg';
+import bentOverTwoDumbbellRowImage from '../assets/images/Exercises/Bent_Over_Two_Dumbbell_Row/images/0.jpg';
+import butterflyImage from '../assets/images/Exercises/Butterfly/images/0.jpg';
+import closeGripEZBarCurlImage from '../assets/images/Exercises/Close_Grip_EZ_Bar_Curl/images/0.jpg';
+import closeGripEZBarPressImage from '../assets/images/Exercises/Close_Grip_EZ_Bar_Press/images/0.jpg';
+import crunchesImage from '../assets/images/Exercises/Crunches/images/0.jpg';
+import dumbbellBicepCurlImage from '../assets/images/Exercises/Dumbbell_Bicep_Curl/images/0.jpg';
+import flatBenchLyingLegRaiseImage from '../assets/images/Exercises/Flat_Bench_Lying_Leg_Raise/images/0.jpg';
+import hyperextensionsImage from '../assets/images/Exercises/Hyperextensions_(Back_Extensions)/images/0.jpg';
+import legExtensionsImage from '../assets/images/Exercises/Leg_Extensions/images/0.jpg';
+import legPressImage from '../assets/images/Exercises/Leg_Press/images/0.jpg';
+import lowCableTricepsExtensionImage from '../assets/images/Exercises/Low_Cable_Triceps_Extension/images/0.jpg';
+import lyingLegCurlsImage from '../assets/images/Exercises/Lying_Leg_Curls/images/0.jpg';
+import preacherCurlImage from '../assets/images/Exercises/Preacher_Curl/images/0.jpg';
+import romanianDeadliftImage from '../assets/images/Exercises/Romanian_Deadlift/images/0.jpg';
+import seatedCableRowsImage from '../assets/images/Exercises/Seated_Cable_Rows/images/0.jpg';
+import seatedDumbbellPressImage from '../assets/images/Exercises/Seated_Dumbbell_Press/images/0.jpg';
+import seatedDumbbellShoulderPressImage from '../assets/images/Exercises/Seated_Dumbbell_Shoulder_Press/images/0.jpg';
+import sideLateralRaiseImage from '../assets/images/Exercises/Side_Lateral_Raise/images/0.jpg';
+import smithMachineInclineBenchPressImage from '../assets/images/Exercises/Smith_Machine_Incline_Bench_Press/images/0.jpg';
+import smithMachineOverheadShoulderPressImage from '../assets/images/Exercises/Smith_Machine_Overhead_Shoulder_Press/images/0.jpg';
+import standingBicepsCableCurlImage from '../assets/images/Exercises/Standing_Biceps_Cable_Curl/images/0.jpg';
+import standingCalfRaisesImage from '../assets/images/Exercises/Standing_Calf_Raises/images/0.jpg';
+import tricepDipsImage from '../assets/images/Exercises/Tricep_Dips/images/0.jpg';
+import tricepsPushdownImage from '../assets/images/Exercises/Triceps_Pushdown/images/0.jpg';
+import wideGripLatPulldownImage from '../assets/images/Exercises/Wide-Grip_Lat_Pulldown/images/0.jpg';
+
+const imageMap = {
+  'Barbell Bench Press - Medium Grip': barbellBenchPressMediumGripImage,
+  'Barbell Squat': barbellSquatImage,
+  'Bent Over Barbell Row': bentOverBarbellRowImage,
+  'Bent Over Two Dumbbell Row': bentOverTwoDumbbellRowImage,
+  Butterfly: butterflyImage,
+  'Close Grip EZ Bar Curl': closeGripEZBarCurlImage,
+  'Close Grip EZ Bar Press': closeGripEZBarPressImage,
+  Crunches: crunchesImage,
+  'Dumbbell Bicep Curl': dumbbellBicepCurlImage,
+  'Flat Bench Lying Leg Raise': flatBenchLyingLegRaiseImage,
+  'Hyperextensions (Back Extensions)': hyperextensionsImage,
+  'Leg Extensions': legExtensionsImage,
+  'Leg Press': legPressImage,
+  'Low Cable Triceps Extension': lowCableTricepsExtensionImage,
+  'Lying Leg Curls': lyingLegCurlsImage,
+  'Preacher Curl': preacherCurlImage,
+  'Romanian Deadlift': romanianDeadliftImage,
+  'Seated Cable Rows': seatedCableRowsImage,
+  'Seated Dumbbell Press': seatedDumbbellPressImage,
+  'Seated Dumbbell Shoulder Press': seatedDumbbellShoulderPressImage,
+  'Side Lateral Raise': sideLateralRaiseImage,
+  'Smith Machine Incline Bench Press': smithMachineInclineBenchPressImage,
+  'Smith Machine Overhead Shoulder Press': smithMachineOverheadShoulderPressImage,
+  'Standing Biceps Cable Curl': standingBicepsCableCurlImage,
+  'Standing Curl Raises': standingCalfRaisesImage,
+  'Tricep Dips': tricepDipsImage,
+  'Triceps Pushdown': tricepsPushdownImage,
+  'Wide-Grip Lat Pulldown': wideGripLatPulldownImage,
+};
+
 const UserWorkout = () => {
   const { userData, checkUser } = useAuth();
   const [activeWorkout, setActiveWorkout] = useState({ exercises: [] });
@@ -152,6 +213,10 @@ const UserWorkout = () => {
     ],
   };
 
+  const importImage = (exerciseName) => {
+    return imageMap[exerciseName] || null;
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-0 font-cthulhumbus">
       <div className="fixed left-0 right-0 top-0 z-50 bg-black p-0 text-center text-white shadow-md">
@@ -179,7 +244,7 @@ const UserWorkout = () => {
                   className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
                   onClick={() => handleExerciseClick(exercise, index)}>
                   <img
-                    src={`../../public/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
+                    src={importImage(exercise.name)}
                     alt={exercise.name}
                     className={`h-auto w-full max-w-xs rounded-md ${completedExercises.includes(index) ? 'grayscale' : ''}`}
                   />
