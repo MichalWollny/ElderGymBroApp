@@ -114,10 +114,11 @@ export const updateWorkoutProgress = async (req, res) => {
       workoutTracking.progress.push(dayEntry);
     }
 
-    console.log(req.body);
+    // console.log(req.body);
 
     // // Before adding the new exercise progress
-    console.log({ exerciseId, weight, sets, reps }); // Debugging: Log incoming data
+    // Debugging: Log incoming data
+    // console.log({ exerciseId, weight, sets, reps });
 
     // Basic validation (example for weight, apply similarly for sets and reps)
     if (typeof weight !== 'number' || isNaN(weight)) {

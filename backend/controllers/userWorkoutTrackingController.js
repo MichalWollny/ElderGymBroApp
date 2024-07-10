@@ -21,18 +21,18 @@ export const setUserActiveWorkout = asyncHandler(async (req, res) => {
 
 // Get active workout details
 export const getActiveWorkout = asyncHandler(async (req, res) => {
-  console.log('getActiveWorkout called');
+  // console.log('getActiveWorkout called');
   // Find the user by UID
   const user = await User.findById(req.uid);
   if (!user) {
-    console.log('User not found');
+    // console.log('User not found');
     return res.status(404).json({ error: 'User not found' });
   }
 
   // Get the activeWorkoutId from the user profile
   const activeWorkoutId = user.activeWorkoutId;
   if (!activeWorkoutId) {
-    console.log('No active workout found');
+    // console.log('No active workout found');
     return res.status(404).json({ error: 'No active workout found' });
   }
 
@@ -44,11 +44,11 @@ export const getActiveWorkout = asyncHandler(async (req, res) => {
   // Find the active workout by activeWorkoutId
   const activeWorkout = workouts.find((workout) => workout.id === Number(activeWorkoutId));
   if (!activeWorkout) {
-    console.log('Active workout does not exist');
+    // console.log('Active workout does not exist');
     return res.status(404).json({ error: 'Active workout does not exist' });
   }
 
-  console.log('Active workout found:', activeWorkout);
+  // console.log('Active workout found:', activeWorkout);
   res.status(200).json({ activeWorkout });
 });
 
@@ -131,7 +131,7 @@ export const addExerciseProgress = asyncHandler(async (req, res) => {
     dayEntry.exercisesOfTheDay.push({ exerciseId, exerciseName, sets, date: currentDate });
   }
 
-  console.log(req.body);
+  // console.log(req.body);
 
   // Save the changes
   await user.save();
