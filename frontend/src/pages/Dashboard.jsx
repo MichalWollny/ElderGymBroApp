@@ -193,9 +193,9 @@ const Dashboard = ({ workouts }) => {
       <div className="mt-16 flex flex-col items-center justify-center">
         <div className="flex cursor-pointer flex-col items-center justify-center">
           <div className="flex flex-col items-center">
-            <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-4xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
+          <h2 className="pt-2 sm: md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
               Welcome Dear <br /> {userData.fullName}!
-            </h1>
+            </h2>
           </div>
         </div>
 

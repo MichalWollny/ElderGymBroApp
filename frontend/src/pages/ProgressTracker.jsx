@@ -107,12 +107,12 @@ const ProgressTracker = ({ userId }) => {
 
   return (
     <div className="min-h-screen overflow-auto bg-gradient-to-br from-black to-blue-950 pt-20">
-      <div className="mt-6 flex flex-row justify-center from-black to-blue-950">
-        <h1 className="p-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-teal-600 sm:text-3xl md:text-4xl">
+      <div className="flex flex-row justify-center from-black to-blue-950">
+        <h2 className="py-2 sm:py-4 md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
           Training progress{' '}
-        </h1>
+        </h2>
       </div>
-      <div className="mx-auto mb-6 mt-6 flex size-5/6 items-center justify-center">
+      <div className="mx-auto mb-6 mt-2 flex size-5/6 items-center justify-center">
         <img src={cthuluprogress} alt="cthulu-progress" />
       </div>
       <Container className="h-full">

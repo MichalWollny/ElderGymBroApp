@@ -119,12 +119,12 @@ const Profile = () => {
       {!editMode ? (
         <>
           <div className="flex flex-row justify-center">
-            <h1 className="mb-2 mt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text p-4 pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+            <h2 className="py-2 sm:py-4 md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
               Profile
-            </h1>
+            </h2>
           </div>
 
-          <div className="mt-4 flex flex-row justify-center">
+          <div className="mt-2 flex flex-row justify-center">
             <div className="flex flex-col justify-center">
               <div className="avatar">
                 <div className="mx-auto w-36 rounded-full ring-4 ring-teal-700 ring-offset-2 ring-offset-pink-800">
