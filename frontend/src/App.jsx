@@ -100,15 +100,16 @@ function App() {
             }
           />
           <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
-          {/* No Navbar */}
           <Route path="/progress" element={<ProgressTracker />} />
+
+          {/* No Navbar */}
           <Route path="/setup" element={<SetUp />} />
           <Route path="/startyourjourney" element={<StartYourJourney />} />
           <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
           <Route path="/setyourgrind" element={<SetYourGrind />} />
           <Route path="/gender" element={<GenderWar />} />
-          <Route path="/template" element={<Template />} />
-          <Route path="/uielements" element={<UIElements />} />
+          {/* <Route path="/template" element={<Template />} /> */}
+          {/* <Route path="/uielements" element={<UIElements />} /> */}
           <Route path="/userworkout" element={<UserWorkout />} />
         </Route>
 

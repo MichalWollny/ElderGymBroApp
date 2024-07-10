@@ -37,5 +37,5 @@ app.get('/hardcodedworkouts', (req, res) => {
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`Backend is running on http://localhost:${port}`);
+  // console.log(`Backend is running on http://localhost:${port}`);
 });
