@@ -6,6 +6,7 @@ import axios from 'axios';
 import Slider from 'react-slick';
 import React from 'react';
 import UICard from '../assets/components/UICard';
+import SetActiveWorkout from './SetActiveWorkout';
 
 const activeworkout = [
   {
@@ -187,12 +188,13 @@ const Dashboard = ({ workouts }) => {
               </button>
             )) || (
               <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-2xl">
-                <span className="text-xl">Yor workout for the the day is complete!</span> <br />
+                <span className="text-xl">Your workout for the the day is complete!</span> <br />
                 <span>Cthulhu is pleased!</span>
               </div>
             )}
           </div>
           {/* placeholder  */}
+          <SetActiveWorkout />
         </div>
 
         <div className="flex flex-col">
