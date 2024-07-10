@@ -179,7 +179,7 @@ const UserWorkout = () => {
                   className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
                   onClick={() => handleExerciseClick(exercise, index)}>
                   <img
-                    src={`../src/../public/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
+                    src={`../../public/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
                     alt={exercise.name}
                     className={`h-auto w-full max-w-xs rounded-md ${completedExercises.includes(index) ? 'grayscale' : ''}`}
                   />
