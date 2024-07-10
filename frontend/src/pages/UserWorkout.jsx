@@ -244,7 +244,9 @@ const UserWorkout = () => {
                   className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
                   onClick={() => handleExerciseClick(exercise, index)}>
                   <img
+
                     src={importImage(exercise.name)}
+
                     alt={exercise.name}
                     className={`h-auto w-full max-w-xs rounded-md ${completedExercises.includes(index) ? 'grayscale' : ''}`}
                   />
