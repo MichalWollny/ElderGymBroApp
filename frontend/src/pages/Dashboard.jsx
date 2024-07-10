@@ -7,6 +7,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './carousel2.css';
+import SetActiveWorkout from './SetActiveWorkout';
+
 
 // Importing images directly
 import beginnerFullbodyWorkoutImage from '../assets/images/workouts/Beginner_Fullbody_Workout.jpg';
