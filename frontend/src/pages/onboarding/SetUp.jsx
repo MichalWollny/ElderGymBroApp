@@ -15,8 +15,11 @@ function SetUp() {
       // Ensure checkUser() is completed before proceeding
       await checkUser();
 
+      // Re-fetch the userData state
+      const updatedUserData = await checkUser();
+
       // Proceed with the rest of the code
-      const { gender, fitnessLevel, workoutAim } = await userData;
+      const { gender, fitnessLevel, workoutAim } = updatedUserData;
 
       // Scenario 1: All fields are filled
       if (gender !== '' && fitnessLevel !== '' && workoutAim !== '') {

@@ -158,7 +158,7 @@ const Profile = () => {
               <div className="flex cursor-pointer flex-row justify-center">
                 <div className="flex flex-col">
                   <h1 className="mt-4 cursor-default bg-gradient-to-br from-yellow-950 to-yellow-500 bg-clip-text pt-4 text-center font-cthulhumbus text-4xl font-medium leading-tight text-transparent sm:text-2xl md:text-4xl">
-                    {userData.title || 'The infamous'}
+                    {userData.awards.title || 'The infamous'}
                   </h1>
                   <h1 className="cursor-default bg-gradient-to-br from-teal-500 to-green-800 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:text-4xl md:text-5xl">
                     {userData.fullName || 'Lord of the Gym'}
