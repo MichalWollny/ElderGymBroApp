@@ -73,24 +73,24 @@ const Dashboard = ({ workouts }) => {
 
         if (userData && activeWorkoutData) {
           const today = new Date().toISOString().split('T')[0]; // Ensure date comparison format is correct
-          console.log('Today:', today);
+          // console.log('Today:', today);
 
           // Log userData to check the structure
-          console.log('UserData:', userData);
+          // console.log('UserData:', userData);
 
           const progressTracking = userData.progressTracking?.find(
             (progressTracking) => progressTracking.workoutId === activeWorkoutData.id,
           );
 
-          console.log('ProgressTracking:', progressTracking);
+          // console.log('ProgressTracking:', progressTracking);
 
           const todaysProgress = progressTracking?.progress?.find((day) => {
             const dayDate = new Date(day.day).toISOString().split('T')[0];
-            console.log('Comparing:', dayDate, 'with', today);
+            // console.log('Comparing:', dayDate, 'with', today);
             return dayDate === today;
           });
 
-          console.log('TodaysProgress:', todaysProgress);
+          // console.log('TodaysProgress:', todaysProgress);
 
           setTodaysDoneExercises(todaysProgress?.exercisesOfTheDay || []);
 
@@ -101,7 +101,7 @@ const Dashboard = ({ workouts }) => {
             setWorkoutCompleted(false);
           }
         }
-        console.log(workoutCompleted);
+        // console.log(workoutCompleted);
       } catch (error) {
         setError(error.message);
         console.error('Error fetching active workout:', error);

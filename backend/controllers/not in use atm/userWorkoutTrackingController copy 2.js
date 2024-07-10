@@ -135,7 +135,7 @@ export const addExerciseProgress = async (req, res) => {
     //   dayEntry.exercisesOfTheDay.push(exercisesOfTheDay);
     // }
 
-    console.log(req.body);
+    // console.log(req.body);
 
     // Add the new exercise progress to the day's entry
     user.dayEntry.exercisesOfTheDay.push({ exerciseId, sets, date: new Date() });
