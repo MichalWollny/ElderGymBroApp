@@ -7,7 +7,7 @@
 }
 
 .slick-slide:not(.slick-center) .carousel-item img {
-  transform: scale(0.8); /* Adjust the scale as needed */
+  transform: scale(0.7); /* Adjust the scale to make the images smaller */
   opacity: 0.6; /* Optional: to make non-center images less prominent */
   transition:
     transform 0.3s ease,
@@ -15,7 +15,7 @@
 }
 
 .slick-center .carousel-item img {
-  transform: scale(1);
+  transform: scale(1); /* Adjust the scale to make the center image smaller */
   opacity: 1;
   transition:
     transform 0.3s ease,
@@ -32,5 +32,5 @@
 
 /* Adjust the size of the dots if necessary */
 .slick-dots li button:before {
-  font-size: 12px;
+  font-size: 10px;
 }

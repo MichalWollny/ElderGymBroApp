@@ -6,7 +6,7 @@ const workoutImages = import.meta.glob('../assets/images/workouts/*.jpg', { eage
 const exerciseImages = import.meta.glob('../assets/images/Exercises/**/*.jpg', { eager: true });
 
 const getImage = (images, name) => {
-  const key = Object.keys(images).find((key) => key.includes(name.replace(/ /g, '_')));
+  const key = Object.keys(images).find((key) => key.includes(name.replace(/ /g, '_'))); //all spaces ( ) replaced by underscores (_).
   return key ? images[key].default : null;
 };
 
@@ -35,6 +35,10 @@ const WorkoutPlan = ({ workouts }) => {
 
   return (
     <div className="container mx-auto mb-8 flex min-h-svh flex-col items-center bg-gradient-to-br from-black to-blue-950 p-4 pt-20">
+      <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
+        Workout Plans
+      </h2>
+
       {validWorkouts.map((plan, index) => (
         <div key={plan.id} className="mb-2 mt-2">
           <div className="w-90 card m-4 cursor-pointer rounded-lg border-4 border-solid border-teal-800 bg-zinc-800 p-2 shadow-md">

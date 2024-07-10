@@ -22,13 +22,13 @@ const getImage = (images, name) => {
 const SetActiveWorkout = () => {
   const { hardcodedWorkouts } = useFetchData();
   const { userData, checkUser } = useAuth();
+  const [activeWorkout, setActiveWorkout] = useState({ exercises: [] });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeExercise, setActiveExercise] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [completedExercises, setCompletedExercises] = useState([]);
   const sliderRef = useRef(null);
-  const [activeWorkout, setActiveWorkout] = useState(null);
 
   useEffect(() => {
     if (!userData || !userData.username) {
@@ -37,18 +37,12 @@ const SetActiveWorkout = () => {
   }, [userData, checkUser]);
 
   useEffect(() => {
-    if (userData && userData.username) {
-      setIsLoading(false);
-    }
-  }, [userData]);
-
-  useEffect(() => {
     const setActiveWorkout = async () => {
       setIsLoading(true);
       try {
         const response = await axios.patch(
           `${import.meta.env.VITE_API_URL}/me/workouttracking/setActiveWorkout`,
-          { workoutId: hardcodedWorkouts[selectedIndex].id },
+          { workoutId: `1` },
           {
             withCredentials: true,
           },
@@ -56,30 +50,31 @@ const SetActiveWorkout = () => {
 
         if (response.data.activeWorkout.exercises.length > 0) {
           setSelectedIndex(0);
-          setActiveWorkout(response.data.activeWorkout.id);
+          setActiveExercise(response.data.activeWorkout.exercises[0]);
         }
       } catch (error) {
         setError(error.message);
         console.error(error);
         setIsLoading(false);
-        // toast.error('Failed to load active workout');
+        toast.error('Failed to load active workout');
       }
     };
 
-    if (hardcodedWorkouts.length > 0) {
+    if (userData && userData.username) {
       setActiveWorkout();
     }
-  }, [selectedIndex, hardcodedWorkouts]);
+  }, [userData, checkUser]);
 
-  const handleWorkoutClick = (exercise, index) => {
+  const handleExerciseClick = (exercise, index) => {
     setActiveExercise(exercise);
     setSelectedIndex(index);
-    setCurrentSlide(index);
   };
 
   const handleAfterChange = (current) => {
-    handleWorkoutClick(hardcodedWorkouts[current], current);
+    handleExerciseClick(hardcodedWorkouts.id[current], current);
   };
+
+  //   console.log(current);
 
   const settings = {
     dots: true,
@@ -93,7 +88,6 @@ const SetActiveWorkout = () => {
     accessibility: true,
     focusOnSelect: true,
     afterChange: handleAfterChange,
-    initialSlide: currentSlide,
     responsive: [
       {
         breakpoint: 1024,
@@ -116,7 +110,7 @@ const SetActiveWorkout = () => {
     ],
   };
 
-  console.log(selectedIndex);
+  console.log(hardcodedWorkouts);
 
   return (
     <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-0 font-cthulhumbus">
@@ -132,16 +126,14 @@ const SetActiveWorkout = () => {
                   key={workout.id || index}
                   id={`item-${index}`}
                   className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
-                  onClick={() => handleWorkoutClick(workout, index)}>
+                  onClick={() => handleExerciseClick(workout, index)}>
                   <img
                     src={getImage(workoutImages, workout.name)}
                     alt={workout.name}
                     className="rounded-t-lg shadow-lg"
                   />
 
-                  <button
-                    className="mb-2 h-auto w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-xl"
-                    onClick={() => handleWorkoutClick(workout, index)}>
+                  <button className="mb-2 h-auto w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-2 text-center font-cthulhumbus text-xl">
                     Activate Workout
                   </button>
                 </div>

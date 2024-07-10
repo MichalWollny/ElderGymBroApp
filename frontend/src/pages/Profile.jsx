@@ -11,10 +11,11 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import { toast } from 'react-toastify';
+import logoutIcon from '../assets/icons/logout1.png';
 
 const Profile = () => {
   const { userData, isLoggedIn, setUserData, setIsLoggedIn, checkUser } = useAuth();
-  const [avatar, setAvatar] = useState(userData.avatar || '../src/assets/images/default-avatar.png');
+  const [avatar, setAvatar] = useState(userData.avatar);
   const [isLoading, setIsLoading] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ const Profile = () => {
   const logOut = async () => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, { withCredentials: true });
-      console.log('Logout response:', response.data);
+      // console.log('Logout response:', response.data);
       Cookies.remove('token'); // Clear the cookie on the client side
       setIsLoggedIn(false);
       setUserData({});
@@ -89,7 +90,7 @@ const Profile = () => {
           withCredentials: true,
         },
       );
-      console.log(response.data);
+      // console.log(response.data);
       await checkUser(); // Re-fetch the user data to get the updated avatar
       setEditMode(false);
     } catch (error) {
@@ -177,12 +178,7 @@ const Profile = () => {
             </Button>
             {/* Logout Button */}
             <div className="absolute right-4 top-0">
-              <img
-                src="../src/assets/icons/logout1.png"
-                className="w-16 cursor-pointer"
-                alt="Logout"
-                onClick={logOut}
-              />
+              <img src={logoutIcon} className="w-16 cursor-pointer" alt="Logout" onClick={logOut} />
             </div>
           </div>
         </>
