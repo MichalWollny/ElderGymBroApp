@@ -4,8 +4,9 @@ import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
-import React from 'react';
-import UICard from '../assets/components/UICard';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './carousel2.css';
 
 // Importing images directly
 import beginnerFullbodyWorkoutImage from '../assets/images/workouts/Beginner_Fullbody_Workout.jpg';
@@ -13,7 +14,7 @@ import firstLoginImage from '../assets/images/firstlogin.jpeg';
 import firstPlanCreatedImage from '../assets/images/firstplancreated.jpeg';
 import weekendWorkoutImage from '../assets/images/weekendworkout.jpeg';
 
-const activeworkout = [
+const initialActiveWorkout = [
   {
     // Maximize Your Strength Card
     image: beginnerFullbodyWorkoutImage,
@@ -22,7 +23,7 @@ const activeworkout = [
   },
 ];
 
-const cards = [
+const initialCards = [
   {
     // Maximize Your Strength Card
     image: firstLoginImage,
@@ -149,26 +150,41 @@ const Dashboard = ({ workouts }) => {
     return <div>Loading user data...</div>;
   }
 
-  // UICard large settings
-  var settingslarge = {
+  // Slider settings
+  const settings = {
+    className: 'center',
     dots: true,
-    infinite: true,
+    infinite: false, // Make the slider non-infinite
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '20%',
-  };
-
-  // UICard small settings
-  var settingssmall = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '35%',
+    centerPadding: '30%', // Decrease padding to make images smaller
+    arrows: false, // Hide the default arrows
+    accessibility: true, // Enable keyboard navigation
+    focusOnSelect: true, // Focus on select to enable keyboard interaction
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          centerMode: true,
+          centerPadding: '30%', // Decrease padding to make images smaller
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '30%', // Decrease padding to make images smaller
+        },
+      },
+    ],
   };
 
   return (
@@ -185,18 +201,14 @@ const Dashboard = ({ workouts }) => {
         <div className="mt-2 w-full">
           <hr className="my-4 w-full border-gray-500 opacity-50" />
           <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
-            Active workout
+            Active Workout
           </h2>
         </div>
 
         <div className="flex items-center justify-center text-center">
-          {activeworkout.map((activeworkout, index) => (
+          {initialActiveWorkout.map((workout, index) => (
             <div key={index}>
-              <UICardLarge
-                image={activeworkout.image}
-                heading={activeworkout.heading}
-                subheading={activeworkout.subheading}
-              />
+              <UICardLarge image={workout.image} heading={workout.heading} subheading={workout.subheading} />
             </div>
           ))}
         </div>
@@ -224,10 +236,12 @@ const Dashboard = ({ workouts }) => {
         </div>
 
         <div className="mt-4 w-full px-4">
-          <Slider {...settingslarge}>
-            {cards.map((card, index) => (
-              <div key={index}>
-                <UICardLarge image={card.image} heading={card.heading} subheading={card.subheading} />
+          <Slider {...settings}>
+            {initialCards.map((card, index) => (
+              <div key={index} className="carousel-item">
+                <img src={card.image} alt={card.heading} className="mx-auto rounded-lg" />
+                <h3 className="text-center text-xl font-medium">{card.heading}</h3>
+                <p className="text-center text-sm">{card.subheading}</p>
               </div>
             ))}
           </Slider>
@@ -241,10 +255,12 @@ const Dashboard = ({ workouts }) => {
         </div>
 
         <div className="mt-4 w-full px-4">
-          <Slider {...settingssmall}>
-            {cards.map((card, index) => (
-              <div key={index}>
-                <UICard image={card.image} heading={card.heading} subheading={card.subheading} />
+          <Slider {...settings}>
+            {initialCards.map((card, index) => (
+              <div key={index} className="carousel-item">
+                <img src={card.image} alt={card.heading} className="mx-auto rounded-lg" />
+                <h3 className="text-center text-xl font-medium">{card.heading}</h3>
+                <p className="text-center text-sm">{card.subheading}</p>
               </div>
             ))}
           </Slider>
