@@ -5,8 +5,6 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-
-
 function UIElements() {
   return (
     <>
@@ -289,9 +287,6 @@ function UIElements() {
             <input type="week" name="week" id="camp-week" min="2018-W18" max="2018-W26" required />
           </div>
           <br />
-
-
-          
 
           <>
             {/*<!-- Component: Rounded base sized datepicker with helper text --> */}

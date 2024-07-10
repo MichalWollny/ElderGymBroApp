@@ -9,7 +9,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import './carousel2.css';
 import SetActiveWorkout from './SetActiveWorkout';
 
-
 // Importing images directly
 import beginnerFullbodyWorkoutImage from '../assets/images/workouts/Beginner_Fullbody_Workout.jpg';
 import firstLoginImage from '../assets/images/firstlogin.jpeg';
@@ -200,19 +199,17 @@ const Dashboard = ({ workouts }) => {
           </div>
         </div>
 
-        <div className="mt-2 w-full">
+        {/* <div className="mt-2 w-full">
           <hr className="my-4 w-full border-gray-500 opacity-50" />
           <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
             Active Workout
           </h2>
-        </div>
-
-        <div className="flex items-center justify-center text-center">
-          {initialActiveWorkout.map((workout, index) => (
-            <div key={index}>
-              <UICardLarge image={workout.image} heading={workout.heading} subheading={workout.subheading} />
-            </div>
-          ))}
+        </div> */}
+        <hr className="my-4 w-full border-gray-500 opacity-50" />
+        <div className="w-full px-4">
+          {' '}
+          {/* Wrap the SetActiveWorkout component */}
+          <SetActiveWorkout />
         </div>
 
         <div className="mt-0 flex items-center justify-center">
@@ -228,25 +225,6 @@ const Dashboard = ({ workouts }) => {
               <span>Cthulhu is pleased!</span>
             </div>
           )}
-        </div>
-
-        <div className="mt-4 w-full">
-          <hr className="my-4 w-full border-gray-500 opacity-50" />
-          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
-            Workout Selection
-          </h2>
-        </div>
-
-        <div className="mt-4 w-full px-4">
-          <Slider {...settings}>
-            {initialCards.map((card, index) => (
-              <div key={index} className="carousel-item">
-                <img src={card.image} alt={card.heading} className="mx-auto rounded-lg" />
-                <h3 className="text-center text-xl font-medium">{card.heading}</h3>
-                <p className="text-center text-sm">{card.subheading}</p>
-              </div>
-            ))}
-          </Slider>
         </div>
 
         <div className="mt-8 w-full">
