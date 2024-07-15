@@ -1,7 +1,6 @@
 import { useContext, createContext, useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
@@ -20,24 +19,22 @@ export const AuthProvider = ({ children }) => {
       if (response.data && response.data._id) {
         setIsLoggedIn(true);
         setUserData(response.data);
-        return response.data; // Return the user data
+        return response.data;
       } else {
         setIsLoggedIn(false);
         setUserData({});
-        return {}; // Return empty object if no user data
+        return {};
       }
     } catch (error) {
       setIsLoggedIn(false);
       setUserData({});
       console.error('Error in checkUser:', error);
-      return {}; // Return empty object in case of error
+      return {};
     }
   };
 
   useEffect(() => {
-    if (didMount.current)
-      // This block ensures the effect runs only after the initial render
-      return;
+    if (didMount.current) return;
 
     didMount.current = true;
     const token = Cookies.get('token');

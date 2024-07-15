@@ -66,17 +66,20 @@ function LoginForm() {
     }
   }, [isLoggedIn, userData, checkingUser, navigate]);
 
+  // Function to set the cookie with appropriate attributes
+  const setAuthCookie = (name, value) => {
+    Cookies.set(name, value, { expires: 1, sameSite: 'Strict', secure: true });
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Get all cookies
-    const allCookies = document.cookie.split(';');
+    // Remove all cookies before setting new ones
+    const allCookies = Cookies.get(); // Get all cookies as an object
 
     // Loop through each cookie and remove it
-    allCookies.forEach((cookie) => {
-      const eqPos = cookie.indexOf('=');
-      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-      Cookies.remove(name.trim());
+    Object.keys(allCookies).forEach((cookieName) => {
+      Cookies.remove(cookieName);
     });
 
     try {
@@ -87,6 +90,8 @@ function LoginForm() {
       );
 
       if (response.status === 200) {
+        // Set token or other authentication-related cookies
+        setAuthCookie('token', response.data.token);
         await checkUser();
         setIsLoggedIn(true);
       }
