@@ -34,3 +34,8 @@
 .slick-dots li button:before {
   font-size: 10px;
 }
+
+.carousel-item.selected {
+  transform: scale(1.05);
+  /* Slightly increase size for emphasis */
+}

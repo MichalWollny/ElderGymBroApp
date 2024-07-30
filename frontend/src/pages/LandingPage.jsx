@@ -61,27 +61,28 @@ const LandingPage = () => {
   return (
     <motion.section
       style={{ backgroundImage }}
-      className="relative grid min-h-svh place-content-center place-items-center overflow-hidden bg-gray-950 px-4 pt-5 text-gray-200 md:pt-10">
-      <div className="mb-2 flex flex-row justify-evenly space-x-10">
-        <img src={logoImage} alt="Logo" className="h-16 w-16" />
-        <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl">
+      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-gray-950 px-4 pt-5 text-gray-200 md:pt-10 lg:flex-row lg:px-10">
+      <div className="mb-2 flex flex-col items-center lg:w-1/2 lg:flex-row lg:items-center lg:justify-start lg:space-x-6">
+        <img src={logoImage} alt="Logo" className="h-16 w-16 lg:h-20 lg:w-20" />
+        <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl lg:text-left lg:text-7xl">
           Train Like an <br />
           Ancient God
         </h1>
       </div>
 
-      <img src={landingPageImage} alt="Landing Page Image" className="w-4/5 md:w-auto" />
-      <div className="relative z-10 flex flex-col items-center">
+      <img src={landingPageImage} alt="Landing Page Image" className="w-4/5 md:ml-12 md:w-1/2 lg:ml-4 lg:w-2/5" />
+
+      <div className="relative z-10 flex flex-col items-center lg:w-1/2">
         <motion.button
           style={{ border, boxShadow }}
           whileHover={{ scale: 1.015 }}
           whileTap={{ scale: 0.985 }}
-          className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50"
+          className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50 lg:px-6 lg:py-3"
           onClick={handleJoinCultClick}>
           Join the Cult
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
         </motion.button>
-        <p className="mt-4 text-xs text-slate-400">
+        <p className="mt-4 text-xs text-slate-400 lg:text-sm">
           Already have an account?{' '}
           <Link to="/login" className="text-teal-600 underline">
             Login
@@ -93,8 +94,8 @@ const LandingPage = () => {
           <Stars radius={50} count={2500} factor={4} fade speed={2} />
         </Canvas>
       </div>
-      <div className="px-8 text-slate-50 md:py-4">
-        <div className="relative -ml-[100px] h-[450px] w-[350px] scale-75 md:-ml-[175px]">
+      <div className="px-8 text-slate-50 md:py-4 lg:w-full lg:px-16">
+        <div className="relative flex h-[450px] w-full justify-center space-x-4 lg:justify-between">
           <Card
             imgUrl={avatarImage2}
             testimonial="My workout plan was very... transformative..."
@@ -156,7 +157,7 @@ const Card = ({ handleShuffle, testimonial, position, imgUrl, author }) => {
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
       transition={{ duration: 0.35 }}
-      className={`absolute left-0 top-0 grid h-[450px] w-[350px] select-none place-content-center space-y-6 rounded-2xl border-2 border-slate-700 bg-slate-800/20 p-6 shadow-xl backdrop-blur-md ${
+      className={`absolute top-0 mt-8 grid h-[450px] w-[350px] select-none place-content-center space-y-6 rounded-2xl border-2 border-slate-700 bg-slate-800/20 p-6 shadow-xl backdrop-blur-md ${
         draggable ? 'cursor-grab active:cursor-grabbing' : ''
       }`}>
       <img
