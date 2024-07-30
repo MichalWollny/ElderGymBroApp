@@ -166,7 +166,6 @@ const UserWorkout = () => {
 
       // Update local karma points state
       setKarmaPoints(karmaPoints + 10);
-
       // Show toast notification
       toast.success('✨ 10 dark blessings received!', { autoClose: 2000 });
 
@@ -179,9 +178,9 @@ const UserWorkout = () => {
   // Slider settings
   const settings = {
     dots: true,
-    infinite: false, // Make the slider non-infinite
+    infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '20%',
@@ -198,7 +197,7 @@ const UserWorkout = () => {
           infinite: false,
           dots: true,
           centerMode: true,
-          centerPadding: '20%',
+          centerPadding: '10%',
         },
       },
       {
@@ -218,20 +217,23 @@ const UserWorkout = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-0 font-cthulhumbus">
-      <div className="fixed left-0 right-0 top-0 z-50 bg-black p-0 text-center text-white shadow-md">
+    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-4 font-cthulhumbus lg:flex-row lg:justify-between">
+      <div className="fixed left-0 right-0 top-0 z-50 bg-black p-2 text-center text-white shadow-md">
         <div className="flex items-center justify-center">
           <span className="mr-2">Karma</span>
           <progress className="progress progress-accent w-56" value={karmaPoints} max="100"></progress>
           <span className="ml-2">+ {karmaPoints} pts</span>
         </div>
       </div>
-      <div className="mt-6 w-full max-w-screen-sm">
-        <h2 className="px-4 py-2 text-center font-cthulhumbus text-xl text-white">Exercise List</h2>
+
+      <div className="w-full lg:w-1/2 lg:px-6">
+        <h2 className="px-4 py-4 text-center font-cthulhumbus text-2xl text-white lg:text-left lg:text-3xl">
+          Exercise List
+        </h2>
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <div className="pb-6">
+          <div className="pb-6 lg:pb-0">
             <Slider {...settings} className="max-w-full" ref={sliderRef}>
               {activeWorkout.exercises.map((exercise, index) => (
                 <div
@@ -244,14 +246,15 @@ const UserWorkout = () => {
                     alt={exercise.name}
                     className={`h-auto w-full max-w-xs rounded-md ${completedExercises.includes(index) ? 'grayscale' : ''}`}
                   />
-                  <p className="mt-2 text-center text-xs text-white">{exercise.name}</p>
+                  <p className="mt-2 text-center text-xs text-white lg:text-sm">{exercise.name}</p>
                 </div>
               ))}
             </Slider>
           </div>
         )}
       </div>
-      <div>
+
+      <div className="w-full lg:mt-8 lg:w-1/2 lg:px-6">
         {activeExercise ? (
           <UserActiveExercise
             exercise={activeExercise}
@@ -267,9 +270,10 @@ const UserWorkout = () => {
             setShowModal={setShowModal}
           />
         ) : (
-          <p className="text-center text-white">Choose an Exercise</p>
+          <p className="text-center text-white lg:text-left">Choose an Exercise</p>
         )}
       </div>
+
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
           <Confetti
