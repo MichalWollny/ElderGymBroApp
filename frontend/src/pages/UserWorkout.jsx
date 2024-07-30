@@ -227,13 +227,13 @@ const UserWorkout = () => {
       </div>
 
       <div className="w-full lg:w-1/2 lg:px-6">
-        <h2 className="px-4 py-4 text-center font-cthulhumbus text-2xl text-white lg:text-left lg:text-3xl">
+        <h2 className="px-4 py-4 text-center font-cthulhumbus text-2xl text-white lg:text-center lg:text-3xl">
           Exercise List
         </h2>
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <div className="pb-6 lg:pb-0">
+          <div className="pb-6 lg:pb-8">
             <Slider {...settings} className="max-w-full" ref={sliderRef}>
               {activeWorkout.exercises.map((exercise, index) => (
                 <div
@@ -246,7 +246,7 @@ const UserWorkout = () => {
                     alt={exercise.name}
                     className={`h-auto w-full max-w-xs rounded-md ${completedExercises.includes(index) ? 'grayscale' : ''}`}
                   />
-                  <p className="mt-2 text-center text-xs text-white lg:text-sm">{exercise.name}</p>
+                  <p className="mb-4 mt-2 text-center text-xs text-white lg:text-sm">{exercise.name}</p>
                 </div>
               ))}
             </Slider>
