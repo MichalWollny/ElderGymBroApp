@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import { Line } from 'react-chartjs-2';
 import { CircularProgress, Container, Select, MenuItem } from '@mui/material';
 import {
@@ -16,7 +15,7 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
 
-//Image
+// Image
 import cthuluprogress from '../assets/images/ProgressTracking.png';
 
 const ProgressTracker = ({ userId }) => {
@@ -28,26 +27,23 @@ const ProgressTracker = ({ userId }) => {
   useEffect(() => {
     const fetchMockProgress = async () => {
       try {
-        // Simulierte Daten
+        // Simulated data
         const mockData = [
           { date: '01.03.2024', exercise: 'Squat', weight: 55 },
           { date: '15.03.2024', exercise: 'Squat', weight: 62 },
           { date: '23.03.2024', exercise: 'Squat', weight: 74 },
-
           { date: '01.03.2024', exercise: 'Bench Press', weight: 40 },
           { date: '15.03.2024', exercise: 'Bench Press', weight: 45 },
           { date: '20.03.2024', exercise: 'Bench Press', weight: 72 },
           { date: '01.04.2024', exercise: 'Bench Press', weight: 85 },
           { date: '17.04.2024', exercise: 'Bench Press', weight: 50 },
-
           { date: '01.03.2024', exercise: 'Deadlift', weight: 80 },
           { date: '20.03.2024', exercise: 'Deadlift', weight: 50 },
-
           { date: '01.03.2024', exercise: 'LatPullDown', weight: 45 },
           { date: '15.03.2024', exercise: 'LatPullDown', weight: 72.5 },
         ];
         setProgress(mockData);
-        setSelectedExercise(mockData[0].exercise); // Ausgewählte Anfangsübung einstellen
+        setSelectedExercise(mockData[0].exercise); // Set initial selected exercise
       } catch (err) {
         setError(err.message);
       } finally {
@@ -81,25 +77,25 @@ const ProgressTracker = ({ userId }) => {
       y: {
         beginAtZero: true,
         ticks: {
-          color: '#ffffff', // Helle Farbe für die y-Achse
+          color: '#ffffff', // Light color for y-axis
         },
         grid: {
-          color: '#374151', // Rasterfarbe für die y-Achse
+          color: '#374151', // Grid color for y-axis
         },
       },
       x: {
         ticks: {
-          color: '#ffffff', // Helle Farbe für die x-Achse
+          color: '#ffffff', // Light color for x-axis
         },
         grid: {
-          color: '#374151', // Rasterfarbe für die x-Achse
+          color: '#374151', // Grid color for x-axis
         },
       },
     },
     plugins: {
       legend: {
         labels: {
-          color: '#ffffff', // Helle Farbe für die Legende
+          color: '#ffffff', // Light color for legend
         },
       },
     },
@@ -107,13 +103,17 @@ const ProgressTracker = ({ userId }) => {
 
   return (
     <div className="min-h-screen overflow-auto bg-gradient-to-br from-black to-blue-950 pt-20">
-      <div className="flex flex-row justify-center from-black to-blue-950">
-        <h2 className="py-2 sm:py-4 md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
-          Training progress{' '}
+      <div className="flex flex-row justify-center">
+        <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:py-4 md:pt-8 md:text-4xl">
+          Training Progress
         </h2>
       </div>
-      <div className="mx-auto mb-6 mt-2 flex size-5/6 items-center justify-center">
-        <img src={cthuluprogress} alt="cthulu-progress" />
+      <div className="mx-auto mb-6 mt-2 flex justify-center">
+        <img
+          src={cthuluprogress}
+          alt="Cthulhu Progress"
+          className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
+        />
       </div>
       <Container className="h-full">
         <Select
@@ -127,10 +127,7 @@ const ProgressTracker = ({ userId }) => {
             </MenuItem>
           ))}
         </Select>
-        <div>
-          {/* <Typography variant="h5" sx={{ color: '#14b8a6' }}>
-            {selectedExercise}
-          </Typography> */}
+        <div className="mt-6">
           <Line data={data} options={options} />
         </div>
       </Container>

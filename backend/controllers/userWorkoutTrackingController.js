@@ -2,6 +2,9 @@ import User from '../models/userSchema.js';
 import axios from 'axios';
 import asyncHandler from '../utils/asyncHandler.js';
 
+// Determine the base URL for the API based on the environment
+const apiUrl = process.env.NODE_ENV === 'production' ? process.env.PROD_API_BASE_URL : process.env.LOCAL_API_BASE_URL;
+
 // Set the active workout for a user
 export const setUserActiveWorkout = asyncHandler(async (req, res) => {
   const { workoutId } = req.body;
@@ -37,8 +40,8 @@ export const getActiveWorkout = asyncHandler(async (req, res) => {
   }
 
   // Get the workout details from the JSON file
- // const response = await axios.get('http://localhost:8000/hardcodedworkouts');
- const response = await axios.get('https://eldergymbroapp.onrender.com/hardcodedworkouts');
+  // Fetch the workout details
+  const response = await axios.get(`${apiUrl}/hardcodedworkouts`);
   const workouts = response.data;
 
   // Find the active workout by activeWorkoutId
