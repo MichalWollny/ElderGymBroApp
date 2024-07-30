@@ -37,8 +37,8 @@ export const getActiveWorkout = asyncHandler(async (req, res) => {
   }
 
   // Get the workout details from the JSON file
-  const response = await axios.get('http://localhost:8000/hardcodedworkouts');
-  // const response = await axios.get('https://eldergymbroapp.onrender.com/hardcodedworkouts');
+ // const response = await axios.get('http://localhost:8000/hardcodedworkouts');
+ const response = await axios.get('https://eldergymbroapp.onrender.com/hardcodedworkouts');
   const workouts = response.data;
 
   // Find the active workout by activeWorkoutId

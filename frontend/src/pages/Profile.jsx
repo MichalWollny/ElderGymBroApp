@@ -119,7 +119,7 @@ const Profile = () => {
       {!editMode ? (
         <>
           <div className="flex flex-row justify-center">
-            <h2 className="py-2 sm:py-4 md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
+            <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:py-4 md:pt-8 md:text-4xl">
               Profile
             </h2>
           </div>
@@ -185,7 +185,7 @@ const Profile = () => {
       ) : (
         <div className="min-h-svh bg-gradient-to-br from-black to-blue-950 text-gray-200">
           <div className="flex flex-row justify-center">
-            <h1 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text p-2 text-center font-cthulhumbus font-medium leading-tight text-transparent sm:text-3xl md:text-4xl">
+            <h1 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text py-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent sm:py-4 md:pt-8 md:text-4xl">
               Edit Profile
             </h1>
           </div>

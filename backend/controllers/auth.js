@@ -1,4 +1,5 @@
 import User from '../models/userSchema.js';
+import { getTitle, karmaPointsPerLevel, calculateLevel, calculateProgressToNextLevel } from '../utils/karmaUtils.js';
 import asyncHandler from '../utils/asyncHandler.js';
 import ErrorResponse from '../utils/ErrorResponse.js';
 import bcrypt from 'bcrypt';
@@ -31,7 +32,7 @@ export const signUp = asyncHandler(async (req, res, next) => {
 });
 
 // LOGIN PART
-
+// karma Points on first login come from the imports from karmaUtils.js
 // Helper function to check if two dates are the same day
 const isSameDay = (date1, date2) => {
   return (
@@ -58,6 +59,17 @@ export const signIn = asyncHandler(async (req, res, next) => {
     existingUser.awards.karmaPoints += 50;
     // Award additional karma points for first login of the day (Yay!)
     firstLoginOfTheDay = true;
+    const newLevel = calculateLevel(existingUser.awards.karmaPoints);
+    if (newLevel !== existingUser.awards.level) {
+      existingUser.awards.level = newLevel;
+      existingUser.awards.progress = 0; // Reset progress after leveling up
+    } else {
+      // If level remains the same, only update progress
+      existingUser.awards.progress = calculateProgressToNextLevel(existingUser.awards.karmaPoints);
+    }
+    // console.log(req.body);
+
+    existingUser.awards.title = getTitle(existingUser.awards.karmaPoints);
   }
 
   existingUser.awards.lastLogin = now;
