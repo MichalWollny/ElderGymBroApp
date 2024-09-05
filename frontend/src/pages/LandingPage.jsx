@@ -62,7 +62,7 @@ const LandingPage = () => {
     <motion.section
       style={{ backgroundImage }}
       className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-gray-950 px-4 pt-5 text-gray-200 md:pt-10 lg:flex-row lg:px-10">
-      <div className="mb-2 flex flex-col items-center lg:w-1/2 lg:flex-row lg:items-center lg:justify-start lg:space-x-6">
+      <div className="mb-2 flex flex-row items-center lg:w-1/2 lg:flex-col lg:items-center lg:justify-start lg:space-x-6">
         <img src={logoImage} alt="Logo" className="h-16 w-16 lg:h-20 lg:w-20" />
         <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-2xl font-medium leading-tight text-transparent sm:text-5xl md:text-6xl lg:text-left lg:text-7xl">
           Train Like an <br />
