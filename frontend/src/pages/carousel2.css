@@ -35,7 +35,7 @@
   font-size: 10px;
 }
 
+/* Slightly increase size for emphasis */
 .carousel-item.selected {
   transform: scale(1.05);
-  /* Slightly increase size for emphasis */
 }
