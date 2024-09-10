@@ -8,8 +8,13 @@ const PrivateRoute = () => {
 
   useEffect(() => {
     const verifyUser = async () => {
-      await checkUser();
-      setLoading(false);
+      try {
+        await checkUser();
+      } catch (error) {
+        console.error('Error verifying user:', error);
+      } finally {
+        setLoading(false);
+      }
     };
     verifyUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps

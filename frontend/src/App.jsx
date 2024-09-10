@@ -83,35 +83,35 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/accessdenied" element={<AccessDeniedPage />} />
 
-        {/* Previously Protected Routes */}
-        <Route path="/home" element={<Dashboard workouts={hardcodedWorkouts} />} />
-        <Route path="/profile" element={<Profile />} />
-        {/* <Route path="/edituserdata" element={<EditUserData />} /> */}
-        <Route
-          path="/trophys"
-          element={
-            <Trophys
-              progress={progress}
-              updateProgress={updateProgress}
-              toggleAchievement={toggleAchievement}
-              unlockedAchievments={unlockedAchievments}
-            />
-          }
-        />
-        <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
-        <Route path="/progress" element={<ProgressTracker />} />
+        {/* Protected Routes */}
+        <Route element={<PrivateRoute />}>
+          <Route path="/home" element={<Dashboard workouts={hardcodedWorkouts} />} />
+          <Route path="/profile" element={<Profile />} />
+          {/* <Route path="/edituserdata" element={<EditUserData />} /> */}
+          <Route
+            path="/trophys"
+            element={
+              <Trophys
+                progress={progress}
+                updateProgress={updateProgress}
+                toggleAchievement={toggleAchievement}
+                unlockedAchievments={unlockedAchievments}
+              />
+            }
+          />
+          <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
+          <Route path="/progress" element={<ProgressTracker />} />
 
-        {/* No Navbar */}
-        <Route path="/setup" element={<SetUp />} />
-        <Route path="/startyourjourney" element={<StartYourJourney />} />
-        <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
-        <Route path="/setyourgrind" element={<SetYourGrind />} />
-        <Route path="/gender" element={<GenderWar />} />
-        {/* <Route path="/template" element={<Template />} /> */}
-        {/* <Route path="/uielements" element={<UIElements />} /> */}
-        <Route path="/userworkout" element={<UserWorkout />} />
-
-        <Route path="*" element={<NotFound />} />
+          {/* No Navbar */}
+          <Route path="/setup" element={<SetUp />} />
+          <Route path="/startyourjourney" element={<StartYourJourney />} />
+          <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
+          <Route path="/setyourgrind" element={<SetYourGrind />} />
+          <Route path="/gender" element={<GenderWar />} />
+          {/* <Route path="/template" element={<Template />} /> */}
+          {/* <Route path="/uielements" element={<UIElements />} /> */}
+          <Route path="/userworkout" element={<UserWorkout />} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>
