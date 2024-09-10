@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import UICardLarge from '../assets/components/UICardLarge';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -170,10 +169,8 @@ const Dashboard = ({ workouts }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: false,
-          dots: true,
           centerMode: true,
-          centerPadding: '30%', // Decrease padding to make images smaller
+          centerPadding: '25%', // Decrease padding to make images smaller
         },
       },
       {
@@ -189,62 +186,51 @@ const Dashboard = ({ workouts }) => {
   };
 
   return (
-    <div className="container mx-auto flex min-h-screen flex-col bg-gradient-to-br from-black to-blue-950 p-4 pb-24 text-white">
-      <div className="mt-16 flex flex-col items-center justify-center">
-        <div className="flex cursor-pointer flex-col items-center justify-center">
-          <div className="flex flex-col items-center">
-          <h2 className="pt-2 sm: md:pt-8 cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
-              Welcome Dear <br /> {userData.fullName}!
-            </h2>
+    <div className="container mx-auto flex min-h-screen flex-col bg-gradient-to-br from-black to-blue-950 p-4 pb-24 text-white lg:mt-10 lg:px-8">
+      <div className="mt-16 flex flex-col items-center justify-center lg:items-center lg:text-center">
+        <h2 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl lg:text-5xl">
+          Welcome Dear <br /> {userData.fullName}!
+        </h2>
+      </div>
+
+      <hr className="my-4 w-full border-gray-500 opacity-50" />
+      <div className="w-full px-4">
+        {/* Wrap the SetActiveWorkout component */}
+        <SetActiveWorkout />
+      </div>
+
+      <div className="mt-4 flex items-center justify-center lg:mt-6">
+        {!workoutCompleted ? (
+          <button
+            className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-3 text-center"
+            onClick={() => activateWorkout(activeWorkout)}>
+            Start Workout
+          </button>
+        ) : (
+          <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-4 text-center font-cthulhumbus text-2xl">
+            <span className="text-xl">Your workout for the day is complete!</span> <br />
+            <span>Cthulhu is pleased!</span>
           </div>
-        </div>
+        )}
+      </div>
 
-        {/* <div className="mt-2 w-full">
-          <hr className="my-4 w-full border-gray-500 opacity-50" />
-          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text pt-2 text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
-            Active Workout
-          </h2>
-        </div> */}
+      <div className="mt-8 w-full">
         <hr className="my-4 w-full border-gray-500 opacity-50" />
-        <div className="w-full px-4">
-          {' '}
-          {/* Wrap the SetActiveWorkout component */}
-          <SetActiveWorkout />
-        </div>
+        <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl lg:text-5xl">
+          Other Cultists&apos; Achievements
+        </h2>
+      </div>
 
-        <div className="mt-0 flex items-center justify-center">
-          {!workoutCompleted ? (
-            <button
-              className="rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-3 text-center"
-              onClick={() => activateWorkout(activeWorkout)}>
-              Start Workout
-            </button>
-          ) : (
-            <div className="mb-2 w-4/5 rounded-md border-2 border-pink-800 bg-gradient-to-tr from-gray-900 via-pink-900 to-zinc-900 p-4 text-center font-cthulhumbus text-2xl">
-              <span className="text-xl">Your workout for the day is complete!</span> <br />
-              <span>Cthulhu is pleased!</span>
+      <div className="mt-4 w-full px-4">
+        <Slider {...settings}>
+          {initialCards.map((card, index) => (
+            <div key={index} className="carousel-item">
+              <img src={card.image} alt={card.heading} className="mx-auto rounded-lg" />
+              <h3 className="text-center text-xl font-medium">{card.heading}</h3>
+              <p className="text-center text-sm">{card.subheading}</p>
             </div>
-          )}
-        </div>
-
-        <div className="mt-8 w-full">
-          <hr className="my-4 w-full border-gray-500 opacity-50" />
-          <h2 className="cursor-default bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center font-cthulhumbus text-3xl font-medium leading-tight text-transparent md:text-4xl">
-            Other Cultists&apos; Achievements
-          </h2>
-        </div>
-
-        <div className="mt-4 w-full px-4">
-          <Slider {...settings}>
-            {initialCards.map((card, index) => (
-              <div key={index} className="carousel-item">
-                <img src={card.image} alt={card.heading} className="mx-auto rounded-lg" />
-                <h3 className="text-center text-xl font-medium">{card.heading}</h3>
-                <p className="text-center text-sm">{card.subheading}</p>
-              </div>
-            ))}
-          </Slider>
-        </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );

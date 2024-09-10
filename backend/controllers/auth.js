@@ -79,10 +79,10 @@ export const signIn = asyncHandler(async (req, res, next) => {
   // Save the updated user
 
   const token = jwt.sign({ uid: existingUser._id }, process.env.JWT_SECRET, {
-    expiresIn: '30m',
+    expiresIn: '120m',
   });
   // res.json({ token });
-  res.cookie('token', token, { maxAge: 24 * 60 * 60 * 1000, httpOnly: true, sameSite: 'none', secure: true }); // 24hrs
+  res.cookie('token', token, { maxAge: 24 * 60 * 60 * 1000, httpOnly: true, sameSite: 'Lax', secure: true }); // 24hrs
   res.send({ status: 'success' });
 });
 
@@ -95,7 +95,7 @@ export const getUser = asyncHandler(async (req, res, next) => {
 // LOGOUT PART
 export const logout = asyncHandler(async (req, res, next) => {
   // console.log('Logging out user');
-  res.clearCookie('token', { httpOnly: true, sameSite: 'none', secure: true });
+  res.clearCookie('token', { httpOnly: true, sameSite: 'Lax', secure: true });
   // console.log('Cookie cleared');
   res.send({ status: 'success' });
 });

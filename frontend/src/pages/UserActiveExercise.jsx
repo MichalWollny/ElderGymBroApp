@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import skippingImage from '../assets/images/skipping.png';
+import CountdownTimer from '../assets/components/CountdownTimer';
 
 const UserActiveExercise = ({
   exercise,
@@ -30,9 +31,8 @@ const UserActiveExercise = ({
     setSetsData(updatedSets);
   };
 
-  const validateForm = (sets) => {
-    return sets.every((set) => !isNaN(set.reps) && set.reps !== '' && !isNaN(set.weight) && set.weight !== '');
-  };
+  const validateForm = (sets) =>
+    sets.every((set) => !isNaN(set.reps) && set.reps !== '' && !isNaN(set.weight) && set.weight !== '');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,11 +87,6 @@ const UserActiveExercise = ({
       <h2 className={`${isCompleted ? 'text-gray-500' : 'text-teal-500'} pb-2 pl-2 pt-2 text-center text-lg`}>
         {exercise.name}
       </h2>
-      {/* <img
-        src={`../src/assets/images/Exercises/${exercise.name.replace(/ /g, '_')}/images/0.jpg`}
-        alt={exercise.name}
-        className={`h-auto w-20 rounded-md ${isCompleted ? 'grayscale' : ''} pl-3`}
-      /> */}
       <form onSubmit={handleSubmit}>
         {setsData.map((set, index) => (
           <div
@@ -109,7 +104,6 @@ const UserActiveExercise = ({
               className="block w-full rounded-md border-0 bg-white py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               disabled={isCompleted}
             />
-
             <label className={`${isCompleted ? 'text-gray-500' : ''}`}>Reps</label>
             <input
               type="text"
@@ -119,9 +113,11 @@ const UserActiveExercise = ({
               className="block w-full rounded-md border-0 bg-white py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               disabled={isCompleted}
             />
+            <div className="w-full max-w-xs">
+              <CountdownTimer />
+            </div>
           </div>
         ))}
-
         <div className="flex justify-center space-x-4">
           <button
             type="button"
@@ -137,16 +133,17 @@ const UserActiveExercise = ({
           </button>
         </div>
       </form>
+
       {showSkipModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-          <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-lg">
-            <h2 className="text-center text-2xl font-bold text-red-500">Are you sure to skip this workout?</h2>
+          <div className="w-full max-w-sm rounded-lg bg-gray-900 p-6 text-white shadow-lg">
+            <h2 className="text-center text-2xl font-medium text-red-500">Are you sure to skip this workout?</h2>
             <img src={skippingImage} alt="Skipping" className="mx-auto my-4 h-32 w-32" />
             <div className="flex justify-center space-x-4">
-              <button className="rounded-md bg-red-500 px-4 py-2 text-white" onClick={() => setShowSkipModal(false)}>
+              <button className="rounded-md bg-red-700 px-4 py-2 text-white" onClick={() => setShowSkipModal(false)}>
                 No, continue
               </button>
-              <button className="rounded-md bg-green-500 px-4 py-2 text-white" onClick={handleSkipExercise}>
+              <button className="rounded-md bg-green-700 px-4 py-2 text-white" onClick={handleSkipExercise}>
                 Yes, skip this one
               </button>
             </div>

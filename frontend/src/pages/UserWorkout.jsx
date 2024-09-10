@@ -166,7 +166,6 @@ const UserWorkout = () => {
 
       // Update local karma points state
       setKarmaPoints(karmaPoints + 10);
-
       // Show toast notification
       toast.success('✨ 10 dark blessings received!', { autoClose: 2000 });
 
@@ -179,16 +178,16 @@ const UserWorkout = () => {
   // Slider settings
   const settings = {
     dots: true,
-    infinite: false, // Make the slider non-infinite
+    infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '20%', // Increase padding to show parts of adjacent images
-    arrows: false, // Hide the default arrows
-    accessibility: true, // Enable keyboard navigation
-    focusOnSelect: true, // Focus on select to enable keyboard interaction
-    afterChange: handleAfterChange, // Add afterChange handler
+    centerPadding: '20%',
+    arrows: false,
+    accessibility: true,
+    focusOnSelect: true,
+    afterChange: handleAfterChange,
     responsive: [
       {
         breakpoint: 1024,
@@ -198,7 +197,7 @@ const UserWorkout = () => {
           infinite: false,
           dots: true,
           centerMode: true,
-          centerPadding: '20%', // Increase padding to show parts of adjacent images
+          centerPadding: '10%',
         },
       },
       {
@@ -207,7 +206,7 @@ const UserWorkout = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '20%', // Increase padding to show parts of adjacent images
+          centerPadding: '20%',
         },
       },
     ],
@@ -218,24 +217,23 @@ const UserWorkout = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-0 font-cthulhumbus">
-      <div className="fixed left-0 right-0 top-0 z-50 bg-black p-0 text-center text-white shadow-md">
+    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-black to-blue-950 pt-4 font-cthulhumbus lg:flex-row lg:justify-between">
+      <div className="fixed left-0 right-0 top-0 z-50 bg-black p-2 text-center text-white shadow-md">
         <div className="flex items-center justify-center">
           <span className="mr-2">Karma</span>
           <progress className="progress progress-accent w-56" value={karmaPoints} max="100"></progress>
           <span className="ml-2">+ {karmaPoints} pts</span>
         </div>
       </div>
-      <div className="mt-6 w-full max-w-screen-sm">
-        {' '}
-        {/* Adjust margin to make space for the progress bar */}
-        <h2 className="px-4 py-2 text-center font-cthulhumbus text-xl text-white">Exercise List</h2>
+
+      <div className="w-full lg:w-1/2 lg:px-6">
+        <h2 className="px-4 py-4 text-center font-cthulhumbus text-2xl text-white lg:text-center lg:text-3xl">
+          Exercise List
+        </h2>
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <div className="pb-6">
-            {' '}
-            {/* Add padding to the bottom of the slider */}
+          <div className="pb-6 lg:pb-8">
             <Slider {...settings} className="max-w-full" ref={sliderRef}>
               {activeWorkout.exercises.map((exercise, index) => (
                 <div
@@ -244,53 +242,53 @@ const UserWorkout = () => {
                   className={`carousel-item flex flex-col items-center px-2 ${index === selectedIndex ? 'selected' : ''}`}
                   onClick={() => handleExerciseClick(exercise, index)}>
                   <img
-
                     src={importImage(exercise.name)}
-
                     alt={exercise.name}
                     className={`h-auto w-full max-w-xs rounded-md ${completedExercises.includes(index) ? 'grayscale' : ''}`}
                   />
-                  <p className="mt-2 text-center text-xs text-white">{exercise.name}</p>
+                  <p className="mb-4 mt-2 text-center text-xs text-white lg:text-sm">{exercise.name}</p>
                 </div>
               ))}
             </Slider>
           </div>
         )}
       </div>
-      <div>
+
+      <div className="w-full lg:mt-8 lg:w-1/2 lg:px-6">
         {activeExercise ? (
           <UserActiveExercise
             exercise={activeExercise}
             activeWorkout={activeWorkout}
             onComplete={completeExerciseWithKarma}
-            onCompleteWithoutKarma={handleCompleteExercise} // New prop for skipping without karma
+            onCompleteWithoutKarma={handleCompleteExercise}
             isCompleted={completedExercises.includes(selectedIndex)}
             setCompletedExercises={setCompletedExercises}
             completedExercises={completedExercises}
             selectedIndex={selectedIndex}
-            sliderRef={sliderRef} // Pass sliderRef
-            handleExerciseClick={handleExerciseClick} // Pass handleExerciseClick
-            setShowModal={setShowModal} // Pass setShowModal
+            sliderRef={sliderRef}
+            handleExerciseClick={handleExerciseClick}
+            setShowModal={setShowModal}
           />
         ) : (
-          <p className="text-center text-white">Choose an Exercise</p>
+          <p className="text-center text-white lg:text-left">Choose an Exercise</p>
         )}
       </div>
+
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
           <Confetti
             width={window.innerWidth}
             height={window.innerHeight}
             numberOfPieces={1000}
             recycle={false}
-            className="absolute inset-0" // Confetti within the modal
+            className="absolute inset-0"
           />
-          <div className="relative z-10 w-full max-w-sm rounded-lg bg-white p-6 shadow-lg">
-            <h2 className="text-center text-2xl font-bold text-green-500">Well done!</h2>
-            <p className="mt-4 text-center text-green-500">You have completed all exercises.</p>
-            <p className="pb-4 text-center text-green-500">Total Karma Points Collected: {karmaPoints}</p>
+          <div className="relative z-10 w-full max-w-sm rounded-lg bg-gray-900 p-6 text-white shadow-lg">
+            <h2 className="text-center text-2xl font-bold text-teal-400">Well done!</h2>
+            <p className="mt-4 text-center text-teal-400">You have completed all exercises.</p>
+            <p className="pb-4 text-center text-teal-400">Total Karma Points Collected: {karmaPoints}</p>
             <img src={doneImage} alt="Well done" className="mx-auto mb-4 h-32 w-32" />
-            <button className="mt-6 w-full rounded-md bg-green-500 py-2 text-white" onClick={() => navigate('/home')}>
+            <button className="mt-6 w-full rounded-md bg-teal-700 py-2 text-white" onClick={() => navigate('/home')}>
               Completed
             </button>
           </div>

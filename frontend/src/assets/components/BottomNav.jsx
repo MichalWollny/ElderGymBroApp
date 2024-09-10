@@ -39,14 +39,14 @@ const BottomNav = () => {
   };
 
   return (
-    <nav className="fixed bottom-0 z-50 flex h-16 w-full items-center justify-around rounded-t-3xl bg-gray-900 shadow-md">
+    <nav className="fixed bottom-0 z-50 flex h-16 w-full items-center justify-around rounded-t-3xl bg-gray-900 shadow-md lg:h-20 lg:justify-center lg:space-x-8">
       {navItems.map((item, index) => (
         <div
           key={index}
-          className={`flex cursor-pointer flex-col items-center text-xs ${index === activeIndex ? 'text-teal-300' : 'text-gray-400'}`}
+          className={`flex cursor-pointer flex-col items-center text-xs ${index === activeIndex ? 'text-teal-300' : 'text-gray-400'} lg:text-base`}
           onClick={() => handleNavigation(index, item.path)}>
-          <div className="text-2xl">{item.icon}</div>
-          <span>{item.label}</span>
+          <div className="text-2xl lg:text-3xl">{item.icon}</div>
+          <span className="hidden lg:block">{item.label}</span>
         </div>
       ))}
     </nav>

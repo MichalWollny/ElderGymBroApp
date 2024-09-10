@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Profile from './pages/Profile';
-import Template from './pages/Template';
+// import Template from './pages/Template';
 import StartYourJourney from './pages/onboarding/StartYourJourney';
 import WhatsYourGoal from './pages/onboarding/WhatsYourGoal';
 import SetYourGrind from './pages/onboarding/SetYourGrind';
@@ -12,7 +12,7 @@ import WorkoutPlan from './pages/Workouts';
 import SetUp from './pages/onboarding/SetUp';
 import useFetchData from './utils/FetchData';
 import Trophys from './pages/Trophys';
-import UIElements from './assets/components/UIElements';
+// import UIElements from './assets/components/UIElements';
 import ForgotPassword from './pages/ForgotPassword';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -83,35 +83,35 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/accessdenied" element={<AccessDeniedPage />} />
 
-        {/* Protected Routes */}
-        <Route element={<PrivateRoute />}>
-          <Route path="/home" element={<Dashboard workouts={hardcodedWorkouts} />} />
-          <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/edituserdata" element={<EditUserData />} /> */}
-          <Route
-            path="/trophys"
-            element={
-              <Trophys
-                progress={progress}
-                updateProgress={updateProgress}
-                toggleAchievement={toggleAchievement}
-                unlockedAchievments={unlockedAchievments}
-              />
-            }
-          />
-          <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
-          <Route path="/progress" element={<ProgressTracker />} />
+        {/* Previously Protected Routes */}
+        <Route path="/home" element={<Dashboard workouts={hardcodedWorkouts} />} />
+        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/edituserdata" element={<EditUserData />} /> */}
+        <Route
+          path="/trophys"
+          element={
+            <Trophys
+              progress={progress}
+              updateProgress={updateProgress}
+              toggleAchievement={toggleAchievement}
+              unlockedAchievments={unlockedAchievments}
+            />
+          }
+        />
+        <Route path="/workouts" element={<WorkoutPlan workouts={hardcodedWorkouts} />} />
+        <Route path="/progress" element={<ProgressTracker />} />
 
-          {/* No Navbar */}
-          <Route path="/setup" element={<SetUp />} />
-          <Route path="/startyourjourney" element={<StartYourJourney />} />
-          <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
-          <Route path="/setyourgrind" element={<SetYourGrind />} />
-          <Route path="/gender" element={<GenderWar />} />
-          {/* <Route path="/template" element={<Template />} /> */}
-          {/* <Route path="/uielements" element={<UIElements />} /> */}
-          <Route path="/userworkout" element={<UserWorkout />} />
-        </Route>
+        {/* No Navbar */}
+        <Route path="/setup" element={<SetUp />} />
+        <Route path="/startyourjourney" element={<StartYourJourney />} />
+        <Route path="/whatsyourgoal" element={<WhatsYourGoal />} />
+        <Route path="/setyourgrind" element={<SetYourGrind />} />
+        <Route path="/gender" element={<GenderWar />} />
+        {/* <Route path="/template" element={<Template />} /> */}
+        {/* <Route path="/uielements" element={<UIElements />} /> */}
+        <Route path="/userworkout" element={<UserWorkout />} />
+
+        <Route path="*" element={<NotFound />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
